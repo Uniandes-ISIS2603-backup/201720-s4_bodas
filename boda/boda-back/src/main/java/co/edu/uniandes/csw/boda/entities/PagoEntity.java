@@ -1,27 +1,22 @@
 package co.edu.uniandes.csw.boda.entities;
-
 import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 
 /**
- * Generic entity with ID and name fields to inherit from.
- *
- * This entity sets a standar of fields and functions all entities in a project
- * should have. For example, all entities should be compared by ID when not
- * null, otherwise use the object equals method.
  *
  * @author ISIS2603
  */
-@MappedSuperclass
-public abstract class BaseEntity implements Serializable {
-
+@Entity
+public class PagoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private Double montoTotal;
+    private Date fecha;
 
     public Long getId() {
         return id;
@@ -31,14 +26,21 @@ public abstract class BaseEntity implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Double getMontoTotal() {
+        return montoTotal;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMontoTotal(Double montoTotal) {
+        this.montoTotal = montoTotal;
     }
 
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
     @Override
     public boolean equals(Object obj) {
         if (this.getId() != null && ((BaseEntity) obj).getId() != null) {
@@ -46,7 +48,6 @@ public abstract class BaseEntity implements Serializable {
         }
         return super.equals(obj);
     }
-
     @Override
     public int hashCode() {
         if (this.getId() != null) {
