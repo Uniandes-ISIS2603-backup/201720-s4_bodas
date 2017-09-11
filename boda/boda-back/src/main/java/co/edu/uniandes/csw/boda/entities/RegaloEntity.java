@@ -6,11 +6,13 @@
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author mf.valllejo
  */
+@Entity
 public class RegaloEntity extends BaseEntity implements Serializable {
     
     private String imagen;

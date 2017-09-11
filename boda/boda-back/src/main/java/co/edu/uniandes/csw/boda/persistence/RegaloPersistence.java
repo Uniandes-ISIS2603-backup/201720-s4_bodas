@@ -13,6 +13,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -30,8 +31,8 @@ public class RegaloPersistence {
     }
     
     public List<RegaloEntity>  findAll(){
-        Query q = em.createQuery("select u from RegaloEntity u");
-        return q.getResultList();
+        TypedQuery query = em.createQuery("select u from RegaloEntity u", RegaloEntity.class);
+        return query.getResultList();
     }
     
     public RegaloEntity create(RegaloEntity entity) {

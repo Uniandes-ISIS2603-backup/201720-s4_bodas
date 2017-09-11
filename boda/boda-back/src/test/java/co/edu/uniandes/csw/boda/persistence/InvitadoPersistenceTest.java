@@ -30,6 +30,9 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class InvitadoPersistenceTest {
     
+    public InvitadoPersistenceTest() {
+    }
+    
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -39,11 +42,8 @@ public class InvitadoPersistenceTest {
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
-    public InvitadoPersistenceTest() {
-    }
-    
     /**
-     * Inyección de la dependencia a la clase XYZPersistence cuyos métodos
+     * Inyección de la dependencia a la clase InvitadoPersistence cuyos métodos
      * se van a probar.
      */
     @Inject
@@ -62,11 +62,6 @@ public class InvitadoPersistenceTest {
      */
     @Inject
     UserTransaction utx;
-
-     /**
-     *
-     */
-    private List<InvitadoEntity> data = new ArrayList<InvitadoEntity>();
     
     @Before
     public void setUp() {
@@ -90,6 +85,8 @@ public class InvitadoPersistenceTest {
         em.createQuery("delete from InvitadoEntity").executeUpdate();
     }
     
+    private List<InvitadoEntity> data = new ArrayList<InvitadoEntity>();
+    
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
@@ -99,12 +96,26 @@ public class InvitadoPersistenceTest {
             data.add(entity);
         }
     }
+    
+    /**
+     * Test of create method, of class InvitadoPersistence.
+     */
+    @Test
+    public void testCreate(){
+        PodamFactory factory = new PodamFactoryImpl();
+        InvitadoEntity newEntity = factory.manufacturePojo(InvitadoEntity.class);
+        InvitadoEntity result = persistence.create(newEntity);
+
+        Assert.assertNotNull(result);
+        InvitadoEntity entity = em.find(InvitadoEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getName(), entity.getName());
+    }
 
     /**
      * Test of find method, of class InvitadoPersistence.
      */
     @Test
-    public void testFind() throws Exception {
+    public void testFind() {
         InvitadoEntity entity = data.get(0);
         InvitadoEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
@@ -115,7 +126,7 @@ public class InvitadoPersistenceTest {
      * Test of findAll method, of class InvitadoPersistence.
      */
     @Test
-    public void testFindAll() throws Exception {
+    public void testFindAll(){
         List<InvitadoEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for (InvitadoEntity ent : list) {
@@ -130,25 +141,10 @@ public class InvitadoPersistenceTest {
     }
 
     /**
-     * Test of create method, of class InvitadoPersistence.
-     */
-    @Test
-    public void testCreate() throws Exception {
-        PodamFactory factory = new PodamFactoryImpl();
-        InvitadoEntity newEntity = factory.manufacturePojo(InvitadoEntity.class);
-        InvitadoEntity result = persistence.create(newEntity);
-
-        Assert.assertNotNull(result);
-        InvitadoEntity entity = em.find(InvitadoEntity.class, result.getId());
-        Assert.assertNotNull(entity);
-        Assert.assertEquals(newEntity.getName(), entity.getName());
-    }
-
-    /**
      * Test of update method, of class InvitadoPersistence.
      */
     @Test
-    public void testUpdate() throws Exception {
+    public void testUpdate() {
         InvitadoEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         InvitadoEntity newEntity = factory.manufacturePojo(InvitadoEntity.class);
@@ -166,7 +162,7 @@ public class InvitadoPersistenceTest {
      * Test of Delete method, of class InvitadoPersistence.
      */
     @Test
-    public void testDelete() throws Exception {
+    public void testDelete(){
         InvitadoEntity entity = data.get(0);
         persistence.delete(entity.getId());
         InvitadoEntity deleted = em.find(InvitadoEntity.class, entity.getId());

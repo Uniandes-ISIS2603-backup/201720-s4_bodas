@@ -36,7 +36,7 @@ public class DefaultPersistenceTest {
      /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de Employee, el descriptor de la
+     * embebido. El jar contiene las clases de Default, el descriptor de la
      * base de datos y el archivo beans.xml para resolver la inyección de
      * dependencias.
      */
@@ -124,7 +124,7 @@ public class DefaultPersistenceTest {
     }
 
     /**
-     * Prueba para crear un Employee.
+     * Prueba para crear un Default.
      *
      *
      */
@@ -142,7 +142,7 @@ public class DefaultPersistenceTest {
     }
 
     /**
-     * Prueba para consultar la lista de Employees.
+     * Prueba para consultar la lista de Default.
      *
      *
      */
@@ -162,7 +162,7 @@ public class DefaultPersistenceTest {
     }
 
     /**
-     * Prueba para consultar un Employee.
+     * Prueba para consultar un Default.
      *
      *
      */
@@ -175,7 +175,7 @@ public class DefaultPersistenceTest {
     }
 
     /**
-     * Prueba para eliminar un Employee.
+     * Prueba para eliminar un Default.
      *
      *
      */
@@ -188,7 +188,7 @@ public class DefaultPersistenceTest {
     }
 
     /**
-     * Prueba para actualizar un Employee.
+     * Prueba para actualizar un Default.
      *
      *
      */
