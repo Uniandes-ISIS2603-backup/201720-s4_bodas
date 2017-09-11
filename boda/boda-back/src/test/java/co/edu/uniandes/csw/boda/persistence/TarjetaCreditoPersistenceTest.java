@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
-import co.edu.uniandes.csw.boda.entities.PagoEntity;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -133,7 +132,7 @@ public class TarjetaCreditoPersistenceTest {
     Assert.assertNotNull(result);
     TarjetaCreditoEntity entity = em.find(TarjetaCreditoEntity.class, result.getId());
     Assert.assertNotNull(entity);
-    Assert.assertEquals(newEntity.getId(), entity.getId());
+    Assert.assertEquals(newEntity.getNumDeSeg(), entity.getNumDeSeg());
     }
 
     /**
@@ -151,7 +150,7 @@ public class TarjetaCreditoPersistenceTest {
 
     TarjetaCreditoEntity resp = em.find(TarjetaCreditoEntity.class, entity.getId());
 
-    Assert.assertEquals(newEntity.getId(), resp.getId());
+    Assert.assertEquals(newEntity.getNumDeSeg(), resp.getNumDeSeg());
     }
 
     /**
@@ -173,7 +172,7 @@ public class TarjetaCreditoPersistenceTest {
     TarjetaCreditoEntity entity = data.get(0);
     TarjetaCreditoEntity newEntity = persistence.find(entity.getId());
     Assert.assertNotNull(newEntity);
-    Assert.assertEquals(entity.getId(), newEntity.getId());
+    Assert.assertEquals(entity.getNumDeSeg(), newEntity.getNumDeSeg());
     }
 
     /**
