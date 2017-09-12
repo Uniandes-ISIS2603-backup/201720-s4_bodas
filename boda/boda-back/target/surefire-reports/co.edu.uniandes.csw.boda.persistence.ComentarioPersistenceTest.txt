@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: co.edu.uniandes.csw.boda.persistence.ComentarioPersistenceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.27 sec

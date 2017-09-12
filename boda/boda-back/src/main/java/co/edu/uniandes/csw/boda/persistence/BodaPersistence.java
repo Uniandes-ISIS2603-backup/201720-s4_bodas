@@ -23,7 +23,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class BodaPersistence {
 
-    private static final Logger LOGGER = Logger.getLogger(DefaultPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(BodaPersistence.class.getName());
 
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
