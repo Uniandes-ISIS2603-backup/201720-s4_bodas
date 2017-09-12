@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: co.edu.uniandes.csw.boda.persistence.BodaPersistenceTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.739 sec
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.043 sec
