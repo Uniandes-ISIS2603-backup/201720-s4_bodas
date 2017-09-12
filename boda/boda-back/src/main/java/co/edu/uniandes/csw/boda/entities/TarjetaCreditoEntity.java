@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
 public class TarjetaCreditoEntity implements Serializable {
@@ -16,7 +18,19 @@ public class TarjetaCreditoEntity implements Serializable {
     private Double numDeSeg;
     private Date fechaVen;
     private String nombreBanco;
+    
+    @PodamExclude
+    @ManyToOne
+    private ParejaEntity pareja;
 
+    public ParejaEntity getPareja() {
+        return pareja;
+    }
+
+    public void setPareja(ParejaEntity pareja) {
+        this.pareja = pareja;
+    }
+    
     public Date getFechaVen() {
         return fechaVen;
     }

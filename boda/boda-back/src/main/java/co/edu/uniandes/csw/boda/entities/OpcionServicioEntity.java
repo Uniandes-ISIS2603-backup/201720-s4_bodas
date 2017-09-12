@@ -7,7 +7,9 @@ package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,9 +22,12 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     private String descripcion;
     private double  costo;
     private List<String> diasDisponibles;
-   // private ArrayList<Calificacion> calificacion;
+    
+    @OneToMany(mappedBy = "opcionServicio", cascade = CascadeType.ALL, orphanRemoval = true)
+     private List<CalificacionEntity> calificacion;
+   //private Proveedor proveedor;    
    // private ArrayList<Tarea> tareas;
-   // private Proveedor proveedor;
+   
 
    
 
@@ -48,14 +53,16 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
         this.diasDisponibles = diasDisponibles;
     }
     
-    /*
-    public Calificacion getCalificacion() {
+     public List<CalificacionEntity> getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(Calificacion calificacion) {
+    public void setCalificacion(List<CalificacionEntity> calificacion) {
         this.calificacion = calificacion;
     }
+    /*
+   
+
     public Proveedor getProveedor() {
         return proveedor;
     }

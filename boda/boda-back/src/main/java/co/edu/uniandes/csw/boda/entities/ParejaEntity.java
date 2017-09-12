@@ -6,8 +6,13 @@
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -33,6 +38,30 @@ public class ParejaEntity implements Serializable{
     
     private String nombreAbreviado;
 
+    public BodaEntity getBoda() {
+        return boda;
+    }
+
+    public void setBoda(BodaEntity boda) {
+        this.boda = boda;
+    }
+
+    public List<TarjetaCreditoEntity> getTarjetasCredito() {
+        return tarjetasCredito;
+    }
+
+    public void setTarjetasCredito(List<TarjetaCreditoEntity> tarjetasCredito) {
+        this.tarjetasCredito = tarjetasCredito;
+    }
+
+    @PodamExclude
+    @OneToOne(mappedBy = "pareja")
+    private BodaEntity boda;
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "pareja", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TarjetaCreditoEntity> tarjetasCredito;    
+    
     public String getCorreoElec() {
         return correoElec;
     }

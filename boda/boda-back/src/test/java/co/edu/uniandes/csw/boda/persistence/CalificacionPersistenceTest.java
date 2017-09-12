@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
-import co.edu.uniandes.csw.boda.entities.ComentarioEntity;
+import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -35,13 +35,13 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author nf.ortiz
  */
 @RunWith(Arquillian.class)
-public class ComentarioPersistenceTest {
+public class CalificacionPersistenceTest {
     /**
      * Inyección de la dependencia a la clase XYZPersistence cuyos métodos
      * se van a probar.
      */
     @Inject
-    private ComentarioPersistence persistence;
+    private CalificacionPersistence persistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -60,7 +60,7 @@ public class ComentarioPersistenceTest {
      /**
      *
      */
-    private List<ComentarioEntity> data = new ArrayList<ComentarioEntity>();
+    private List<CalificacionEntity> data = new ArrayList<CalificacionEntity>();
         /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
@@ -71,8 +71,8 @@ public class ComentarioPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(ComentarioEntity.class.getPackage())
-                .addPackage(ComentarioPersistence.class.getPackage())
+                .addPackage(CalificacionEntity.class.getPackage())
+                .addPackage(CalificacionPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -84,13 +84,13 @@ public class ComentarioPersistenceTest {
  private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            ComentarioEntity entity = factory.manufacturePojo(ComentarioEntity.class);
+            CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
 
             em.persist(entity);
             data.add(entity);
         }
     }
-    public ComentarioPersistenceTest() {
+    public CalificacionPersistenceTest() {
     }
     
     @BeforeClass
@@ -124,26 +124,26 @@ public class ComentarioPersistenceTest {
     }
 
     /**
-     * Test of create method, of class ComentarioPersistence.
+     * Test of create method, of class CalificacionPersistence.
      */
     @Test
     public void testCreate() throws Exception {
         //Caso 1: Se agrega correctamente el elemento
         PodamFactory factory = new PodamFactoryImpl();
-        ComentarioEntity entity = factory.manufacturePojo(ComentarioEntity.class);
+        CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
         persistence.create(entity);
         assertEquals("Se debio agregar el elemento", 4,persistence.findAll().size());
     }
 
     /**
-     * Test of update method, of class ComentarioPersistence.
+     * Test of update method, of class CalificacionPersistence.
      */
     @Test
     public void testUpdate() throws Exception {
         //Caso 1: se actualiza un Comentario existente
         try{
             PodamFactory factory = new PodamFactoryImpl();
-            ComentarioEntity entity = factory.manufacturePojo(ComentarioEntity.class);
+            CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
             Long idData = data.get(0).getId(); entity.setId(idData);
             persistence.update(entity);
             assertNotEquals("No deben ser iguales", persistence.find(idData).getComentario(), data.get(0).getComentario());
@@ -155,7 +155,7 @@ public class ComentarioPersistenceTest {
         //Caso 2: se actualiza un Comentario no existente
         try{
             PodamFactory factory = new PodamFactoryImpl();
-            ComentarioEntity entity = factory.manufacturePojo(ComentarioEntity.class);
+            CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
             entity.setId(Long.MIN_VALUE);
             persistence.update(entity);
             fail("No debió llegar aquí.");
@@ -166,7 +166,7 @@ public class ComentarioPersistenceTest {
     }
 
     /**
-     * Test of delete method, of class ComentarioPersistence.
+     * Test of delete method, of class CalificacionPersistence.
      */
     @Test
     public void testDelete() throws Exception {
@@ -194,7 +194,7 @@ public class ComentarioPersistenceTest {
     }
 
     /**
-     * Test of find method, of class ComentarioPersistence.
+     * Test of find method, of class CalificacionPersistence.
      */
     @Test
     public void testFind() throws Exception {
@@ -208,7 +208,7 @@ public class ComentarioPersistenceTest {
     }
 
     /**
-     * Test of findAll method, of class ComentarioPersistence.
+     * Test of findAll method, of class CalificacionPersistence.
      */
     @Test
     public void testFindAll() throws Exception {
@@ -216,12 +216,12 @@ public class ComentarioPersistenceTest {
         assertEquals("Debe haber tres elementos en la lista", 3, persistence.findAll().size());
          
         //Caso 2: Todos los elementos debieron quedar bien guardados
-        List<ComentarioEntity> base = persistence.findAll();
+        List<CalificacionEntity> base = persistence.findAll();
         for(int i=0; i<3;i++){
-            ComentarioEntity obj2=base.get(i);
+            CalificacionEntity obj2=base.get(i);
             boolean bien =true;
              boolean encontrado =false;
-            for(ComentarioEntity obj1: data){
+            for(CalificacionEntity obj1: data){
                 if(obj1.getId() == obj2.getId()){
                     encontrado =true;
                     if(obj1.getCalificacionNum() != obj2.getCalificacionNum())bien=false;

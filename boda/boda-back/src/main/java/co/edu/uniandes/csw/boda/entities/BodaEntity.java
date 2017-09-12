@@ -8,6 +8,8 @@ package co.edu.uniandes.csw.boda.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -21,7 +23,11 @@ public class BodaEntity extends BaseEntity implements Serializable {
     private String tema;
     private String religion;
     private String tipoBoda;
-
+    
+    @PodamExclude
+    @OneToOne
+    private ParejaEntity pareja;
+    
     public String getLugar() {
         return lugar;
     }

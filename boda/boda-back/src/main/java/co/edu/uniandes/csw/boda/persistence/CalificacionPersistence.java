@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
-import co.edu.uniandes.csw.boda.entities.ComentarioEntity;
+import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,9 +19,9 @@ import javax.persistence.TypedQuery;
  * @author nf.ortiz
  */
 @Stateless
-public class ComentarioPersistence {
+public class CalificacionPersistence {
     
-    private static final Logger LOGGER = Logger.getLogger(ComentarioPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CalificacionPersistence.class.getName());
 
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
@@ -31,7 +31,7 @@ public class ComentarioPersistence {
      * @param entity objeto Comentario que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public ComentarioEntity create(ComentarioEntity entity) {
+    public CalificacionEntity create(CalificacionEntity entity) {
         LOGGER.info("Creando un Comentario nuevo");
         /* Note que hacemos uso de un método propio de EntityManager para persistir la Default en la base de datos.
         Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
@@ -48,7 +48,7 @@ public class ComentarioPersistence {
      * el codigo pudo cambiar. En ese caso, se haria uso del método update.
      * @return un default con los cambios aplicados.
      */
-    public ComentarioEntity update(ComentarioEntity entity)throws Exception {
+    public CalificacionEntity update(CalificacionEntity entity)throws Exception {
         LOGGER.log(Level.INFO, "Actualizando Comentario con id={0}", entity.getId());
         /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
         la Default con los cambios, esto es similar a 
@@ -68,7 +68,7 @@ public class ComentarioPersistence {
     public void delete(Long id) {
         LOGGER.log(Level.INFO, "Borrando Comentario con id={0}", id);
         // Se hace uso de mismo método que esta explicado en public DefaultEntity find(Long id) para obtener la Default a borrar.
-        ComentarioEntity entity = em.find(ComentarioEntity.class, id);
+        CalificacionEntity entity = em.find(CalificacionEntity.class, id);
         /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
          EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
          Es similar a "delete from DefaultEntity where id=id;" - "DELETE FROM table_codigo WHERE condition;" en SQL.*/
@@ -81,13 +81,13 @@ public class ComentarioPersistence {
      * @param id: id correspondiente a la Default buscada.
      * @return un default.
      */
-    public ComentarioEntity find(Long id) {
+    public CalificacionEntity find(Long id) {
         LOGGER.log(Level.INFO, "Consultando Comentario con id={0}", id);
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
         Suponga que es algo similar a "select * from DefaultEntity where id=id;" - "SELECT * FROM table_codigo WHERE condition;" en SQL.
          */
-        return em.find(ComentarioEntity.class, id);
+        return em.find(CalificacionEntity.class, id);
     }
 
     /**
@@ -97,10 +97,10 @@ public class ComentarioPersistence {
      * datos, "select u from DefaultEntity u" es como un "select * from
      * DefaultEntity;" - "SELECT * FROM table_codigo" en SQL.
      */
-    public List<ComentarioEntity> findAll() {
+    public List<CalificacionEntity> findAll() {
         LOGGER.info("Consultando todas los Comentarios");
         // Se crea un query para buscar todas las Default en la base de datos.
-        TypedQuery query = em.createQuery("select u from ComentarioEntity u", ComentarioEntity.class);
+        TypedQuery query = em.createQuery("select u from ComentarioEntity u", CalificacionEntity.class);
         // Note que en el query se hace uso del método getResultList() que obtiene una lista de Default.
         return query.getResultList();
     }

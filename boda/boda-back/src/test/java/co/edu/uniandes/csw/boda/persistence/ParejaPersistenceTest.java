@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
-import co.edu.uniandes.csw.boda.entities.ComentarioEntity;
+import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import java.util.ArrayList;
 import java.util.List;

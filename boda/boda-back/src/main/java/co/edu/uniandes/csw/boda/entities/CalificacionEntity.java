@@ -10,13 +10,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
  * @author nf.ortiz
  */
 @Entity
-public class ComentarioEntity implements Serializable{
+public class CalificacionEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +26,10 @@ public class ComentarioEntity implements Serializable{
     private String comentario;
     
     private double calificacionNum;
+    
+    @PodamExclude
+    @ManyToOne
+    private OpcionServicioEntity opcionServicio;
 
     public Long getId() {
         return id;
