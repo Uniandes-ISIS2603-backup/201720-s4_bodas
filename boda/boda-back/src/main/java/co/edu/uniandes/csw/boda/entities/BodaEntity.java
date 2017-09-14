@@ -27,6 +27,14 @@ public class BodaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToOne
     private ParejaEntity pareja;
+
+    public ParejaEntity getPareja() {
+        return pareja;
+    }
+
+    public void setPareja(ParejaEntity pareja) {
+        this.pareja = pareja;
+    }
     
     public String getLugar() {
         return lugar;

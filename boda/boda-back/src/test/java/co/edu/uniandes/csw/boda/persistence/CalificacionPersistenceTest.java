@@ -77,7 +77,7 @@ public class CalificacionPersistenceTest {
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     private void clearData() {
-        em.createQuery("delete from ComentarioEntity").executeUpdate();
+        em.createQuery("delete from CalificacionEntity").executeUpdate();
     }
 
 

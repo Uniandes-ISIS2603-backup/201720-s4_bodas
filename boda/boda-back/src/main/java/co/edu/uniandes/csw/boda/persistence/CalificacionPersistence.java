@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.persistence;
 
 import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
+import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,25 +49,25 @@ public class CalificacionPersistence {
      * el codigo pudo cambiar. En ese caso, se haria uso del método update.
      * @return un default con los cambios aplicados.
      */
-    public CalificacionEntity update(CalificacionEntity entity)throws Exception {
-        LOGGER.log(Level.INFO, "Actualizando Comentario con id={0}", entity.getId());
+    public CalificacionEntity update(CalificacionEntity entity)throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Actualizando Calificacion con id={0}", entity.getId());
         /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
         la Default con los cambios, esto es similar a 
         "UPDATE table_codigo SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
          */
-        if(find(entity.getId())==null)throw new Exception("El Comentario a actualizar no existe");
+        if(find(entity.getId())==null)throw new BusinessLogicException("El Comentario a actualizar no existe");
         return em.merge(entity);
     }
 
     /**
      *
-     * Borra un Comentario de la base de datos recibiendo como argumento el id
+     * Borra una Calificacion de la base de datos recibiendo como argumento el id
      * de la Default
      *
      * @param id: id correspondiente a la Default a borrar.
      */
     public void delete(Long id) {
-        LOGGER.log(Level.INFO, "Borrando Comentario con id={0}", id);
+        LOGGER.log(Level.INFO, "Borrando Calificacion con id={0}", id);
         // Se hace uso de mismo método que esta explicado en public DefaultEntity find(Long id) para obtener la Default a borrar.
         CalificacionEntity entity = em.find(CalificacionEntity.class, id);
         /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
@@ -82,7 +83,7 @@ public class CalificacionPersistence {
      * @return un default.
      */
     public CalificacionEntity find(Long id) {
-        LOGGER.log(Level.INFO, "Consultando Comentario con id={0}", id);
+        LOGGER.log(Level.INFO, "Consultando CalificacionEntity con id={0}", id);
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
         Suponga que es algo similar a "select * from DefaultEntity where id=id;" - "SELECT * FROM table_codigo WHERE condition;" en SQL.
@@ -100,7 +101,7 @@ public class CalificacionPersistence {
     public List<CalificacionEntity> findAll() {
         LOGGER.info("Consultando todas los Comentarios");
         // Se crea un query para buscar todas las Default en la base de datos.
-        TypedQuery query = em.createQuery("select u from ComentarioEntity u", CalificacionEntity.class);
+        TypedQuery query = em.createQuery("select u from CalificacionEntity u", CalificacionEntity.class);
         // Note que en el query se hace uso del método getResultList() que obtiene una lista de Default.
         return query.getResultList();
     }

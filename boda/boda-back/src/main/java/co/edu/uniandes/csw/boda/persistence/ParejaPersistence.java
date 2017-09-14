@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.persistence;
 
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
+import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,13 +33,13 @@ public class ParejaPersistence {
          return enty;         
     }
     
-    public ParejaEntity update(ParejaEntity entity)throws Exception {
+    public ParejaEntity update(ParejaEntity entity)throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Actualizando Pareja con correoElec=''", entity.getCorreoElec());
         /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
         la Default con los cambios, esto es similar a 
         "UPDATE table_codigo SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
          */
-         if(find(entity.getCorreoElec())==null)throw new Exception("La pareja a actualizar no existe");
+            if(find(entity.getCorreoElec())==null)throw new BusinessLogicException("No existe");
         return em.merge(entity);
     }
     

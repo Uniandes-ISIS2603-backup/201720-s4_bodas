@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="co.edu.uniandes.csw.boda.persistence.ComentarioPersistenceTest" time="14.27" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="co.edu.uniandes.csw.boda.persistence.CalificacionPersistenceTest" time="14.369" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
@@ -16,7 +16,7 @@
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="test" value="co.edu.uniandes.csw.boda.persistence.**.*Test"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\nf.ortiz\Documents\NetBeansProjects\Pruebas_Proyecto\s4_bodas\boda\boda-back"/>
+    <property name="user.dir" value="C:\Users\nf.ortiz\Documents\NetBeansProjects\Proyecto_Importante\s4_bodas\boda\boda-back"/>
     <property name="java.runtime.version" value="1.8.0_144-b01"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\endorsed"/>
@@ -62,9 +62,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.ComentarioPersistenceTest" name="testFindAll" time="0.166"/>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.ComentarioPersistenceTest" name="testFind" time="0.113"/>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.ComentarioPersistenceTest" name="testCreate" time="0.197"/>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.ComentarioPersistenceTest" name="testDelete" time="0.243"/>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.ComentarioPersistenceTest" name="testUpdate" time="0.445"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.CalificacionPersistenceTest" name="testFindAll" time="0.208"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.CalificacionPersistenceTest" name="testFind" time="0.136"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.CalificacionPersistenceTest" name="testCreate" time="0.174"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.CalificacionPersistenceTest" name="testDelete" time="0.143"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.CalificacionPersistenceTest" name="testUpdate" time="0.27"/>
 </testsuite>

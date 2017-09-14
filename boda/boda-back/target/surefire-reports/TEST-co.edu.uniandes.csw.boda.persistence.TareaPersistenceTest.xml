@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" time="13.668" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" time="13.531" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
@@ -16,7 +16,7 @@
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="test" value="co.edu.uniandes.csw.boda.persistence.**.*Test"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\nf.ortiz\Documents\NetBeansProjects\Pruebas_Proyecto\s4_bodas\boda\boda-back"/>
+    <property name="user.dir" value="C:\Users\nf.ortiz\Documents\NetBeansProjects\Proyecto_Importante\s4_bodas\boda\boda-back"/>
     <property name="java.runtime.version" value="1.8.0_144-b01"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\endorsed"/>
@@ -62,10 +62,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="getTareasTest" time="0.131"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="getTareasTest" time="0.109"/>
   <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="getTareaTest" time="0.078"/>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="deleteTareaTest" time="0.074"/>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="createTareaPersistenceTest" time="0.125"/>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="updateTareaTest" time="0.137"/>
-  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="getTareaByNameTest" time="0.079"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="deleteTareaTest" time="0.063"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="createTareaPersistenceTest" time="0.109"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="updateTareaTest" time="0.125"/>
+  <testcase classname="co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest" name="getTareaByNameTest" time="0.078"/>
 </testsuite>

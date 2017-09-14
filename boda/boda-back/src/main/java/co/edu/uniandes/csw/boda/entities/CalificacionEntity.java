@@ -31,6 +31,14 @@ public class CalificacionEntity implements Serializable{
     @ManyToOne
     private OpcionServicioEntity opcionServicio;
 
+    public OpcionServicioEntity getOpcionServicio() {
+        return opcionServicio;
+    }
+
+    public void setOpcionServicio(OpcionServicioEntity opcionServicio) {
+        this.opcionServicio = opcionServicio;
+    }
+
     public Long getId() {
         return id;
     }
