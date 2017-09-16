@@ -40,8 +40,8 @@ public class UbicacionResource {
     private static final Logger LOGGER = Logger.getLogger(UbicacionResource.class.getName());
      
     /**
-     * POST http://localhost:1527/boda-web/api/ubicaciones Ejemplo
-     * json: { "name":"Falabella", "telefono":"3333333", "latitud":"20°59'67"", ...}
+     * POST http://localhost:8080/boda-web/api/ubicaciones Ejemplo
+     * json: { "name":"Falabella",  "latitud":"205867", "longitud":"105867", "telefono":"3333333", "direccion":"cra # calle 55, Bogotá"}
      *
      * @param ubicacion correponde a la representación java del objeto json
      * enviado en el llamado.
@@ -62,7 +62,7 @@ public class UbicacionResource {
 
     /**
      * GET para todas las ubicaciones.
-     * http://localhost:1527/boda-web/api/ubicaciones
+     * http://localhost:8080/boda-web/api/ubicaciones
      *
      * @return la lista de todas las ubicaciones en objetos json DTO.
      * @throws BusinessLogicException
@@ -74,7 +74,7 @@ public class UbicacionResource {
 
     /**
      * GET para una Ubicacion
-     * http://localhost:1527/boda-web/api/ubicaciones/1
+     * http://localhost:8080/boda-web/api/ubicaciones/1
      *
      * @param id corresponde al id de la Ubicacion buscada.
      * @return La Ubicacion encontrada. Ejemplo: { "type": "UbicacionDetailDTO",
@@ -97,7 +97,7 @@ public class UbicacionResource {
 
     /**
      * PUT 
-     * http://localhost:1527/boda-web/api/ubicaciones/1 Ejemplo
+     * http://localhost:8080/boda-web/api/ubicaciones/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
      *
      * @param id corresponde a la ubicacion a actualizar.
@@ -122,7 +122,7 @@ public class UbicacionResource {
     }
 
 /**
-     * DELETE http://localhost:1527/boda-web/api/ubicaciones/1
+     * DELETE http://localhost:8080/boda-web/api/ubicaciones/1
      *
      * @param id corresponde a la ubicacion a borrar.
      * @throws BusinessLogicException
