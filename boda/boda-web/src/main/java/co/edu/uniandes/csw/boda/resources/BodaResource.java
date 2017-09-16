@@ -5,14 +5,24 @@
  */
 package co.edu.uniandes.csw.boda.resources;
 
-import co.edu.uniandes.csw.boda.persistence.BodaPersistence;
+import co.edu.uniandes.csw.boda.dtos.BodaDetailDTO;
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
+import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.edu.ejb.BodaLogic;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -27,7 +37,133 @@ public class BodaResource {
     @Inject
     private BodaLogic bodaLogic;
     
-     private static final Logger LOGGER = Logger.getLogger(BodaPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(BodaResource.class.getName());
+     
+    /**
+     * POST http://localhost:1527/boda-web/api/bodas Ejemplo
+     * json: { "name":"Boda: Luis y Maria", "fecha":"05-Dic-2017"}
+     *
+     * @param boda correponde a la representación java del objeto json
+     * enviado en el llamado.
+     * @return Devuelve el objeto json de entrada que contiene el id creado por
+     la base de datos y el tipo del objeto java. Ejemplo: { "type":
+     "BodaDetailDTO", "id": 1, "name": "Boda: Luis y Maria" }
+     * @throws BusinessLogicException
+     */
+    @POST
+    public BodaDetailDTO createBoda(BodaDetailDTO boda) throws BusinessLogicException {
+        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
+        BodaEntity bodaEntity = boda.toEntity();
+        // Invoca la lógica para crear la boda nueva
+        BodaEntity nuevaBoda = bodaLogic.create(bodaEntity);
+        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
+        return new  BodaDetailDTO(nuevaBoda);
+    }
+
+    /**
+     * GET para todas las bodas.
+     * http://localhost:1527/boda-web/api/bodas
+     *
+     * @return la lista de todas las bodas en objetos json DTO.
+     * @throws BusinessLogicException
+     */
+    @GET
+    public List<BodaDetailDTO> getBodas() throws BusinessLogicException {
+        return listEntity2DetailDTO(bodaLogic.getBodas());
+    }
+
+    /**
+     * GET para una boda
+     * http://localhost:1527/boda-web/api/bodas/1
+     *
+     * @param id corresponde al id de la boda buscada.
+     * @return La Boda encontrada. Ejemplo: { "type": "BodaDetailDTO",
+     "id": 1, "name": "Boda: Luis y Maria" }
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id de la boda  buscada se retorna un 404 con
+     * el mensaje.
+     */
+    @GET
+    @Path("{id: \\d+}")
+    public BodaDetailDTO getBoda(@PathParam("id") Long id) throws BusinessLogicException {
+       BodaDetailDTO cd= new BodaDetailDTO(bodaLogic.findBodaById(id));
+        if(cd==null)
+       {
+           throw new  WebApplicationException("No existe una boda con el id dado",404);
+       }
+        return  cd;
+    }
+
+    /**
+     * PUT 
+     * http://localhost:1527/boda-web/api/bodas/1 Ejemplo
+     * json { "id": 1, "name": "cambio de nombre" }
+     *
+     * @param id corresponde a la boda a actualizar.
+     * @param boda corresponde a al objeto con los cambios que se van a
+     * realizar.
+     * @return La boda actualizado.
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id de la boda a actualizar se retorna un
+     * 404 con el mensaje.
+     */
+    @PUT
+    @Path("{id: \\d+}")
+    public BodaDetailDTO updateBoda(@PathParam("id") Long id, BodaDetailDTO boda) throws BusinessLogicException {
+       //throw  new UnsupportedOperationException("Este servicio no ha sido implementado");
+       BodaDetailDTO cd= new BodaDetailDTO(bodaLogic.updateBoda(id, boda.toEntity()));
+       if(cd==null)
+       {
+           throw new  WebApplicationException("No existe una boda con el id dado",404);
+       }
+       
+       return cd;
+    }
+
+    /**
+     * DELETE http://localhost:1527/boda-web/api/bodas/1
+     *
+     * @param id corresponde a la boda a borrar.
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id de la boda a actualizar se retorna un
+     * 404 con el mensaje.
+     *
+     */
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteBoda(@PathParam("id") Long id) throws BusinessLogicException {
+        
+       if(bodaLogic.findBodaById(id)==null)
+       {
+           throw new  WebApplicationException("No existe un boda con el id dado",404);
+       }
+       bodaLogic.removeBoda(id);
+    }
+
+    /**
+     *
+     * lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos BodaEntity a una lista de
+      objetos BodaDetailDTO (json)
+     *
+     * @param entityList corresponde a la lista de bodas de tipo Entity
+     * que vamos a convertir a DTO.
+     * @return la lista de bodas en forma DTO (json)
+     */
+    private List<BodaDetailDTO> listEntity2DetailDTO(List<BodaEntity> entityList) {
+        List<BodaDetailDTO> list = new ArrayList<>();
+        for (BodaEntity entity : entityList) {
+            list.add(new BodaDetailDTO(entity));
+        }
+        return list;
+    }
+
+}
+
 
     
-}
+
