@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -19,6 +21,8 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class BodaEntity extends BaseEntity implements Serializable {  
     
     private String lugar;
+    
+    @Temporal(TemporalType.DATE)
     private Date fecha;
     private String tema;
     private String religion;

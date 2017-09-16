@@ -133,8 +133,22 @@ public class ParejaPersistenceTest {
         //Caso 1: Se agrega correctamente el elemento
         PodamFactory factory = new PodamFactoryImpl();
         ParejaEntity entity = factory.manufacturePojo(ParejaEntity.class);
-        persistence.create(entity);
-        assertEquals("Se debio agregar el elemento", 4,persistence.findAll().size());    }
+       try{        
+            persistence.create(entity);
+            assertEquals("Se debio agregar el elemento", 4,persistence.findAll().size());  
+       }catch(Exception e)
+       {
+           fail("No debio llegar aquí.");
+       }
+        
+        //Caso 2: Se agrega una entity con el mismo correo.
+        try{
+            persistence.create(entity);
+            fail("No debio llegar aquí.");
+        }catch(Exception e){    
+            
+        }
+    }
 
     /**
      * Test of update method, of class ParejaPersistence.

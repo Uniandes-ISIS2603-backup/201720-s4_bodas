@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: co.edu.uniandes.csw.boda.persistence.TareaPersistenceTest
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.531 sec
