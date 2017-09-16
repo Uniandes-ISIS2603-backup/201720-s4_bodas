@@ -28,7 +28,7 @@ public class ParejaPersistence {
     
     public ParejaEntity create(ParejaEntity enty)throws BusinessLogicException{
         LOGGER.info("Creando una Pareja nuevo");
-        if(find(enty.getCorreoElec())!=null)throw new BusinessLogicException("Ya existe una pareja con un id");
+        if(find(enty.getCorreoElec())!=null)throw new BusinessLogicException("Ya existe una pareja con un correo igual.");
 
         em.persist(enty);
         LOGGER.info("Termina creacion una Pareja nuevo");

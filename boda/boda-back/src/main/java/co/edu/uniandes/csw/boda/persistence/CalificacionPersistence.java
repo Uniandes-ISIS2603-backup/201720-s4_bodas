@@ -32,11 +32,12 @@ public class CalificacionPersistence {
      * @param entity objeto Comentario que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public CalificacionEntity create(CalificacionEntity entity) {
+    public CalificacionEntity create(CalificacionEntity entity)throws BusinessLogicException{ 
         LOGGER.info("Creando un Comentario nuevo");
         /* Note que hacemos uso de un método propio de EntityManager para persistir la Default en la base de datos.
         Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
          */
+        if(find(entity.getId())!= null)throw new BusinessLogicException("Ya existe una calificacion con un id");
         em.persist(entity);
         LOGGER.info("Creando un Comentario nuevo");
         return entity;
@@ -44,10 +45,10 @@ public class CalificacionPersistence {
 
     /**
      * Actualiza un comentario.
-     *
-     * @param entity: el comentario que viene con los nuevos cambios. Por ejemplo
-     * el codigo pudo cambiar. En ese caso, se haria uso del método update.
+     * @param entity : el comentario que viene con los nuevos cambios. Por ejemplo
+ el codigo pudo cambiar. En ese caso, se haria uso del método update.
      * @return un default con los cambios aplicados.
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
     public CalificacionEntity update(CalificacionEntity entity)throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Actualizando Calificacion con id={0}", entity.getId());

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.edu.ejb;
+package co.edu.uniandes.csw.boda.ejb;
 
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;

@@ -5,10 +5,11 @@
  */
 package co.edu.uniandes.csw.boda.dtos;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 
 /**
- *CityDTO Objeto de transferencia de datos de Cityes. Los DTO
+ *CityDTO Objeto de transferencia de datos de Parejas. Los DTO
  * contienen las represnetaciones de los JSON que se transfieren entre el cliente y el servidor.
  * @author nf.ortiz
  */
@@ -34,6 +35,8 @@ public class ParejaDTO {
     
     private String nombreAbreviado;
     
+
+    
     /**
      * Constructor por defecto
      */
@@ -54,7 +57,9 @@ public class ParejaDTO {
         this.nombreInd2 = pareja.getNombreInd2();
         this.pago = pareja.getPago();
         this.telefono = pareja.getTelefono();
+    
     }
+
 
     public String getCorreoElec() {
         return correoElec;

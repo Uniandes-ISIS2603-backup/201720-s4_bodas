@@ -9,7 +9,7 @@ import co.edu.uniandes.csw.boda.dtos.ParejaDetailDTO;
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.ParejaPersistence;
-import co.edu.uniandes.csw.edu.ejb.ParejaLogic;
+import co.edu.uniandes.csw.boda.ejb.ParejaLogic;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -81,8 +81,8 @@ public class ParejaResource {
      * el mensaje.
      */
     @GET
-    @Path("{name: [a-zA-Z][a-zA-Z]*}}")
-    public ParejaDetailDTO getEditorial(@PathParam("correoElec") String id) throws BusinessLogicException {
+    @Path("{name}")
+    public ParejaDetailDTO getEditorial(@PathParam("name") String id) throws BusinessLogicException {
         ParejaEntity entity = parejaLogic.getPareja(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /parejas/" + id + " no existe.", 404);
@@ -98,8 +98,8 @@ public class ParejaResource {
      * 404 con el mensaje.
      */
     @PUT
-    @Path("{name: [a-zA-Z][a-zA-Z]*}}")
-    public ParejaDetailDTO updateEditorial(@PathParam("correoElec") String id, ParejaDetailDTO pareja) throws BusinessLogicException {
+   @Path("{name}")
+    public ParejaDetailDTO updateEditorial(@PathParam("name") String id, ParejaDetailDTO pareja) throws BusinessLogicException {
         pareja.setCorreoElec(id);
         ParejaEntity entity = parejaLogic.getPareja(id);
         if (entity == null) {
@@ -119,8 +119,8 @@ public class ParejaResource {
      *
      */
     @DELETE
-    @Path("{name: [a-zA-Z][a-zA-Z]*}}")
-    public void deleteEditorial(@PathParam("correoElec") String id) throws BusinessLogicException {
+    @Path("{name}")
+    public void deleteEditorial(@PathParam("name") String id) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar una pareja con id {0}", id);
         ParejaEntity entity = parejaLogic.getPareja(id);
         if (entity == null) {
