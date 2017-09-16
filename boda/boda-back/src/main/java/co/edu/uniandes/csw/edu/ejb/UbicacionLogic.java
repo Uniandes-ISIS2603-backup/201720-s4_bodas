@@ -78,7 +78,7 @@ public class UbicacionLogic {
       }
       
       public UbicacionEntity findUbicacionById(Long id) throws BusinessLogicException{
-        if(persistence.find(id)==null) throw new BusinessLogicException("No existe una ubicacion con el id dado.");
+        if(persistence.find(id)==null) throw new BusinessLogicException("Lo sentimos, no existe una ubicacion con el id dado.");
         return persistence.find(id);
     }
     

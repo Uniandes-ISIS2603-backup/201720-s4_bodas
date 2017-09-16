@@ -90,7 +90,7 @@ public class UbicacionResource {
        UbicacionDetailDTO cd= new UbicacionDetailDTO(ubicacionLogic.findUbicacionById(id));
         if(cd==null)
        {
-           throw new  WebApplicationException("No existe una ubicacion con el id dado",404);
+           throw new  WebApplicationException("Lo sentimos, no existe una ubicacion con el id dado",404);
        }
         return  cd;
     }
