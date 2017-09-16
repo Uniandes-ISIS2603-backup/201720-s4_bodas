@@ -40,8 +40,8 @@ public class BodaResource {
     private static final Logger LOGGER = Logger.getLogger(BodaResource.class.getName());
      
     /**
-     * POST http://localhost:1527/boda-web/api/bodas Ejemplo
-     * json: { "name":"Boda: Luis y Maria", "fecha":"05-Dic-2017"}
+     * POST http://localhost:8080/boda-web/api/bodas Ejemplo
+     * json: { "name":"Boda: Luis y Maria", "fecha":"05-Dic-2017" }
      *
      * @param boda correponde a la representación java del objeto json
      * enviado en el llamado.
@@ -62,7 +62,7 @@ public class BodaResource {
 
     /**
      * GET para todas las bodas.
-     * http://localhost:1527/boda-web/api/bodas
+     * http://localhost:8080/boda-web/api/bodas
      *
      * @return la lista de todas las bodas en objetos json DTO.
      * @throws BusinessLogicException
@@ -74,7 +74,7 @@ public class BodaResource {
 
     /**
      * GET para una boda
-     * http://localhost:1527/boda-web/api/bodas/1
+     * http://localhost:8080/boda-web/api/bodas/1
      *
      * @param id corresponde al id de la boda buscada.
      * @return La Boda encontrada. Ejemplo: { "type": "BodaDetailDTO",
@@ -97,7 +97,7 @@ public class BodaResource {
 
     /**
      * PUT 
-     * http://localhost:1527/boda-web/api/bodas/1 Ejemplo
+     * http://localhost:8080/boda-web/api/bodas/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
      *
      * @param id corresponde a la boda a actualizar.
@@ -123,7 +123,7 @@ public class BodaResource {
     }
 
     /**
-     * DELETE http://localhost:1527/boda-web/api/bodas/1
+     * DELETE http://localhost:8080/boda-web/api/bodas/1
      *
      * @param id corresponde a la boda a borrar.
      * @throws BusinessLogicException
