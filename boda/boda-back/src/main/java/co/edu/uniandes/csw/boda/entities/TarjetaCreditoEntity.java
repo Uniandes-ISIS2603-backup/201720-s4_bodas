@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
@@ -16,6 +18,7 @@ public class TarjetaCreditoEntity implements Serializable {
     private Long id;
     private Long numero;
     private Double numDeSeg;
+    @Temporal(TemporalType.DATE)
     private Date fechaVen;
     private String nombreBanco;
     

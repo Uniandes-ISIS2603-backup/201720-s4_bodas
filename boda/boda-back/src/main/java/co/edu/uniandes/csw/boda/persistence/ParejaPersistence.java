@@ -26,11 +26,13 @@ public class ParejaPersistence {
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
     
-    public ParejaEntity create(ParejaEntity enty){
-         LOGGER.info("Creando una Pareja nuevo");
-         em.persist(enty);
-          LOGGER.info("Termina creacion una Pareja nuevo");
-         return enty;         
+    public ParejaEntity create(ParejaEntity enty)throws BusinessLogicException{
+        LOGGER.info("Creando una Pareja nuevo");
+        if(find(enty.getCorreoElec())!=null)throw new BusinessLogicException("Ya existe una pareja con un id");
+
+        em.persist(enty);
+        LOGGER.info("Termina creacion una Pareja nuevo");
+        return enty;         
     }
     
     public ParejaEntity update(ParejaEntity entity)throws BusinessLogicException {

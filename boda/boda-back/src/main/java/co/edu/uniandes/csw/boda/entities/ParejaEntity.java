@@ -109,7 +109,10 @@ public class ParejaEntity implements Serializable{
     public void setPago(boolean pago) {
         this.pago = pago;
     }
-
+    
+    public boolean getPago(){
+        return pago;
+    }
     public String getContrasenia() {
         return contrasenia;
     }
