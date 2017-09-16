@@ -20,14 +20,12 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class BodaEntity extends BaseEntity implements Serializable {  
     
-    private String lugar;
-    
+    private String lugar;   
     @Temporal(TemporalType.DATE)
     private Date fecha;
     private String tema;
     private String religion;
-    private String tipoBoda;
-    
+    private String tipoBoda; 
     @PodamExclude
     @OneToOne
     private ParejaEntity pareja;
