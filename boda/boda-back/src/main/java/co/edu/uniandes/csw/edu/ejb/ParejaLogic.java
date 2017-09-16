@@ -51,7 +51,7 @@ public class ParejaLogic {
      /*
      Solicita la pareja por el id String
      */
-      public ParejaEntity getCity(String id)throws BusinessLogicException{          
+      public ParejaEntity getPareja(String id)throws BusinessLogicException{          
             LOGGER.info("Inicia proceso de buscar la pareja por Id");
             ParejaEntity buscado = persistence.find(id);
             if(buscado == null )throw new BusinessLogicException("No existe una Pareja con el id \"" + id +"\"");
@@ -76,7 +76,7 @@ public class ParejaLogic {
       }
       
       /**
-       * Borra una ciudad con el id Dado
+       * Borra una pareja con el id Dado
        * @throws
        */
       public void removePareja(String id) throws BusinessLogicException
@@ -84,6 +84,6 @@ public class ParejaLogic {
          LOGGER.info("Inicia proceso de eliminar Pareja");
         if (persistence.find(id)==null) throw new BusinessLogicException("No existe una Pareja con el id \"" + id+"\"");
         persistence.delete(id);
-          LOGGER.info("Termina proceso de eliminar una city");  
+          LOGGER.info("Termina proceso de eliminar una Pareja");  
       }
 }
