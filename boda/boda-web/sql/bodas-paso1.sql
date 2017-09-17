@@ -23,3 +23,9 @@ insert into calificacionentity (comentario, calificacionNum) values ('oFABDOL YE
 insert into calificacionentity (comentario, calificacionNum) values ('gQUMMPI DNPMSV DIWL', 5);
 insert into calificacionentity (comentario, calificacionNum) values ('mGKZXTE POZSBU ODLB', 2);
 ---Fin Calificacion Pareja Entity
+
+--Pruebas para Invitado Entity
+delete from InvitadoEntity;
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria) values (1, 'Miguel', 90570, 'mloughnan0@noaa.gov', false, 'trabajo');
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria) values (2, 'Maddi', 82444, 'mpettengell1@yahoo.com', true, 'trabajo');
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria) values (3, 'Griffy', 97900, 'gdeaguirre2@sina.com.cn', false, 'familia');

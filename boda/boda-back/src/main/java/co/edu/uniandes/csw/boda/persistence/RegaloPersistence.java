@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.boda.persistence;
 import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -47,5 +48,21 @@ public class RegaloPersistence {
     public void delete(Long id){
         RegaloEntity entity = em.find(RegaloEntity.class, id);
         em.remove(entity);
+    }
+    
+    public RegaloEntity findByName(String name) {
+        LOGGER.log(Level.INFO, "Consultando regalo por nombre ", name);
+        TypedQuery query = em.createQuery("Select e From RegaloEntity e where e.name = :name", RegaloEntity.class);
+        query = query.setParameter("name", name);
+        List<RegaloEntity> sameName = query.getResultList();
+        RegaloEntity result = null; 
+        if (sameName == null ) {
+            result = null;
+        } else if (sameName.isEmpty()) {
+             result = null;
+        } else {
+            result =  sameName.get(0);
+        }
+        return result;
     }
 }
