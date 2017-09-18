@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -17,6 +19,18 @@ public class RegaloEntity extends BaseEntity implements Serializable {
     
     private String imagen;
     private boolean comprado;
+    
+    @PodamExclude
+    @ManyToOne
+    private BodaEntity boda;
+
+    public BodaEntity getBoda() {
+        return boda;
+    }
+
+    public void setBoda(BodaEntity boda) {
+        this.boda = boda;
+    }
 
     public String getImagen() {
         return imagen;

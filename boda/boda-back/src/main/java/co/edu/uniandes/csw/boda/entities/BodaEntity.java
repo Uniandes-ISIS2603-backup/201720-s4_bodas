@@ -7,7 +7,10 @@ package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,6 +34,30 @@ public class BodaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToOne
     private ParejaEntity pareja;
+    
+    @PodamExclude
+    @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
+    private List<InvitadoEntity> invitados;
+    
+    @PodamExclude
+    @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
+    private List<RegaloEntity> regalos;
+
+    public List<InvitadoEntity> getInvitados() {
+        return invitados;
+    }
+
+    public void setInvitados(List<InvitadoEntity> invitados) {
+        this.invitados = invitados;
+    }
+
+    public List<RegaloEntity> getRegalos() {
+        return regalos;
+    }
+
+    public void setRegalos(List<RegaloEntity> regalos) {
+        this.regalos = regalos;
+    }
 
     public ParejaEntity getPareja() {
         return pareja;
