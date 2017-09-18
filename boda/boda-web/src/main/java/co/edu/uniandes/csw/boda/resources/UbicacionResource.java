@@ -8,7 +8,7 @@ package co.edu.uniandes.csw.boda.resources;
 import co.edu.uniandes.csw.boda.dtos.UbicacionDetailDTO;
 import co.edu.uniandes.csw.boda.entities.UbicacionEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.edu.ejb.UbicacionLogic;
+import co.edu.uniandes.csw.boda.ejb.UbicacionLogic;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
