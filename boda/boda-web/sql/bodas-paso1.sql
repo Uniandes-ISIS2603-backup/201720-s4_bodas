@@ -23,3 +23,15 @@ insert into calificacionentity (comentario, calificacionNum) values ('oFABDOL YE
 insert into calificacionentity (comentario, calificacionNum) values ('gQUMMPI DNPMSV DIWL', 5);
 insert into calificacionentity (comentario, calificacionNum) values ('mGKZXTE POZSBU ODLB', 2);
 ---Fin Calificacion Pareja Entity
+
+--Pruebas para Invitado Entity
+delete from InvitadoEntity;
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria) values (1, 'Miguel', 90570, 'mloughnan0@noaa.gov', 1, 'trabajo');
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria) values (2, 'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo');
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria) values (3, 'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia');
+
+--Pruebas para Regalo Entity
+delete from RegaloEntity;
+insert into RegaloEntity (id, name, comprado, imagen) values (1, 'Cama', 1, 'https://robohash.org/addeseruntvero.jpg?size=50x50&set=set1');
+insert into RegaloEntity (id, name, comprado, imagen) values (2, 'Tendidos', 0, 'https://robohash.org/estutomnis.jpg?size=50x50&set=set1');
+insert into RegaloEntity (id, name, comprado, imagen) values (3, 'Lavadora', 0, 'https://robohash.org/eadoloremquearchitecto.bmp?size=50x50&set=set1');
