@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sun Sep 17 17:59:38 COT 2017:
- Iniciando instancia a816c00e-015e-9211-92be-00000c4cf568 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos C:\Users\mf.valllejo\AppData\Local\Temp\gfembed8427896205010920998tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@18b4aac2
-Cargado desde file:/C:/Users/mf.valllejo/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
+Mon Sep 18 11:33:28 COT 2017:
+ Iniciando instancia a816c00e-015e-95d6-618f-00000d79ff08 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos C:\Users\nf.ortiz\AppData\Local\Temp\gfembed4701660522444929267tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6bc7c054
+Cargado desde file:/C:/Users/nf.ortiz/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1/glassfish-embedded-all-4.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_144-b01
-user.dir=C:\Users\mf.valllejo\Documents\NetBeansProjects\s4_bodas\boda\boda-back
+user.dir=C:\Users\nf.ortiz\Documents\NetBeansProjects\Proyecto_Importante\s4_bodas\boda\boda-back
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1
