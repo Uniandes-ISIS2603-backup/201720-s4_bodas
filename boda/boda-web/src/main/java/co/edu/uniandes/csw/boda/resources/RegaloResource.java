@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.boda.resources;
 
 import co.edu.uniandes.csw.boda.dtos.RegaloDetailDTO;
 import co.edu.uniandes.csw.boda.ejb.RegaloLogic;
-import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
