@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -19,6 +22,10 @@ public class UbicacionEntity extends BaseEntity implements Serializable {
     private Long longitud;
     private int telefono;
     private String direccion;
+    
+    @PodamExclude
+    @ManyToMany
+    private List<RegaloEntity> regalos;
 
     public Long getLatitud() {
         return latitud;

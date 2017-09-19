@@ -6,7 +6,9 @@
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -23,6 +25,10 @@ public class RegaloEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private BodaEntity boda;
+    
+    @PodamExclude
+    @ManyToMany
+    private List<UbicacionEntity> locations;
 
     public BodaEntity getBoda() {
         return boda;
