@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.boda.resources;
 
 import co.edu.uniandes.csw.boda.dtos.RegaloDetailDTO;
 import co.edu.uniandes.csw.boda.ejb.RegaloLogic;
-import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class RegaloResource {
     
     @PUT
     @Path("{id: \\d+}")
-    public RegaloDetailDTO updateInvitado(@PathParam("id") Long id, RegaloDetailDTO regalo) throws BusinessLogicException {
+    public RegaloDetailDTO updateRegalo(@PathParam("id") Long id, RegaloDetailDTO regalo) throws BusinessLogicException {
         regalo.setId(id);
         RegaloEntity entity = regaloLogic.get(id);
         if(entity != null){
@@ -62,7 +61,7 @@ public class RegaloResource {
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteInvitado(@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteRegalo(@PathParam("id") Long id) throws BusinessLogicException {
         RegaloEntity entity = regaloLogic.get(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /regalos/" + id + " no existe.", 404);
