@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
     <version>0.1.0</version>
     <modules>
-        <module>boda-back</module>
-        <module>boda-web</module>
+        <module>boda/boda-back</module>
+        <module>boda/boda-web</module>
     </modules>
     
     <properties>
