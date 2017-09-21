@@ -125,7 +125,7 @@ public class TarjetaCreditoPersistenceTest {
      * Test of create method, of class TarjetaCreditoPersistence.
      */
     @Test
-    public void createTarjetaEntityTest() {
+    public void createTarjetaCreditoEntityTest() {
     PodamFactory factory = new PodamFactoryImpl();
     TarjetaCreditoEntity newEntity = factory.manufacturePojo(TarjetaCreditoEntity.class);
     TarjetaCreditoEntity result = persistence.create(newEntity);
@@ -157,7 +157,7 @@ public class TarjetaCreditoPersistenceTest {
      * Test of delete method, of class TarjetaCreditoPersistence.
      */
     @Test
-    public void deleteTarjetaCreditoTest()  {
+    public void deleteTarjetaCreditoEntityTest()  {
     TarjetaCreditoEntity entity = data.get(0);
     persistence.delete(entity.getId());
     TarjetaCreditoEntity deleted = em.find(TarjetaCreditoEntity.class, entity.getId());
@@ -168,7 +168,7 @@ public class TarjetaCreditoPersistenceTest {
      * Test of find method, of class TarjetaCreditoPersistence.
      */
     @Test
-    public void findTarjetaCretidoTest()  {
+    public void findTarjetaCreditoEntityTest()  {
     TarjetaCreditoEntity entity = data.get(0);
     TarjetaCreditoEntity newEntity = persistence.find(entity.getId());
     Assert.assertNotNull(newEntity);
@@ -176,10 +176,21 @@ public class TarjetaCreditoPersistenceTest {
     }
 
     /**
+     * Test of findByNumDeSeg method, of class TarjetaCreditoPersistence.
+     */
+    @Test
+    public void findByNumSegTarjetaCreditoEntityTest()  {
+    TarjetaCreditoEntity entity = data.get(0);
+    TarjetaCreditoEntity newEntity = persistence.findByNumDeSeg(entity.getNumDeSeg());
+    Assert.assertNotNull(newEntity);
+    Assert.assertEquals(entity.getNumDeSeg(), newEntity.getNumDeSeg());
+    }
+    
+    /**
      * Test of findAll method, of class TarjetaCreditoPersistence.
      */
     @Test
-    public void findAllTarjetaCreditoTest()  {
+    public void findAllTarjetaCreditoEntityTest()  {
         List<TarjetaCreditoEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for (TarjetaCreditoEntity ent : list) {

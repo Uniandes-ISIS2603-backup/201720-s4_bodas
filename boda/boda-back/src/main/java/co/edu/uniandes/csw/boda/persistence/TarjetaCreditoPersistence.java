@@ -26,7 +26,7 @@ public class TarjetaCreditoPersistence {
     public TarjetaCreditoEntity create(TarjetaCreditoEntity entity) {
         LOGGER.info("Creando una TarjetaCredito nuevo");
         em.persist(entity);
-        LOGGER.info("Creando una TarjetaCredito nuevo");
+        LOGGER.info("Termina creacin de una TarjetaCredito nuevo");
         return entity;
     }
 
@@ -65,7 +65,30 @@ public class TarjetaCreditoPersistence {
         LOGGER.log(Level.INFO, "Consultando TarjetaCredito con id={0}", id);
         return em.find(TarjetaCreditoEntity.class, id);
     }
+    
+    /**
+     * Busca si hay alguna tarjetaCredito con el numDeSeg (numero de seguridad) que se envía de argumento
+     *
+     * @param numDeSeg: Numero de Seguridad de la TarjetaCredito que se está buscando
+     * @return null si no existe ninguna TarjetaCredito con el nombre del argumento.
+     * Si existe alguna devuelve la primera.
+     */
+    public TarjetaCreditoEntity findByNumDeSeg(Double numDeSeg) {
+        LOGGER.log(Level.INFO, "Consultando TarjetaCredito por numero ", numDeSeg);
 
+        TypedQuery query = em.createQuery("Select u From TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
+        query = query.setParameter("numDeSeg", numDeSeg);
+        List<TarjetaCreditoEntity> sameNum = query.getResultList();
+        TarjetaCreditoEntity result = null; 
+        if (sameNum == null ) {
+            result = null;
+        } else if (sameNum.isEmpty()) {
+             result = null;
+        } else {
+            result = sameNum.get(0);
+        }
+        return result;
+    }
     /**
      * Devuelve todas las TarjetaCredito de la base de datos.
      *
@@ -79,5 +102,4 @@ public class TarjetaCreditoPersistence {
         TypedQuery query = em.createQuery("select u from TarjetaCreditoEntity u", TarjetaCreditoEntity.class);
         return query.getResultList();
     }
-    
 }

@@ -25,7 +25,7 @@ public class PagoPersistence {
     public PagoEntity create(PagoEntity entity) {
         LOGGER.info("Creando un Pago nuevo");
         em.persist(entity);
-        LOGGER.info("Creando un Pago nuevo");
+        LOGGER.info("Termina proceso de creacion de un Pago nuevo");
         return entity;
     }
 
@@ -38,21 +38,7 @@ public class PagoPersistence {
      */
     public PagoEntity update(PagoEntity entity) {
         LOGGER.log(Level.INFO, "Actualizando Pago con id={0}", entity.getId());
-        
         return em.merge(entity);
-    }
-
-    /**
-     *
-     * Borra un Pago de la base de datos recibiendo como argumento el id
-     * de la entity
-     *
-     * @param id: id correspondiente al Pago a borrar.
-     */
-    public void delete(Long id) {
-        LOGGER.log(Level.INFO, "Borrando Pago con id={0}", id);
-        PagoEntity entity = em.find(PagoEntity.class, id);
-        em.remove(entity);
     }
 
     /**
