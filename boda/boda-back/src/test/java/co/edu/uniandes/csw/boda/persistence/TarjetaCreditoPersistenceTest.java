@@ -179,11 +179,22 @@ public class TarjetaCreditoPersistenceTest {
      * Test of findByNumDeSeg method, of class TarjetaCreditoPersistence.
      */
     @Test
-    public void findByNumSegTarjetaCreditoEntityTest()  {
+    public void findByNumDeSegTarjetaCreditoEntityTest()  {
     TarjetaCreditoEntity entity = data.get(0);
     TarjetaCreditoEntity newEntity = persistence.findByNumDeSeg(entity.getNumDeSeg());
     Assert.assertNotNull(newEntity);
     Assert.assertEquals(entity.getNumDeSeg(), newEntity.getNumDeSeg());
+    }
+    
+    /**
+     * Test of findByNumero method, of class TarjetaCreditoPersistence.
+     */
+    @Test
+    public void findByNumeroTarjetaCreditoEntityTest() {
+    TarjetaCreditoEntity entity = data.get(0);
+    TarjetaCreditoEntity newEntity = persistence.findByNumero(entity.getNumero());
+    Assert.assertNotNull(newEntity);
+    Assert.assertEquals(entity.getNumero(), newEntity.getNumero());
     }
     
     /**
