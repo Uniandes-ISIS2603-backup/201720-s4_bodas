@@ -9,7 +9,7 @@
         <groupId>co.edu.uniandes.csw.boda</groupId>
         <artifactId>boda</artifactId>
         <version>0.1.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../boda-web/pom.xml</relativePath>
     </parent>
     <licenses>
         <license>
