@@ -64,20 +64,16 @@ public class TarjetaCreditoLogic {
      */
     public TarjetaCreditoEntity updateTarjetaCredito(Long id, TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar TarjetaCredito con id={0}", id);
-        if (persistence.findByNumDeSeg(entity.getNumDeSeg())!= null) {
+        if(entity == null){
+            throw new BusinessLogicException("No se ha enviado informacion para actualizar la tarjeta de credito");
+        }
+        if (!(entity.getNumDeSeg().equals(persistence.find(id).getNumDeSeg()))) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
-        if (persistence.findByNumero(entity.getNumero())!= null) {
+        if (!(entity.getNumero().equals(persistence.find(id).getNumero()))) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numero \"" + entity.getNumero() + "\"");
         }
-        int ingresoNumeroTarjeta = persistence.findByNumero(entity.getNumero()).toString().length();
-        if (ingresoNumeroTarjeta != NUMERO_CARACTERES_TARJETA) {
-            throw new BusinessLogicException("El numero de la Tarjeta de credito debe tener 16 digitos");
-        }
-        int ingresoNumeroSeguridad = persistence.findByNumDeSeg(entity.getNumDeSeg()).toString().length();
-        if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
-            throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
-        }
+        
         TarjetaCreditoEntity newEntity = persistence.update(entity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar TarjetaCredito con id={0}", entity.getId());
         return newEntity;
