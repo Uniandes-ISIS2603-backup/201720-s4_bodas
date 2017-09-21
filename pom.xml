@@ -8,8 +8,13 @@
     <packaging>pom</packaging>
     <version>0.1.0</version>
     <modules>
+<<<<<<< HEAD:pom.xml
         <module>boda/boda-back</module>
         <module>boda/boda-web</module>
+=======
+        <module>boda-back</module>
+        <module>boda-web</module>
+>>>>>>> vn.gomez:boda/pom.xml
     </modules>
     
     <properties>
