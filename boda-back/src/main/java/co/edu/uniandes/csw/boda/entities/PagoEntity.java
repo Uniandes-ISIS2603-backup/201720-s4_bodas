@@ -18,7 +18,6 @@ public class PagoEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
     private Double montoTotal;
-    
     @Temporal(TemporalType.DATE)
     private Date fecha;
 
