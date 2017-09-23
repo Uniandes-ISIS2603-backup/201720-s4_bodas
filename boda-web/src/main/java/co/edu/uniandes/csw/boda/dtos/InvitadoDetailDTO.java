@@ -15,6 +15,9 @@ import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
  */
 public class InvitadoDetailDTO extends InvitadoDTO{
     
+     /**
+     * Constructor por defecto
+     */
     public InvitadoDetailDTO() {
     }
     
