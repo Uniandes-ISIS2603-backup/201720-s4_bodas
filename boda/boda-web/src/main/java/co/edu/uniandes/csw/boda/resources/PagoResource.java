@@ -5,28 +5,32 @@
  */
 package co.edu.uniandes.csw.boda.resources;
 
-import co.edu.uniandes.csw.boda.dtos.PagoDetailDTO;
-import co.edu.uniandes.csw.boda.ejb.PagoLogic;
+import co.edu.uniandes.csw.boda.dtos.PagoDetailDTO;import co.edu.uniandes.csw.boda.ejb.PagoLogic;
 import co.edu.uniandes.csw.boda.entities.PagoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.PagoPersistence;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.ws.rs.DELETE;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 
 /**
  *
  * @author ca.guerrero
  */
+@Path("pagos")
+@Produces("application/json")
+@Consumes("application/json")
+@Stateless
 public class PagoResource {
     @Inject
     PagoLogic pagoLogic;
@@ -46,9 +50,9 @@ public class PagoResource {
      */
     @POST
     public PagoDetailDTO createPago(PagoDetailDTO pago) throws BusinessLogicException {
-        PagoEntity tarjetaEntity = pago.toEntity();
-        PagoEntity nuevoTarjeta = pagoLogic.createPago(tarjetaEntity);
-        return new PagoDetailDTO(nuevoTarjeta);
+        PagoEntity pagoEntity = pago.toEntity();
+        PagoEntity nuevoPago = pagoLogic.createPago(pagoEntity);
+        return new PagoDetailDTO(nuevoPago);
     }
     
     /**
@@ -103,7 +107,7 @@ public class PagoResource {
      * @throws BusinessLogicException
      */
     @GET
-    public List<PagoDetailDTO> getTarjetasCredito() throws BusinessLogicException {
+    public List<PagoDetailDTO> getPagos() throws BusinessLogicException {
         return listEntity2DetailDTO(pagoLogic.getPagos());
     }
      /**
