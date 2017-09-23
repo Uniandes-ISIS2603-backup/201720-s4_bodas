@@ -11,7 +11,6 @@ import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.ejb.UbicacionLogic;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -84,12 +83,12 @@ public class UbicacionResource {
     @GET
     @Path("{id: \\d+}")
     public UbicacionDetailDTO getUbicacion(@PathParam("id") Long id) throws BusinessLogicException {
-       UbicacionDetailDTO cd= new UbicacionDetailDTO(ubicacionLogic.findUbicacionById(id));
-        if(cd==null)
+       UbicacionEntity entity = ubicacionLogic.findUbicacionById(id);
+        if(entity==null)
        {
-           throw new  WebApplicationException("Lo sentimos, no existe una ubicacion con el id dado",404);
+           throw new  WebApplicationException("No existe una ubicacion con el id dado",404);
        }
-        return  cd;
+        return  new UbicacionDetailDTO(ubicacionLogic.findUbicacionById(id));
     }
 
     /**
@@ -110,12 +109,12 @@ public class UbicacionResource {
     @Path("{id: \\d+}")
     public UbicacionDetailDTO updateUbicacion(@PathParam("id") Long id, UbicacionDetailDTO ubicacion) throws BusinessLogicException {
        //throw  new UnsupportedOperationException("Este servicio no ha sido implementado");
-       UbicacionDetailDTO cd= new UbicacionDetailDTO(ubicacionLogic.updateUbicacion(id, ubicacion.toEntity()));
-       if(cd==null)
+       UbicacionEntity entity = ubicacionLogic.findUbicacionById(id);
+        if(entity==null)
        {
            throw new  WebApplicationException("No existe una ubicacion con el id dado",404);
        }
-     return cd;
+        return  new UbicacionDetailDTO(ubicacionLogic.updateUbicacion(id, ubicacion.toEntity()));
     }
 
 /**

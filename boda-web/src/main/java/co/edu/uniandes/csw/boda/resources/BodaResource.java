@@ -11,17 +11,12 @@ import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.ejb.BodaLogic;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.WebApplicationException;
 
 /**
@@ -36,6 +31,7 @@ public class BodaResource {
     
     @Inject
     BodaLogic bodaLogic;
+    
     /**
      * POST http://localhost:8080/boda-web/api/bodas Ejemplo
      * json: { "name":"Boda: Luis y Maria", "fecha":"05-Dic-2017" }
@@ -84,12 +80,12 @@ public class BodaResource {
     @GET
     @Path("{id: \\d+}")
     public BodaDetailDTO getBoda(@PathParam("id") Long id) throws BusinessLogicException {
-       BodaDetailDTO cd= new BodaDetailDTO(bodaLogic.findBodaById(id));
-        if(cd==null)
+       BodaEntity entity = bodaLogic.findBodaById(id);
+        if(entity==null)
        {
            throw new  WebApplicationException("No existe una boda con el id dado",404);
        }
-        return  cd;
+        return  new BodaDetailDTO(bodaLogic.findBodaById(id));
     }
 
     /**
@@ -109,14 +105,12 @@ public class BodaResource {
     @PUT
     @Path("{id: \\d+}")
     public BodaDetailDTO updateBoda(@PathParam("id") Long id, BodaDetailDTO boda) throws BusinessLogicException {
-       //throw  new UnsupportedOperationException("Este servicio no ha sido implementado");
-       BodaDetailDTO cd= new BodaDetailDTO(bodaLogic.updateBoda(id, boda.toEntity()));
-       if(cd==null)
+       BodaEntity entity = bodaLogic.findBodaById(id);
+        if(entity==null)
        {
            throw new  WebApplicationException("No existe una boda con el id dado",404);
        }
-       
-       return cd;
+        return  new BodaDetailDTO(bodaLogic.updateBoda(id, boda.toEntity()));
     }
 
     /**
