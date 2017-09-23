@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
  */
 public class PagoDTO {
     private Long id;
+    private String nombrePago;
     private Double montoTotal;
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -35,6 +36,7 @@ public class PagoDTO {
         this.id = pago.getId();
         this.montoTotal = pago.getMontoTotal();
         this.fecha = pago.getFecha();
+        this.nombrePago = pago.getName();
     }
 
      /**
@@ -78,6 +80,20 @@ public class PagoDTO {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+    /**
+     * @return nombre del pago
+     */
+    public String getNombrePago() {
+        return nombrePago;
+    }
+
+    /**
+    * @param nombrePago el nuevo nombre del pago 
+    */
+    public void setNombrePago(String nombrePago) {
+        this.nombrePago = nombrePago;
+    }
+    
      /**
      * Convertir DTO a Entity
      * @return Un Entity con los valores del DTO 
@@ -86,7 +102,8 @@ public class PagoDTO {
         PagoEntity entity = new PagoEntity();
         entity.setId(this.id);
         entity.setMontoTotal(this.montoTotal);
-        entity.setFecha(this.fecha);      
+        entity.setFecha(this.fecha);
+        entity.setName(this.nombrePago);
         return entity;
     }
 }
