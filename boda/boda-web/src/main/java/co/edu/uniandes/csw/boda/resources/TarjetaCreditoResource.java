@@ -10,10 +10,15 @@ import co.edu.uniandes.csw.boda.ejb.TarjetaCreditoLogic;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.TarjetaCreditoPersistence;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -31,7 +36,7 @@ import javax.ws.rs.WebApplicationException;
 @Stateless
 public class TarjetaCreditoResource {
     @Inject
-    TarjetaCreditoLogic editorialLogic;
+    TarjetaCreditoLogic tarjetaCreditoLogic;
     
     private static final Logger LOGGER = Logger.getLogger(TarjetaCreditoPersistence.class.getName());
     
@@ -49,14 +54,14 @@ public class TarjetaCreditoResource {
     @POST
     public TarjetaCreditoDetailDTO createTarjetaCredito(TarjetaCreditoDetailDTO tarjeta) throws BusinessLogicException {
         TarjetaCreditoEntity tarjetaEntity = tarjeta.toEntity();
-        TarjetaCreditoEntity nuevoTarjeta = editorialLogic.createTarjetaCredito(tarjetaEntity);
+        TarjetaCreditoEntity nuevoTarjeta = tarjetaCreditoLogic.createTarjetaCredito(tarjetaEntity);
         return new TarjetaCreditoDetailDTO(nuevoTarjeta);
     }
     /**
      * PUT http://localhost:8080/boda-web/api/parejas/tarjetasCredito/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
      *
-     * @param id corresponde a la editorial a actualizar.
+     * @param id corresponde a la tarjetaCredito a actualizar.
      * @param tarjeta corresponde a al objeto con los cambios que se van a
      * realizar.
      * @return La tarjeta actualizada.
@@ -69,10 +74,83 @@ public class TarjetaCreditoResource {
     @Path("{id: \\d+}")
     public TarjetaCreditoDetailDTO updateTarjetaCredito(@PathParam("id") Long id, TarjetaCreditoDetailDTO tarjeta) throws BusinessLogicException {
         tarjeta.setId(id);
-        TarjetaCreditoEntity entity = editorialLogic.getTarjetaCredito(id);
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /tarjetasCredito/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
         }
-        return new TarjetaCreditoDetailDTO(editorialLogic.updateTarjetaCredito(id, tarjeta.toEntity()));
+        return new TarjetaCreditoDetailDTO(tarjetaCreditoLogic.updateTarjetaCredito(id, tarjeta.toEntity()));
+    }
+
+/**
+     * DELETE http://localhost:8080/boda-web/api/parejas/tarjetasCredito/1
+     *
+     * @param id corresponde a la tarjetaCredito a borrar.
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id de la tarjetaCredito a actualizar se retorna un
+     * 404 con el mensaje.
+     * @throws java.sql.SQLException
+     *
+     */
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteTarjetaCredito(@PathParam("id") Long id) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar una tarjetaCredito con id {0}", id);
+        TarjetaCreditoEntity entity =  tarjetaCreditoLogic.getTarjetaCredito(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
+        }
+        tarjetaCreditoLogic.deleteTarjetaCredito(id);
+    }
+    
+    /**
+     * GET para una editorial
+     * http://localhost:8080/bodas-web/api/parejas/tarjetasCredito/1
+     *
+     * @param id corresponde al id de la tarjetaCredito buscada.
+     * @return La tarjetaCredito encontrada. Ejemplo: { "type":
+     * "tarjetaDetailDTO", "id": 1, "numero": "0000 0000 0000 0000", "nombreBanco": "BancaMia" }
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id de la tarjetaCredito buscada se retorna un 404 con
+     * el mensaje.
+     */
+    @GET
+    @Path("{id: \\d+}")
+    public TarjetaCreditoDetailDTO getEditorial(@PathParam("id") Long id) throws BusinessLogicException {
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
+        }
+        return new TarjetaCreditoDetailDTO(tarjetaCreditoLogic.getTarjetaCredito(id));
+    }
+    /**
+     * GET para todas las editoriales.
+     * http://localhost:8080/backstepbystep-web/api/editorials
+     *
+     * @return la lista de todas las editoriales en objetos json DTO.
+     * @throws BusinessLogicException
+     */
+    @GET
+    public List<TarjetaCreditoDetailDTO> getEditorials() throws BusinessLogicException {
+        return listEntity2DetailDTO(tarjetaCreditoLogic.getTarjetasCredito());
+    }
+     /**
+     *
+     * lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos TarjetaCreditoEntity a una lista de
+     * objetos TarjetaCreditoDetailDTO (json)
+     *
+     * @param entityList corresponde a la lista de tarjetasCredito de tipo Entity
+     * que vamos a convertir a DTO.
+     * @return la lista de tarjetasCredito en forma DTO (json)
+     */
+    private List<TarjetaCreditoDetailDTO> listEntity2DetailDTO(List<TarjetaCreditoEntity> entityList) {
+        List<TarjetaCreditoDetailDTO> list = new ArrayList<>();
+        for (TarjetaCreditoEntity entity : entityList) {
+            list.add(new TarjetaCreditoDetailDTO(entity));
+        }
+        return list;
     }
 }
