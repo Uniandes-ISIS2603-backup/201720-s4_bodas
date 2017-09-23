@@ -54,7 +54,7 @@ public class InvitadoPersistence {
         TypedQuery query = em.createQuery("Select e From InvitadoEntity e where e.documento = :documento", InvitadoEntity.class);
         query = query.setParameter("documento", documento);
         List<InvitadoEntity> same = query.getResultList();
-        InvitadoEntity result = null; 
+        InvitadoEntity result; 
         if (same == null ) {
             result = null;
         } else if (same.isEmpty()) {

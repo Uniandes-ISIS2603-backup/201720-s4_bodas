@@ -23,7 +23,7 @@ public class RegaloLogic {
     private static final Logger LOGGER = Logger.getLogger(RegaloLogic.class.getName());
 
     @Inject
-    private RegaloPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+    RegaloPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
     public RegaloEntity createRegalo(RegaloEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un regalo");

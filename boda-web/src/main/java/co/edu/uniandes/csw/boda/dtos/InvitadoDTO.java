@@ -20,6 +20,9 @@ public class InvitadoDTO {
     private boolean asistencia;
     private String categoria; 
    
+    /**
+     * Constructor por defecto
+     */
     public InvitadoDTO(){
     }
     

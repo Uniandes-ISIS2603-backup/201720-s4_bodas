@@ -24,7 +24,7 @@ public class InvitadoLogic {
     private static final Logger LOGGER = Logger.getLogger(InvitadoLogic.class.getName());
 
     @Inject
-    private InvitadoPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+    InvitadoPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
     public InvitadoEntity createInvitado(InvitadoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un invitado");

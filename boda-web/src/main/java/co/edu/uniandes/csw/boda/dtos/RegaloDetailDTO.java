@@ -13,6 +13,9 @@ import co.edu.uniandes.csw.boda.entities.RegaloEntity;
  */
 public class RegaloDetailDTO extends RegaloDTO{
 
+     /**
+     * Constructor por defecto
+     */
     public RegaloDetailDTO() {
     }
 

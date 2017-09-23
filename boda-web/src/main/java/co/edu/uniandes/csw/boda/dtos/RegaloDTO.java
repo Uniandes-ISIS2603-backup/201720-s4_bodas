@@ -18,6 +18,9 @@ public class RegaloDTO {
     private String imagen;
     private boolean comprado;
 
+    /**
+     * Constructor por defecto
+     */
     public RegaloDTO(){
     }
     
