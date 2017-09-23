@@ -51,17 +51,8 @@ public class RegaloPersistence {
     
     public RegaloEntity findByName(String name) {
         LOGGER.log(Level.INFO, "Consultando regalo por nombre ", name);
-        TypedQuery query = em.createQuery("Select e From RegaloEntity e where e.name = :name", RegaloEntity.class);
+        TypedQuery<RegaloEntity> query = em.createQuery("Select e From RegaloEntity e where e.name = :name", RegaloEntity.class);
         query = query.setParameter("name", name);
-        List<RegaloEntity> sameName = query.getResultList();
-        RegaloEntity result; 
-        if (sameName == null ) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-             result = null;
-        } else {
-            result =  sameName.get(0);
-        }
-        return result;
+        return query.getSingleResult();
     }
 }

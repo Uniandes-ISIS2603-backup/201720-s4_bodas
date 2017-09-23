@@ -172,4 +172,11 @@ public class RegaloPersistenceTest {
         Assert.assertNull(deleted);
     }
     
+    @Test
+    public void getBodaByNameTest() {
+    RegaloEntity entity = data.get(0);
+    RegaloEntity newEntity = persistence.findByName(entity.getName());
+    Assert.assertNotNull(newEntity);
+    Assert.assertEquals(entity.getName(), newEntity.getName());
+}
 }

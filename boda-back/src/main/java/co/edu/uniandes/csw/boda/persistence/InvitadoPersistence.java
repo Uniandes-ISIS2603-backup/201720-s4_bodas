@@ -51,17 +51,8 @@ public class InvitadoPersistence {
     
     public InvitadoEntity findByDocumento(Long documento){
         LOGGER.log(Level.INFO, "Consultando invitado por documento ", documento);
-        TypedQuery query = em.createQuery("Select e From InvitadoEntity e where e.documento = :documento", InvitadoEntity.class);
+        TypedQuery<InvitadoEntity> query = em.createQuery("Select e From InvitadoEntity e where e.documento = :documento", InvitadoEntity.class);
         query = query.setParameter("documento", documento);
-        List<InvitadoEntity> same = query.getResultList();
-        InvitadoEntity result; 
-        if (same == null ) {
-            result = null;
-        } else if (same.isEmpty()) {
-             result = null;
-        } else {
-            result =  same.get(0);
-        }
-        return result;
+        return query.getSingleResult();
     }
 }
