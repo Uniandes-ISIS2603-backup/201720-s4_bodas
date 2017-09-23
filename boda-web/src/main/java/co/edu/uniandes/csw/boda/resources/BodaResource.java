@@ -35,10 +35,7 @@ import javax.ws.rs.WebApplicationException;
 public class BodaResource {
     
     @Inject
-    private BodaLogic bodaLogic;
-    
-    private static final Logger LOGGER = Logger.getLogger(BodaResource.class.getName());
-     
+    BodaLogic bodaLogic;
     /**
      * POST http://localhost:8080/boda-web/api/bodas Ejemplo
      * json: { "name":"Boda: Luis y Maria", "fecha":"05-Dic-2017" }

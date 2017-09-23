@@ -35,10 +35,7 @@ import javax.ws.rs.WebApplicationException;
 public class UbicacionResource {
    
     @Inject
-    private UbicacionLogic ubicacionLogic;
-    
-    private static final Logger LOGGER = Logger.getLogger(UbicacionResource.class.getName());
-     
+    UbicacionLogic ubicacionLogic;  
     /**
      * POST http://localhost:8080/boda-web/api/ubicaciones Ejemplo
      * json: { "name":"Falabella",  "latitud":"205867", "longitud":"105867", "telefono":"3333333", "direccion":"cra # calle 55, Bogotá"}

@@ -6,16 +6,16 @@ insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, co
 
 --Pruebas BodaEntity
 delete from BodaEntity;
-insert into BodaEntity (name, fecha, tema, religion, tipoBoda) values ('Kris', '3/29/2017', 'tema2', 'judia', 'deRubí');
-insert into BodaEntity (name, fecha, tema, religion, tipoBoda) values ('Galen', '5/2/2017', 'tema2', 'ninguna', 'dePlata');
-insert into BodaEntity (name, fecha, tema, religion, tipoBoda) values ('Malanie', '10/9/2016', 'tema3', 'católica', 'deRubí');
+insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda) values (39, 'Kris', '3/29/2017', 'tema2', 'judia', 'deRubí');
+insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda) values (41,'Galen', '5/2/2017', 'tema2', 'ninguna', 'dePlata');
+insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda) values (45,'Malanie', '10/9/2016', 'tema3', 'católica', 'deRubí');
 ---Fin Pruebas BodaEntity
 
 --Pruebas UbicacionEntity
 delete from UbicacionEntity;
-insert into UbicacionEntity (name, latitud, longitud, telefono, direccion) values ('Automotive', 50.1681931, 14.0545902, 24356, '88734 Marcy Avenue');
-insert into UbicacionEntity (name, latitud, longitud, telefono, direccion) values ('Clothing', -17.8119748, -50.5981252, 38447, '4701 Dorton Place');
-insert into UbicacionEntity (name, latitud, longitud, telefono, direccion) values ('Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (1, 'Automotive', 50.1681931, 14.0545902, 24356, '88734 Marcy Avenue');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (2, 'Clothing', -17.8119748, -50.5981252, 38447, '4701 Dorton Place');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
 ---Fin Pruebas UbicacionEntity
 
 
