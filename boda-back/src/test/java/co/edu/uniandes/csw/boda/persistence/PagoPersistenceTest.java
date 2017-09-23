@@ -124,7 +124,7 @@ public class PagoPersistenceTest {
      * Test of create method, of class PagoPersistence.
      */
     @Test
-    public void createPagoEntityTest(){
+    public void testCreatePagoEntity(){
     PodamFactory factory = new PodamFactoryImpl();
     PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
     PagoEntity result = persistence.create(newEntity);
@@ -162,7 +162,19 @@ public class PagoPersistenceTest {
     Assert.assertNotNull(newEntity);
     Assert.assertEquals(entity.getId(), newEntity.getId());
     }
-
+    
+    /**
+     * Test of findByNombre method, of class PagoPersistence.
+     */
+    @Test
+    public void findByNumeroTarjetaCreditoEntityTest() {
+    PagoEntity entity = data.get(0);
+    PagoEntity newEntity = persistence.findByNombre(entity.getName());
+    Assert.assertNotNull(newEntity);
+    Assert.assertEquals(entity.getName(), newEntity.getName());
+    }
+    
+    
     /**
      * Test of findAll method, of class PagoPersistence.
      */

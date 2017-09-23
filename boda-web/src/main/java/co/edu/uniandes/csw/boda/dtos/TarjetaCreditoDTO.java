@@ -39,7 +39,7 @@ public class TarjetaCreditoDTO {
         this.numero = tarjeta.getNumero();
         this.numDeSeg = tarjeta.getNumDeSeg();
         this.fechaVen = tarjeta.getFechaVen();
-        this.nombreBanco = tarjeta.getNombreBanco();
+        this.nombreBanco = tarjeta.getName();
     }
 
     /**
@@ -121,7 +121,7 @@ public class TarjetaCreditoDTO {
         entity.setNumero(this.numero);
         entity.setNumDeSeg(this.numDeSeg);
         entity.setFechaVen(this.fechaVen);
-        entity.setNombreBanco(this.nombreBanco);      
+        entity.setName(this.nombreBanco);      
         return entity;
     }
 }

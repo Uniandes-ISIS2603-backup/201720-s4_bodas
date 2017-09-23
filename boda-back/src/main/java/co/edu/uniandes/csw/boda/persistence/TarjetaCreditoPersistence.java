@@ -79,7 +79,7 @@ public class TarjetaCreditoPersistence {
         TypedQuery query = em.createQuery("Select u From TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
         query = query.setParameter("numDeSeg", numDeSeg);
         List<TarjetaCreditoEntity> sameNumDeSeg = query.getResultList();
-        TarjetaCreditoEntity result = null; 
+        TarjetaCreditoEntity result;
         if (sameNumDeSeg == null ) {
             result = null;
         } else if (sameNumDeSeg.isEmpty()) {
@@ -103,7 +103,7 @@ public class TarjetaCreditoPersistence {
         TypedQuery query = em.createQuery("Select u From TarjetaCreditoEntity u where u.numero = :numero", TarjetaCreditoEntity.class);
         query = query.setParameter("numero", numero);
         List<TarjetaCreditoEntity> sameNum = query.getResultList();
-        TarjetaCreditoEntity result = null;
+        TarjetaCreditoEntity result;
         if (sameNum == null ) {
             result = null;
         } else if (sameNum.isEmpty()) {

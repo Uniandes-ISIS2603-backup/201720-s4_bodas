@@ -1,26 +1,18 @@
 package co.edu.uniandes.csw.boda.entities;
 
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
-public class TarjetaCreditoEntity implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class TarjetaCreditoEntity extends BaseEntity {
     private Long numero;
     private Double numDeSeg;
     @Temporal(TemporalType.DATE)
     private Date fechaVen;
-    private String nombreBanco;
     
     @PodamExclude
     @ManyToOne
@@ -41,15 +33,7 @@ public class TarjetaCreditoEntity implements Serializable {
     public void setFechaVen(Date fechaVen) {
         this.fechaVen = fechaVen;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    
     public Long getNumero() {
         return numero;
     }
@@ -64,27 +48,5 @@ public class TarjetaCreditoEntity implements Serializable {
 
     public void setNumDeSeg(Double numDeSeg) {
         this.numDeSeg = numDeSeg;
-    }
-
-    public String getNombreBanco() {
-        return nombreBanco;
-    }
-
-    public void setNombreBanco(String nombreBanco) {
-        this.nombreBanco = nombreBanco;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        if (this.getId() != null && ((BaseEntity) obj).getId() != null) {
-            return this.getId().equals(((BaseEntity) obj).getId());
-        }
-        return super.equals(obj);
-    }
-    @Override
-    public int hashCode() {
-        if (this.getId() != null) {
-            return this.getId().hashCode();
-        }
-        return super.hashCode();
     }
 }
