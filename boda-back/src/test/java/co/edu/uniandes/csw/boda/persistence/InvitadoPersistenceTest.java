@@ -171,9 +171,9 @@ public class InvitadoPersistenceTest {
     
     @Test
     public void testDocumento(){
-    InvitadoEntity entity = data.get(0);
-    InvitadoEntity newEntity = persistence.findByDocumento(entity.getDocumento());
-    Assert.assertNotNull(newEntity);
-    Assert.assertEquals(entity.getDocumento(), newEntity.getDocumento());
+        InvitadoEntity entity = data.get(0);
+        InvitadoEntity newEntity = persistence.findByDocumento(entity.getDocumento());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getDocumento(), newEntity.getDocumento());
     }
 }
