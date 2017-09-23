@@ -153,17 +153,6 @@ public class PagoPersistenceTest {
     }
 
     /**
-     * Test of delete method, of class PagoPersistence.
-     */
-    @Test
-    public void testDeletePagoEntity() {
-    PagoEntity entity = data.get(0);
-    persistence.delete(entity.getId());
-    PagoEntity deleted = em.find(PagoEntity.class, entity.getId());
-    Assert.assertNull(deleted);
-    }
-
-    /**
      * Test of find method, of class PagoPersistence.
      */
     @Test

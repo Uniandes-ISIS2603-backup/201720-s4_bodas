@@ -25,7 +25,7 @@ public class PagoPersistence {
     public PagoEntity create(PagoEntity entity) {
         LOGGER.info("Creando un Pago nuevo");
         em.persist(entity);
-        LOGGER.info("Creando un Pago nuevo");
+        LOGGER.info("Termina proceso de creacion de un Pago nuevo");
         return entity;
     }
 
@@ -38,27 +38,13 @@ public class PagoPersistence {
      */
     public PagoEntity update(PagoEntity entity) {
         LOGGER.log(Level.INFO, "Actualizando Pago con id={0}", entity.getId());
-        
         return em.merge(entity);
-    }
-
-    /**
-     *
-     * Borra un Pago de la base de datos recibiendo como argumento el id
-     * de la entity
-     *
-     * @param id: id correspondiente al Pago a borrar.
-     */
-    public void delete(Long id) {
-        LOGGER.log(Level.INFO, "Borrando Pago con id={0}", id);
-        PagoEntity entity = em.find(PagoEntity.class, id);
-        em.remove(entity);
     }
 
     /**
      * Busca si hay algun Pago con el id que se envía de argumento
      *
-     * @param id: id correspondiente a la Default buscada.
+     * @param id: id correspondiente al Pago buscado.
      * @return un Pago.
      */
     public PagoEntity find(Long id) {
@@ -69,7 +55,7 @@ public class PagoPersistence {
     /**
      * Devuelve todos los Pagos de la base de datos.
      *
-     * @return una lista con todas las Default que encuentre en la base de
+     * @return una lista con todos los Pagos que encuentre en la base de
      * datos, "select u from PagoEntity u" es como un "select * from
      * DefaultEntity;" - "SELECT * FROM table_codigo" en SQL.
      */
