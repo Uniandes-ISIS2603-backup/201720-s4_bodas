@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
-import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
+
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import java.util.List;
 import java.util.logging.Level;
@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -55,7 +54,7 @@ public class RegaloPersistence {
         TypedQuery query = em.createQuery("Select e From RegaloEntity e where e.name = :name", RegaloEntity.class);
         query = query.setParameter("name", name);
         List<RegaloEntity> sameName = query.getResultList();
-        RegaloEntity result = null; 
+        RegaloEntity result; 
         if (sameName == null ) {
             result = null;
         } else if (sameName.isEmpty()) {
