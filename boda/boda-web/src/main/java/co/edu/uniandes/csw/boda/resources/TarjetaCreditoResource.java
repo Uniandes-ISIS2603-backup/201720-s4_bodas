@@ -81,7 +81,7 @@ public class TarjetaCreditoResource {
         return new TarjetaCreditoDetailDTO(tarjetaCreditoLogic.updateTarjetaCredito(id, tarjeta.toEntity()));
     }
 
-/**
+    /**
      * DELETE http://localhost:8080/boda-web/api/parejas/tarjetasCredito/1
      *
      * @param id corresponde a la tarjetaCredito a borrar.
@@ -104,7 +104,7 @@ public class TarjetaCreditoResource {
     }
     
     /**
-     * GET para una editorial
+     * GET para una tarjetaCredito
      * http://localhost:8080/bodas-web/api/parejas/tarjetasCredito/1
      *
      * @param id corresponde al id de la tarjetaCredito buscada.
@@ -117,7 +117,7 @@ public class TarjetaCreditoResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public TarjetaCreditoDetailDTO getEditorial(@PathParam("id") Long id) throws BusinessLogicException {
+    public TarjetaCreditoDetailDTO getTarjetaCredito(@PathParam("id") Long id) throws BusinessLogicException {
         TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
@@ -125,14 +125,14 @@ public class TarjetaCreditoResource {
         return new TarjetaCreditoDetailDTO(tarjetaCreditoLogic.getTarjetaCredito(id));
     }
     /**
-     * GET para todas las editoriales.
-     * http://localhost:8080/backstepbystep-web/api/editorials
+     * GET para todas las tarjetasCredito.
+     * http://localhost:8080/boda-web/api/tarjetasCredito
      *
-     * @return la lista de todas las editoriales en objetos json DTO.
+     * @return la lista de todas las tarjetasCredito en objetos json DTO.
      * @throws BusinessLogicException
      */
     @GET
-    public List<TarjetaCreditoDetailDTO> getEditorials() throws BusinessLogicException {
+    public List<TarjetaCreditoDetailDTO> getTarjetasCredito() throws BusinessLogicException {
         return listEntity2DetailDTO(tarjetaCreditoLogic.getTarjetasCredito());
     }
      /**

@@ -44,7 +44,7 @@ public class PagoPersistence {
     /**
      * Busca si hay algun Pago con el id que se envía de argumento
      *
-     * @param id: id correspondiente a la Default buscada.
+     * @param id: id correspondiente al Pago buscado.
      * @return un Pago.
      */
     public PagoEntity find(Long id) {
@@ -55,7 +55,7 @@ public class PagoPersistence {
     /**
      * Devuelve todos los Pagos de la base de datos.
      *
-     * @return una lista con todas las Default que encuentre en la base de
+     * @return una lista con todos los Pagos que encuentre en la base de
      * datos, "select u from PagoEntity u" es como un "select * from
      * DefaultEntity;" - "SELECT * FROM table_codigo" en SQL.
      */

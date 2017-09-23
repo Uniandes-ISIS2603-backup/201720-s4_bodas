@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 
 /**
  * TarjetaCreditoDTO Objeto de transferencia de datos de Tarjetas de Credito. Los DTO
- * contienen las represnetaciones de los JSON que se transfieren entre el cliente y el servidor.
+ * contienen las representaciones de los JSON que se transfieren entre el cliente y el servidor.
  * @author ca.guerrero
  */
 public class TarjetaCreditoDTO {

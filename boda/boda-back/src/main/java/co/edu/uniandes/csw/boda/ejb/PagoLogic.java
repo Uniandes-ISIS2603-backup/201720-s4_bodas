@@ -64,7 +64,7 @@ public class PagoLogic {
      * @param id: id del Pago para ser buscado.
      * @return el Pago solicitado por medio de su id.
      */
-    public PagoEntity getTarjetaCredito(Long id) {
+    public PagoEntity getPago(Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar Pago con id={0}", id);
         PagoEntity pago = persistence.find(id);
         if (pago == null) {
@@ -76,11 +76,11 @@ public class PagoLogic {
     
     /**
      * 
-     * Obtener todas las Tarjetas de Credito existentes en la base de datos.
+     * Obtener todos los Pagos existentes en la base de datos.
      *
-     * @return una lista de Tarjetas de Credito.
+     * @return una lista de Pagos.
      */
-    public List<PagoEntity> getTarjetasCredito() {
+    public List<PagoEntity> getPagos() {
         LOGGER.info("Inicia proceso de consultar todos los Pagos");
         List<PagoEntity> pagos = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todos los Pagos");
