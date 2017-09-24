@@ -8,7 +8,6 @@
     <packaging>pom</packaging>
     <version>0.1.0</version>
     <modules>
-        <module>boda-web</module>
         <module>boda-back</module>
     </modules>
     
