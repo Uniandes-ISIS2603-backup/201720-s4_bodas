@@ -25,6 +25,7 @@ public class UbicacionDTO {
     /**
      * Constructor por defecto
      */
+    @SuppressWarnings("unused")
     public UbicacionDTO() {
     }
     

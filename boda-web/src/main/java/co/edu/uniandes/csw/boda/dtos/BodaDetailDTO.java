@@ -16,6 +16,7 @@ public class BodaDetailDTO extends BodaDTO{
     /**
      * Constructor por defecto
      */
+    @SuppressWarnings("unused")
     public BodaDetailDTO(){
     }
     
