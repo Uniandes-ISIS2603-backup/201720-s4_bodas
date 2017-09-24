@@ -20,8 +20,8 @@ import javax.persistence.OneToMany;
 public class OpcionServicioEntity extends BaseEntity implements Serializable{
     
     private String descripcion;
-    private double  costo;
-    private List<String> diasDisponibles;
+    private Long  costo;
+    private String diasDisponibles;
     
     @OneToMany(mappedBy = "opcionServicio", cascade = CascadeType.ALL, orphanRemoval = true)
      private List<CalificacionEntity> calificacion;
@@ -38,18 +38,18 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-      public double getCosto() {
+      public Long getCosto() {
         return costo;
     }
 
-    public void setCosto(Double costo) {
+    public void setCosto(Long costo) {
         this.costo = costo;
     }
-    public List<String> getDiasDisponibles() {
+    public String getDiasDisponibles() {
         return diasDisponibles;
     }
 
-    public void setDiasDisponibles(List<String> diasDisponibles) {
+    public void setDiasDisponibles(String diasDisponibles) {
         this.diasDisponibles = diasDisponibles;
     }
     

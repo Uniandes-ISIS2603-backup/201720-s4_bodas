@@ -38,3 +38,18 @@ delete from RegaloEntity;
 insert into RegaloEntity (name, comprado, imagen) values ( 'Cama', 1, 'https://robohash.org/addeseruntvero.jpg?size=50x50&set=set1');
 insert into RegaloEntity (name, comprado, imagen) values ( 'Tendidos', 0, 'https://robohash.org/estutomnis.jpg?size=50x50&set=set1');
 insert into RegaloEntity (name, comprado, imagen) values ( 'Lavadora', 0, 'https://robohash.org/eadoloremquearchitecto.bmp?size=50x50&set=set1');
+
+--Pruebas para Tarea Entity
+delete from TareaEntity;
+insert into TareaEntity(aprobada, dia,nombre) values (0,'2/2/2', 'Nombre');
+insert into TareaEntity(aprobada, dia,nombre) values (1,'22/22/22', 'Nombre1');
+insert into TareaEntity(aprobada, dia,nombre) values (0,'22/32/32', 'Nombre2');
+---Fin Calificacion Tarea Entity
+
+--Pruebas para OpcionServicio Entity
+delete from OpcionServicioEntity;
+insert into OpcionServicioEntity(descripcion, costo,diasDisponibles) values ('descripcion1',12 ,'Lunes');
+insert into OpcionServicioEntity(descripcion, costo,diasDisponibles) values ('descripcion2',14 ,'Martes');
+insert into OpcionServicioEntity(descripcion, costo,diasDisponibles) values ('descripcion3',13 ,'Miercoles');
+
+---Fin Calificacion OpcionServicio Entity
