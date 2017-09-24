@@ -16,6 +16,7 @@ public class UbicacionDetailDTO extends UbicacionDTO {
     /**
      * Constructor por defecto
      */
+    @SuppressWarnings("unused")
     public UbicacionDetailDTO(){
     }
     
