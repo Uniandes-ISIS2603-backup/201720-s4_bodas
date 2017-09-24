@@ -167,7 +167,7 @@ public class PagoPersistenceTest {
      * Test of findByNombre method, of class PagoPersistence.
      */
     @Test
-    public void findByNumeroTarjetaCreditoEntityTest() {
+    public void testFindByNombre() {
     PagoEntity entity = data.get(0);
     PagoEntity newEntity = persistence.findByNombre(entity.getName());
     Assert.assertNotNull(newEntity);
