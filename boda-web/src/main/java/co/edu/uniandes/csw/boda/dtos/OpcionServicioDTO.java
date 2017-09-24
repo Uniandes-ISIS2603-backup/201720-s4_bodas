@@ -52,7 +52,7 @@ public class OpcionServicioDTO {
         return id;
     }
 
-    public void setID(Long id) {
+    public void setId(Long id) {
         this.id =id;
     }
     public String getDescripcion() {
@@ -85,10 +85,12 @@ public class OpcionServicioDTO {
      */
     public OpcionServicioEntity toEntity() {
         OpcionServicioEntity entity = new OpcionServicioEntity();
+       
         entity.setId(this.id);
         entity.setDescripcion(this.descripcion);
         entity.setCosto(this.costo);
         entity.setDiasDisponibles(this.diasDisponibles);
+        
         return entity;
     }
     

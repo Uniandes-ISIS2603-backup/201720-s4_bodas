@@ -126,7 +126,7 @@ public class OpcionServicioResource {
     }
 
     /**
-     * DELETE http://localhost:8080/boda-web/api/opcionesServicio/1
+     * DELETE http://localhost:8080/boda-web/api/opcionServicios/1
      *
      * @param id corresponde a la tareas a borrar.
      * @throws BusinessLogicException

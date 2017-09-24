@@ -19,10 +19,11 @@ public class TareaEntity extends BaseEntity implements Serializable {
      private boolean aprobada;
     private String  dia;
     private String nombre;
-   // private Boda boda;
-   // private Ubicacion ubicacion;
-   // private OpcionServicio opcionServicio;
-
+    /*
+    private BodaEntity boda;
+    private UbicacionEntity ubicacion;
+    private OpcionServicioEntity opcionServicio;
+*/
  
     public boolean getAprobada() {
         return aprobada;
@@ -48,25 +49,25 @@ public class TareaEntity extends BaseEntity implements Serializable {
     
     
     /*
-    public Boda getBoda() {
+    public BodaEntity getBoda() {
         return boda;
     }
 
-    public void setBoda(Boda boda) {
+    public void setBoda(BodaEntity boda) {
         this.boda = boda;
     }
-    public Ubicacion getUbicacion() {
+    public UbicacionEntity getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(Ubicacion ubicacion) {
+    public void setUbicacion(UbicacionEntity ubicacion) {
         this.ubicacion = ubicacion;
     }
-     public OpcionServicio getOpcionServicio() {
+     public OpcionServicioEntity getOpcionServicio() {
         return opcionServicio;
     }
 
-    public void setOpcionServicio(OpcionServicio opcionServicio) {
+    public void setOpcionServicio(OpcionServicioEntity opcionServicio) {
         this.opcionServicio = opcionServicio;
     }
     */
