@@ -74,20 +74,11 @@ public class TarjetaCreditoPersistence {
      * Si existe alguna devuelve la primera.
      */
     public TarjetaCreditoEntity findByNumDeSeg(Double numDeSeg) {
-        LOGGER.log(Level.INFO, "Consultando TarjetaCredito por numero de seguridad", numDeSeg);
-
-        TypedQuery query = em.createQuery("Select u From TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
-        query = query.setParameter("numDeSeg", numDeSeg);
-        List<TarjetaCreditoEntity> sameNumDeSeg = query.getResultList();
-        TarjetaCreditoEntity result;
-        if (sameNumDeSeg == null ) {
-            result = null;
-        } else if (sameNumDeSeg.isEmpty()) {
-             result = null;
-        } else {
-            result = sameNumDeSeg.get(0);
-        }
-        return result;
+        LOGGER.log(Level.INFO, "Consultando tarjetasCredito con numDeSeg= ", numDeSeg);
+        TypedQuery<TarjetaCreditoEntity> q
+                = em.createQuery("select u from TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
+        q = q.setParameter("numDeSeg", numDeSeg);
+        return q.getSingleResult();
     }
     
     /**
@@ -98,20 +89,11 @@ public class TarjetaCreditoPersistence {
      * Si existe alguna devuelve la primera.
      */
     public TarjetaCreditoEntity findByNumero(Long numero) {
-        LOGGER.log(Level.INFO, "Consultando TarjetaCredito por numero ", numero);
-
-        TypedQuery query = em.createQuery("Select u From TarjetaCreditoEntity u where u.numero = :numero", TarjetaCreditoEntity.class);
-        query = query.setParameter("numero", numero);
-        List<TarjetaCreditoEntity> sameNum = query.getResultList();
-        TarjetaCreditoEntity result;
-        if (sameNum == null ) {
-            result = null;
-        } else if (sameNum.isEmpty()) {
-             result = null;
-        } else {
-            result = sameNum.get(0);
-        }
-        return result;
+        LOGGER.log(Level.INFO, "Consultando tarjetasCredito con numero= ", numero);
+        TypedQuery<TarjetaCreditoEntity> q
+                = em.createQuery("select u from TarjetaCreditoEntity u where u.numero = :numero", TarjetaCreditoEntity.class);
+        q = q.setParameter("numero", numero);
+        return q.getSingleResult();
     }
     /**
      * Devuelve todas las TarjetaCredito de la base de datos.

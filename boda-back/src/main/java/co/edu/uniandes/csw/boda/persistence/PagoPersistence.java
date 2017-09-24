@@ -55,25 +55,16 @@ public class PagoPersistence {
     /**
      * Busca si hay alguna tarjetaCredito con el numDeSeg (numero de seguridad) que se envía de argumento
      *
-     * @param nomPago: nombre del pago que se está buscando
+     * @param name: nombre del pago que se está buscando
      * @return null si no existe ningun pago con el nombre del argumento.
      * Si existe alguno devuelve el primero.
      */
-    public PagoEntity findByNombre(String nomPago) {
-        LOGGER.log(Level.INFO, "Consultando TarjetaCredito por numero de seguridad", nomPago);
-
-        TypedQuery query = em.createQuery("Select u From TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", PagoEntity.class);
-        query = query.setParameter("numDeSeg", nomPago);
-        List<PagoEntity> sameNumDeSeg = query.getResultList();
-        PagoEntity result;
-        if (sameNumDeSeg == null ) {
-            result = null;
-        } else if (sameNumDeSeg.isEmpty()) {
-             result = null;
-        } else {
-            result = sameNumDeSeg.get(0);
-        }
-        return result;
+    public PagoEntity findByNombre(String name) {
+         LOGGER.log(Level.INFO, "Consultando pagos con name= ", name);
+        TypedQuery<PagoEntity> q
+                = em.createQuery("select u from TarjetaCreditoEntity u where u.name = :name", PagoEntity.class);
+        q = q.setParameter("name", name);
+        return q.getSingleResult();
     }
     
     /**
