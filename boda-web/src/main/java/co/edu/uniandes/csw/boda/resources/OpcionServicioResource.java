@@ -90,12 +90,12 @@ public class OpcionServicioResource {
     @GET
     @Path("{id: \\d+}")
     public OpcionServicioDetailDTO getOpcionServicio(@PathParam("id") Long id) throws BusinessLogicException {
-       OpcionServicioDetailDTO cd= new OpcionServicioDetailDTO(opcionServicioLogic.findOpcionServicioById(id));
-        if(cd==null)
+       OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(id);
+        if(entity==null)
        {
-           throw new  WebApplicationException("No existe una opcon servicio con el id dado",404);
+           throw new  WebApplicationException("No existe una opcion con el id dado",404);
        }
-        return  cd;
+        return  new OpcionServicioDetailDTO(opcionServicioLogic.findOpcionServicioById(id));
     }
 
     /**
@@ -115,14 +115,12 @@ public class OpcionServicioResource {
     @PUT
     @Path("{id: \\d+}")
     public OpcionServicioDetailDTO updateOpcionServicio(@PathParam("id") Long id, OpcionServicioDetailDTO opcion) throws BusinessLogicException {
-       //throw  new UnsupportedOperationException("Este servicio no ha sido implementado");
-       OpcionServicioDetailDTO cd= new OpcionServicioDetailDTO(opcionServicioLogic.updateOpcionServicio(id, opcion.toEntity()));
-       if(cd==null)
+       OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(id);
+        if(entity==null)
        {
            throw new  WebApplicationException("No existe una opcion con el id dado",404);
        }
-       
-       return cd;
+        return  new OpcionServicioDetailDTO(opcionServicioLogic.updateOpcionServicio(id, opcion.toEntity()));
     }
 
     /**

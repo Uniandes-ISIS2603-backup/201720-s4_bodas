@@ -89,12 +89,12 @@ public class TareaResource {
     @GET
     @Path("{id: \\d+}")
     public TareaDetailDTO getTarea(@PathParam("id") Long id) throws BusinessLogicException {
-       TareaDetailDTO cd= new TareaDetailDTO(tareaLogic.findTareaById(id));
-        if(cd==null)
+        TareaEntity entity = tareaLogic.findTareaById(id);
+        if(entity==null)
        {
            throw new  WebApplicationException("No existe una tarea con el id dado",404);
        }
-        return  cd;
+        return  new TareaDetailDTO(tareaLogic.findTareaById(id));
     }
    
 
@@ -115,14 +115,12 @@ public class TareaResource {
     @PUT
     @Path("{id: \\d+}")
     public TareaDetailDTO updateTarea(@PathParam("id") Long id, TareaDetailDTO tarea) throws BusinessLogicException {
-       //throw  new UnsupportedOperationException("Este servicio no ha sido implementado");
-       TareaDetailDTO cd= new TareaDetailDTO(tareaLogic.updateTarea(id, tarea.toEntity()));
-       if(cd==null)
+        TareaEntity entity = tareaLogic.findTareaById(id);
+        if(entity==null)
        {
            throw new  WebApplicationException("No existe una tarea con el id dado",404);
        }
-       
-       return cd;
+        return  new TareaDetailDTO(tareaLogic.updateTarea(id, tarea.toEntity()));
     }
 
     /**
