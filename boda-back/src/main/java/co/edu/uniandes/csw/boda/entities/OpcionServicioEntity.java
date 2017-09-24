@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -28,11 +29,11 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     /*
     private ProveedorEntity proveedor;    
     
-   */
-
+      */
+    @PodamExclude
     @OneToMany(mappedBy = "opcionServicio")
     private List<TareaEntity> tareas;
-
+  
     public String getDescripcion() {
         return descripcion;
     }
@@ -70,7 +71,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     public void setTareas(List<TareaEntity> tareas) {
         this.tareas = tareas;
     }
-      /*
+     /* 
    
 
     public ProveedorEntity getProveedor() {

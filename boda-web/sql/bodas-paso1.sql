@@ -48,4 +48,11 @@ insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'22/32/32', 'Nombr
 
 --Pruebas para OpcionServicio Entity
 
+
+delete from OpcionServicioEntity;
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
+
+
 ---Fin Calificacion OpcionServicio Entity

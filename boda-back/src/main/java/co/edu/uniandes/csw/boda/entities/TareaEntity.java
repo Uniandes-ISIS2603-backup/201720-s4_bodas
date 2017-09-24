@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.entities;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
