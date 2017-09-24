@@ -41,15 +41,15 @@ insert into RegaloEntity (name, comprado, imagen) values ( 'Lavadora', 0, 'https
 
 --Pruebas para Tarea Entity
 delete from TareaEntity;
-insert into TareaEntity(aprobada, dia,nombre) values (0,'2/2/2', 'Nombre');
-insert into TareaEntity(aprobada, dia,nombre) values (1,'22/22/22', 'Nombre1');
-insert into TareaEntity(aprobada, dia,nombre) values (0,'22/32/32', 'Nombre2');
+insert into TareaEntity(id,aprobada, dia,nombre) values (12,0,'2/2/2', 'Nombre');
+insert into TareaEntity(id,aprobada, dia,nombre) values (13,1,'22/22/22', 'Nombre1');
+insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'22/32/32', 'Nombre2');
 ---Fin Calificacion Tarea Entity
 
 --Pruebas para OpcionServicio Entity
 delete from OpcionServicioEntity;
-insert into OpcionServicioEntity(descripcion, costo,diasDisponibles) values ('descripcion1',12 ,'Lunes');
-insert into OpcionServicioEntity(descripcion, costo,diasDisponibles) values ('descripcion2',14 ,'Martes');
-insert into OpcionServicioEntity(descripcion, costo,diasDisponibles) values ('descripcion3',13 ,'Miercoles');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
 
 ---Fin Calificacion OpcionServicio Entity

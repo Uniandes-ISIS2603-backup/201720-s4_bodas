@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.TareaEntity;
+import java.util.Date;
 
 
 /**
@@ -19,7 +20,7 @@ public class TareaDTO {
    
     private Long id;
     private boolean aprobada;
-    private String  dia;
+    private Date  dia;
     private String nombre;
     
     
@@ -67,11 +68,11 @@ public class TareaDTO {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-     public String getDia() {
+     public Date getDia() {
         return dia;
     }
 
-    public void setDia(String dia) {
+    public void setDia(Date dia) {
         this.dia = dia;
     }
 

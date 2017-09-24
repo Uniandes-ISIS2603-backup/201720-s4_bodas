@@ -63,7 +63,8 @@ public class TareaLogic {
       * @param id
       * @param entity
       * @return TareaEntity
-      *@throws si no se encuentra una pareja con el id dado arroja BussinesLogicException
+     *  @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
+      *
       */
       public TareaEntity updateTarea(Long id, TareaEntity entity)throws BusinessLogicException
       {
@@ -89,6 +90,12 @@ public class TareaLogic {
         persistence.delete(id);
           LOGGER.info("Termina proceso de eliminar una tarea");  
       }
+      /**
+       * Encuentra una opcionServicio con el id Dado
+       * @param id
+       * @throws BusinessLogicException si no existe la opcionServicio con el id dado
+       * @return TareaEntity
+       */
        public TareaEntity findTareaById(Long id) throws BusinessLogicException{
         if(persistence.find(id)==null) throw new BusinessLogicException("No existe una tarea con el id dado.");
         return persistence.find(id);

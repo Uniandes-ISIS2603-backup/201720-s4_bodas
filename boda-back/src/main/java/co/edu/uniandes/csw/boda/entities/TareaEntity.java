@@ -6,7 +6,13 @@
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import uk.co.jemos.podam.common.PodamExclude;
+
 
 /**
  *
@@ -16,15 +22,18 @@ import javax.persistence.Entity;
 @Entity 
 public class TareaEntity extends BaseEntity implements Serializable {
     
-     private boolean aprobada;
-    private String  dia;
+    private boolean aprobada;
+    @Temporal(TemporalType.DATE)
+    private Date  dia;
     private String nombre;
     /*
     private BodaEntity boda;
     private UbicacionEntity ubicacion;
+   
+*/ 
+    @PodamExclude
+    @ManyToOne
     private OpcionServicioEntity opcionServicio;
-*/
- 
     public boolean getAprobada() {
         return aprobada;
     }
@@ -32,11 +41,11 @@ public class TareaEntity extends BaseEntity implements Serializable {
     public void setAprobada(boolean aprobada) {
         this.aprobada = aprobada;
     }
-      public String getDia() {
+      public Date getDia() {
         return dia;
     }
 
-    public void setDia(String dia) {
+    public void setDia(Date dia) {
         this.dia = dia;
     }
     public String getNombre() {
@@ -46,7 +55,13 @@ public class TareaEntity extends BaseEntity implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+     public OpcionServicioEntity getOpcionServicio() {
+        return opcionServicio;
+    }
+
+    public void setOpcionServicio(OpcionServicioEntity opcionServicio) {
+        this.opcionServicio = opcionServicio;
+    }
     
     /*
     public BodaEntity getBoda() {
@@ -63,12 +78,7 @@ public class TareaEntity extends BaseEntity implements Serializable {
     public void setUbicacion(UbicacionEntity ubicacion) {
         this.ubicacion = ubicacion;
     }
-     public OpcionServicioEntity getOpcionServicio() {
-        return opcionServicio;
-    }
-
-    public void setOpcionServicio(OpcionServicioEntity opcionServicio) {
-        this.opcionServicio = opcionServicio;
+    
     }
     */
 

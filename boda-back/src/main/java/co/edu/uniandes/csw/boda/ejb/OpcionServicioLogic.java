@@ -20,7 +20,7 @@ import javax.inject.Inject;
 
 @Stateless
 public class OpcionServicioLogic {
-         private static final Logger LOGGER = Logger.getLogger(OpcionServicioLogic.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(OpcionServicioLogic.class.getName());
     
      @Inject
     private OpcionServicioPersistence persistence;
@@ -53,7 +53,7 @@ public class OpcionServicioLogic {
         return opciones;
      }
      /*
-      *Solicita una tarea con el id dado 
+      *Solicita una opcionServicio con el id dado 
       * @param id
       * @return OpcionServicioEntity
       *@throws si no se encuentra una opcionServicio con el id dado arroja BussinesLogicException
@@ -97,6 +97,13 @@ public class OpcionServicioLogic {
         persistence.delete(id);
           LOGGER.info("Termina proceso de eliminar una opcion servicio");  
       }
+      
+       /**
+       * Encuentra una opcionServicio con el id Dado
+       * @param id
+       * @throws BusinessLogicException si no existe la opcionServicio con el id dado
+       * @return OpcionServicioEntity
+       */
  public OpcionServicioEntity findOpcionServicioById(Long id) throws BusinessLogicException{
         if(persistence.find(id)==null) throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
         return persistence.find(id);
