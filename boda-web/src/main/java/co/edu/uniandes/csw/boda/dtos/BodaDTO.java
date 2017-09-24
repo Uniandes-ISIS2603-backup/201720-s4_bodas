@@ -31,7 +31,6 @@ public class BodaDTO {
      * Constructor por defecto
      */
     public BodaDTO() {
-        //Do nothing because we use the getters and setters methods.
     }
     
     /**

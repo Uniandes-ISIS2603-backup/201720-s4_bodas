@@ -36,15 +36,6 @@ public class RegaloResource {
     @Inject
     RegaloLogic regaloLogic;
     
-    @GET
-    public RegaloDetailDTO getRegalo(Long id) throws BusinessLogicException {
-        RegaloEntity entity = regaloLogic.get(id);
-        if (entity == null) {
-            throw new WebApplicationException("El recurso /regalos/" + id + " no existe.", 404);
-        }
-        return new RegaloDetailDTO(entity);
-    }
-    
     @POST
     public RegaloDetailDTO createRegalo(RegaloDetailDTO regalo) throws BusinessLogicException {
         RegaloEntity regaloEntity = regalo.toEntity();

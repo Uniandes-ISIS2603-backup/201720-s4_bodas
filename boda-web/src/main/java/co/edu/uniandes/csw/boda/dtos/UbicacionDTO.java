@@ -26,7 +26,6 @@ public class UbicacionDTO {
      * Constructor por defecto
      */
     public UbicacionDTO() {
-     //Do nothing because we use the getters and setters methods.
     }
     
     /**

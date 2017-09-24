@@ -17,7 +17,6 @@ public class BodaDetailDTO extends BodaDTO{
      * Constructor por defecto
      */
     public BodaDetailDTO(){
-     //Do nothing because we use the getters and setters methods.
     }
     
      /**

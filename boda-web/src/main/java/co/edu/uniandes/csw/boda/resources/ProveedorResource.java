@@ -15,6 +15,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.websocket.server.PathParam;
 import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -27,8 +28,9 @@ import javax.ws.rs.WebApplicationException;
  *
  * @author aj.ortiz10
  */
-@Path("bodas")
+@Path("proveedores")
 @Produces("application/json")
+@Consumes("application/json")
 @Stateless
 public class ProveedorResource {
     
