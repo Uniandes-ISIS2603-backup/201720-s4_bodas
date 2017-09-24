@@ -30,8 +30,8 @@ public class BodaDTO {
     /**
      * Constructor por defecto
      */
-    @SuppressWarnings("unused")
     public BodaDTO() {
+        //Do nothing because we use the getters and setters methods.
     }
     
     /**
