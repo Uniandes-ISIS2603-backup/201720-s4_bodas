@@ -112,6 +112,7 @@ public class UbicacionResource {
        UbicacionEntity entity = ubicacionLogic.findUbicacionById(id);
         if(entity==null)
        {
+           System.out.println("no existe");
            throw new  WebApplicationException("No existe una ubicacion con el id dado",404);
        }
         return  new UbicacionDetailDTO(ubicacionLogic.updateUbicacion(id, ubicacion.toEntity()));

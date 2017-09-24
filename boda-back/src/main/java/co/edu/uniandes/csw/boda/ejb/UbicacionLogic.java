@@ -70,7 +70,10 @@ public class UbicacionLogic {
           LOGGER.info("Inicia proceso de actualizar una ubicacion");
           
           //Verifica que exista una ubicacion con el id dado
-          if(persistence.find(id)==null) throw new BusinessLogicException("No existe una ubicacion con el id dado.");
+          if(persistence.find(id)==null) 
+          {
+              throw new BusinessLogicException("No existe una ubicacion con el id dado.");
+          }
           
           //Actualiza la ubicacion  si existe
           persistence.update(entity);
