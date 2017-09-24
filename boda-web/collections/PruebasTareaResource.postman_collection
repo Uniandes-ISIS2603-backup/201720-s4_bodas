@@ -1,0 +1,272 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Pruebas del recurso Tarea",
+		"_postman_id": "d1fbc23c-5c42-fef7-58e0-4d1a9672ebea",
+		"description": "Pruebas para el recurso Tarea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consultar todas las tareas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " http://localhost:8080/boda-web/api/tareas",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Consulta de todas las tareas"
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta una tarea con un id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/tareas/12",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Consulta una tarea con un id dado"
+			},
+			"response": []
+		},
+		{
+			"name": "Error consultando una tarea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"]=responseCode.code===412"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "    http://localhost:8080/boda-web/api/tareas/120\n",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\",\n\t\"descripcion\": \"HOLA\",\n\t\"costo\": \"21\",\n\t\"diasDisponibles\":\"chao\"\n}"
+				},
+				"description": "Consulta de una tarea con un id que no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una nueva tarea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/tareas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"aprobada\": true,\n    \"dia\": \"1/1/1\",\n    \"id\": 111,\n    \"nombre\": \"Chao\"\n}"
+				},
+				"description": "Crea una nueva tarea"
+			},
+			"response": []
+		},
+		{
+			"name": "Error al crear nueva tarea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"]=responseCode.code===412"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/tareas",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": true,\n    \"dia\": \"1/1/1\",\n    \"id\": 12,\n    \"nombre\": \"Chao\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una tarea ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"]=responseCode.code===200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/tareas/14",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": false,\n    \"dia\": \"8/17/2017\",\n    \"id\":14,\n    \"nombre\": \"PruebaComida2\"\n}"
+				},
+				"description": "Actualiza una tarea"
+			},
+			"response": []
+		},
+		{
+			"name": "Error en actulizar una tarea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"]=responseCode.code===412"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/tareas/50",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": false,\n    \"dia\": \"8/17/2017\",\n    \"id\": 50,\n    \"nombre\": \"PruebaComida\"\n}"
+				},
+				"description": "Error en actualizar una tarea porque el id no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una tarea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"]=responseCode.code===204"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/tareas/12",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Borra una tarea"
+			},
+			"response": []
+		},
+		{
+			"name": "Error al eliminar una tarea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"]=responseCode.code===412"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/tareas/112",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Error al eliminar una tarea porque el id no existe"
+			},
+			"response": []
+		}
+	]
+}
