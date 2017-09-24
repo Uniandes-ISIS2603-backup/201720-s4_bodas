@@ -20,16 +20,18 @@ import javax.persistence.OneToMany;
 public class OpcionServicioEntity extends BaseEntity implements Serializable{
     
     private String descripcion;
-    private double  costo;
-    private List<String> diasDisponibles;
+    private Long  costo;
+    private String diasDisponibles;
     
     @OneToMany(mappedBy = "opcionServicio", cascade = CascadeType.ALL, orphanRemoval = true)
-     private List<CalificacionEntity> calificacion;
-   //private Proveedor proveedor;    
-   // private ArrayList<Tarea> tareas;
-   
+    private List<CalificacionEntity> calificacion;
+    /*
+    private ProveedorEntity proveedor;    
+    
+   */
 
-   
+    @OneToMany(mappedBy = "opcionServicio")
+    private List<TareaEntity> tareas;
 
     public String getDescripcion() {
         return descripcion;
@@ -38,21 +40,21 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-      public double getCosto() {
+      public Long getCosto() {
         return costo;
     }
 
-    public void setCosto(Double costo) {
+    public void setCosto(Long costo) {
         this.costo = costo;
     }
-    public List<String> getDiasDisponibles() {
+    public String getDiasDisponibles() {
         return diasDisponibles;
     }
 
-    public void setDiasDisponibles(List<String> diasDisponibles) {
+    public void setDiasDisponibles(String diasDisponibles) {
         this.diasDisponibles = diasDisponibles;
     }
-    
+  
      public List<CalificacionEntity> getCalificacion() {
         return calificacion;
     }
@@ -60,17 +62,25 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     public void setCalificacion(List<CalificacionEntity> calificacion) {
         this.calificacion = calificacion;
     }
-    /*
+    
+    public List<TareaEntity> getTareas() {
+        return tareas;
+    }
+
+    public void setTareas(List<TareaEntity> tareas) {
+        this.tareas = tareas;
+    }
+      /*
    
 
-    public Proveedor getProveedor() {
+    public ProveedorEntity getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(Proveedor proveedor) {
+    public void setProveedor(ProveedorEntity proveedor) {
         this.proveedor = proveedor;
     }
-    */
+   */
     
     
 }

@@ -11,6 +11,7 @@ import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -35,15 +36,6 @@ public class InvitadoResource {
     
     @Inject
     InvitadoLogic invitadoLogic;
-    
-    @GET
-    public InvitadoDetailDTO getInvitado(Long id){
-        InvitadoEntity entity = invitadoLogic.get(id);
-        if (entity == null) {
-            throw new WebApplicationException("El recurso /invitados/" + id + " no existe.", 404);
-        }
-        return new InvitadoDetailDTO(entity);
-    }
     
     @POST
     public InvitadoDetailDTO createInvitado(InvitadoDetailDTO invitado) throws BusinessLogicException {

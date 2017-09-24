@@ -17,7 +17,6 @@ public class UbicacionDetailDTO extends UbicacionDTO {
      * Constructor por defecto
      */
     public UbicacionDetailDTO(){
-     //Do nothing because we use the getters and setters methods.
     }
     
      /**
