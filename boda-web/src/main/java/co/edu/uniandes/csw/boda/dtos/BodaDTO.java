@@ -30,6 +30,7 @@ public class BodaDTO {
     /**
      * Constructor por defecto
      */
+    @SuppressWarnings("unused")
     public BodaDTO() {
     }
     
