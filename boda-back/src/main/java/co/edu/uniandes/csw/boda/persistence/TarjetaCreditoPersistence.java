@@ -73,7 +73,7 @@ public class TarjetaCreditoPersistence {
      * @return null si no existe ninguna TarjetaCredito con el numero del argumento.
      * Si existe alguna devuelve la primera.
      */
-    public TarjetaCreditoEntity findByNumDeSeg(Double numDeSeg) {
+    public TarjetaCreditoEntity findByNumDeSeg(int numDeSeg) {
         LOGGER.log(Level.INFO, "Consultando tarjetasCredito con numDeSeg= ", numDeSeg);
         TypedQuery<TarjetaCreditoEntity> q
                 = em.createQuery("select u from TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);

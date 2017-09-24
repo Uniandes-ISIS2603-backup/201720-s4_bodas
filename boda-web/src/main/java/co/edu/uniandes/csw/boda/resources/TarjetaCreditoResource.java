@@ -42,7 +42,7 @@ public class TarjetaCreditoResource {
     
     /**
      * POST http://localhost:8080/boda-web/api/parejas/tarjetasCredito Ejemplo
-     * json: {"numero": 0000 0000 0000 0000, "numDeSeg": 000, "fechaVen":"05-Dic-2017", "nombreBanco": "BancaMia}
+     * json: {"numero": 0000 0000 0000 0000, "numDeSeg": 000, "fechaVen":"05-Dic-2017", "nombreBanco": "BancaMia"}
      *
      * @param tarjeta correponde a la representación java del objeto json
      * enviado en el llamado.

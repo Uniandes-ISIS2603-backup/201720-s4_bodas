@@ -56,3 +56,10 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (
 
 
 ---Fin Calificacion OpcionServicio Entity
+
+-- Pruebas para TarjetaCreditoEntity
+delete from TarjetaCreditoEntity;
+insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (1, 1234567891234567, 753, 'Banca Mía');
+insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (2, 1111222244445555, 7534, 'Banca Tuya');
+insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (3, 0000555500005555, 7537, 'Banca Nuestra');
+--Fin pruebas para TarjetaCreditoEntity

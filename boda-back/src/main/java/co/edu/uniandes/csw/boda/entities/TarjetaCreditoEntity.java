@@ -10,7 +10,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class TarjetaCreditoEntity extends BaseEntity {
     private Long numero;
-    private Double numDeSeg;
+    private int numDeSeg;
     @Temporal(TemporalType.DATE)
     private Date fechaVen;
     
@@ -42,11 +42,11 @@ public class TarjetaCreditoEntity extends BaseEntity {
         this.numero = numero;
     }
 
-    public Double getNumDeSeg() {
+    public int getNumDeSeg() {
         return numDeSeg;
     }
 
-    public void setNumDeSeg(Double numDeSeg) {
+    public void setNumDeSeg(int numDeSeg) {
         this.numDeSeg = numDeSeg;
     }
 }

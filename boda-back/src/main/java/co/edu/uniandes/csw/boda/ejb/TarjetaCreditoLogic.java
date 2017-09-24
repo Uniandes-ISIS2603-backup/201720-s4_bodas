@@ -67,7 +67,7 @@ public class TarjetaCreditoLogic {
         if(entity == null){
             throw new BusinessLogicException("No se ha enviado informacion para actualizar la tarjeta de credito");
         }
-        if (!(entity.getNumDeSeg().equals(persistence.find(id).getNumDeSeg()))) {
+        if (entity.getNumDeSeg() != (persistence.find(id).getNumDeSeg())) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
         if (!(entity.getNumero().equals(persistence.find(id).getNumero()))) {
@@ -118,7 +118,7 @@ public class TarjetaCreditoLogic {
      * @param numDeSeg: numero de seguridad de la TarjetaCredito para ser buscada.
      * @return la TarjetaCredito solicitada por medio de su numDeSeg.
      */
-    public TarjetaCreditoEntity getTarjetaCreditoByNumDeSeg(Double numDeSeg) {
+    public TarjetaCreditoEntity getTarjetaCreditoByNumDeSeg(int numDeSeg) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar TarjetaCredito con numDeSeg={0}", numDeSeg);
         TarjetaCreditoEntity tarjeta = persistence.findByNumDeSeg(numDeSeg);
         if (tarjeta == null) {

@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 public class TarjetaCreditoDTO {
     private Long id;
     private Long numero;
-    private Double numDeSeg;
+    private int numDeSeg;
     @Temporal(TemporalType.DATE)
     private Date fechaVen;
     private String nombreBanco;
@@ -73,14 +73,14 @@ public class TarjetaCreditoDTO {
     /**
      * @return el numero de seguridad de la tarjeta de credito
      */
-    public Double getNumDeSeg() {
+    public int getNumDeSeg() {
         return numDeSeg;
     }
 
     /**
      * @param numDeSeg el numero de seguridad a cambiar
      */
-    public void setNumDeSeg(Double numDeSeg) {
+    public void setNumDeSeg(int numDeSeg) {
         this.numDeSeg = numDeSeg;
     }
 
