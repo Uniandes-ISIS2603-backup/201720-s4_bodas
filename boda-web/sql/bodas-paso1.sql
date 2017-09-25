@@ -39,12 +39,12 @@ insert into RegaloEntity (name, comprado, imagen) values ( 'Cama', 1, 'https://r
 insert into RegaloEntity (name, comprado, imagen) values ( 'Tendidos', 0, 'https://robohash.org/estutomnis.jpg?size=50x50&set=set1');
 insert into RegaloEntity (name, comprado, imagen) values ( 'Lavadora', 0, 'https://robohash.org/eadoloremquearchitecto.bmp?size=50x50&set=set1');
 
---Pruebas para Tarea Entity
+/*--Pruebas para Tarea Entity
 delete from TareaEntity;
 insert into TareaEntity(id,aprobada, dia,nombre) values (12,0,'2/2/2', 'Nombre');
 insert into TareaEntity(id,aprobada, dia,nombre) values (13,1,'22/22/22', 'Nombre1');
 insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'22/32/32', 'Nombre2');
----Fin Calificacion Tarea Entity
+---Fin Calificacion Tarea Entity*/
 
 --Pruebas para OpcionServicio Entity
 
@@ -59,14 +59,14 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (
 
 -- Pruebas para TarjetaCreditoEntity
 delete from TarjetaCreditoEntity;
-insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (1, 1234567891234567, 753, 'Banca Mía');
-insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (2, 1111222244445555, 7534, 'Banca Tuya');
-insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (3, 0000555500005555, 7537, 'Banca Nuestra');
+insert into TarjetaCreditoEntity(id, name, numero, numDeSeg, fechaVen) values (1, 'Banca Mía', 1234567891234567, 753, '3/29/2017');
+insert into TarjetaCreditoEntity(id, name, numero, numDeSeg, fechaVen) values (2, 'Banca Tuya', 1111222244445555, 7534, '10/9/2016');
+insert into TarjetaCreditoEntity(id, name, numero, numDeSeg, fechaVen) values (3, 'Banca Nuestra', 7000555500005555, 7537, '10/9/2016');
 --Fin pruebas para TarjetaCreditoEntity
 
 -- Pruebas para PagoEntity
 delete from PagoEntity;
-insert into PagoEntity(id, name, montoTotal) values (1, 'Pago por mesas', 200000);
-insert into PagoEntity(id, name, montoTotal) values (2, 'Pago por coctel', 70000);
-insert into PagoEntity(id, name, montoTotal) values (3, 'Pago por alcohol', 50000);
+insert into PagoEntity(id, name, montoTotal, fecha) values (1, 'Pago por mesas', 200000, '3/29/2017');
+insert into PagoEntity(id, name, montoTotal, fecha) values (2, 'Pago por coctel', 70000, '10/9/2016');
+insert into PagoEntity(id, name, montoTotal, fecha) values (3, 'Pago por alcohol', 50000, '10/9/2016');
 --Fin pruebas para PagoEntity

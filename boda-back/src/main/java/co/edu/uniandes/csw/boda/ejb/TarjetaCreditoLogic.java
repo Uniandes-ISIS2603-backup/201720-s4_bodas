@@ -34,7 +34,7 @@ public class TarjetaCreditoLogic {
      */
     public TarjetaCreditoEntity createTarjetaCredito(TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de TarjetaCredito");
-        if (persistence.findByNumDeSeg(entity.getNumDeSeg())!= null) {
+        /*if (persistence.findByNumDeSeg(entity.getNumDeSeg())!= null) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
         if (persistence.findByNumero(entity.getNumero())!= null) {
@@ -47,7 +47,7 @@ public class TarjetaCreditoLogic {
         int ingresoNumeroSeguridad = persistence.findByNumDeSeg(entity.getNumDeSeg()).toString().length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
             throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
-        }
+        }*/
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de TarjetaCredito");
         return entity;

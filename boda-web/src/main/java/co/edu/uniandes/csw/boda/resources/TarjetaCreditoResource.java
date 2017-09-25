@@ -41,7 +41,7 @@ public class TarjetaCreditoResource {
     private static final Logger LOGGER = Logger.getLogger(TarjetaCreditoPersistence.class.getName());
     
     /**
-     * POST http://localhost:8080/boda-web/api/parejas/tarjetasCredito Ejemplo
+     * POST http://localhost:8080/boda-web/api/tarjetasCredito Ejemplo
      * json: {"numero": 0000 0000 0000 0000, "numDeSeg": 000, "fechaVen":"05-Dic-2017", "nombreBanco": "BancaMia"}
      *
      * @param tarjeta correponde a la representación java del objeto json
@@ -58,7 +58,7 @@ public class TarjetaCreditoResource {
         return new TarjetaCreditoDetailDTO(nuevoTarjeta);
     }
     /**
-     * PUT http://localhost:8080/boda-web/api/parejas/tarjetasCredito/1 Ejemplo
+     * PUT http://localhost:8080/boda-web/api/tarjetasCredito/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
      *
      * @param id corresponde a la tarjetaCredito a actualizar.
@@ -82,7 +82,7 @@ public class TarjetaCreditoResource {
     }
 
     /**
-     * DELETE http://localhost:8080/boda-web/api/parejas/tarjetasCredito/1
+     * DELETE http://localhost:8080/boda-web/api/tarjetasCredito/1
      *
      * @param id corresponde a la tarjetaCredito a borrar.
      * @throws BusinessLogicException

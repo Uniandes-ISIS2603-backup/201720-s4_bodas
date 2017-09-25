@@ -20,7 +20,7 @@ public class TarjetaCreditoPersistence {
 
     /**
      *
-     * @param entity objeto Default que se creará en la base de datos
+     * @param entity objeto TarjetaCredito que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public TarjetaCreditoEntity create(TarjetaCreditoEntity entity) {

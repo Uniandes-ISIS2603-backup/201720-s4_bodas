@@ -7,6 +7,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
 
+/**
+ *
+ * @author ca.guerrero
+ */
 @Entity
 public class TarjetaCreditoEntity extends BaseEntity {
     private Long numero;
