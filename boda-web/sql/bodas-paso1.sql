@@ -63,3 +63,10 @@ insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (1, 12345678
 insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (2, 1111222244445555, 7534, 'Banca Tuya');
 insert into TarjetaCreditoEntity(id, numero, numDeSeg, name) values (3, 0000555500005555, 7537, 'Banca Nuestra');
 --Fin pruebas para TarjetaCreditoEntity
+
+-- Pruebas para PagoEntity
+delete from PagoEntity;
+insert into PagoEntity(id, name, montoTotal) values (1, 'Pago por mesas', 200000);
+insert into PagoEntity(id, name, montoTotal) values (2, 'Pago por coctel', 70000);
+insert into PagoEntity(id, name, montoTotal) values (3, 'Pago por alcohol', 50000);
+--Fin pruebas para PagoEntity
