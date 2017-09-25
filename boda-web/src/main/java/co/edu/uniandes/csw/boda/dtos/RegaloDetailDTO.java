@@ -6,6 +6,9 @@
 package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
+import co.edu.uniandes.csw.boda.entities.UbicacionEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,19 +16,46 @@ import co.edu.uniandes.csw.boda.entities.RegaloEntity;
  */
 public class RegaloDetailDTO extends RegaloDTO{
 
-     /**
+    
+    private List<UbicacionDTO> locations;
+    
+
+    /**
      * Constructor por defecto
      */
     public RegaloDetailDTO() {
+        super();
     }
 
     public RegaloDetailDTO(RegaloEntity entity) {
         super(entity);
+        if (entity.getLocations() != null) {
+            locations = new ArrayList<>();
+            for (UbicacionEntity entityUbicacion : entity.getLocations()) {
+                locations.add(new UbicacionDTO(entityUbicacion));
+            }
+
+        }
     }
 
     @Override
     public RegaloEntity toEntity() {
-        return super.toEntity(); 
+        RegaloEntity regaloE = super.toEntity();
+        if (locations != null) {
+            List<UbicacionEntity> locationsEntity = new ArrayList<>();
+            for (UbicacionDTO dtoAuthor : locations) {
+                locationsEntity.add(dtoAuthor.toEntity());
+            }
+            regaloE.setLocations(locationsEntity);
+        }
+        return regaloE;
     }
     
+    public List<UbicacionDTO> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<UbicacionDTO> locations) {
+        this.locations = locations;
+    }
 }

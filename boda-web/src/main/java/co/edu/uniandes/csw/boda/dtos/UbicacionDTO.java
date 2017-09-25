@@ -22,6 +22,8 @@ public class UbicacionDTO {
     private int telefono;
     private String direccion;
     
+    
+    
     /**
      * Constructor por defecto
      */

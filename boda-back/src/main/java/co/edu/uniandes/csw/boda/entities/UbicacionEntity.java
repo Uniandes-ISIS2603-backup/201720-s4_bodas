@@ -58,5 +58,13 @@ public class UbicacionEntity extends BaseEntity implements Serializable {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
+    public List<RegaloEntity> getRegalos() {
+        return regalos;
+    }
+
+    public void setRegalos(List<RegaloEntity> regalos) {
+        this.regalos = regalos;
+    }
     
 }
