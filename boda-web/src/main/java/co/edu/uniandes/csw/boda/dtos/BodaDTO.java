@@ -31,6 +31,7 @@ public class BodaDTO {
      * Constructor por defecto
      */
     public BodaDTO() {
+        //Constructor por defecto
     }
     
     /**

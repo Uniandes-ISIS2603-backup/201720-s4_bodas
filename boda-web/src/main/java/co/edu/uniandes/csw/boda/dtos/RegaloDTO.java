@@ -22,6 +22,7 @@ public class RegaloDTO {
      * Constructor por defecto
      */
     public RegaloDTO(){
+        //Constructor por defecto
     }
     
     public RegaloDTO(RegaloEntity entity) {

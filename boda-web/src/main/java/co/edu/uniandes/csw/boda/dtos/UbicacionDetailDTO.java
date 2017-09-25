@@ -17,6 +17,7 @@ public class UbicacionDetailDTO extends UbicacionDTO {
      * Constructor por defecto
      */
     public UbicacionDetailDTO(){
+        //Constructor por defecto
     }
     
      /**

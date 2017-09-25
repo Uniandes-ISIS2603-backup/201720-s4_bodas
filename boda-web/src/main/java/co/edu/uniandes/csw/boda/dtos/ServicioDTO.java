@@ -18,6 +18,7 @@ public class ServicioDTO {
     public String descripcion;
     
     public ServicioDTO(){
+        //Constructor por defecto
 
     }
     

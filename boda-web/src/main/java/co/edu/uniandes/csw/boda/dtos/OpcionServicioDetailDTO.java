@@ -19,6 +19,7 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
      * Constructor por defecto
      */
     public OpcionServicioDetailDTO(){
+        //Constructor por defecto
     }
     
      /**

@@ -16,6 +16,7 @@ public class ProveedorDetailDTO extends ProveedorDTO{
      * Constructor por defecto
      */
     public ProveedorDetailDTO() {
+        //Constructor por defecto
     }
 
     /**

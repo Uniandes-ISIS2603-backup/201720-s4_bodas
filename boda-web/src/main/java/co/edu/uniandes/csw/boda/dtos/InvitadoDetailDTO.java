@@ -19,6 +19,7 @@ public class InvitadoDetailDTO extends InvitadoDTO{
      * Constructor por defecto
      */
     public InvitadoDetailDTO() {
+        //Constructor por defecto
     }
     
     public InvitadoDetailDTO(InvitadoEntity entity){
