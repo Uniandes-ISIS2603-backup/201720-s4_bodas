@@ -7,7 +7,10 @@
     <name>boda</name>
     <packaging>pom</packaging>
     <version>0.1.0</version>
-    <modules></modules>
+    <modules>
+        <module>boda-web</module>
+        <module>boda-back</module>
+    </modules>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
