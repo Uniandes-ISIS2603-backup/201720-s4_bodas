@@ -28,7 +28,7 @@ import javax.ws.rs.WebApplicationException;
  * @author aj.ortiz10
  */
  
-@Path("bodas")
+@Path("servicios")
 @Produces("application/json")
 @Stateless
 public class ServicioResource {

@@ -27,11 +27,19 @@ public class TareaEntity extends BaseEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date  dia;
     private String nombre;
-    /*
+
+    @PodamExclude
+    @ManyToOne
     private BodaEntity boda;
-    private UbicacionEntity ubicacion;
-   
-*/ 
+
+    public BodaEntity getBoda() {
+        return boda;
+    }
+
+    public void setBoda(BodaEntity boda) {
+        this.boda = boda;
+    }
+    
     @PodamExclude
     @ManyToOne
     private OpcionServicioEntity opcionServicio;
@@ -64,23 +72,4 @@ public class TareaEntity extends BaseEntity implements Serializable {
         this.opcionServicio = opcionServicio;
     }
     
-    /*
-    public BodaEntity getBoda() {
-        return boda;
-    }
-
-    public void setBoda(BodaEntity boda) {
-        this.boda = boda;
-    }
-    public UbicacionEntity getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(UbicacionEntity ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-    
-    }
-    */
-
 }

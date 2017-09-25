@@ -47,7 +47,7 @@ public class ParejaResource {
      * @throws BusinessLogicException
      */
     @POST
-    public ParejaDetailDTO createEditorial(ParejaDetailDTO pareja) throws BusinessLogicException {
+    public ParejaDetailDTO createPareja(ParejaDetailDTO pareja) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         ParejaEntity editorialEntity = pareja.toEntity();
         // Invoca la lógica para crear la editorial nueva
