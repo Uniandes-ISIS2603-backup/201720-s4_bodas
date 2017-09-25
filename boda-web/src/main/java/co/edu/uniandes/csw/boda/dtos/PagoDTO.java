@@ -36,7 +36,7 @@ public class PagoDTO {
         this.id = pago.getId();
         this.montoTotal = pago.getMontoTotal();
         this.fecha = pago.getFecha();
-        this.nombrePago = pago.getName();
+     
     }
 
      /**
@@ -103,7 +103,6 @@ public class PagoDTO {
         entity.setId(this.id);
         entity.setMontoTotal(this.montoTotal);
         entity.setFecha(this.fecha);
-        entity.setName(this.nombrePago);
         return entity;
     }
 }

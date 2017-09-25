@@ -45,7 +45,7 @@ public class OpcionServicioDTO {
         
         this.id=opcionServicio.getId();
         this.descripcion = opcionServicio.getDescripcion();
-        this.costo = opcionServicio.getCosto();
+        this.costo = opcionServicio.getCosto(); 
         this.diasDisponibles = opcionServicio.getDiasDisponibles();
     }
     public Long getId() {
