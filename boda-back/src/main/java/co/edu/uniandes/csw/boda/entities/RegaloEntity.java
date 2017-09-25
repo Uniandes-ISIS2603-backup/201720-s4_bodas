@@ -30,6 +30,14 @@ public class RegaloEntity extends BaseEntity implements Serializable {
     @ManyToMany
     private List<UbicacionEntity> locations;
 
+    public List<UbicacionEntity> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<UbicacionEntity> locations) {
+        this.locations = locations;
+    }
+
     public BodaEntity getBoda() {
         return boda;
     }

@@ -23,7 +23,7 @@
 			"id": "1746cd97-c418-1633-ca8a-46f345846352",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8080/boda-web/api/bodas/45",
+			"url": "http://localhost:8080/boda-web/api/bodas/3",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -134,7 +134,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/boda-web/api/bodas/39",
+			"url": "http://localhost:8080/boda-web/api/bodas/2",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -201,7 +201,7 @@
 			"id": "d4a9af2b-b286-dbaa-6e56-60b235e5dbe4",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8080/boda-web/api/bodas/41",
+			"url": "http://localhost:8080/boda-web/api/bodas/1",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},

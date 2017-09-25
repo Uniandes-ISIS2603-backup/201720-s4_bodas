@@ -11,7 +11,6 @@ import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -28,42 +27,50 @@ import javax.ws.rs.WebApplicationException;
  *
  * @author mf.valllejo
  */
-@Path("invitados")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
 public class InvitadoResource {
     
     @Inject
     InvitadoLogic invitadoLogic;
+
+    @GET
+    @Path("{id: \\d+}")
+    public InvitadoDetailDTO getInvitado(@PathParam("idBoda") Long idBoda , @PathParam("id") Long id) throws BusinessLogicException {
+        InvitadoEntity entity = invitadoLogic.get(idBoda,id);
+        if(entity == null){
+            throw new  WebApplicationException("No existe un invitado con el id dado",404);
+        }
+        return new InvitadoDetailDTO(entity) ;
+    }
     
     @POST
-    public InvitadoDetailDTO createInvitado(InvitadoDetailDTO invitado) throws BusinessLogicException {
+    public InvitadoDetailDTO createInvitado(@PathParam("idBoda") Long idBoda,InvitadoDetailDTO invitado) throws BusinessLogicException {
         InvitadoEntity invitadoEntity = invitado.toEntity();
-        InvitadoEntity nuevoInvitado = invitadoLogic.createInvitado(invitadoEntity);
+        InvitadoEntity nuevoInvitado = invitadoLogic.createInvitado(idBoda,invitadoEntity);
         return new InvitadoDetailDTO(nuevoInvitado);
     }
     
     @GET
-    public List<InvitadoDetailDTO> getInvitados() throws BusinessLogicException {
-        return listEntity2DetailDTO(invitadoLogic.getInvitados());
+    public List<InvitadoDetailDTO> getInvitados(@PathParam("idBoda") Long idBoda) throws BusinessLogicException {
+        return listEntity2DetailDTO(invitadoLogic.getInvitados(idBoda));
     }
     
     @PUT
     @Path("{id: \\d+}")
-    public InvitadoDetailDTO updateInvitado(@PathParam("id") Long id, InvitadoDetailDTO invitado) throws BusinessLogicException {
+    public InvitadoDetailDTO updateInvitado(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id, InvitadoDetailDTO invitado) throws BusinessLogicException {
         invitado.setId(id);
-        InvitadoEntity entity = invitadoLogic.get(id);
+        InvitadoEntity entity = invitadoLogic.get(idBoda,id);
         if(entity != null){
             throw new WebApplicationException("El recurso /invitados/" + id + " no existe.", 404);
         }
-        return new InvitadoDetailDTO(invitadoLogic.update(invitado.toEntity()));
+        return new InvitadoDetailDTO(invitadoLogic.update(idBoda,invitado.toEntity()));
     }
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteInvitado(@PathParam("id") Long id) throws BusinessLogicException {
-        InvitadoEntity entity = invitadoLogic.get(id);
+    public void deleteInvitado(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id) throws BusinessLogicException {
+        InvitadoEntity entity = invitadoLogic.get(idBoda,id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /invitados/" + id + " no existe.", 404);
         }

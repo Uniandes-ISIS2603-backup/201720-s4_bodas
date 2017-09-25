@@ -152,6 +152,24 @@ public class BodaResource {
         }
         return list;
     }
+    
+    @Path("{idBoda: \\d+}/regalos")
+    public Class<RegaloResource> getRegaloResource(@PathParam("idBoda") Long bodaId) throws BusinessLogicException {
+        BodaEntity entity = bodaLogic.findBodaById(bodaId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /boda/" + bodaId + "/regalos no existe.", 404);
+        }
+        return RegaloResource.class;
+    }
+    
+     @Path("{idBoda: \\d+}/invitados")
+    public Class<InvitadoResource> getInvitadoResource(@PathParam("idBoda") Long bodaId) throws BusinessLogicException {
+        BodaEntity entity = bodaLogic.findBodaById(bodaId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /boda/" + bodaId + "/regalos no existe.", 404);
+        }
+        return InvitadoResource.class;
+    }
 
 }
 

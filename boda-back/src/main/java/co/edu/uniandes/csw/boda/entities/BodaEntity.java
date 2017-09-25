@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -37,11 +38,11 @@ public class BodaEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
-    private List<InvitadoEntity> invitados;
+    private List<InvitadoEntity> invitados = new ArrayList<InvitadoEntity>();
     
     @PodamExclude
     @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
-    private List<RegaloEntity> regalos;
+    private List<RegaloEntity> regalos = new ArrayList<RegaloEntity>();
 
     public List<InvitadoEntity> getInvitados() {
         return invitados;

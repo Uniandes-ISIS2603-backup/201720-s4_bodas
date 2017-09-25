@@ -14,6 +14,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -26,13 +27,21 @@ public class RegaloPersistence {
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
     
-    public RegaloEntity find(Long id){
-        return em.find(RegaloEntity.class, id);
-    }
-    
-    public List<RegaloEntity>  findAll(){
-        TypedQuery query = em.createQuery("select u from RegaloEntity u", RegaloEntity.class);
-        return query.getResultList();
+    public RegaloEntity find(Long bodaId,Long regaloId){
+        TypedQuery<RegaloEntity> q = em.createQuery("select p from RegaloEntity p where (p.boda.id = :bodaId) and (p.id = :regaloId)", RegaloEntity.class);
+        q.setParameter("bodaId", bodaId);
+        q.setParameter("regaloId", regaloId);
+        List<RegaloEntity> results = q.getResultList();
+        RegaloEntity regalo = null;
+        if (results == null) {
+            regalo = null;
+        } else if (results.isEmpty()) {
+            regalo = null;
+        } else if (results.size() >= 1) {
+            regalo = results.get(0);
+        }
+
+        return regalo;
     }
     
     public RegaloEntity create(RegaloEntity entity) {
@@ -53,6 +62,16 @@ public class RegaloPersistence {
         LOGGER.log(Level.INFO, "Consultando regalo por nombre ", name);
         TypedQuery<RegaloEntity> query = em.createQuery("Select e From RegaloEntity e where e.name = :name", RegaloEntity.class);
         query = query.setParameter("name", name);
-        return query.getSingleResult();
+        List<RegaloEntity> results = query.getResultList();
+        RegaloEntity regalo = null;
+        if (results == null) {
+            regalo = null;
+        } else if (results.isEmpty()) {
+            regalo = null;
+        } else if (results.size() >= 1) {
+            regalo = results.get(0);
+        }
+
+        return regalo;
     }
 }

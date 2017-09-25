@@ -26,15 +26,23 @@ public class InvitadoPersistence {
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
     
-    public InvitadoEntity find(Long id){
-        return em.find(InvitadoEntity.class, id);
+    public InvitadoEntity find(Long bodaId,Long invitadoId){
+         TypedQuery<InvitadoEntity> q = em.createQuery("select p from InvitadoEntity p where (p.boda.id = :bodaId) and (p.id = :invitadooId)", InvitadoEntity.class);
+        q.setParameter("bodaId", bodaId);
+        q.setParameter("invitadoId", invitadoId);
+        List<InvitadoEntity> results = q.getResultList();
+        InvitadoEntity invitado = null;
+        if (results == null) {
+            invitado = null;
+        } else if (results.isEmpty()) {
+            invitado = null;
+        } else if (results.size() >= 1) {
+            invitado = results.get(0);
+        }
+
+        return invitado;
     }
-    
-    public List<InvitadoEntity>  findAll(){
-        Query q = em.createQuery("select u from InvitadoEntity u");
-        return q.getResultList();
-    }
-    
+
     public InvitadoEntity create(InvitadoEntity entity) {
         em.persist(entity);
         return entity;
@@ -53,6 +61,15 @@ public class InvitadoPersistence {
         LOGGER.log(Level.INFO, "Consultando invitado por documento ", documento);
         TypedQuery<InvitadoEntity> query = em.createQuery("Select e From InvitadoEntity e where e.documento = :documento", InvitadoEntity.class);
         query = query.setParameter("documento", documento);
-        return query.getSingleResult();
+        List<InvitadoEntity> results = query.getResultList();
+        InvitadoEntity invitado = null;
+        if (results == null) {
+            invitado = null;
+        } else if (results.isEmpty()) {
+            invitado = null;
+        } else if (results.size() >= 1) {
+            invitado = results.get(0);
+        }
+        return invitado;
     }
 }

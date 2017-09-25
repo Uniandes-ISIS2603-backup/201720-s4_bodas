@@ -100,34 +100,16 @@ public class RegaloPersistenceTest {
         }
     }
 
-    /**
-     * Test of find method, of class RegaloPersistence.
-     */
-    @Test
-    public void testFind(){
-        RegaloEntity entity = data.get(0);
-        RegaloEntity newEntity = persistence.find(entity.getId());
-        Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
-    }
-
-    /**
-     * Test of findAll method, of class RegaloPersistence.
-     */
-    @Test
-    public void testFindAll(){
-        List<RegaloEntity> list = persistence.findAll();
-        Assert.assertEquals(data.size(), list.size());
-        for (RegaloEntity ent : list) {
-            boolean found = false;
-            for (RegaloEntity entity : data) {
-                if (ent.getId().equals(entity.getId())) {
-                found = true;
-                }
-            }
-            Assert.assertTrue(found);
-        }
-    }
+//    /**
+//     * Test of find method, of class RegaloPersistence.
+//     */
+//    @Test
+//    public void testFind(){
+//        RegaloEntity entity = data.get(0);
+//        RegaloEntity newEntity = persistence.find(entity.getId());
+//        Assert.assertNotNull(newEntity);
+//        Assert.assertEquals(entity.getName(), newEntity.getName());
+//    }
 
     /**
      * Test of create method, of class RegaloPersistence.

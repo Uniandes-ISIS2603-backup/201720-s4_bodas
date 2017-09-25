@@ -27,42 +27,50 @@ import javax.ws.rs.WebApplicationException;
  *
  * @author mf.valllejo
  */
-@Path("regalos")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
 public class RegaloResource {
     
     @Inject
     RegaloLogic regaloLogic;
     
+    @GET
+    @Path("{id: \\d+}")
+    public RegaloDetailDTO getRegalo(@PathParam("idBoda") Long idBoda , @PathParam("id") Long id) throws BusinessLogicException {
+        RegaloEntity entity = regaloLogic.get(idBoda,id);
+        if(entity == null){
+            throw new WebApplicationException("El recurso /bodas/" + idBoda + "/regalos/" + id + " no existe.", 404);
+        }
+        return new RegaloDetailDTO(entity) ;
+    }
+    
     @POST
-    public RegaloDetailDTO createRegalo(RegaloDetailDTO regalo) throws BusinessLogicException {
+    public RegaloDetailDTO createRegalo(@PathParam("idBoda") Long idBoda,RegaloDetailDTO regalo) throws BusinessLogicException {
         RegaloEntity regaloEntity = regalo.toEntity();
-        RegaloEntity nuevoRegalo = regaloLogic.createRegalo(regaloEntity);
+        RegaloEntity nuevoRegalo = regaloLogic.createRegalo(idBoda,regaloEntity);
         return new RegaloDetailDTO(nuevoRegalo);
     }
     
     @GET
-    public List<RegaloDetailDTO> getregalos() throws BusinessLogicException {
-        return listEntity2DetailDTO(regaloLogic.getRegalos());
+    public List<RegaloDetailDTO> getregalos(@PathParam("idBoda") Long idBoda) throws BusinessLogicException {
+        return listEntity2DetailDTO(regaloLogic.getRegalos(idBoda));
     }
     
     @PUT
     @Path("{id: \\d+}")
-    public RegaloDetailDTO updateRegalo(@PathParam("id") Long id, RegaloDetailDTO regalo) throws BusinessLogicException {
+    public RegaloDetailDTO updateRegalo(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id, RegaloDetailDTO regalo) throws BusinessLogicException {
         regalo.setId(id);
-        RegaloEntity entity = regaloLogic.get(id);
+        RegaloEntity entity = regaloLogic.get(idBoda,id);
         if(entity != null){
             throw new WebApplicationException("El recurso /regalos/" + id + " no existe.", 404);
         }
-        return new RegaloDetailDTO(regaloLogic.update(regalo.toEntity()));
+        return new RegaloDetailDTO(regaloLogic.update(idBoda,regalo.toEntity()));
     }
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteRegalo(@PathParam("id") Long id) throws BusinessLogicException {
-        RegaloEntity entity = regaloLogic.get(id);
+    public void deleteRegalo(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id) throws BusinessLogicException {
+        RegaloEntity entity = regaloLogic.get(idBoda,id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /regalos/" + id + " no existe.", 404);
         }

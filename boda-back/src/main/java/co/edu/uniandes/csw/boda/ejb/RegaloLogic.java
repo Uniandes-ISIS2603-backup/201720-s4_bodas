@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.RegaloPersistence;
@@ -24,9 +25,14 @@ public class RegaloLogic {
 
     @Inject
     RegaloPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+    
+    @Inject
+    BodaLogic bodaLogic;
 
-    public RegaloEntity createRegalo(RegaloEntity entity) throws BusinessLogicException {
+    public RegaloEntity createRegalo(Long bodaId,RegaloEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de un regalo");
+        BodaEntity boda = bodaLogic.findBodaById(bodaId);
+        entity.setBoda(boda);
         if (persistence.findByName(entity.getName()) != null){
             throw new BusinessLogicException("Ya existe un regalo con el nombre \"" + entity.getName() + "\"");
         }
@@ -35,18 +41,25 @@ public class RegaloLogic {
         return entity;
     }
 
-    public List<RegaloEntity> getRegalos() {
+    public List<RegaloEntity> getRegalos(Long bodaId) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de consultar todas los Regalos");
-        List<RegaloEntity> regalos = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todas los Regalos");
-        return regalos;
+        BodaEntity boda = bodaLogic.findBodaById(bodaId);
+        if (boda.getRegalos() == null) {
+            throw new BusinessLogicException("La boda que consulta aún no tiene regalos");
+        }
+        if (boda.getRegalos().isEmpty()) {
+            throw new BusinessLogicException("La boda que consulta aún no tiene regalos");
+        }
+        return boda.getRegalos();
     }
 
-    public RegaloEntity get(Long id) {
-        return persistence.find(id);
+    public RegaloEntity get(Long bodaId,Long id) {
+        return persistence.find(bodaId,id);
     }
 
-    public RegaloEntity update(RegaloEntity entity) {
+    public RegaloEntity update(Long bodaId,RegaloEntity entity) throws BusinessLogicException {
+        BodaEntity boda = bodaLogic.findBodaById(bodaId);
+        entity.setBoda(boda);
         return persistence.update(entity);
     }
 
