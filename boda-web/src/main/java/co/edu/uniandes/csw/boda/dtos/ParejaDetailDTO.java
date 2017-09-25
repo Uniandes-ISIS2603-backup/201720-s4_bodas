@@ -14,6 +14,7 @@ import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 public class ParejaDetailDTO  extends ParejaDTO {
 
     public ParejaDetailDTO() {
+        //Constructor por defecto
     }
 
     public ParejaDetailDTO(ParejaEntity pareja) {

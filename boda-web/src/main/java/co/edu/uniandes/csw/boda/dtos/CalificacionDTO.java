@@ -22,6 +22,7 @@ public class CalificacionDTO {
     private double calificacionNum;
 
     public CalificacionDTO() {
+       //Constructor por defecto
     }
     
     public CalificacionDTO(CalificacionEntity calificacion ) {

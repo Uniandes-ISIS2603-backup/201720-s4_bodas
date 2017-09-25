@@ -28,6 +28,7 @@ public class UbicacionDTO {
      * Constructor por defecto
      */
     public UbicacionDTO() {
+        //Constructor por defecto
     }
     
     /**

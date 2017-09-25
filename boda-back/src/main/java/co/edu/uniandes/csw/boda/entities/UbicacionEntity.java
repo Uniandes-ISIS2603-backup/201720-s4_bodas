@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -26,6 +27,10 @@ public class UbicacionEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToMany
     private List<RegaloEntity> regalos;
+    
+    @PodamExclude
+    @OneToOne
+    private TareaEntity tarea;
 
     public Long getLatitud() {
         return latitud;
@@ -65,6 +70,14 @@ public class UbicacionEntity extends BaseEntity implements Serializable {
 
     public void setRegalos(List<RegaloEntity> regalos) {
         this.regalos = regalos;
+    }
+
+    public TareaEntity getTarea() {
+        return tarea;
+    }
+
+    public void setTarea(TareaEntity tarea) {
+        this.tarea = tarea;
     }
     
 }

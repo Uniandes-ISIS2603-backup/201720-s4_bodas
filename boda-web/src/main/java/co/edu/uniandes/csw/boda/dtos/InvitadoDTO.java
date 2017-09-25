@@ -24,6 +24,7 @@ public class InvitadoDTO {
      * Constructor por defecto
      */
     public InvitadoDTO(){
+        //Constructor por defecto
     }
     
     public InvitadoDTO(InvitadoEntity invitado){

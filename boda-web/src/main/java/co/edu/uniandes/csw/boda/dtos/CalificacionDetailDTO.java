@@ -14,6 +14,7 @@ import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 public class CalificacionDetailDTO extends CalificacionDTO {
 
     public CalificacionDetailDTO() {
+        //Constructor por defecto
     }
 
     public CalificacionDetailDTO(CalificacionEntity calificacion) {

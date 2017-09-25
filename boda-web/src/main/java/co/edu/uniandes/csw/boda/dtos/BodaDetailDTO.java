@@ -23,6 +23,7 @@ public class BodaDetailDTO extends BodaDTO{
      * Constructor por defecto
      */
     public BodaDetailDTO(){
+       //Constructor por defecto
     }
     
      /**

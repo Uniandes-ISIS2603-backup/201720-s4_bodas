@@ -33,6 +33,7 @@ public class OpcionServicioDTO {
      * Constructor por defecto
      */
     public OpcionServicioDTO() {
+        //Constructor por defecto
     }
     
     /**

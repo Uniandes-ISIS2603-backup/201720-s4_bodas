@@ -41,6 +41,7 @@ public class ParejaDTO {
      * Constructor por defecto
      */
     public ParejaDTO() {
+        //Constructor por defecto
     }
     
     /**

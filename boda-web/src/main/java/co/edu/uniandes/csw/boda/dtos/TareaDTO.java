@@ -28,6 +28,7 @@ public class TareaDTO {
      * Constructor por defecto
      */
     public TareaDTO() {
+        //Constructor por defecto
     }
     
     /**
