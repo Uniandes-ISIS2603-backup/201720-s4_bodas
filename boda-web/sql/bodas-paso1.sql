@@ -1,7 +1,10 @@
 --Pruebas para Pareja Entity
+delete from RegaloEntity_UbicacionEntity;
 delete from ParejaEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
+delete from calificacionentity;
+delete from TareaEntity;
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 79, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
 ---Fin Pruebas Pareja Entity
@@ -20,9 +23,18 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
 ---Fin Pruebas UbicacionEntity
 
+--Pruebas para Regalo Entity
+
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (100, 'Cama', 1, 'https://robohash.org/addeseruntvero.jpg?size=50x50&set=set1',1);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (200, 'Tendidos', 0, 'https://robohash.org/estutomnis.jpg?size=50x50&set=set1',1);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (300, 'Lavadora', 0, 'https://robohash.org/eadoloremquearchitecto.bmp?size=50x50&set=set1',2);
+
+insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (100,1);
+insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (100,2);
+insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (200,2);
+insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (200,3);
 
 --Pruebas para Calificacion Entity
-delete from calificacionentity;
 insert into calificacionentity (comentario, calificacionNum) values ('kQBADEH JERKKW ZDSI', 4);
 insert into calificacionentity (comentario, calificacionNum) values ('oFABDOL YEZPUU ETSN', 5);
 insert into calificacionentity (comentario, calificacionNum) values ('gQUMMPI DNPMSV DIWL', 5);
@@ -35,14 +47,8 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
 
---Pruebas para Regalo Entity
-
-insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (1, 'Cama', 1, 'https://robohash.org/addeseruntvero.jpg?size=50x50&set=set1',1);
-insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (2, 'Tendidos', 0, 'https://robohash.org/estutomnis.jpg?size=50x50&set=set1',1);
-insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (3, 'Lavadora', 0, 'https://robohash.org/eadoloremquearchitecto.bmp?size=50x50&set=set1',2);
 
 --Pruebas para Tarea Entity
-delete from TareaEntity;
 insert into TareaEntity(id,aprobada, dia,nombre) values (12,0,'2/2/2', 'Nombre');
 insert into TareaEntity(id,aprobada, dia,nombre) values (13,1,'22/22/22', 'Nombre1');
 insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'22/32/32', 'Nombre2');
@@ -51,10 +57,10 @@ insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'22/32/32', 'Nombr
 --Pruebas para OpcionServicio Entity
 
 
-delete from OpcionServicioEntity;
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
+--delete from OpcionServicioEntity;
+--insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
+--insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
+--insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
 
 
 ---Fin Calificacion OpcionServicio Entity
