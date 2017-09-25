@@ -55,7 +55,7 @@ public class ParejaDTO {
         this.nombreAbreviado = pareja.getNombreAbreviado();
         this.nombreInd1 = pareja.getNombreInd1();
         this.nombreInd2 = pareja.getNombreInd2();
-        this.pago = pareja.getPago();
+        this.pago = pareja.isPago();
         this.telefono = pareja.getTelefono();
     
     }
