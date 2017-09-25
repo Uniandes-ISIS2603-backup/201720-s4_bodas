@@ -42,6 +42,19 @@ public class BodaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
     private List<RegaloEntity> regalos;
+    
+    
+    @PodamExclude
+    @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
+    private List<TareaEntity> tareas;
+
+    public List<TareaEntity> getTareas() {
+        return tareas;
+    }
+
+    public void setTareas(List<TareaEntity> tareas) {
+        this.tareas = tareas;
+    }
 
     public List<InvitadoEntity> getInvitados() {
         return invitados;
