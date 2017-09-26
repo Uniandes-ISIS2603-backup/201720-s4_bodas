@@ -3,8 +3,9 @@ delete from RegaloEntity_UbicacionEntity;
 delete from ParejaEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
-delete from OpcionServicioEntity;
 delete from calificacionentity;
+delete from OpcionServicioEntity;
+
 delete from TareaEntity;
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 79, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
@@ -53,6 +54,7 @@ insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'3/29/2017', 'Nomb
 ---Fin Calificacion Tarea Entity
 
 --Pruebas para OpcionServicio Entity
+
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
@@ -60,10 +62,10 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (
 
 
 --Pruebas para Calificacion Entity
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'kQBADEH JERKKW ZDSI', 4);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'oFABDOL YEZPUU ETSN', 5);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'gQUMMPI DNPMSV DIWL', 5);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (13,'mGKZXTE POZSBU ODLB', 2);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'kQBADEH JERKKW ZDSI', 4,1);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'oFABDOL YEZPUU ETSN', 5,2);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'gQUMMPI DNPMSV DIWL', 5,3);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (13,'mGKZXTE POZSBU ODLB', 2,4);
 ---Fin Calificacion Pareja Entity
 
 --Pruebas ProveedorEntity

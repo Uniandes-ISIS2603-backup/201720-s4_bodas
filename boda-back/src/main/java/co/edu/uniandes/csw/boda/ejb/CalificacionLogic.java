@@ -76,7 +76,7 @@ public class CalificacionLogic {
       * Borra la calificacion con el id dado
       */
     public void deleteCalificacion(Long id)throws BusinessLogicException{
-        LOGGER.info("Inicia proceso de actualizar  la calificacion con el id dado.");
+        LOGGER.info("Inicia proceso de borrar  la calificacion con el id dado.");
         persistence.delete(id);
     }
 }
