@@ -21,15 +21,16 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
  * @author nf.ortiz
  */
-@Path("calificaciones")
+
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
+
 public class CalificacionResource  {
     @Inject
     CalificacionLogic logic;
@@ -46,32 +47,33 @@ public class CalificacionResource  {
      * @throws BusinessLogicException
      */
     @POST
-    public CalificacionDetailDTO create(CalificacionDetailDTO calif) throws BusinessLogicException{
-        
-        return new CalificacionDetailDTO(logic.create(calif.toEntity()));
+    public CalificacionDetailDTO create(@PathParam("opcionId")Long opcionId,CalificacionDetailDTO calif) throws BusinessLogicException{
+        return new CalificacionDetailDTO(logic.create(opcionId,calif.toEntity()));
     }
     
     @GET
-    public List<CalificacionDetailDTO> getCalificiones(){
-        return listEntity2DetailDTO(logic.getCalificaciones());
+    public List<CalificacionDetailDTO> getCalificiones(@PathParam("opcionId")Long opcionId){
+        return listEntity2DetailDTO(logic.getCalificaciones(opcionId));
     }
     
     @GET
     @Path("{id: \\d+}")
-    public CalificacionDetailDTO getCalificacion(@PathParam ("id") Long id){
-        return new CalificacionDetailDTO(logic.getCalificacion(id));
+    public CalificacionDetailDTO getCalificacion(@PathParam("opcionId")Long opcionId,@PathParam ("id") Long id) throws BusinessLogicException {
+        if(logic.getCalificacion(opcionId,id)== null)throw new  WebApplicationException("No existe una calificacion con el id dado",404);
+        return new CalificacionDetailDTO(logic.getCalificacion(opcionId,id));
     }
     
     @PUT
     @Path("{id: \\d+}")
-    public CalificacionDetailDTO update(@PathParam ("id") Long id, CalificacionDetailDTO calif) throws BusinessLogicException{
+    public CalificacionDetailDTO update(@PathParam("opcionId")Long opcionId,@PathParam ("id") Long id, CalificacionDetailDTO calif) throws BusinessLogicException{
         calif.setId(id);
-        return new CalificacionDetailDTO(logic.updateCalificacion(id, calif.toEntity()));
+        if(logic.getCalificacion(opcionId, id)==null) throw new WebApplicationException("El recurso /calificaciones/" + id + " no existe.", 404);
+        return new CalificacionDetailDTO(logic.updateCalificacion(opcionId,id, calif.toEntity()));
     }
     
     @DELETE
     @Path("{id: \\d+}")
-    public void delete(@PathParam ("id") Long id) throws BusinessLogicException{
+    public void delete(@PathParam("opcionId")Long opcionId,@PathParam ("id") Long id) throws BusinessLogicException{
         logic.deleteCalificacion(id);
     }
     /**

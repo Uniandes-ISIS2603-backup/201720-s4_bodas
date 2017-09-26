@@ -61,7 +61,7 @@ public class InvitadoResource {
     public InvitadoDetailDTO updateInvitado(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id, InvitadoDetailDTO invitado) throws BusinessLogicException {
         invitado.setId(id);
         InvitadoEntity entity = invitadoLogic.get(idBoda,id);
-        if(entity != null){
+        if(entity == null){
             throw new WebApplicationException("El recurso /invitados/" + id + " no existe.", 404);
         }
         return new InvitadoDetailDTO(invitadoLogic.update(idBoda,invitado.toEntity()));
