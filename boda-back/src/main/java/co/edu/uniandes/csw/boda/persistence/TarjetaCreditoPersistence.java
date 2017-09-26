@@ -20,7 +20,7 @@ public class TarjetaCreditoPersistence {
 
     /**
      *
-     * @param entity objeto Default que se creará en la base de datos
+     * @param entity objeto TarjetaCredito que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public TarjetaCreditoEntity create(TarjetaCreditoEntity entity) {
@@ -73,7 +73,7 @@ public class TarjetaCreditoPersistence {
      * @return null si no existe ninguna TarjetaCredito con el numero del argumento.
      * Si existe alguna devuelve la primera.
      */
-    public TarjetaCreditoEntity findByNumDeSeg(Double numDeSeg) {
+    public TarjetaCreditoEntity findByNumDeSeg(int numDeSeg) {
         LOGGER.log(Level.INFO, "Consultando tarjetasCredito con numDeSeg= ", numDeSeg);
         TypedQuery<TarjetaCreditoEntity> q
                 = em.createQuery("select u from TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
