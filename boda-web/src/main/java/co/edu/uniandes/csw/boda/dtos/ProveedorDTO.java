@@ -22,7 +22,7 @@ public class ProveedorDTO {
      * Clase constructor
      */
     public ProveedorDTO(){
-        
+        //Constructor por defecto
     }
     
     public ProveedorDTO(ProveedorEntity proveedor) {

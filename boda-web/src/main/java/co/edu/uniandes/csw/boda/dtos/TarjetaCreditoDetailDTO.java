@@ -16,6 +16,7 @@ public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
      * Constructor por defecto
      */
     public TarjetaCreditoDetailDTO() {
+        //Constructor por defecto
     }
     
     /**

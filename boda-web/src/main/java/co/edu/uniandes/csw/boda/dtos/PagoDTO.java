@@ -26,6 +26,7 @@ public class PagoDTO {
      * Constructor por defecto
      */
     public PagoDTO(){
+        //Constructor por defecto
     }
     /**
      * Conviertir Entity a DTO

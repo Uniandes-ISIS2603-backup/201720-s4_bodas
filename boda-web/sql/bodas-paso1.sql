@@ -3,6 +3,7 @@ delete from RegaloEntity_UbicacionEntity;
 delete from ParejaEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
+delete from OpcionServicioEntity;
 delete from calificacionentity;
 delete from TareaEntity;
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
@@ -52,9 +53,6 @@ insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'3/29/2017', 'Nomb
 ---Fin Calificacion Tarea Entity
 
 --Pruebas para OpcionServicio Entity
-
-
-delete from OpcionServicioEntity;
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
