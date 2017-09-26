@@ -1,0 +1,334 @@
+{
+	"id": "2c366ce3-099d-64fc-f3d7-d26203ac4669",
+	"name": "bodas-invitados",
+	"allTests": [],
+	"timestamp": 1506445064432,
+	"collection_id": "3bc23dfd-94c1-a274-7b1c-fb6b66482ec5",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "3bc23dfd-94c1-a274-7b1c-fb6b66482ec5",
+		"name": "bodas-invitados",
+		"description": "",
+		"order": [
+			"19f1af1b-57c1-1be2-8255-b18fb8123b3a",
+			"1b9cc7a3-daad-1140-1ac8-21bce246bf7c",
+			"50ea2741-3366-3be0-3e46-bb0b73fed6b6",
+			"743d1399-09be-377d-6452-5088b776f542"
+		],
+		"folders": [],
+		"folders_order": [],
+		"requests": [
+			{
+				"id": "19f1af1b-57c1-1be2-8255-b18fb8123b3a",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/invitados",
+				"queryParams": [],
+				"pathVariables": {},
+				"pathVariableData": [],
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "3bc23dfd-94c1-a274-7b1c-fb6b66482ec5",
+				"data": "{\"name\":\"aspiradora\",\n\"comprado\": \"true\",\n\"imagen\": \"nolose.jpg\"\t\n}",
+				"dataMode": "raw",
+				"name": "Ver lista de invitados",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1506400923125,
+				"version": 2,
+				"responses": [],
+				"tests": null,
+				"currentHelper": "normal",
+				"helperAttributes": {}
+			},
+			{
+				"id": "1b9cc7a3-daad-1140-1ac8-21bce246bf7c",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/invitados/1",
+				"queryParams": [],
+				"pathVariables": {},
+				"pathVariableData": [],
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "3bc23dfd-94c1-a274-7b1c-fb6b66482ec5",
+				"data": "{\"name\":\"aspiradora\",\n\"comprado\": \"true\",\n\"imagen\": \"nolose.jpg\"\t\n}",
+				"dataMode": "raw",
+				"name": "Ver un invitado con cierto id",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1506401202715,
+				"version": 2,
+				"responses": [],
+				"tests": null,
+				"currentHelper": "normal",
+				"helperAttributes": {}
+			},
+			{
+				"id": "50ea2741-3366-3be0-3e46-bb0b73fed6b6",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/invitados/1",
+				"queryParams": [],
+				"pathVariables": {},
+				"pathVariableData": [],
+				"preRequestScript": null,
+				"method": "PUT",
+				"collectionId": "3bc23dfd-94c1-a274-7b1c-fb6b66482ec5",
+				"data": "{\n        \"type\": \"invitadoDetailDTO\",\n        \"asistencia\": false,\n        \"categoria\": \"trabajo\",\n        \"correo\": \"mloughnan0@noaa.gov\",\n        \"documento\": 90570,\n        \"name\": \"Miguel\"\n}",
+				"dataMode": "raw",
+				"name": "Prueba del actualizar",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1506401222234,
+				"version": 2,
+				"responses": [],
+				"tests": null,
+				"currentHelper": "normal",
+				"helperAttributes": {}
+			},
+			{
+				"id": "743d1399-09be-377d-6452-5088b776f542",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/invitados",
+				"queryParams": [],
+				"pathVariables": {},
+				"pathVariableData": [],
+				"preRequestScript": null,
+				"method": "POST",
+				"collectionId": "3bc23dfd-94c1-a274-7b1c-fb6b66482ec5",
+				"data": "{\n        \"type\": \"invitadoDetailDTO\",\n        \"asistencia\": true,\n        \"categoria\": \"familia\",\n        \"correo\": \"muh0@noaa.gov\",\n        \"documento\": \"1010243\",\n        \"name\": \"Manuel\"\n}",
+				"dataMode": "raw",
+				"name": "Crear un invitado valido",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1506401237288,
+				"version": 2,
+				"responses": [],
+				"tests": null,
+				"currentHelper": "normal",
+				"helperAttributes": {}
+			}
+		],
+		"timestamp": 1506400895401,
+		"synced": false,
+		"syncedFilename": "",
+		"remote_id": 0,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"owner": 0,
+		"subscribed": false,
+		"createdAt": 1506400895401,
+		"updatedAt": 1506401237318,
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {},
+		"sharedWithTeam": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"id": "19f1af1b-57c1-1be2-8255-b18fb8123b3a",
+			"name": "Ver lista de invitados",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/invitados",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				48
+			],
+			"allTests": [
+				{}
+			],
+			"time": 48,
+			"totalRequestTime": 48,
+			"iterationResults": {}
+		},
+		{
+			"id": "1b9cc7a3-daad-1140-1ac8-21bce246bf7c",
+			"name": "Ver un invitado con cierto id",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/invitados/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				21
+			],
+			"allTests": [
+				{}
+			],
+			"time": 21,
+			"totalRequestTime": 21,
+			"iterationResults": {}
+		},
+		{
+			"id": "50ea2741-3366-3be0-3e46-bb0b73fed6b6",
+			"name": "Prueba del actualizar",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/invitados/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				28
+			],
+			"allTests": [
+				{}
+			],
+			"time": 28,
+			"totalRequestTime": 28,
+			"iterationResults": {}
+		},
+		{
+			"id": "743d1399-09be-377d-6452-5088b776f542",
+			"name": "Crear un invitado valido",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/invitados",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": "The server does not meet one of the preconditions that the requester put on the request."
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				21
+			],
+			"allTests": [
+				{}
+			],
+			"time": 21,
+			"totalRequestTime": 21,
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 118,
+	"lifecycle": "done",
+	"willStop": false,
+	"requests": [
+		{
+			"name": "Ver lista de invitados",
+			"id": "19f1af1b-57c1-1be2-8255-b18fb8123b3a",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/invitados",
+			"time": 48,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {},
+			"gridTitles": [],
+			"gridData": [
+				[]
+			],
+			"tests": {}
+		},
+		{
+			"name": "Ver un invitado con cierto id",
+			"id": "1b9cc7a3-daad-1140-1ac8-21bce246bf7c",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/invitados/1",
+			"time": 21,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {},
+			"gridTitles": [],
+			"gridData": [
+				[]
+			],
+			"tests": {}
+		},
+		{
+			"name": "Prueba del actualizar",
+			"id": "50ea2741-3366-3be0-3e46-bb0b73fed6b6",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/invitados/1",
+			"time": 28,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {},
+			"gridTitles": [],
+			"gridData": [
+				[]
+			],
+			"tests": {}
+		},
+		{
+			"name": "Crear un invitado valido",
+			"id": "743d1399-09be-377d-6452-5088b776f542",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/invitados",
+			"time": 21,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": "The server does not meet one of the preconditions that the requester put on the request."
+			},
+			"testPassFailCounts": {},
+			"gridTitles": [],
+			"gridData": [
+				[]
+			],
+			"tests": {}
+		}
+	],
+	"synced": false
+}
