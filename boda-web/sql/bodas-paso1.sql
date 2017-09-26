@@ -64,3 +64,19 @@ insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'22/32/32', 'Nombr
 
 
 ---Fin Calificacion OpcionServicio Entity
+
+--Pruebas ProveedorEntity
+delete from ProveedorEntity;
+insert into  ProveedorEntity (name, especialidad) values ('Babbleblab', 'Ingamar');
+insert into  ProveedorEntity (name, especialidad) values ('Demizz', 'Hillary');
+insert into  ProveedorEntity (name, especialidad) values ('Topiczoom', 'Langston');
+insert into  ProveedorEntity (name, especialidad) values ('Yodel', 'Townsend');
+---Fin Pruebas ProveedorEntity
+
+--Pruebas ServicioEntity
+delete from ServicioEntity;
+insert into ServicioEntity (name, descripcion) values ('SALICYLIC ACID', 'Merrick');
+insert into ServicioEntity (name, descripcion) values ('Morphine Sulfate', 'Mandrake');
+insert into ServicioEntity (name, descripcion) values ('Glycerin', 'Almo');
+insert into ServicioEntity (name, descripcion) values ('RISEDRONATE SODIUM', 'Kingsford');
+---Fin Pruebas ServicioEntity
