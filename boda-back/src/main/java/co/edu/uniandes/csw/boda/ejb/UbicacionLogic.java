@@ -81,7 +81,10 @@ public class UbicacionLogic {
       }
       
       public UbicacionEntity findUbicacionById(Long id) throws BusinessLogicException{
-        if(persistence.find(id)==null) throw new BusinessLogicException("Lo sentimos, no existe una ubicacion con el id dado.");
+        if(persistence.find(id)==null)
+        {
+            throw new BusinessLogicException("Lo sentimos, no existe una ubicacion con el id dado.");
+        }
         return persistence.find(id);
     }
     
@@ -93,7 +96,10 @@ public class UbicacionLogic {
       public void removeUbicacion(Long id) throws BusinessLogicException
       {
          LOGGER.info("Inicia proceso de eliminar una Ubicacion");
-         if (persistence.find(id)==null) throw new BusinessLogicException("No existe una Ubicacion con el id \"" + id+"\"");
+         if (persistence.find(id)==null) 
+         {
+             throw new BusinessLogicException("No existe una Ubicacion con el id \"" + id+"\"");
+         }
          persistence.delete(id);
          LOGGER.info("Termina proceso de eliminar una Ubicacion");  
       }

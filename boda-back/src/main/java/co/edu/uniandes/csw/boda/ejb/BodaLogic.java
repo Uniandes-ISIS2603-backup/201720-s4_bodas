@@ -77,7 +77,10 @@ public class BodaLogic {
       }
       
       public BodaEntity findBodaById(Long id) throws BusinessLogicException{
-        if(persistence.find(id)==null) throw new BusinessLogicException("No existe una boda con el id dado.");
+        if(persistence.find(id)==null) 
+        {
+            throw new BusinessLogicException("No existe una boda con el id dado.");
+        }
         return persistence.find(id);
     }
     
@@ -89,7 +92,10 @@ public class BodaLogic {
       public void removeBoda(Long id) throws BusinessLogicException
       {
          LOGGER.info("Inicia proceso de eliminar una Boda");
-         if (persistence.find(id)==null) throw new BusinessLogicException("No existe una Boda con el id \"" + id+"\"");
+         if (persistence.find(id)==null) 
+         {
+             throw new BusinessLogicException("No existe una Boda con el id \"" + id+"\"");
+         }
          persistence.delete(id);
          LOGGER.info("Termina proceso de eliminar una boda");  
       }

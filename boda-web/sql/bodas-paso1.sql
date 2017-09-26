@@ -83,3 +83,10 @@ insert into ServicioEntity (name, descripcion) values ('Morphine Sulfate', 'Mand
 insert into ServicioEntity (name, descripcion) values ('Glycerin', 'Almo');
 insert into ServicioEntity (name, descripcion) values ('RISEDRONATE SODIUM', 'Kingsford');
 ---Fin Pruebas ServicioEntity
+
+---Pruebas TarjetaCreditoEntity
+delete from TarjetaCreditoEntity;
+insert into TarjetaCreditoEntity (name, numero) values ('Banca Mia', 0000000000000000);
+insert into TarjetaCreditoEntity (name, numero) values ('Banca Tuya', 7894561230789456);
+insert into TarjetaCreditoEntity (name, numero) values ('Banca Nuestra', 7777771111115556);
+---Fin Pruebas TarjetaCreditoEntity
