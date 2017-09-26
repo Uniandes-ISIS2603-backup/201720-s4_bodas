@@ -1,4 +1,5 @@
 
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -53,8 +54,8 @@ public class InvitadoLogic {
         return boda.getInvitados();
     }
 
-    public InvitadoEntity get(Long bodaId,Long id) {
-        return persistence.find(bodaId,id);
+    public InvitadoEntity get(Long id) {
+        return persistence.find(id);
     }
 
     public InvitadoEntity update(Long bodaId,InvitadoEntity entity) throws BusinessLogicException {
