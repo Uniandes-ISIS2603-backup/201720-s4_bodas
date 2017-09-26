@@ -34,7 +34,7 @@ public class PagoResource {
     PagoLogic pagoLogic;
     
     /**
-     * POST http://localhost:8080/boda-web/api/parejas/pagos Ejemplo
+     * POST http://localhost:8080/boda-web/api/pagos Ejemplo
      * json: {"numero": 0000 0000 0000 0000, "numDeSeg": 000, "fechaVen":"05-Dic-2017", "nombreBanco": "BancaMia}
      *
      * @param pago correponde a la representación java del objeto json
@@ -52,7 +52,7 @@ public class PagoResource {
     }
     
     /**
-     * PUT http://localhost:8080/boda-web/api/parejas/pagos/1 Ejemplo
+     * PUT http://localhost:8080/boda-web/api/pagos/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
      * @param id corresponde al pago a actualizar.
      * @param pago corresponde al objeto con los cambios que se van a
