@@ -20,7 +20,7 @@ public class ServicioEntity extends BaseEntity implements Serializable  {
     
     private String descripcion;
        
-    @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProveedorEntity> proveedores = new ArrayList<>();
     
     public String getDescripcion(){
