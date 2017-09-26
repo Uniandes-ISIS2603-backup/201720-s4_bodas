@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
+import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.TarjetaCreditoPersistence;
@@ -26,18 +27,24 @@ public class TarjetaCreditoLogic {
     @Inject
     private TarjetaCreditoPersistence persistence;
     
+     @Inject
+    ParejaLogic parejaLogic;
+    
      /**
      *
+     * @param parejaId
      * @param entity
      * @return
      * @throws BusinessLogicException
      */
-    public TarjetaCreditoEntity createTarjetaCredito(TarjetaCreditoEntity entity) throws BusinessLogicException {
+    public TarjetaCreditoEntity createTarjetaCredito(String parejaId, TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de TarjetaCredito");
-        if(persistence.find(entity.getId())!=null){
+        ParejaEntity pareja = parejaLogic.getPareja(parejaId);
+        entity.setPareja(pareja);
+        if(persistence.find(parejaId, entity.getId())!=null){
             throw new BusinessLogicException("No pueden existir dos tarjetas con el mismo id ( " + entity.getId()+ " )");
         }
-        /*if (persistence.findByNumDeSeg(entity.getNumDeSeg())!= null) {
+        if (persistence.findByNumDeSeg(entity.getNumDeSeg())!= null) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
         if (persistence.findByNumero(entity.getNumero())!= null) {
@@ -50,7 +57,7 @@ public class TarjetaCreditoLogic {
         int ingresoNumeroSeguridad = persistence.findByNumDeSeg(entity.getNumDeSeg()).toString().length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
             throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
-        }*/
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de TarjetaCredito");
         return entity;
@@ -60,20 +67,22 @@ public class TarjetaCreditoLogic {
      *
      * Actualizar una TarjetaCredito.
      *
+     * @param parejaId
      * @param id: id de la TarjetaCredito para buscarla en la base de datos.
      * @param entity: TarjetaCredito con los cambios para ser actualizada, por
      * ejemplo el numero.
      * @return la TarjetaCredito con los cambios actualizados en la base de datos.
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
-    public TarjetaCreditoEntity updateTarjetaCredito(Long id, TarjetaCreditoEntity entity) throws BusinessLogicException {
+    public TarjetaCreditoEntity updateTarjetaCredito(String parejaId, Long id, TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar TarjetaCredito con id={0}", id);
         if(entity == null){
             throw new BusinessLogicException("No se ha enviado informacion para actualizar la tarjeta de credito");
         }
-        if (entity.getNumDeSeg() != (persistence.find(id).getNumDeSeg())) {
+        if (entity.getNumDeSeg() != (persistence.find(parejaId, id).getNumDeSeg())) {
             throw new BusinessLogicException("El numero de seguridad de la tarjeta de credito no puede cambiar");
         }
-        if (!(entity.getNumero().equals(persistence.find(id).getNumero()))) {
+        if (!(entity.getNumero().equals(persistence.find(parejaId, id).getNumero()))) {
             throw new BusinessLogicException("El numero de la tarjeta de credito no puede cambiar");
         }
         TarjetaCreditoEntity newEntity = persistence.update(entity);
@@ -82,13 +91,13 @@ public class TarjetaCreditoLogic {
     }
     
      /**
-     * Borrar un TarjetaCredito
-     *
+     * Borrar una TarjetaCredito
+     * @param idPareja
      * @param id: id de la TarjetaCredito a borrar
      */
-    public void deleteTarjetaCredito(Long id) {
+    public void deleteTarjetaCredito(String idPareja, Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar TarjetaCredito con id={0}", id);
-        TarjetaCreditoEntity tarjeta = persistence.find(id);
+        TarjetaCreditoEntity tarjeta = persistence.find(idPareja, id);
         if (tarjeta == null) {
             LOGGER.log(Level.SEVERE, "La TarjetaCredito con el id {0} no existe", id);
         }
@@ -100,12 +109,13 @@ public class TarjetaCreditoLogic {
      *
      * Obtener una TarjetaCredito por medio de su id.
      * 
+     * @param parejaId
      * @param id: id de la TarjetaCredito para ser buscada.
      * @return la TarjetaCredito solicitada por medio de su id.
      */
-    public TarjetaCreditoEntity getTarjetaCredito(Long id) {
+    public TarjetaCreditoEntity getTarjetaCredito(String parejaId, Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar TarjetaCredito con id={0}", id);
-        TarjetaCreditoEntity tarjeta = persistence.find(id);
+        TarjetaCreditoEntity tarjeta = persistence.find(parejaId, id);
         if (tarjeta == null) {
             LOGGER.log(Level.SEVERE, "La TarjetaCredito con el id {0} no existe", id);
         }
@@ -151,12 +161,20 @@ public class TarjetaCreditoLogic {
      * 
      * Obtener todas las Tarjetas de Credito existentes en la base de datos.
      *
+     * @param id
      * @return una lista de Tarjetas de Credito.
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
-    public List<TarjetaCreditoEntity> getTarjetasCredito() {
+    public List<TarjetaCreditoEntity> getTarjetasCredito(String id) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de consultar todas las Tarjetas de Credito");
-        List<TarjetaCreditoEntity> tarjetas = persistence.findAll();
+        ParejaEntity pareja = parejaLogic.getPareja(id);
+        if (pareja.getTarjetasCredito() == null) {
+            throw new BusinessLogicException("La boda que consulta aún no tiene regalos");
+        }
+        if (pareja.getTarjetasCredito().isEmpty()) {
+            throw new BusinessLogicException("La boda que consulta aún no tiene regalos");
+        }
         LOGGER.info("Termina proceso de consultar todas las Tarjetas de Credito");
-        return tarjetas;
+        return pareja.getTarjetasCredito();
     }
 }

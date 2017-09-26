@@ -30,10 +30,8 @@ import javax.ws.rs.WebApplicationException;
  *
  * @author ca.guerrero
  */
-@Path("tarjetasCredito")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
 public class TarjetaCreditoResource {
     @Inject
     TarjetaCreditoLogic tarjetaCreditoLogic;
@@ -44,6 +42,7 @@ public class TarjetaCreditoResource {
      * POST http://localhost:8080/boda-web/api/tarjetasCredito Ejemplo
      * json: {"numero": 0000 0000 0000 0000, "numDeSeg": 000, "fechaVen":"05-Dic-2017", "nombreBanco": "BancaMia"}
      *
+     * @param idPareja
      * @param tarjeta correponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
@@ -52,15 +51,16 @@ public class TarjetaCreditoResource {
      * @throws BusinessLogicException
      */
     @POST
-    public TarjetaCreditoDetailDTO createTarjetaCredito(TarjetaCreditoDetailDTO tarjeta) throws BusinessLogicException {
+    public TarjetaCreditoDetailDTO createTarjetaCredito(@PathParam("idPareja") String idPareja,TarjetaCreditoDetailDTO tarjeta) throws BusinessLogicException {
         TarjetaCreditoEntity tarjetaEntity = tarjeta.toEntity();
-        TarjetaCreditoEntity nuevoTarjeta = tarjetaCreditoLogic.createTarjetaCredito(tarjetaEntity);
+        TarjetaCreditoEntity nuevoTarjeta = tarjetaCreditoLogic.createTarjetaCredito(idPareja, tarjetaEntity);
         return new TarjetaCreditoDetailDTO(nuevoTarjeta);
     }
     /**
      * PUT http://localhost:8080/boda-web/api/tarjetasCredito/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
      *
+     * @param idPareja
      * @param id corresponde a la tarjetaCredito a actualizar.
      * @param tarjeta corresponde a al objeto con los cambios que se van a
      * realizar.
@@ -72,41 +72,42 @@ public class TarjetaCreditoResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public TarjetaCreditoDetailDTO updateTarjetaCredito(@PathParam("id") Long id, TarjetaCreditoDetailDTO tarjeta) throws BusinessLogicException {
+    public TarjetaCreditoDetailDTO updateTarjetaCredito(@PathParam("idPareja") String idPareja, @PathParam("id") Long id, TarjetaCreditoDetailDTO tarjeta) throws BusinessLogicException {
         tarjeta.setId(id);
-        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(idPareja,id);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /tarjetasCredito/" + id + " no existe.", 404);
         }
-        return new TarjetaCreditoDetailDTO(tarjetaCreditoLogic.updateTarjetaCredito(id, tarjeta.toEntity()));
+        return new TarjetaCreditoDetailDTO(entity);
     }
 
     /**
      * DELETE http://localhost:8080/boda-web/api/tarjetasCredito/1
      *
+     * @param idPareja
      * @param id corresponde a la tarjetaCredito a borrar.
      * @throws BusinessLogicException
      *
      * En caso de no existir el id de la tarjetaCredito a actualizar se retorna un
      * 404 con el mensaje.
-     * @throws java.sql.SQLException
      *
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteTarjetaCredito(@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteTarjetaCredito(@PathParam("idPareja") String idPareja,@PathParam("id") Long id) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar una tarjetaCredito con id {0}", id);
-        TarjetaCreditoEntity entity =  tarjetaCreditoLogic.getTarjetaCredito(id);
+        TarjetaCreditoEntity entity =  tarjetaCreditoLogic.getTarjetaCredito(idPareja, id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
         }
-        tarjetaCreditoLogic.deleteTarjetaCredito(id);
+        tarjetaCreditoLogic.deleteTarjetaCredito(idPareja, id);
     }
     
     /**
      * GET para una tarjetaCredito
      * http://localhost:8080/bodas-web/api/parejas/tarjetasCredito/1
      *
+     * @param idPareja
      * @param id corresponde al id de la tarjetaCredito buscada.
      * @return La tarjetaCredito encontrada. Ejemplo: { "type":
      * "tarjetaDetailDTO", "id": 1, "numero": "0000 0000 0000 0000", "nombreBanco": "BancaMia" }
@@ -117,23 +118,24 @@ public class TarjetaCreditoResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public TarjetaCreditoDetailDTO getTarjetaCredito(@PathParam("id") Long id) throws BusinessLogicException {
-        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
+    public TarjetaCreditoDetailDTO getTarjetaCredito(@PathParam("idPareja") String idPareja, @PathParam("id") Long id) throws BusinessLogicException {
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(idPareja, id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
         }
-        return new TarjetaCreditoDetailDTO(tarjetaCreditoLogic.getTarjetaCredito(id));
+        return new TarjetaCreditoDetailDTO(entity);
     }
     /**
      * GET para todas las tarjetasCredito.
-     * http://localhost:8080/boda-web/api/tarjetasCredito
+     * http://localhost:8080/boda-web/api/parejas/idPareja/tarjetasCredito
      *
+     * @param idPareja
      * @return la lista de todas las tarjetasCredito en objetos json DTO.
      * @throws BusinessLogicException
      */
     @GET
-    public List<TarjetaCreditoDetailDTO> getTarjetasCredito() throws BusinessLogicException {
-        return listEntity2DetailDTO(tarjetaCreditoLogic.getTarjetasCredito());
+    public List<TarjetaCreditoDetailDTO> getTarjetasCredito(@PathParam("idPareja") String idPareja) throws BusinessLogicException {
+        return listEntity2DetailDTO(tarjetaCreditoLogic.getTarjetasCredito(idPareja));
     }
      /**
      *

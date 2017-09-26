@@ -58,12 +58,22 @@ public class TarjetaCreditoPersistence {
     /**
      * Busca si hay algun TarjetaCredito con el id que se envía de argumento
      *
+     * @param parejaId: id de la pareja propietaria de la tarjeta de credito.
      * @param id: id correspondiente a la TarjetaCredito buscada.
      * @return un TarjetaCredito.
      */
-    public TarjetaCreditoEntity find(Long id) {
-        LOGGER.log(Level.INFO, "Consultando TarjetaCredito con id={0}", id);
-        return em.find(TarjetaCreditoEntity.class, id);
+    public TarjetaCreditoEntity find(String parejaId, Long id) {
+        TypedQuery<TarjetaCreditoEntity> q = em.createQuery("select u from TarjetaCreditoEntity u where (u.pareja.id = :parejaId) and (p.id = :id)", TarjetaCreditoEntity.class);
+        q.setParameter("bodaId", parejaId);
+        q.setParameter("id", id);
+        List<TarjetaCreditoEntity> results = q.getResultList();
+        TarjetaCreditoEntity tarjeta = null;
+        if (results == null || results.isEmpty()){
+            tarjeta = null;
+        } else if (results.size() >= 1) {
+            tarjeta = results.get(0);
+        }
+        return tarjeta;
     }
     
     /**
