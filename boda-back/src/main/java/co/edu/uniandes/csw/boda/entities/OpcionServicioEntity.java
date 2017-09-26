@@ -26,10 +26,10 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     
     @OneToMany(mappedBy = "opcionServicio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CalificacionEntity> calificacion;
-    /*
+    
     private ProveedorEntity proveedor;    
     
-      */
+     
     @PodamExclude
     @OneToMany(mappedBy = "opcionServicio")
     private List<TareaEntity> tareas;
