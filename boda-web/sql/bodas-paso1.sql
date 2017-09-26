@@ -48,11 +48,11 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
 
 
---Pruebas para Tarea Entity
+/*--Pruebas para Tarea Entity
 insert into TareaEntity(id,aprobada, dia,nombre) values (12,0,'2/2/2', 'Nombre');
 insert into TareaEntity(id,aprobada, dia,nombre) values (13,1,'22/22/22', 'Nombre1');
 insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'22/32/32', 'Nombre2');
----Fin Calificacion Tarea Entity
+---Fin Calificacion Tarea Entity*/
 
 --Pruebas para OpcionServicio Entity
 
