@@ -29,7 +29,7 @@ public class UbicacionEntity extends BaseEntity implements Serializable {
     private List<RegaloEntity> regalos;
     
     @PodamExclude
-    @OneToOne
+    @OneToOne(mappedBy = "ubicacion")
     private TareaEntity tarea;
 
     public Long getLatitud() {
