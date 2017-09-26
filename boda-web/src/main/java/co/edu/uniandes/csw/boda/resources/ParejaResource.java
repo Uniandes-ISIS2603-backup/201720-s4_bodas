@@ -129,7 +129,7 @@ public class ParejaResource {
         parejaLogic.removePareja(id);
     }
     
-    @Path("{idPareja: \\d+}/tarjetasCredito")
+    @Path("{idPareja}/tarjetasCredito")
     public Class<TarjetaCreditoResource> getTarjetaCreditoResource(@PathParam("idPareja") String parejaId) throws BusinessLogicException {
         ParejaEntity entity = parejaLogic.getPareja(parejaId);
         if (entity == null) {

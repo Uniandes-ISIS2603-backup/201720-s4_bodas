@@ -167,13 +167,13 @@ public class TarjetaCreditoPersistenceTest {
     /**
      * Test of find method, of class TarjetaCreditoPersistence.
      */
-    /*@Test
-    public void findTarjetaCreditoEntityTest()  {
+    @Test
+    public void findTarjetaCreditoEntityTest() {
     TarjetaCreditoEntity entity = data.get(0);
     TarjetaCreditoEntity newEntity = persistence.find(entity.getId());
     Assert.assertNotNull(newEntity);
     Assert.assertEquals(entity.getNumDeSeg(), newEntity.getNumDeSeg());
-    }*/
+    }
     
     /**
      * Test of findByNumDeSeg method, of class TarjetaCreditoPersistence.

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -74,7 +73,7 @@ public class TarjetaCreditoResource {
     @Path("{id: \\d+}")
     public TarjetaCreditoDetailDTO updateTarjetaCredito(@PathParam("idPareja") String idPareja, @PathParam("id") Long id, TarjetaCreditoDetailDTO tarjeta) throws BusinessLogicException {
         tarjeta.setId(id);
-        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(idPareja,id);
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /tarjetasCredito/" + id + " no existe.", 404);
         }
@@ -96,7 +95,7 @@ public class TarjetaCreditoResource {
     @Path("{id: \\d+}")
     public void deleteTarjetaCredito(@PathParam("idPareja") String idPareja,@PathParam("id") Long id) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar una tarjetaCredito con id {0}", id);
-        TarjetaCreditoEntity entity =  tarjetaCreditoLogic.getTarjetaCredito(idPareja, id);
+        TarjetaCreditoEntity entity =  tarjetaCreditoLogic.getTarjetaCredito( id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
         }
@@ -117,9 +116,9 @@ public class TarjetaCreditoResource {
      * el mensaje.
      */
     @GET
-    @Path("{id: \\d+}")
+    @Path("{id}")
     public TarjetaCreditoDetailDTO getTarjetaCredito(@PathParam("idPareja") String idPareja, @PathParam("id") Long id) throws BusinessLogicException {
-        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(idPareja, id);
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
         }
