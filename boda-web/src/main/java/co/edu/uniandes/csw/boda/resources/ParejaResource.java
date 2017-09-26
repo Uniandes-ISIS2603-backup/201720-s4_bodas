@@ -128,7 +128,16 @@ public class ParejaResource {
         }
         parejaLogic.removePareja(id);
     }
-
+    
+    @Path("{idPareja}/tarjetasCredito")
+    public Class<TarjetaCreditoResource> getTarjetaCreditoResource(@PathParam("idPareja") String parejaId) throws BusinessLogicException {
+        ParejaEntity entity = parejaLogic.getPareja(parejaId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /boda/" + parejaId + "/tarjetasCredito no existe.", 404);
+        }
+        return TarjetaCreditoResource.class;
+    }
+    
     /**
      *
      * lista de entidades a DTO.

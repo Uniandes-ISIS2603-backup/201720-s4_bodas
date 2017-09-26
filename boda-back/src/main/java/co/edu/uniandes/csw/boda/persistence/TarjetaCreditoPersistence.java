@@ -62,8 +62,7 @@ public class TarjetaCreditoPersistence {
      * @return un TarjetaCredito.
      */
     public TarjetaCreditoEntity find(Long id) {
-        LOGGER.log(Level.INFO, "Consultando TarjetaCredito con id={0}", id);
-        return em.find(TarjetaCreditoEntity.class, id);
+       return em.find(TarjetaCreditoEntity.class, id) ;
     }
     
     /**
