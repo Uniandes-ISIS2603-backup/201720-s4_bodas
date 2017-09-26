@@ -143,7 +143,11 @@ public class OpcionServicioResource {
        }
        opcionServicioLogic.removeOpcionServicio(id);
     }
-
+    @Path("{opcionId: \\d+}/calificaciones")
+    public Class<CalificacionResource> darCalificaciones(@PathParam("opcionId") Long id) throws BusinessLogicException {
+        if(opcionServicioLogic.getOpcionServicio(id)==null)throw new  WebApplicationException("No existe una opcion con el id dado",404);
+        return CalificacionResource.class;
+    }
     /**
      *
      * lista de entidades a DTO.

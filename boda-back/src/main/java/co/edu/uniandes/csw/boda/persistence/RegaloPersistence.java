@@ -1,3 +1,6 @@
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,7 +17,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import uk.co.jemos.podam.common.PodamExclude;
+
 
 /**
  *
@@ -22,26 +25,14 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Stateless
 public class RegaloPersistence {
+    
     private static final Logger LOGGER = Logger.getLogger(RegaloPersistence.class.getName());
     
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
     
-    public RegaloEntity find(Long bodaId,Long regaloId){
-        TypedQuery<RegaloEntity> q = em.createQuery("select p from RegaloEntity p where (p.boda.id = :bodaId) and (p.id = :regaloId)", RegaloEntity.class);
-        q.setParameter("bodaId", bodaId);
-        q.setParameter("regaloId", regaloId);
-        List<RegaloEntity> results = q.getResultList();
-        RegaloEntity regalo = null;
-        if (results == null) {
-            regalo = null;
-        } else if (results.isEmpty()) {
-            regalo = null;
-        } else if (results.size() >= 1) {
-            regalo = results.get(0);
-        }
-
-        return regalo;
+    public RegaloEntity find(Long id){
+        return em.find(RegaloEntity.class, id);
     }
     
     public RegaloEntity create(RegaloEntity entity) {

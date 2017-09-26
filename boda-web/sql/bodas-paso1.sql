@@ -3,6 +3,7 @@ delete from RegaloEntity_UbicacionEntity;
 delete from ParejaEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
+delete from OpcionServicioEntity;
 delete from calificacionentity;
 delete from TareaEntity;
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
@@ -36,12 +37,7 @@ insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values 
 insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (200,2);
 insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (200,3);
 
---Pruebas para Calificacion Entity
-insert into calificacionentity (comentario, calificacionNum) values ('kQBADEH JERKKW ZDSI', 4);
-insert into calificacionentity (comentario, calificacionNum) values ('oFABDOL YEZPUU ETSN', 5);
-insert into calificacionentity (comentario, calificacionNum) values ('gQUMMPI DNPMSV DIWL', 5);
-insert into calificacionentity (comentario, calificacionNum) values ('mGKZXTE POZSBU ODLB', 2);
----Fin Calificacion Pareja Entity
+
 
 --Pruebas para Invitado Entity
 
@@ -51,21 +47,24 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 
 
 --Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre) values (12,0,'2/2/2', 'Nombre');
-insert into TareaEntity(id,aprobada, dia,nombre) values (13,1,'22/22/22', 'Nombre1');
-insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'22/32/32', 'Nombre2');
+insert into TareaEntity(id,aprobada, dia,nombre) values (12,0,'3/29/2017', 'Nombre');
+insert into TareaEntity(id,aprobada, dia,nombre) values (13,1,'3/29/2017', 'Nombre1');
+insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'3/29/2017', 'Nombre2');
 ---Fin Calificacion Tarea Entity
 
 --Pruebas para OpcionServicio Entity
-
-
---delete from OpcionServicioEntity;
---insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
---insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
---insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
-
-
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
 ---Fin Calificacion OpcionServicio Entity
+
+
+--Pruebas para Calificacion Entity
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'kQBADEH JERKKW ZDSI', 4);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'oFABDOL YEZPUU ETSN', 5);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'gQUMMPI DNPMSV DIWL', 5);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (13,'mGKZXTE POZSBU ODLB', 2);
+---Fin Calificacion Pareja Entity
 
 --Pruebas ProveedorEntity
 delete from ProveedorEntity;

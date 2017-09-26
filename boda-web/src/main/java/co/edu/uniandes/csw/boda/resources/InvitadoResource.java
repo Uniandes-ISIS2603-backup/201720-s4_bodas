@@ -37,7 +37,7 @@ public class InvitadoResource {
     @GET
     @Path("{id: \\d+}")
     public InvitadoDetailDTO getInvitado(@PathParam("idBoda") Long idBoda , @PathParam("id") Long id) throws BusinessLogicException {
-        InvitadoEntity entity = invitadoLogic.get(idBoda,id);
+        InvitadoEntity entity = invitadoLogic.get(id);
         if(entity == null){
             throw new  WebApplicationException("No existe un invitado con el id dado",404);
         }
@@ -60,8 +60,8 @@ public class InvitadoResource {
     @Path("{id: \\d+}")
     public InvitadoDetailDTO updateInvitado(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id, InvitadoDetailDTO invitado) throws BusinessLogicException {
         invitado.setId(id);
-        InvitadoEntity entity = invitadoLogic.get(idBoda,id);
-        if(entity != null){
+        InvitadoEntity entity = invitadoLogic.get(id);
+        if(entity == null){
             throw new WebApplicationException("El recurso /invitados/" + id + " no existe.", 404);
         }
         return new InvitadoDetailDTO(invitadoLogic.update(idBoda,invitado.toEntity()));
@@ -70,7 +70,7 @@ public class InvitadoResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteInvitado(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id) throws BusinessLogicException {
-        InvitadoEntity entity = invitadoLogic.get(idBoda,id);
+        InvitadoEntity entity = invitadoLogic.get(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /invitados/" + id + " no existe.", 404);
         }

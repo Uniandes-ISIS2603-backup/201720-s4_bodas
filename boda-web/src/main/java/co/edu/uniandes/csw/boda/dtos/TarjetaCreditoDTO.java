@@ -27,6 +27,7 @@ public class TarjetaCreditoDTO {
      * Constructor por defecto
      */
     public TarjetaCreditoDTO() {
+        //Constructor por defecto
     }
     
     /**

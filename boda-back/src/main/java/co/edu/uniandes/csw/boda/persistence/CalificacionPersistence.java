@@ -37,9 +37,7 @@ public class CalificacionPersistence {
         /* Note que hacemos uso de un método propio de EntityManager para persistir la Default en la base de datos.
         Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
          */
-        if(find(entity.getId())!= null)throw new BusinessLogicException("Ya existe una calificacion con un id");
-        em.persist(entity);
-        LOGGER.info("Creando un Comentario nuevo");
+         em.persist(entity);
         return entity;
     }
 
@@ -56,7 +54,6 @@ public class CalificacionPersistence {
         la Default con los cambios, esto es similar a 
         "UPDATE table_codigo SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
          */
-        if(find(entity.getId())==null)throw new BusinessLogicException("El Comentario a actualizar no existe");
         return em.merge(entity);
     }
 
@@ -83,13 +80,21 @@ public class CalificacionPersistence {
      * @param id: id correspondiente a la Default buscada.
      * @return un default.
      */
-    public CalificacionEntity find(Long id) {
-        LOGGER.log(Level.INFO, "Consultando CalificacionEntity con id={0}", id);
-        /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
-        el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
-        Suponga que es algo similar a "select * from DefaultEntity where id=id;" - "SELECT * FROM table_codigo WHERE condition;" en SQL.
-         */
-        return em.find(CalificacionEntity.class, id);
+    public CalificacionEntity find(Long opcionId,Long id) {
+       TypedQuery<CalificacionEntity> q = em.createQuery("select x from CalificacionEntity x where (x.opcionServicio.id = :opcionId) and (x.id = :calificacionId)", CalificacionEntity.class);
+        q.setParameter("opcionId", opcionId);
+        q.setParameter("calificacionId", id);
+        List<CalificacionEntity> results = q.getResultList();
+        CalificacionEntity calificacion = null;
+        if (results == null) {
+            calificacion = null;
+        } else if (results.isEmpty()) {
+            calificacion = null;
+        } else if (results.size() >= 1) {
+            calificacion = results.get(0);
+        }
+
+        return calificacion;
     }
 
     /**
@@ -99,11 +104,27 @@ public class CalificacionPersistence {
      * datos, "select u from DefaultEntity u" es como un "select * from
      * DefaultEntity;" - "SELECT * FROM table_codigo" en SQL.
      */
-    public List<CalificacionEntity> findAll() {
-        LOGGER.info("Consultando todas los Comentarios");
-        // Se crea un query para buscar todas las Default en la base de datos.
-        TypedQuery query = em.createQuery("select u from CalificacionEntity u", CalificacionEntity.class);
-        // Note que en el query se hace uso del método getResultList() que obtiene una lista de Default.
-        return query.getResultList();
+    public List<CalificacionEntity> findAllByOpcion(Long opcionId) {
+       LOGGER.log(Level.INFO, "Consultando calificacion por id de servicio ", opcionId);
+        TypedQuery<CalificacionEntity> query = em.createQuery("Select y From CalificacionEntity y where y.opcionServicio.id = :opcionId", CalificacionEntity.class);
+        query = query.setParameter("opcionId", opcionId);
+        List<CalificacionEntity> results = query.getResultList();
+       return results;
     }
+       public CalificacionEntity findById(Long id) {
+       TypedQuery<CalificacionEntity> q = em.createQuery("select z from CalificacionEntity z where z.id = :calificacionId", CalificacionEntity.class);
+        q.setParameter("calificacionId", id);
+        List<CalificacionEntity> results = q.getResultList();
+        CalificacionEntity calificacion = null;
+        if (results == null) {
+            calificacion = null;
+        } else if (results.isEmpty()) {
+            calificacion = null;
+        } else if (results.size() >= 1) {
+            calificacion = results.get(0);
+        }
+
+        return calificacion;
+    }
+    
 }

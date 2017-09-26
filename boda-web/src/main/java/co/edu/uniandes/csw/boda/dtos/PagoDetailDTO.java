@@ -16,6 +16,7 @@ public class PagoDetailDTO extends PagoDTO {
      * Constructor por defecto
      */
     public PagoDetailDTO() {
+        //Constructor por defecto
     }
     /**
      * Constructor para transformar un Entity a un DTO

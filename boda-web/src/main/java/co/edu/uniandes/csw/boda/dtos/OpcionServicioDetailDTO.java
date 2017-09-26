@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.boda.dtos;
 
+import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -15,6 +18,10 @@ import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
  * @author sp.joven
  */
 public class OpcionServicioDetailDTO extends OpcionServicioDTO {
+    
+    
+    List<CalificacionDTO>calificaciones;
+    
      /**
      * Constructor por defecto
      */
@@ -29,7 +36,36 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
      */
    
      public OpcionServicioDetailDTO(OpcionServicioEntity entity) {
-        super(entity);
+         super(entity);
+         if(entity.getCalificacion()!=null){
+             this.calificaciones = new ArrayList<>();
+            for (CalificacionEntity ent :  entity.getCalificacion()){
+                this.calificaciones.add(new CalificacionDTO(ent));
+            }
+         }
+        
+    }
+
+    public List<CalificacionDTO> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(List<CalificacionDTO> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+
+    @Override
+    public OpcionServicioEntity toEntity() {
+        OpcionServicioEntity m = super.toEntity();
+        if(calificaciones != null){
+            List<CalificacionEntity> lista= new ArrayList<>();
+            for (CalificacionDTO c : calificaciones)
+            {
+                lista.add(c.toEntity());
+            }
+            m.setCalificacion(lista);
+        }
+        return m; //To change body of generated methods, choose Tools | Templates.
     }
     
 }

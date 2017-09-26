@@ -11,7 +11,6 @@ import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -37,7 +36,7 @@ public class RegaloResource {
     @GET
     @Path("{id: \\d+}")
     public RegaloDetailDTO getRegalo(@PathParam("idBoda") Long idBoda , @PathParam("id") Long id) throws BusinessLogicException {
-        RegaloEntity entity = regaloLogic.get(idBoda,id);
+        RegaloEntity entity = regaloLogic.get(id);
         if(entity == null){
             throw new WebApplicationException("El recurso /bodas/" + idBoda + "/regalos/" + id + " no existe.", 404);
         }
@@ -60,7 +59,7 @@ public class RegaloResource {
     @Path("{id: \\d+}")
     public RegaloDetailDTO updateRegalo(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id, RegaloDetailDTO regalo) throws BusinessLogicException {
         regalo.setId(id);
-        RegaloEntity entity = regaloLogic.get(idBoda,id);
+        RegaloEntity entity = regaloLogic.get(id);
         if(entity != null){
             throw new WebApplicationException("El recurso /regalos/" + id + " no existe.", 404);
         }
@@ -70,7 +69,7 @@ public class RegaloResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteRegalo(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id) throws BusinessLogicException {
-        RegaloEntity entity = regaloLogic.get(idBoda,id);
+        RegaloEntity entity = regaloLogic.get(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /regalos/" + id + " no existe.", 404);
         }

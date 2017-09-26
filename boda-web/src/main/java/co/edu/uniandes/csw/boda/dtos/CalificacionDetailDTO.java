@@ -19,11 +19,5 @@ public class CalificacionDetailDTO extends CalificacionDTO {
 
     public CalificacionDetailDTO(CalificacionEntity calificacion) {
         super(calificacion);
-    }
-    
-    @Override
-    public CalificacionEntity toEntity(){
-        return super.toEntity();
-    }
-    
+    } 
 }
