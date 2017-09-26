@@ -108,11 +108,9 @@ public class UbicacionResource {
     @PUT
     @Path("{id: \\d+}")
     public UbicacionDetailDTO updateUbicacion(@PathParam("id") Long id, UbicacionDetailDTO ubicacion) throws BusinessLogicException {
-       //throw  new UnsupportedOperationException("Este servicio no ha sido implementado");
        UbicacionEntity entity = ubicacionLogic.findUbicacionById(id);
         if(entity==null)
        {
-           System.out.println("no existe");
            throw new  WebApplicationException("No existe una ubicacion con el id dado",404);
        }
         return  new UbicacionDetailDTO(ubicacionLogic.updateUbicacion(id, ubicacion.toEntity()));

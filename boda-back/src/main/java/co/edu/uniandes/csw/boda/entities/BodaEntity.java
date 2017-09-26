@@ -38,12 +38,12 @@ public class BodaEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
-    private List<InvitadoEntity> invitados = new ArrayList<InvitadoEntity>();
+    private List<InvitadoEntity> invitados = new ArrayList();
     
     @PodamExclude
     @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
 
-    private List<RegaloEntity> regalos = new ArrayList<RegaloEntity>();
+    private List<RegaloEntity> regalos = new ArrayList();
     
     @PodamExclude
     @OneToMany(mappedBy="boda", cascade = CascadeType.ALL)
