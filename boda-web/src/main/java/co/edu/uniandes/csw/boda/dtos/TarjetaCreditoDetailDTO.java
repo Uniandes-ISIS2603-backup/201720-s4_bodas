@@ -12,10 +12,13 @@ import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
  * @author ca.guerrero
  */
 public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
+    
+    
     /**
      * Constructor por defecto
      */
     public TarjetaCreditoDetailDTO() {
+        super();
     }
     
     /**

@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
+import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.TarjetaCreditoPersistence;
@@ -26,18 +27,24 @@ public class TarjetaCreditoLogic {
     @Inject
     private TarjetaCreditoPersistence persistence;
     
+    @Inject
+    ParejaLogic parejaLogic;
+    
      /**
      *
+     * @param parejaId
      * @param entity
      * @return
      * @throws BusinessLogicException
      */
-    public TarjetaCreditoEntity createTarjetaCredito(TarjetaCreditoEntity entity) throws BusinessLogicException {
+    public TarjetaCreditoEntity createTarjetaCredito(String parejaId, TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de TarjetaCredito");
+        ParejaEntity pareja = parejaLogic.getPareja(parejaId);
+        entity.setPareja(pareja);
         if(persistence.find(entity.getId())!=null){
             throw new BusinessLogicException("No pueden existir dos tarjetas con el mismo id ( " + entity.getId()+ " )");
         }
-        /*if (persistence.findByNumDeSeg(entity.getNumDeSeg())!= null) {
+        if (persistence.findByNumDeSeg(entity.getNumDeSeg())!= null) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
         if (persistence.findByNumero(entity.getNumero())!= null) {
@@ -50,7 +57,7 @@ public class TarjetaCreditoLogic {
         int ingresoNumeroSeguridad = persistence.findByNumDeSeg(entity.getNumDeSeg()).toString().length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
             throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
-        }*/
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de TarjetaCredito");
         return entity;
@@ -60,12 +67,14 @@ public class TarjetaCreditoLogic {
      *
      * Actualizar una TarjetaCredito.
      *
+     * @param parejaId
      * @param id: id de la TarjetaCredito para buscarla en la base de datos.
      * @param entity: TarjetaCredito con los cambios para ser actualizada, por
      * ejemplo el numero.
      * @return la TarjetaCredito con los cambios actualizados en la base de datos.
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
-    public TarjetaCreditoEntity updateTarjetaCredito(Long id, TarjetaCreditoEntity entity) throws BusinessLogicException {
+    public TarjetaCreditoEntity updateTarjetaCredito(String parejaId, Long id, TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar TarjetaCredito con id={0}", id);
         if(entity == null){
             throw new BusinessLogicException("No se ha enviado informacion para actualizar la tarjeta de credito");
@@ -76,17 +85,18 @@ public class TarjetaCreditoLogic {
         if (!(entity.getNumero().equals(persistence.find(id).getNumero()))) {
             throw new BusinessLogicException("El numero de la tarjeta de credito no puede cambiar");
         }
-        TarjetaCreditoEntity newEntity = persistence.update(entity);
+        ParejaEntity pareja = parejaLogic.getPareja(parejaId);
+        entity.setPareja(pareja);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar TarjetaCredito con id={0}", entity.getId());
-        return newEntity;
+        return persistence.update(entity);
     }
     
      /**
-     * Borrar un TarjetaCredito
-     *
+     * Borrar una TarjetaCredito
+     * @param idPareja
      * @param id: id de la TarjetaCredito a borrar
      */
-    public void deleteTarjetaCredito(Long id) {
+    public void deleteTarjetaCredito(String idPareja, Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar TarjetaCredito con id={0}", id);
         TarjetaCreditoEntity tarjeta = persistence.find(id);
         if (tarjeta == null) {
@@ -151,12 +161,20 @@ public class TarjetaCreditoLogic {
      * 
      * Obtener todas las Tarjetas de Credito existentes en la base de datos.
      *
+     * @param idPareja
      * @return una lista de Tarjetas de Credito.
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
-    public List<TarjetaCreditoEntity> getTarjetasCredito() {
+    public List<TarjetaCreditoEntity> getTarjetasCredito(String idPareja) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de consultar todas las Tarjetas de Credito");
-        List<TarjetaCreditoEntity> tarjetas = persistence.findAll();
+        ParejaEntity pareja = parejaLogic.getPareja(idPareja);
+        if (pareja.getTarjetasCredito() == null) {
+            throw new BusinessLogicException("La pareja con ese email aun no tiene tarjetas de credito");
+        }
+        if (pareja.getTarjetasCredito().isEmpty()) {
+            throw new BusinessLogicException("La pareja con ese email aun no tiene tarjetas de credito");
+        }
         LOGGER.info("Termina proceso de consultar todas las Tarjetas de Credito");
-        return tarjetas;
+        return pareja.getTarjetasCredito();
     }
 }
