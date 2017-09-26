@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.TareaEntity;
-import java.util.List;
 
 /**
  *
@@ -21,6 +20,7 @@ public class TareaDetailDTO extends TareaDTO{
      * Constructor por defecto
      */
     public TareaDetailDTO(){
+        //Constructor por defecto
     }
     
      /**
@@ -37,16 +37,6 @@ public class TareaDetailDTO extends TareaDTO{
         }
     }
 
-        
-    @Override
-    public TareaEntity toEntity() {
-        TareaEntity tareaE = super.toEntity();
-        if (this.getUbicacion() != null) {
-            tareaE.setUbicacion(this.getUbicacion().toEntity());
-        }
-        return tareaE;
-    } 
-     
     public UbicacionDTO getUbicacion() {
         return ubicacion;
     }
@@ -54,5 +44,6 @@ public class TareaDetailDTO extends TareaDTO{
     public void setUbicacion(UbicacionDTO ubicacion) {
         this.ubicacion = ubicacion;
     }
-   
+    
+     
 }
