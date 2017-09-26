@@ -100,16 +100,16 @@ public class RegaloPersistenceTest {
         }
     }
 
-//    /**
-//     * Test of find method, of class RegaloPersistence.
-//     */
-//    @Test
-//    public void testFind(){
-//        RegaloEntity entity = data.get(0);
-//        RegaloEntity newEntity = persistence.find(entity.getId());
-//        Assert.assertNotNull(newEntity);
-//        Assert.assertEquals(entity.getName(), newEntity.getName());
-//    }
+    /**
+     * Test of find method, of class RegaloPersistence.
+     */
+    @Test
+    public void testFind(){
+        RegaloEntity entity = data.get(0);
+        RegaloEntity newEntity = persistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+    }
 
     /**
      * Test of create method, of class RegaloPersistence.

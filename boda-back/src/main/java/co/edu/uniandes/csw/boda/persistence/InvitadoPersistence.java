@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,7 +14,6 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -26,21 +27,8 @@ public class InvitadoPersistence {
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
     
-    public InvitadoEntity find(Long bodaId,Long invitadoId){
-         TypedQuery<InvitadoEntity> q = em.createQuery("select p from InvitadoEntity p where (p.boda.id = :bodaId) and (p.id = :invitadooId)", InvitadoEntity.class);
-        q.setParameter("bodaId", bodaId);
-        q.setParameter("invitadoId", invitadoId);
-        List<InvitadoEntity> results = q.getResultList();
-        InvitadoEntity invitado = null;
-        if (results == null) {
-            invitado = null;
-        } else if (results.isEmpty()) {
-            invitado = null;
-        } else if (results.size() >= 1) {
-            invitado = results.get(0);
-        }
-
-        return invitado;
+    public InvitadoEntity find(Long id){
+        return em.find(InvitadoEntity.class, id);
     }
 
     public InvitadoEntity create(InvitadoEntity entity) {

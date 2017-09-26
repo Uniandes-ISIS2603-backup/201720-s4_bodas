@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -53,8 +55,8 @@ public class RegaloLogic {
         return boda.getRegalos();
     }
 
-    public RegaloEntity get(Long bodaId,Long id) {
-        return persistence.find(bodaId,id);
+    public RegaloEntity get(Long id) {
+        return persistence.find(id);
     }
 
     public RegaloEntity update(Long bodaId,RegaloEntity entity) throws BusinessLogicException {
