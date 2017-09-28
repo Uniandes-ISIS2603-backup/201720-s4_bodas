@@ -77,7 +77,7 @@ public class TarjetaCreditoResource {
         if (entity == null) {
             throw new WebApplicationException("El recurso /tarjetasCredito/" + id + " no existe.", 404);
         }
-        return new TarjetaCreditoDetailDTO(entity);
+        return new TarjetaCreditoDetailDTO(tarjetaCreditoLogic.updateTarjetaCredito(idPareja, id, tarjeta.toEntity()));
     }
 
     /**
@@ -116,11 +116,11 @@ public class TarjetaCreditoResource {
      * el mensaje.
      */
     @GET
-    @Path("{id}")
+    @Path("{id: \\d+}")
     public TarjetaCreditoDetailDTO getTarjetaCredito(@PathParam("idPareja") String idPareja, @PathParam("id") Long id) throws BusinessLogicException {
         TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /parejas/"  + idPareja + "tarjetasCredito/" + id + " no existe.", 404);
         }
         return new TarjetaCreditoDetailDTO(entity);
     }

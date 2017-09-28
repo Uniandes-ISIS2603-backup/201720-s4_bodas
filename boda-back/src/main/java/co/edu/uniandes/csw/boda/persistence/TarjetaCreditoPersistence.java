@@ -74,10 +74,18 @@ public class TarjetaCreditoPersistence {
      */
     public TarjetaCreditoEntity findByNumDeSeg(int numDeSeg) {
         LOGGER.log(Level.INFO, "Consultando tarjetasCredito con numDeSeg= ", numDeSeg);
-        TypedQuery<TarjetaCreditoEntity> q
-                = em.createQuery("select u from TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
+        TypedQuery<TarjetaCreditoEntity> q = em.createQuery("select u from TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
         q = q.setParameter("numDeSeg", numDeSeg);
-        return q.getSingleResult();
+        List<TarjetaCreditoEntity> results = q.getResultList();
+        TarjetaCreditoEntity tarjeta = null;
+        if (results == null) {
+            tarjeta = null;
+        } else if (results.isEmpty()) {
+            tarjeta = null;
+        } else if (results.size() >= 1) {
+            tarjeta = results.get(0);
+        }
+        return tarjeta;
     }
     
     /**
@@ -89,10 +97,18 @@ public class TarjetaCreditoPersistence {
      */
     public TarjetaCreditoEntity findByNumero(Long numero) {
         LOGGER.log(Level.INFO, "Consultando tarjetasCredito con numero= ", numero);
-        TypedQuery<TarjetaCreditoEntity> q
-                = em.createQuery("select u from TarjetaCreditoEntity u where u.numero = :numero", TarjetaCreditoEntity.class);
+        TypedQuery<TarjetaCreditoEntity> q = em.createQuery("select u from TarjetaCreditoEntity u where u.numero = :numero", TarjetaCreditoEntity.class);
         q = q.setParameter("numero", numero);
-        return q.getSingleResult();
+        List<TarjetaCreditoEntity> results = q.getResultList();
+        TarjetaCreditoEntity tarjeta = null;
+        if (results == null) {
+            tarjeta = null;
+        } else if (results.isEmpty()) {
+            tarjeta = null;
+        } else if (results.size() >= 1) {
+            tarjeta = results.get(0);
+        }
+        return tarjeta;
     }
     /**
      * Devuelve todas las TarjetaCredito de la base de datos.
