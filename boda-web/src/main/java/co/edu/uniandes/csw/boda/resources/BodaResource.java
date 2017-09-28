@@ -170,6 +170,15 @@ public class BodaResource {
         }
         return InvitadoResource.class;
     }
+    
+     @Path("{idBoda: \\d+}/tareas")
+    public Class<TareaResource> getTareaResource(@PathParam("idBoda") Long bodaId) throws BusinessLogicException {
+        BodaEntity entity = bodaLogic.findBodaById(bodaId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /boda/" + bodaId + "/tarea no existe.", 404);
+        }
+        return TareaResource.class;
+    }
 
 }
 
