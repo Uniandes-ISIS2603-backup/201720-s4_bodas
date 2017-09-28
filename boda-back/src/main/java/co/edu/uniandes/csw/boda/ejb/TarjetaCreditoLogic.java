@@ -12,12 +12,14 @@ import co.edu.uniandes.csw.boda.persistence.TarjetaCreditoPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
  *
  * @author ca.guerrero
  */
+@Stateless
 public class TarjetaCreditoLogic {
     private static final int NUMERO_CARACTERES_TARJETA = 16;
     private static final int NUMERO_CARACTERES_SEGURIDAD_1OPCION = 3;
@@ -41,20 +43,17 @@ public class TarjetaCreditoLogic {
         LOGGER.info("Inicia proceso de creación de TarjetaCredito");
         ParejaEntity pareja = parejaLogic.getPareja(parejaId);
         entity.setPareja(pareja);
-        if(persistence.find(entity.getId())!=null){
-            throw new BusinessLogicException("No pueden existir dos tarjetas con el mismo id ( " + entity.getId()+ " )");
-        }
         if (persistence.findByNumDeSeg(entity.getNumDeSeg())!= null) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
         if (persistence.findByNumero(entity.getNumero())!= null) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numero \"" + entity.getNumero() + "\"");
         }
-        int ingresoNumeroTarjeta = persistence.findByNumero(entity.getNumero()).toString().length();
+        int ingresoNumeroTarjeta = entity.getNumero().toString().length();
         if (ingresoNumeroTarjeta != NUMERO_CARACTERES_TARJETA) {
             throw new BusinessLogicException("El numero de la Tarjeta de credito debe tener 16 digitos");
         }
-        int ingresoNumeroSeguridad = persistence.findByNumDeSeg(entity.getNumDeSeg()).toString().length();
+        int ingresoNumeroSeguridad = String.valueOf(entity.getNumDeSeg()).length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
             throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
         }
@@ -76,14 +75,19 @@ public class TarjetaCreditoLogic {
      */
     public TarjetaCreditoEntity updateTarjetaCredito(String parejaId, Long id, TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar TarjetaCredito con id={0}", id);
-        if(entity == null){
-            throw new BusinessLogicException("No se ha enviado informacion para actualizar la tarjeta de credito");
+        if (persistence.findByNumDeSeg(entity.getNumDeSeg()) != null && entity.getNumDeSeg() != persistence.find(id).getNumDeSeg()) {
+            throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
-        if (entity.getNumDeSeg() != (persistence.find(id).getNumDeSeg())) {
-            throw new BusinessLogicException("El numero de seguridad de la tarjeta de credito no puede cambiar");
+        if (persistence.findByNumero(entity.getNumero()) != null && !(entity.getNumero().equals(persistence.find(id).getNumero()))) {
+            throw new BusinessLogicException("Ya existe una TarjetaCredito con el numero \"" + entity.getNumero() + "\"");
         }
-        if (!(entity.getNumero().equals(persistence.find(id).getNumero()))) {
-            throw new BusinessLogicException("El numero de la tarjeta de credito no puede cambiar");
+        int ingresoNumeroTarjeta = entity.getNumero().toString().length();
+        if (ingresoNumeroTarjeta != NUMERO_CARACTERES_TARJETA) {
+            throw new BusinessLogicException("El numero de la Tarjeta de credito debe tener 16 digitos");
+        }
+        int ingresoNumeroSeguridad = String.valueOf(entity.getNumDeSeg()).length();
+        if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
+            throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
         }
         ParejaEntity pareja = parejaLogic.getPareja(parejaId);
         entity.setPareja(pareja);
@@ -114,13 +118,7 @@ public class TarjetaCreditoLogic {
      * @return la TarjetaCredito solicitada por medio de su id.
      */
     public TarjetaCreditoEntity getTarjetaCredito(Long id) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar TarjetaCredito con id={0}", id);
-        TarjetaCreditoEntity tarjeta = persistence.find(id);
-        if (tarjeta == null) {
-            LOGGER.log(Level.SEVERE, "La TarjetaCredito con el id {0} no existe", id);
-        }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar TarjetaCredito con id={0}", id);
-        return tarjeta;
+        return persistence.find(id);
     }
     
     /**

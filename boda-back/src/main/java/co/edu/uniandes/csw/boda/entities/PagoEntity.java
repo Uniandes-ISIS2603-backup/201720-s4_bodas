@@ -1,4 +1,5 @@
 package co.edu.uniandes.csw.boda.entities;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
@@ -9,7 +10,7 @@ import javax.persistence.TemporalType;
  * @author ca.guerrero
  */
 @Entity
-public class PagoEntity extends BaseEntity{
+public class PagoEntity extends BaseEntity implements Serializable{
     private Double montoTotal;
     @Temporal(TemporalType.DATE)
     private Date fecha;

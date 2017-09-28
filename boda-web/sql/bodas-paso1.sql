@@ -84,7 +84,7 @@ insert into ServicioEntity (name, descripcion) values ('RISEDRONATE SODIUM', 'Ki
 
 ---Pruebas TarjetaCreditoEntity
 delete from TarjetaCreditoEntity;
-insert into TarjetaCreditoEntity (name, numero) values ('Banca Mia', 0000000000000000);
-insert into TarjetaCreditoEntity (name, numero) values ('Banca Tuya', 7894561230789456);
-insert into TarjetaCreditoEntity (name, numero) values ('Banca Nuestra', 7777771111115556);
+insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (108, 'Banca Mia', 4445556667778889, 777, '3/8/2022','fmarsland0@artisteer.com');
+insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (2, 'Banca Tuya', 7894561230789456, 456, '6/29/2017', 'fmarsland0@artisteer.com');
+insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (3, 'Banca Nuestra', 7777771111115556, 123, '1/12/2019', 'bsimcoe1@dion.ne.jp');
 ---Fin Pruebas TarjetaCreditoEntity
