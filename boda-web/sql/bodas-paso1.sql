@@ -49,9 +49,9 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 
 
 --Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre) values (12,0,'3/29/2017', 'Nombre');
-insert into TareaEntity(id,aprobada, dia,nombre) values (13,1,'3/29/2017', 'Nombre1');
-insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'3/29/2017', 'Nombre2');
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id) values (12,0,'3/29/2017', 'Nombre',1);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id) values (13,1,'3/29/2017', 'Nombre1',1);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id) values (14,0,'3/29/2017', 'Nombre2',2);
 ---Fin Calificacion Tarea Entity
 
 --Pruebas para OpcionServicio Entity

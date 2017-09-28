@@ -29,130 +29,117 @@ import javax.ws.rs.WebApplicationException;
  * @author sp.joven
  */
 
- @Path("tareas")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
 public class TareaResource {
 
-    
     @Inject
     private TareaLogic tareaLogic;
-    
+
     private static final Logger LOGGER = Logger.getLogger(TareaResource.class.getName());
-     
+
     /**
-     * POST http://localhost:8080/bodas-web/api/tareas Ejemplo
-     * json: { "name":"Norma" }
+     * POST http://localhost:8080/bodas-web/api/tareas Ejemplo json: {
+     * "name":"Norma" }
      *
-     * @param tarea correponde a la representación java del objeto json
-     * enviado en el llamado.
+     * @param tarea correponde a la representación java del objeto json enviado
+     * en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
-     la base de datos y el tipo del objeto java. Ejemplo: { "type":
-     "TareaDetailDTO", "id": 1, "name": "Norma" }
+     * la base de datos y el tipo del objeto java. Ejemplo: { "type":
+     * "TareaDetailDTO", "id": 1, "name": "Norma" }
      * @throws BusinessLogicException
      */
     @POST
-    public TareaDetailDTO createTarea(TareaDetailDTO tarea) throws BusinessLogicException {
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        TareaEntity tareaEntity =tarea.toEntity();
-        // Invoca la lógica para crear la tarea nueva
-        TareaEntity nuevaTarea = tareaLogic.create(tareaEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new  TareaDetailDTO(nuevaTarea);
+    public TareaDetailDTO createTarea(@PathParam("idBoda") Long idBoda, TareaDetailDTO tarea) throws BusinessLogicException {
+
+        TareaEntity tareaEntity = tarea.toEntity();
+        TareaEntity nuevaTarea = tareaLogic.create(idBoda, tareaEntity);
+        return new TareaDetailDTO(nuevaTarea);
     }
- 
 
     /**
-     * GET para todas las tareas.
-     * http://localhost:8080/boda-web/api/tareas
-     * 
+     * GET para todas las tareas. http://localhost:8080/boda-web/api/tareas
+     *
      * @return la lista de todas las tareas en objetos json DTO.
      * @throws BusinessLogicException
      */
     @GET
-    public List<TareaDetailDTO> getTareas() throws BusinessLogicException {
-        return listEntity2DetailDTO(tareaLogic.getTareas());
+    public List<TareaDetailDTO> getTareas(@PathParam("idBoda") Long idBoda) throws BusinessLogicException {
+        return listEntity2DetailDTO(tareaLogic.getTareas(idBoda));
     }
 
     /**
-     * GET para una tarea
-     * http://localhost:8080/boda-web/api/tareas/1
+     * GET para una tarea http://localhost:8080/boda-web/api/tareas/1
      *
      * @param id corresponde al id de la tarea buscada.
      * @return La tarea encontrada.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la tarea buscada se retorna un 404 con
-     * el mensaje.
+     * En caso de no existir el id de la tarea buscada se retorna un 404 con el
+     * mensaje.
      */
     @GET
     @Path("{id: \\d+}")
-    public TareaDetailDTO getTarea(@PathParam("id") Long id) throws BusinessLogicException {
+    public TareaDetailDTO getTarea(@PathParam("idBoda") Long idBoda, @PathParam("id") Long id) throws BusinessLogicException {
         TareaEntity entity = tareaLogic.findTareaById(id);
-        if(entity==null)
-       {
-           throw new  WebApplicationException("No existe una tarea con el id dado",404);
-       }
-        return  new TareaDetailDTO(tareaLogic.findTareaById(id));
+        if (entity == null) {
+            throw new WebApplicationException("No existe una tarea con el id dado", 404);
+        }
+        return new TareaDetailDTO(entity);
     }
-   
 
     /**
-     * PUT 
-     * http://localhost:8080/boda-web/api/tareas/1 Ejemplo
-     * json { "id": 1, "name": "cambio de nombre" }
+     * PUT http://localhost:8080/boda-web/api/tareas/1 Ejemplo json { "id": 1,
+     * "name": "cambio de nombre" }
      *
      * @param id corresponde a la tarea a actualizar.
      * @param tarea corresponde a al objeto con los cambios que se van a
      * realizar.
      * @return La tarea actualizado.
-     * @throws BusinessLogicException
-     *
-     * En caso de no existir el id de la tarea a actualizar se retorna un
-     * 404 con el mensaje.
+     * @throws BusinessLogicException En caso de no existir el id de la tarea a
+     * actualizar se retorna un 404 con el mensaje.
      */
     @PUT
     @Path("{id: \\d+}")
-    public TareaDetailDTO updateTarea(@PathParam("id") Long id, TareaDetailDTO tarea) throws BusinessLogicException {
+    public TareaDetailDTO updateTarea(@PathParam("idBoda") Long idBoda, @PathParam("id") Long id, TareaDetailDTO tarea) throws BusinessLogicException {
+        tarea.setId(id);
         TareaEntity entity = tareaLogic.findTareaById(id);
-        if(entity==null)
-       {
-           throw new  WebApplicationException("No existe una tarea con el id dado",404);
-       }
-        return  new TareaDetailDTO(tareaLogic.updateTarea(id, tarea.toEntity()));
+
+        if (entity == null) {
+            throw new WebApplicationException("No existe una tarea con el id dado", 404);
+        }
+        return new TareaDetailDTO(tareaLogic.updateTarea(idBoda, tarea.toEntity()));
     }
 
     /**
      * DELETE http://localhost:8080/boda-web/api/tareas/1
      *
      * @param id corresponde a la tareas a borrar.
-     * @throws BusinessLogicException
-     *
-     * En caso de no existir el id de la tarea a actualizar se retorna un
-     * 404 con el mensaje.
-     *
+     * @throws BusinessLogicException En caso de no existir el id de la tarea a
+     * actualizar se retorna un 404 con el mensaje.
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteTarea(@PathParam("id") Long id) throws BusinessLogicException {
-        
-       if(tareaLogic.findTareaById(id)==null)
-       {
-           throw new  WebApplicationException("No existe untarea con el id dado",404);
-       }
-       tareaLogic.removeTarea(id);
+    public void deleteTarea(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id) throws BusinessLogicException {
+        TareaEntity entity = tareaLogic.findTareaById(id);
+        if (entity == null) {
+            throw new WebApplicationException("No existe una tarea con el id dado", 404);
+        }
+        tareaLogic.removeTarea(id);
     }
+      
+   
+   
 
     /**
      *
      * lista de entidades a DTO.
      *
      * Este método convierte una lista de objetos BodaEntity a una lista de
-      objetos BodaDetailDTO (json)
+     * objetos BodaDetailDTO (json)
      *
-     * @param entityList corresponde a la lista de tarea de tipo Entity
-     * que vamos a convertir a DTO.
+     * @param entityList corresponde a la lista de tarea de tipo Entity que
+     * vamos a convertir a DTO.
      * @return la lista de bodas en forma DTO (json)
      */
     private List<TareaDetailDTO> listEntity2DetailDTO(List<TareaEntity> entityList) {
@@ -162,7 +149,10 @@ public class TareaResource {
         }
         return list;
     }
-
-
     
+      
+   
+    
+
+
 }

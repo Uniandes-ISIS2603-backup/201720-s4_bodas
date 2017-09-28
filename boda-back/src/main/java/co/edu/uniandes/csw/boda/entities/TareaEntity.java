@@ -10,7 +10,6 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -33,14 +32,6 @@ public class TareaEntity extends BaseEntity implements Serializable {
     @ManyToOne
     private BodaEntity boda;
 
-    public BodaEntity getBoda() {
-        return boda;
-    }
-
-    public void setBoda(BodaEntity boda) {
-        this.boda = boda;
-    }
-    
     @PodamExclude
     @ManyToOne
     private UbicacionEntity ubicacion;
@@ -48,7 +39,15 @@ public class TareaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private OpcionServicioEntity opcionServicio;
-    public boolean getAprobada() {
+    
+      public BodaEntity getBoda() {
+        return boda;
+    }
+
+    public void setBoda(BodaEntity boda) {
+        this.boda = boda;
+    }
+    public boolean isAprobada() {
         return aprobada;
     }
 
