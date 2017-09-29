@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.boda.dtos;
 
+import co.edu.uniandes.csw.boda.entities.PagoEntity;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,6 +16,7 @@ import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
  */
 public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
     
+    private List<PagoDTO> pagos;
     
     /**
      * Constructor por defecto
@@ -28,6 +32,13 @@ public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
      */
     public TarjetaCreditoDetailDTO(TarjetaCreditoEntity entity) {
         super(entity);
+            if (entity.getPagos() != null) {
+            pagos = new ArrayList<>();
+            for (PagoEntity entityPago : entity.getPagos()) {
+                pagos.add(new PagoDTO(entityPago));
+            }
+
+        }
     }
     
     /**
@@ -39,4 +50,13 @@ public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
     public TarjetaCreditoEntity toEntity() {
         return super.toEntity();
     }
+
+    public List<PagoDTO> getPagos() {
+        return pagos;
+    }
+
+    public void setPagos(List<PagoDTO> pagos) {
+        this.pagos = pagos;
+    }
+    
 }
