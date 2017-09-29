@@ -26,13 +26,16 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (2, 'Clothing', -17.8119748, -50.5981252, 38447, '4701 Dorton Place');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (4, 'HomeLand', 55.816167, 37.8768998, 859591, '976 Myrtle Center');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (5, 'HomeLands', 55.81617, 37.878998, 85591, '976f Myrtle Center');
 
 ---Fin Pruebas UbicacionEntity
 
+
 --Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (12,0,'3/29/2017', 'Nombre', 4);
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (13,1,'3/29/2017', 'Nombre1', 3);
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (14,0,'3/29/2017', 'Nombre2', 1);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id) values (12,0,'3/29/2017', 'Nombre',1,5);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id) values (13,1,'3/29/2017', 'Nombre1',1,3);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id) values (14,0,'3/29/2017', 'Nombre2',2,1);
+---Fin Calificacion Tarea Entity
 
 --Pruebas para Regalo Entity
 

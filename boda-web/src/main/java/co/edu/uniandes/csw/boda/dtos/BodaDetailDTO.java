@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.boda.dtos;
 import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
+import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class BodaDetailDTO extends BodaDTO{
     
     private List<RegaloDTO> regalos;
     private List<InvitadoDTO> invitados;
+    private List<TareaDTO> tareas;
     /**
      * Constructor por defecto
      */
@@ -43,6 +45,12 @@ public class BodaDetailDTO extends BodaDTO{
             invitados = new ArrayList<>();
             for (InvitadoEntity entityInvitado : entity.getInvitados()) {
                 invitados.add(new InvitadoDTO(entityInvitado));
+            }
+        }
+         if (entity.getTareas() != null) {
+            tareas = new ArrayList<>();
+            for (TareaEntity entityTarea : entity.getTareas()) {
+                tareas.add(new TareaDTO(entityTarea));
             }
         }
     }
