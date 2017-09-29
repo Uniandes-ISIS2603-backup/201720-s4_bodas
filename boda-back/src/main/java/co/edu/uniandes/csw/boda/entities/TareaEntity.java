@@ -42,7 +42,7 @@ public class TareaEntity extends BaseEntity implements Serializable {
     }
     
     @PodamExclude
-    @ManyToOne
+    @OneToOne
     private UbicacionEntity ubicacion;
     
     @PodamExclude
