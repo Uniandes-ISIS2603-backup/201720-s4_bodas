@@ -10,7 +10,6 @@ import co.edu.uniandes.csw.boda.entities.PagoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -25,10 +24,8 @@ import javax.ws.rs.WebApplicationException;
  *
  * @author ca.guerrero
  */
-@Path("pagos")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
 public class PagoResource {
     @Inject
     PagoLogic pagoLogic;
@@ -37,6 +34,7 @@ public class PagoResource {
      * POST http://localhost:8080/boda-web/api/pagos Ejemplo
      * json: {"numero": 0000 0000 0000 0000, "numDeSeg": 000, "fechaVen":"05-Dic-2017", "nombreBanco": "BancaMia}
      *
+     * @param idTarjeta
      * @param pago correponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
@@ -45,15 +43,16 @@ public class PagoResource {
      * @throws BusinessLogicException
      */
     @POST
-    public PagoDetailDTO createPago(PagoDetailDTO pago) throws BusinessLogicException {
+    public PagoDetailDTO createPago(@PathParam("idTarjeta") Long idTarjeta, PagoDetailDTO pago) throws BusinessLogicException {
         PagoEntity pagoEntity = pago.toEntity();
-        PagoEntity nuevoPago = pagoLogic.createPago(pagoEntity);
+        PagoEntity nuevoPago = pagoLogic.createPago(idTarjeta, pagoEntity);
         return new PagoDetailDTO(nuevoPago);
     }
     
     /**
      * PUT http://localhost:8080/boda-web/api/pagos/1 Ejemplo
      * json { "id": 1, "name": "cambio de nombre" }
+     * @param idTarjeta
      * @param id corresponde al pago a actualizar.
      * @param pago corresponde al objeto con los cambios que se van a
      * realizar.
@@ -65,19 +64,20 @@ public class PagoResource {
     
     @PUT
     @Path("{id: \\d+}")
-    public PagoDetailDTO updatePago(@PathParam("id") Long id, PagoDetailDTO pago) throws BusinessLogicException {
+    public PagoDetailDTO updatePago(@PathParam("idTarjeta") Long idTarjeta, @PathParam("id") Long id, PagoDetailDTO pago) throws BusinessLogicException {
         pago.setId(id);
         PagoEntity entity = pagoLogic.getPago(id);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /parejas/pagos/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /tarjetasCredito/" + idTarjeta + "pagos/" + id + " no existe.", 404);
         }
-        return new PagoDetailDTO(pagoLogic.updatePago(id, pago.toEntity()));
+        return new PagoDetailDTO(pagoLogic.updatePago(idTarjeta, id, pago.toEntity()));
     }
     
     /**
      * GET para un Pago
      * http://localhost:8080/bodas-web/api/parejas/pagos/1
      *
+     * @param idTarjeta
      * @param id corresponde al id del Pago buscada.
      * @return El pago encontrado. Ejemplo: {"type":
      * "pagoDetailDTO", "id": 1, "montoTotal": "100000"}
@@ -88,23 +88,24 @@ public class PagoResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public PagoDetailDTO getPago(@PathParam("id") Long id) throws BusinessLogicException {
+    public PagoDetailDTO getPago(@PathParam("idTarjeta") Long idTarjeta, @PathParam("id") Long id) throws BusinessLogicException {
         PagoEntity entity = pagoLogic.getPago(id);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /parejas/pagos/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso tarjetasCredito/" + idTarjeta + "/pagos" + id + "no existe.", 404);
         }
-        return new PagoDetailDTO(pagoLogic.getPago(id));
+        return new PagoDetailDTO(entity);
     }
     /**
      * GET para todos los pagos.
      * http://localhost:8080/boda-web/api/pagos
      *
+     * @param idTarjeta
      * @return la lista de todas los pagos en objetos json DTO.
      * @throws BusinessLogicException
      */
     @GET
-    public List<PagoDetailDTO> getPagos() throws BusinessLogicException {
-        return listEntity2DetailDTO(pagoLogic.getPagos());
+    public List<PagoDetailDTO> getPagos(@PathParam("idTarjeta") Long idTarjeta) throws BusinessLogicException {
+        return listEntity2DetailDTO(pagoLogic.getPagos(idTarjeta));
     }
      /**
      *

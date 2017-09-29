@@ -125,6 +125,4 @@ public class ParejaEntity implements Serializable{
     public void setNombreAbreviado(String nombreAbreviado) {
         this.nombreAbreviado = nombreAbreviado;
     }
-    
-    
 }

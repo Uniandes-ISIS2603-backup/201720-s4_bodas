@@ -136,6 +136,16 @@ public class TarjetaCreditoResource {
     public List<TarjetaCreditoDetailDTO> getTarjetasCredito(@PathParam("idPareja") String idPareja) throws BusinessLogicException {
         return listEntity2DetailDTO(tarjetaCreditoLogic.getTarjetasCredito(idPareja));
     }
+    
+    @Path("{idTarjeta: \\d+}/pagos")
+    public Class<PagoResource> getPagoResource(@PathParam("idTarjeta") Long tarjetaId) throws BusinessLogicException {
+        TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(tarjetaId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /tarjetasCredito/" + tarjetaId + "/pagos no existe.", 404);
+        }
+        return PagoResource.class;
+    }
+    
      /**
      *
      * lista de entidades a DTO.
