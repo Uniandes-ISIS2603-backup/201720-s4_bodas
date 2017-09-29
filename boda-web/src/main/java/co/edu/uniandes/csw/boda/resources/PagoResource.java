@@ -50,30 +50,6 @@ public class PagoResource {
     }
     
     /**
-     * PUT http://localhost:8080/boda-web/api/pagos/1 Ejemplo
-     * json { "id": 1, "name": "cambio de nombre" }
-     * @param idTarjeta
-     * @param id corresponde al pago a actualizar.
-     * @param pago corresponde al objeto con los cambios que se van a
-     * realizar.
-     * @return El pago actualizado.
-     * @throws BusinessLogicException
-     * En caso de no existir el id del pago a actualizar se retorna un
-     * 404 con el mensaje.
-     */
-    
-    @PUT
-    @Path("{id: \\d+}")
-    public PagoDetailDTO updatePago(@PathParam("idTarjeta") Long idTarjeta, @PathParam("id") Long id, PagoDetailDTO pago) throws BusinessLogicException {
-        pago.setId(id);
-        PagoEntity entity = pagoLogic.getPago(id);
-        if (entity == null) {
-            throw new WebApplicationException("El recurso /tarjetasCredito/" + idTarjeta + "pagos/" + id + " no existe.", 404);
-        }
-        return new PagoDetailDTO(pagoLogic.updatePago(idTarjeta, id, pago.toEntity()));
-    }
-    
-    /**
      * GET para un Pago
      * http://localhost:8080/bodas-web/api/parejas/pagos/1
      *

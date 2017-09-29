@@ -1,5 +1,7 @@
 --Pruebas para Pareja Entity
 delete from RegaloEntity_UbicacionEntity;
+delete from PagoEntity;
+delete from TarjetaCreditoEntity;
 delete from ParejaEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
