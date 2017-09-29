@@ -59,6 +59,7 @@ public class ParejaDetailDTO  extends ParejaDTO {
            for(TarjetaCreditoDTO tarjetito: this.tarjetas){
                tar.add(tarjetito.toEntity());
            }
+           parejaE.setTarjetasCredito(tar);
        }
         return parejaE;
     }
