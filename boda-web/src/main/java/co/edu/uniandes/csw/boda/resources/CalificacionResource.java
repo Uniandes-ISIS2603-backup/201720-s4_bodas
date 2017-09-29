@@ -74,6 +74,7 @@ public class CalificacionResource  {
     @DELETE
     @Path("{id: \\d+}")
     public void delete(@PathParam("opcionId")Long opcionId,@PathParam ("id") Long id) throws BusinessLogicException{
+        if(logic.getCalificacion(opcionId, id)==null) throw new WebApplicationException("El recurso /calificaciones/" + id + " no existe.", 404);
         logic.deleteCalificacion(id);
     }
     /**
