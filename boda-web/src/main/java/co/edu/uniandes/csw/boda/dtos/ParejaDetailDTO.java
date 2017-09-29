@@ -6,12 +6,19 @@
 package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
+import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author nf.ortiz
  */
 public class ParejaDetailDTO  extends ParejaDTO {
+    
+    public BodaDTO boda;
+    
+    public List<TarjetaCreditoDTO> tarjetas;
 
     public ParejaDetailDTO() {
         //Constructor por defecto
@@ -19,7 +26,25 @@ public class ParejaDetailDTO  extends ParejaDTO {
 
     public ParejaDetailDTO(ParejaEntity pareja) {
         super(pareja);
+        if(pareja.getBoda()!=null)this.boda = new BodaDTO(pareja.getBoda());
+        if(pareja.getTarjetasCredito()!=null){
+            tarjetas = new ArrayList<>();
+            for(TarjetaCreditoEntity tarjetita: pareja.getTarjetasCredito())
+            {
+                tarjetas.add(new TarjetaCreditoDTO(tarjetita));
+            }
+        }
+        
     }
+
+    public BodaDTO getBoda() {
+        return boda;
+    }
+
+    public void setBoda(BodaDTO boda) {
+        this.boda = boda;
+    }
+    
      /**
      * Transformar un DTO a un Entity
      *
@@ -28,6 +53,13 @@ public class ParejaDetailDTO  extends ParejaDTO {
     @Override
     public ParejaEntity toEntity() {
        ParejaEntity parejaE = super.toEntity();
+       if(this.boda!=null)parejaE.setBoda(this.boda.toEntity());
+       if(this.tarjetas != null){
+        List<TarjetaCreditoEntity> tar = new ArrayList<>();
+           for(TarjetaCreditoDTO tarjetito: this.tarjetas){
+               tar.add(tarjetito.toEntity());
+           }
+       }
         return parejaE;
     }
 }
