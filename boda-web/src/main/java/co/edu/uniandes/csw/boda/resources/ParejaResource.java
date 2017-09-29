@@ -133,7 +133,7 @@ public class ParejaResource {
     public Class<TarjetaCreditoResource> getTarjetaCreditoResource(@PathParam("idPareja") String parejaId) throws BusinessLogicException {
         ParejaEntity entity = parejaLogic.getPareja(parejaId);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /boda/" + parejaId + "/tarjetasCredito no existe.", 404);
+            throw new WebApplicationException("El recurso /parejas/" + parejaId + "/tarjetasCredito no existe.", 404);
         }
         return TarjetaCreditoResource.class;
     }

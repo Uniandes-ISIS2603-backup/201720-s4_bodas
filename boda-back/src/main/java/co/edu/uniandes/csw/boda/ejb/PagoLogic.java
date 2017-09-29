@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.ejb;
 
 import co.edu.uniandes.csw.boda.entities.PagoEntity;
+import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.PagoPersistence;
 import java.util.List;
@@ -24,37 +25,28 @@ public class PagoLogic {
 
     @Inject
     private PagoPersistence persistence;
+    
+    @Inject
+    private TarjetaCreditoLogic tarjetaLogic;
 
     /**
      *
+     * @param tarjetaId
      * @param entity
      * @return
      * @throws BusinessLogicException
      */
-    public PagoEntity createPago(PagoEntity entity) throws BusinessLogicException {
+    public PagoEntity createPago(Long tarjetaId, PagoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Pago");
-        if (persistence.find(entity.getId())!= null) {
-            throw new BusinessLogicException("Ya existe un Pago con el id \"" + entity.getId() + "\"");
+        TarjetaCreditoEntity tarjeta = tarjetaLogic.getTarjetaCredito(tarjetaId);
+        entity.setTarjetaCredito(tarjeta);
+        if (entity.getMontoTotal() == 0.0 || entity.getMontoTotal() < 0.0)
+        {
+            throw new BusinessLogicException("El monto del pago debe ser mayor que 0");
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Pago");
         return entity;
-    }
-    
-     /**
-     *
-     * Actualizar un Pago.
-     *
-     * @param id: id del Pago para buscarlo en la base de datos.
-     * @param entity: Pago con los cambios para ser actualizado, por
-     * ejemplo el montoTotal.
-     * @return el Pago con los cambios actualizados en la base de datos.
-     */
-    public PagoEntity updatePago(Long id, PagoEntity entity) {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar Pago con id={0}", id);
-        PagoEntity newEntity = persistence.update(entity);
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar Pago con id={0}", entity.getId());
-        return newEntity;
     }
     
      /**
@@ -67,9 +59,6 @@ public class PagoLogic {
     public PagoEntity getPago(Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar Pago con id={0}", id);
         PagoEntity pago = persistence.find(id);
-        if (pago == null) {
-            LOGGER.log(Level.SEVERE, "El Pago con el id {0} no existe", id);
-        }
         LOGGER.log(Level.INFO, "Termina proceso de consultar Pago con id={0}", id);
         return pago;
     }
@@ -78,11 +67,19 @@ public class PagoLogic {
      * 
      * Obtener todos los Pagos existentes en la base de datos.
      *
+     * @param idTarjeta
      * @return una lista de Pagos.
      */
-    public List<PagoEntity> getPagos() {
+    public List<PagoEntity> getPagos(Long idTarjeta) throws BusinessLogicException{
         LOGGER.info("Inicia proceso de consultar todos los Pagos");
-        List<PagoEntity> pagos = persistence.findAll();
+        TarjetaCreditoEntity tarjeta = tarjetaLogic.getTarjetaCredito(idTarjeta);
+        List<PagoEntity> pagos = tarjeta.getPagos();
+        if(pagos == null) {
+            throw new BusinessLogicException("Aun no se han realizado pagos con la tarjeta de credito");
+        }
+        if(pagos.isEmpty()) {
+            throw new BusinessLogicException("Aun no se han realizado pagos con la tarjeta de credito");
+        }
         LOGGER.info("Termina proceso de consultar todos los Pagos");
         return pagos;
     }

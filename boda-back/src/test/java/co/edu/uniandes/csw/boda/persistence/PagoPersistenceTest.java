@@ -135,24 +135,6 @@ public class PagoPersistenceTest {
     }
 
     /**
-     * Test of update method, of class PagoPersistence.
-     */
-    @Test
-    public void testUpdatePagoEntity() {
-    PagoEntity entity = data.get(0);
-    PodamFactory factory = new PodamFactoryImpl();
-    PagoEntity newEntity = factory.manufacturePojo(PagoEntity.class);
-
-    newEntity.setId(entity.getId());
-
-    persistence.update(newEntity);
-
-    PagoEntity resp = em.find(PagoEntity.class, entity.getId());
-
-    Assert.assertEquals(newEntity.getId(), resp.getId());
-    }
-
-    /**
      * Test of find method, of class PagoPersistence.
      */
     @Test
