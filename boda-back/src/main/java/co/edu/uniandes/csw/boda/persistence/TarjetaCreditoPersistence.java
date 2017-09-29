@@ -82,7 +82,7 @@ public class TarjetaCreditoPersistence {
             tarjeta = null;
         } else if (results.isEmpty()) {
             tarjeta = null;
-        } else if (results.size() >= 1) {
+        } else if (!results.isEmpty()) {
             tarjeta = results.get(0);
         }
         return tarjeta;
@@ -105,7 +105,7 @@ public class TarjetaCreditoPersistence {
             tarjeta = null;
         } else if (results.isEmpty()) {
             tarjeta = null;
-        } else if (results.size() >= 1) {
+        } else if (!results.isEmpty()) {
             tarjeta = results.get(0);
         }
         return tarjeta;
