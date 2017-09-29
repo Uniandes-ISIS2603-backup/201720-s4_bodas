@@ -7,9 +7,8 @@ delete from RegaloEntity;
 delete from InvitadoEntity;
 delete from calificacionentity;
 delete from OpcionServicioEntity;
-
-
 delete from TareaEntity;
+
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 79, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
 ---Fin Pruebas Pareja Entity
@@ -29,6 +28,11 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (4, 'HomeLand', 55.816167, 37.8768998, 859591, '976 Myrtle Center');
 
 ---Fin Pruebas UbicacionEntity
+
+--Pruebas para Tarea Entity
+insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (12,0,'3/29/2017', 'Nombre', 4);
+insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (13,1,'3/29/2017', 'Nombre1', 3);
+insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (14,0,'3/29/2017', 'Nombre2', 1);
 
 --Pruebas para Regalo Entity
 
@@ -50,11 +54,6 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
 
 
---Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre) values (12,0,'3/29/2017', 'Nombre');
-insert into TareaEntity(id,aprobada, dia,nombre) values (13,1,'3/29/2017', 'Nombre1');
-insert into TareaEntity(id,aprobada, dia,nombre) values (14,0,'3/29/2017', 'Nombre2');
----Fin Calificacion Tarea Entity
 
 --Pruebas para OpcionServicio Entity
 
