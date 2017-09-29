@@ -133,7 +133,7 @@ public class OpcionServicioPersistenceTest {
     
     public OpcionServicioPersistenceTest() {
     }
-    
+    /*
     @BeforeClass
     public static void setUpClass() {
     }
@@ -142,7 +142,7 @@ public class OpcionServicioPersistenceTest {
     public static void tearDownClass() {
     }
     
-    
+    */
     @Before
     public void setUp() {
         try {
@@ -174,6 +174,7 @@ public class OpcionServicioPersistenceTest {
             data.add(entity);
         }
  } 
+ 
     @After
     public void tearDown() {
     }
