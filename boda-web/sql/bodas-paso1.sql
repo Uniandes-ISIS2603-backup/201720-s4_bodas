@@ -26,13 +26,13 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (2, 'Clothing', -17.8119748, -50.5981252, 38447, '4701 Dorton Place');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (4, 'HomeLand', 55.816167, 37.8768998, 859591, '976 Myrtle Center');
-
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (5, 'HomeLand', 55.816167, 37.8768998, 859591, '976 Myrtle Center');
 ---Fin Pruebas UbicacionEntity
 
 --Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (12,0,'3/29/2017', 'Nombre', 4);
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (13,1,'3/29/2017', 'Nombre1', 3);
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id) values (14,0,'3/29/2017', 'Nombre2', 1);
+insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id, boda_id) values (12,0,'3/29/2017', 'Nombre', 5,1);
+insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id,boda_id) values (13,1,'3/29/2017', 'Nombre1', 3,3);
+insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id,boda_id) values (14,0,'3/29/2017', 'Nombre2', 1,2);
 
 --Pruebas para Regalo Entity
 
@@ -52,8 +52,6 @@ insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values 
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (1,'Miguel', 90570, 'mloughnan0@noaa.gov', 1, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
-
-
 
 --Pruebas para OpcionServicio Entity
 
