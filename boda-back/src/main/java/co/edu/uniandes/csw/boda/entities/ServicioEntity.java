@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 /**
  *
  * @author aj.ortiz10
@@ -19,7 +20,7 @@ import javax.persistence.OneToMany;
 public class ServicioEntity extends BaseEntity implements Serializable  {
     
     private String descripcion;
-       
+    @PodamExclude  
     @OneToMany(mappedBy = "servicio")
     private List<ProveedorEntity> proveedores = new ArrayList<>();
     
