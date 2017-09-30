@@ -21,7 +21,7 @@
 				}
 			],
 			"request": {
-				"url": " http://localhost:8080/boda-web/api/tareas",
+				"url": " http://localhost:8080/boda-web/api/bodas/1",
 				"method": "GET",
 				"header": [
 					{
@@ -52,7 +52,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/tareas/12",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -74,7 +74,7 @@
 				}
 			],
 			"request": {
-				"url": "    http://localhost:8080/boda-web/api/tareas/120\n",
+				"url": "    http://localhost:8080/boda-web/api/bodas/1/tareas/120\n",
 				"method": "GET",
 				"header": [
 					{
@@ -105,7 +105,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/tareas",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas",
 				"method": "POST",
 				"header": [
 					{
@@ -116,7 +116,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \n    \"aprobada\": true,\n    \"dia\": \"1/1/1\",\n    \"id\": 111,\n    \"nombre\": \"Chao\"\n}"
+					"raw": "{\n   \n    \"aprobada\": true,\n    \"dia\": \"12/12/12\",\n    \"id\": 7,\n    \"nombre\": \"Flores\"\n}"
 				},
 				"description": "Crea una nueva tarea"
 			},
@@ -136,7 +136,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/tareas",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas",
 				"method": "POST",
 				"header": [
 					{
@@ -167,7 +167,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/tareas/14",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/14",
 				"method": "PUT",
 				"header": [
 					{
@@ -178,7 +178,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": false,\n    \"dia\": \"8/17/2017\",\n    \"id\":14,\n    \"nombre\": \"PruebaComida2\"\n}"
+					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": false,\n    \"dia\": \"8/17/2017\",\n    \"id\":14,\n    \"nombre\": \"PruebaComida22\"\n}"
 				},
 				"description": "Actualiza una tarea"
 			},
@@ -198,7 +198,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/tareas/50",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/50",
 				"method": "PUT",
 				"header": [
 					{
@@ -229,7 +229,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/tareas/12",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
 				"method": "DELETE",
 				"header": [
 					{
@@ -260,7 +260,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/tareas/112",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/112",
 				"method": "DELETE",
 				"header": [],
 				"body": {},

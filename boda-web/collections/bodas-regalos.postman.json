@@ -1,0 +1,343 @@
+{
+	"id": "13a5f7c3-3565-db90-3fc7-38c5eb4b7854",
+	"name": "bodas-regalos",
+	"allTests": [],
+	"timestamp": 1506731473253,
+	"collection_id": "4e36314b-8ce8-65fa-0fb7-4c588d6c39ad",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": null,
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "4e36314b-8ce8-65fa-0fb7-4c588d6c39ad",
+		"name": "bodas-regalos",
+		"description": "",
+		"order": [
+			"ce986930-ebcc-b77e-27a4-3e5f28193881",
+			"644dd9e0-22a6-b91f-7622-dd871207e8b0",
+			"8f1d6beb-2e49-29af-9489-d94f23929708",
+			"142f804e-00a1-2536-10c0-0e2362c119c5",
+			"e6047ae1-a405-adb5-4ac1-bacf7635fa3a"
+		],
+		"folders": [],
+		"folders_order": [],
+		"requests": [
+			{
+				"id": "142f804e-00a1-2536-10c0-0e2362c119c5",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/regalos",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "POST",
+				"data": "{\"comprado\": false,\n        \"imagen\": \"https://robohash.org/addeseruntvero.jpg?size=50x50&set=set1\",\n        \"name\": \"Cama\",\n        \"locations\": []\n\t\n}",
+				"dataMode": "raw",
+				"version": 2,
+				"tests": "tests[\"Status code is 412\"] = responseCode.code === 412;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1506731402129,
+				"name": "Crear un regalo invalido",
+				"description": "",
+				"collectionId": "4e36314b-8ce8-65fa-0fb7-4c588d6c39ad",
+				"responses": []
+			},
+			{
+				"id": "644dd9e0-22a6-b91f-7622-dd871207e8b0",
+				"headers": "",
+				"headerData": [],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/regalos/100",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "GET",
+				"data": null,
+				"dataMode": "params",
+				"version": 2,
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1506731454810,
+				"name": "Ver un regalo con cierto id",
+				"description": "",
+				"collectionId": "4e36314b-8ce8-65fa-0fb7-4c588d6c39ad",
+				"responses": []
+			},
+			{
+				"id": "8f1d6beb-2e49-29af-9489-d94f23929708",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/regalos",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "POST",
+				"data": "{\"comprado\": false,\n        \"imagen\": \"https://robohash.org/addeseruntvero.jpg?size=50x50&set=set1\",\n        \"name\": \"Aspiradora\",\n        \"locations\": []\n\t\n}",
+				"dataMode": "raw",
+				"version": 2,
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1506731422108,
+				"name": "Crear un regalo valido",
+				"description": "",
+				"collectionId": "4e36314b-8ce8-65fa-0fb7-4c588d6c39ad",
+				"responses": []
+			},
+			{
+				"id": "ce986930-ebcc-b77e-27a4-3e5f28193881",
+				"headers": "",
+				"headerData": [],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/regalos/200",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "GET",
+				"data": null,
+				"dataMode": "params",
+				"version": 2,
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1506731357511,
+				"name": "Ver lista de regalos",
+				"description": "",
+				"collectionId": "4e36314b-8ce8-65fa-0fb7-4c588d6c39ad",
+				"responses": []
+			},
+			{
+				"id": "e6047ae1-a405-adb5-4ac1-bacf7635fa3a",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/boda-web/api/bodas/1/regalos/200",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "PUT",
+				"data": "{ \"type\": \"regaloDetailDTO\",\n        \"comprado\": true,\n        \"imagen\": \"https://robohash.org/estutomnis.jpg?size=50x50&set=set1\",\n        \"name\": \"Tendidos\"\n}",
+				"dataMode": "raw",
+				"version": 2,
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1506731355466,
+				"name": "Actualizar un regalo",
+				"description": "",
+				"collectionId": "4e36314b-8ce8-65fa-0fb7-4c588d6c39ad",
+				"responses": []
+			}
+		],
+		"timestamp": 1506616911081,
+		"synced": false,
+		"syncedFilename": "",
+		"remote_id": 0,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"owner": 0,
+		"subscribed": false,
+		"createdAt": 1506616911081,
+		"updatedAt": 1506731323334,
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {},
+		"sharedWithTeam": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"id": "ce986930-ebcc-b77e-27a4-3e5f28193881",
+			"name": "Ver lista de regalos",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/regalos/200",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				46
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": 46,
+			"totalRequestTime": 46,
+			"iterationResults": {}
+		},
+		{
+			"id": "644dd9e0-22a6-b91f-7622-dd871207e8b0",
+			"name": "Ver un regalo con cierto id",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/regalos/100",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				55
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": 55,
+			"totalRequestTime": 55,
+			"iterationResults": {}
+		},
+		{
+			"id": "8f1d6beb-2e49-29af-9489-d94f23929708",
+			"name": "Crear un regalo valido",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/regalos",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				42
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": 42,
+			"totalRequestTime": 42,
+			"iterationResults": {}
+		},
+		{
+			"id": "142f804e-00a1-2536-10c0-0e2362c119c5",
+			"name": "Crear un regalo invalido",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/regalos",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 412,
+				"name": "Precondition Failed",
+				"detail": "The server does not meet one of the preconditions that the requester put on the request."
+			},
+			"tests": {
+				"Status code is 412": true
+			},
+			"testPassFailCounts": {
+				"Status code is 412": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				34
+			],
+			"allTests": [
+				{
+					"Status code is 412": true
+				}
+			],
+			"time": 34,
+			"totalRequestTime": 34,
+			"iterationResults": {}
+		},
+		{
+			"id": "e6047ae1-a405-adb5-4ac1-bacf7635fa3a",
+			"name": "Actualizar un regalo",
+			"url": "http://localhost:8080/boda-web/api/bodas/1/regalos/200",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				86
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": 86,
+			"totalRequestTime": 86,
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 5,
+	"totalFail": 0,
+	"totalTime": 263,
+	"lifecycle": "idle",
+	"willStop": false,
+	"synced": false
+}

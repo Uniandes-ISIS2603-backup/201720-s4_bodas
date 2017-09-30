@@ -6,10 +6,12 @@ delete from TarjetaCreditoEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
 delete from calificacionentity;
-delete from OpcionServicioEntity;
+
 delete from TareaEntity;
 delete from BodaEntity;
 delete from ParejaEntity;
+delete from OpcionServicioEntity;
+
 
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 79, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
@@ -28,13 +30,14 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (2, 'Clothing', -17.8119748, -50.5981252, 38447, '4701 Dorton Place');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (4, 'HomeLand', 55.816167, 37.8768998, 859591, '976 Myrtle Center');
-insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (5, 'HomeLand', 55.816167, 37.8768998, 859591, '976 Myrtle Center');
+
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (5, 'HomeLands', 55.81617, 37.878998, 85591, '976f Myrtle Center');
+
 ---Fin Pruebas UbicacionEntity
 
---Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id, boda_id) values (12,0,'3/29/2017', 'Nombre', 5,1);
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id,boda_id) values (13,1,'3/29/2017', 'Nombre1', 3,3);
-insert into TareaEntity(id,aprobada, dia,nombre, ubicacion_id,boda_id) values (14,0,'3/29/2017', 'Nombre2', 1,2);
+
+
+
 
 --Pruebas para Regalo Entity
 
@@ -62,6 +65,11 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
 ---Fin Calificacion OpcionServicio Entity
 
+--Pruebas para Tarea Entity
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (12,0,'3/29/2017', 'Nombre',1,5,12);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (13,1,'3/29/2017', 'Nombre1',1,3,13);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (14,0,'3/29/2017', 'Nombre2',2,1,12);
+---Fin Calificacion Tarea Entity
 
 --Pruebas para Calificacion Entity
 insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'kQBADEH JERKKW ZDSI', 4,1);
@@ -94,7 +102,7 @@ insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_c
 ---Fin Pruebas TarjetaCreditoEntity
 
 ---Pruebas PagoEntity
-delete from PagoEntity;
+
 insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (1, 'Pago por mesas', 150000, '4/4/2017',108);
 insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (2, 'Pago por transporte', 200000, '6/29/2017', 108);
 insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (3, 'Pago por banquete', 30000, '3/14/2017', 2);

@@ -53,6 +53,7 @@ public class BodaDetailDTO extends BodaDTO{
                 tareas.add(new TareaDTO(entityTarea));
             }
         }
+
     }
     
     
@@ -85,6 +86,7 @@ public class BodaDetailDTO extends BodaDTO{
 
     public List<RegaloDTO> getRegalos() {
         return regalos;
+
     }
 
     public void setRegalos(List<RegaloDTO> regalos) {

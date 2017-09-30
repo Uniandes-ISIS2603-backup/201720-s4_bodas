@@ -40,7 +40,7 @@ public class TareaDTO {
     public TareaDTO(TareaEntity tarea) {
         
         this.id=tarea.getId();
-        this.aprobada = tarea.getAprobada();
+        this.aprobada = tarea.isAprobada();
         this.dia = tarea.getDia();
         this.nombre = tarea.getNombre();
     }
@@ -54,7 +54,7 @@ public class TareaDTO {
         this.id =id;
     }
 
-    public Boolean getAprobada() {
+    public Boolean isAprobada() {
         return aprobada;
     }
 
