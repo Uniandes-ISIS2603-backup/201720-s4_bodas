@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
+import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
     
     
     List<CalificacionDTO>calificaciones;
+    private List<TareaDTO> tareas;
     
      /**
      * Constructor por defecto
@@ -43,6 +45,12 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
                 this.calificaciones.add(new CalificacionDTO(ent));
             }
          }
+         if(entity.getTareas()!=null){
+             this.tareas = new ArrayList<>();
+            for (TareaEntity ent :  entity.getTareas()){
+                this.tareas.add(new TareaDTO(ent));
+            }
+         }
         
     }
 
@@ -52,6 +60,13 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
 
     public void setCalificaciones(List<CalificacionDTO> calificaciones) {
         this.calificaciones = calificaciones;
+    }
+     public List<TareaDTO> getTareas() {
+        return tareas;
+    }
+
+    public void seTareas(List<TareaDTO> tareas) {
+        this.tareas = tareas;
     }
 
     @Override
@@ -64,6 +79,14 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
                 lista.add(c.toEntity());
             }
             m.setCalificacion(lista);
+        }
+         if(tareas != null){
+            List<TareaEntity> lista= new ArrayList<>();
+            for (TareaDTO c : tareas)
+            {
+                lista.add(c.toEntity());
+            }
+            m.setTareas(lista);
         }
         return m; //To change body of generated methods, choose Tools | Templates.
     }

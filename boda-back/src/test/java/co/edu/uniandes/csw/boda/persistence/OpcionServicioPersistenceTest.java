@@ -125,7 +125,7 @@ public class OpcionServicioPersistenceTest {
 }
     @Test
     public void getOpcionServicioTest() {
-    OpcionServicioEntity entity = data.get(0);
+    OpcionServicioEntity entity = data.get(1);
     OpcionServicioEntity newEntity = persistence.find(entity.getId());
     Assert.assertNotNull(newEntity);
     Assert.assertEquals(entity.getName(), newEntity.getName());
@@ -134,13 +134,7 @@ public class OpcionServicioPersistenceTest {
     public OpcionServicioPersistenceTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+
     
     
     @Before

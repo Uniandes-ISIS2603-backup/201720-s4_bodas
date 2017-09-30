@@ -11,7 +11,7 @@ import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
  *
  * @author sp.joven
  */
-public class OpcionServicioDTO {
+public class OpcionServicioDTO  {
    
 
 
