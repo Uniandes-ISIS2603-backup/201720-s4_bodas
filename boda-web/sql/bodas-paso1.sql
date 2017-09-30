@@ -6,8 +6,9 @@ delete from ParejaEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
 delete from calificacionentity;
-delete from OpcionServicioEntity;
+
 delete from TareaEntity;
+delete from OpcionServicioEntity;
 
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 79, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
@@ -31,11 +32,7 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 ---Fin Pruebas UbicacionEntity
 
 
---Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id) values (12,0,'3/29/2017', 'Nombre',1,5);
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id) values (13,1,'3/29/2017', 'Nombre1',1,3);
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id) values (14,0,'3/29/2017', 'Nombre2',2,1);
----Fin Calificacion Tarea Entity
+
 
 --Pruebas para Regalo Entity
 
@@ -65,6 +62,11 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
 ---Fin Calificacion OpcionServicio Entity
 
+--Pruebas para Tarea Entity
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (12,0,'3/29/2017', 'Nombre',1,5,12);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (13,1,'3/29/2017', 'Nombre1',1,3,13);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (14,0,'3/29/2017', 'Nombre2',2,1,12);
+---Fin Calificacion Tarea Entity
 
 --Pruebas para Calificacion Entity
 insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'kQBADEH JERKKW ZDSI', 4,1);
