@@ -60,8 +60,8 @@ public class RegaloResource {
     public RegaloDetailDTO updateRegalo(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id, RegaloDetailDTO regalo) throws BusinessLogicException {
         regalo.setId(id);
         RegaloEntity entity = regaloLogic.get(id);
-        if(entity != null){
-            throw new WebApplicationException("El recurso /regalos/" + id + " no existe.", 404);
+        if(entity == null){
+            throw new WebApplicationException("El recurso /bodas/" + idBoda + "/regalos/" + id + " no existe.", 404);
         }
         return new RegaloDetailDTO(regaloLogic.update(idBoda,regalo.toEntity()));
     }
@@ -71,7 +71,7 @@ public class RegaloResource {
     public void deleteRegalo(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id) throws BusinessLogicException {
         RegaloEntity entity = regaloLogic.get(id);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /regalos/" + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso /bodas/" + idBoda + "/regalos/" + id + " no existe.", 404);
         }
         regaloLogic.delete(id);
     }
