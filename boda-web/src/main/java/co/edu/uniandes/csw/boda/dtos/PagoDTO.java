@@ -19,6 +19,7 @@ public class PagoDTO {
     private Long id;
     private String nombrePago;
     private Double montoTotal;
+    
     @Temporal(TemporalType.DATE)
     private Date fecha;
     

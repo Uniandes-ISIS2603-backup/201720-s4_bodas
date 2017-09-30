@@ -21,6 +21,7 @@ public class BodaDTO {
     private Long id;
     private String name;
     private String lugar;   
+    
     @Temporal(TemporalType.DATE)
     private Date fecha;
     private String tema;

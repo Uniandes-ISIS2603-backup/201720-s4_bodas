@@ -18,7 +18,7 @@ public class ParejaDetailDTO  extends ParejaDTO {
     
     public BodaDTO boda;
     
-    public List<TarjetaCreditoDTO> tarjetas;
+    public List<TarjetaCreditoDetailDTO> tarjetas;
 
     public ParejaDetailDTO() {
         //Constructor por defecto
@@ -28,10 +28,10 @@ public class ParejaDetailDTO  extends ParejaDTO {
         super(pareja);
         if(pareja.getBoda()!=null)this.boda = new BodaDTO(pareja.getBoda());
         if(pareja.getTarjetasCredito()!=null){
-            tarjetas = new ArrayList<>();
+            this.tarjetas = new ArrayList<>();
             for(TarjetaCreditoEntity tarjetita: pareja.getTarjetasCredito())
             {
-                tarjetas.add(new TarjetaCreditoDTO(tarjetita));
+                tarjetas.add(new TarjetaCreditoDetailDTO(tarjetita));
             }
         }
         
@@ -53,7 +53,10 @@ public class ParejaDetailDTO  extends ParejaDTO {
     @Override
     public ParejaEntity toEntity() {
        ParejaEntity parejaE = super.toEntity();
-       if(this.boda!=null)parejaE.setBoda(this.boda.toEntity());
+       if(this.boda!=null){
+           System.out.println("ParejaDetailDTO.toEntity() " + this.boda);
+           parejaE.setBoda(this.boda.toEntity());
+       }
        if(this.tarjetas != null){
         List<TarjetaCreditoEntity> tar = new ArrayList<>();
            for(TarjetaCreditoDTO tarjetito: this.tarjetas){

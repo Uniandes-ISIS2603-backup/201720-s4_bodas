@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -33,7 +34,7 @@ public class BodaEntity extends BaseEntity implements Serializable {
     private String tipoBoda;
     
     @PodamExclude
-    @OneToOne
+    @OneToOne    
     private ParejaEntity pareja;
     
     @PodamExclude

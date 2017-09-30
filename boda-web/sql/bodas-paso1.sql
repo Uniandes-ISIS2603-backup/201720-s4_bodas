@@ -2,13 +2,14 @@
 delete from RegaloEntity_UbicacionEntity;
 delete from PagoEntity;
 delete from TarjetaCreditoEntity;
-delete from ParejaEntity;
+
 delete from RegaloEntity;
 delete from InvitadoEntity;
 delete from calificacionentity;
 delete from OpcionServicioEntity;
 delete from TareaEntity;
 delete from BodaEntity;
+delete from ParejaEntity;
 
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 79, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
@@ -16,9 +17,9 @@ insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, co
 
 --Pruebas BodaEntity
 
-insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda) values (1, 'Kris', '3/29/2017', 'tema2', 'judia', 'deRubí');
+insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,pareja_correoelec) values (1, 'Kris', '3/29/2017', 'tema2', 'judia', 'deRubí','fmarsland0@artisteer.com');
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda) values (2,'Galen', '5/2/2017', 'tema2', 'ninguna', 'dePlata');
-insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,pareja_correoelec) values (3,'Malanie', '10/9/2016', 'tema3', 'católica', 'deRubí', 'bsimcoe1@dion.ne.jp');
+insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda) values (3,'Malanie', '10/9/2016', 'tema3', 'católica', 'deRubí');
 ---Fin Pruebas BodaEntity
 
 --Pruebas UbicacionEntity
