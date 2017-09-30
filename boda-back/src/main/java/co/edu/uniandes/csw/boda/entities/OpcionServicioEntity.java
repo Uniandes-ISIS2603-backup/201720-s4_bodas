@@ -26,10 +26,10 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     
     @OneToMany(mappedBy = "opcionServicio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CalificacionEntity> calificacion;
-    /*
+    
     private ProveedorEntity proveedor;    
     
-      */
+    
     @PodamExclude
     @OneToMany(mappedBy = "opcionServicio")
     private List<TareaEntity> tareas;
@@ -71,9 +71,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     public void setTareas(List<TareaEntity> tareas) {
         this.tareas = tareas;
     }
-     /* 
-   
-
+     
     public ProveedorEntity getProveedor() {
         return proveedor;
     }
@@ -81,7 +79,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     public void setProveedor(ProveedorEntity proveedor) {
         this.proveedor = proveedor;
     }
-   */
+   
     
     
 }

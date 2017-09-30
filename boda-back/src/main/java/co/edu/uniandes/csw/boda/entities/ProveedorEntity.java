@@ -27,6 +27,9 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
     @ManyToOne
     private ServicioEntity servicio;
 
+    @PodamExclude
+    @OneToMany(mappedBy = "proveedor",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OpcionServicioEntity> opcionesdeServicio = new ArrayList<>();
     
     public String getEspecialidad(){
         return especialidad;
@@ -42,5 +45,13 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
     
     public void setServicio(ServicioEntity servicio){
         this.servicio=servicio;
+    }
+    
+    public List<OpcionServicioEntity> getOpcionesDeServicio(){
+        return opcionesdeServicio;
+    }
+    
+    public void setServicios(List<OpcionServicioEntity> opcionesdeServicio){
+        this.opcionesdeServicio=opcionesdeServicio;
     }
 }

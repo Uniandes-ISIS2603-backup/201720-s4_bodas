@@ -28,6 +28,28 @@ public class ProveedorPersistence {
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
 
+        public ProveedorEntity find (Long id)
+    {
+         LOGGER.log(Level.INFO, "Consultando proveedores con id={0}", id);
+         ProveedorEntity proveedor = em.find(ProveedorEntity.class, id);
+         return proveedor;
+    }
+        
+    public ProveedorEntity findByName(String name) {
+        LOGGER.log(Level.INFO, "Consultando proveedor por nombre ", name);
+
+        // Se crea un query para buscar cityes con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From ProveedorEntity e where e.name = :name", ProveedorEntity.class);
+        // Se remplaza el placeholder ":name" con el valor del argumento 
+        query = query.setParameter("name", name);
+        // Se invoca el query se obtiene la lista resultado
+        List<ProveedorEntity> sameName = query.getResultList();
+        if (sameName.isEmpty()) {
+            return null;
+        } else {
+            return sameName.get(0);
+        }
+    }
     /**
      *
      * @param entity objeto boda que se creará en la base de datos
@@ -47,21 +69,7 @@ public class ProveedorPersistence {
      * @return null si no existe ninguna boda con el nombre del argumento. Si
      * existe alguna devuelve la primera.
      */
-    public ProveedorEntity findByName(String name) {
-        LOGGER.log(Level.INFO, "Consultando proveedor por nombre ", name);
 
-        // Se crea un query para buscar cityes con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From ProveedorEntity e where e.name = :name", ProveedorEntity.class);
-        // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", name);
-        // Se invoca el query se obtiene la lista resultado
-        List<ProveedorEntity> sameName = query.getResultList();
-        if (sameName.isEmpty()) {
-            return null;
-        } else {
-            return sameName.get(0);
-        }
-    }
 
     public List<ProveedorEntity> findAll() {
         LOGGER.info("Consultando todos los proveedores");
@@ -69,11 +77,7 @@ public class ProveedorPersistence {
         return query.getResultList();
     }
     
-    public ProveedorEntity find (Long id)
-    {
-         ProveedorEntity proveedor = em.find(ProveedorEntity.class, id);
-         return proveedor;
-    }
+
     
     public ProveedorEntity update(ProveedorEntity entity) { 
         return em.merge(entity);
