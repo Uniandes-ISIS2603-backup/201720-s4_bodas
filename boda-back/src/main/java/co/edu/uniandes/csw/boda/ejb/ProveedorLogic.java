@@ -35,6 +35,9 @@ public class ProveedorLogic {
     public ProveedorEntity createProveedor(ProveedorEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Proveedor");
         // Invoca la persistencia para crear la Default
+        if(persistence.find(entity.getId())!=null){
+            throw new BusinessLogicException("No pueden existir dos proveedores con el mismo id ( " + entity.getId()+ " )");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Proveedor");
         return entity;
@@ -54,13 +57,20 @@ public class ProveedorLogic {
         return Default;
     }
 
+    public ProveedorEntity update(Long id,ProveedorEntity entity)throws BusinessLogicException
+    {
+        LOGGER.info("Inicia proceso de actualizar un proveedor");
+          
+          //Verifica que exista una boda con el id dado
+          if(persistence.find(id)==null) throw new BusinessLogicException("No existe una boda con el id dado.");
+          
+          //Actualiza la boda si existe
+          persistence.update(entity);
+          return entity;
+    }
+        
     public ProveedorEntity getProveedor(Long id){
         return persistence.find(id);
-    }
-    
-    public ProveedorEntity update(ProveedorEntity entity)
-    {
-        return persistence.update(entity);
     }
 
     public void deleteProveedor(ProveedorEntity entity)

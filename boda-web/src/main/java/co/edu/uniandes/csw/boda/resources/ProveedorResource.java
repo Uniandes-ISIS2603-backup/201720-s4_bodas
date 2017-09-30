@@ -44,8 +44,8 @@ public class ProveedorResource {
     if (entity == null) {
         throw new WebApplicationException("El recurso proveedor: " + id + " no existe.", 404);
     }
-    ProveedorDetailDTO city = new ProveedorDetailDTO(entity);
-    return city;
+    ProveedorDetailDTO proveedor = new ProveedorDetailDTO(entity);
+    return proveedor;
     }
     
     @POST
@@ -62,25 +62,18 @@ public class ProveedorResource {
     public List<ProveedorDetailDTO> getProveedores() throws BusinessLogicException {
         return listEntity2DetailDTO(proveedorLogic.getProveedor());
     }
-   
-    private List<ProveedorDetailDTO> listEntity2DetailDTO(List<ProveedorEntity> entityList) {
-        List<ProveedorDetailDTO> list = new ArrayList<>();
-        for (ProveedorEntity entity : entityList) {
-            list.add(new ProveedorDetailDTO(entity));
-        }
-        return list;
-    }
+
     
     @PUT
     @Path("{id: \\d+}")
     public ProveedorDetailDTO updateProveedor(@javax.ws.rs.PathParam("id") Long id, ProveedorDetailDTO proveedor) throws BusinessLogicException
     {
-        proveedor.setId(id);
-        ProveedorEntity entity = proveedorLogic.getProveedor(id);
-        if (entity == null) {
-            throw new WebApplicationException("El recurso /proveedor/" + id + " no existe.", 404);
-        }
-        return new ProveedorDetailDTO(proveedorLogic.update(proveedor.toEntity()));
+       ProveedorEntity entity = proveedorLogic.getProveedor(id);
+        if(entity==null)
+       {
+           throw new  WebApplicationException("No existe un proveedor con el id dado",404);
+       }
+        return  new ProveedorDetailDTO(proveedorLogic.update(id, proveedor.toEntity()));
     }
     
     @DELETE
@@ -92,5 +85,23 @@ public class ProveedorResource {
         throw new WebApplicationException("El recurso /proveedor/" + id + " no existe.", 404);
     }
     proveedorLogic.deleteProveedor(entity);
+    }
+    
+    @Path("{idProveedor: \\d+}/opcionServicio")
+    public Class<RegaloResource> getRegaloResource(@PathParam("idProveedor") Long IdProveedor) throws BusinessLogicException {
+        ProveedorEntity entity = proveedorLogic.getProveedor(IdProveedor);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /boda/" + IdProveedor + "/regalos no existe.", 404);
+        }
+        return RegaloResource.class;
+    }
+    
+       
+    private List<ProveedorDetailDTO> listEntity2DetailDTO(List<ProveedorEntity> entityList) {
+        List<ProveedorDetailDTO> list = new ArrayList<>();
+        for (ProveedorEntity entity : entityList) {
+            list.add(new ProveedorDetailDTO(entity));
+        }
+        return list;
     }
 }

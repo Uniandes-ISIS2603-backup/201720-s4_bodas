@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
+import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.OpcionServicioPersistence;
 import java.util.List;
@@ -25,32 +27,43 @@ public class OpcionServicioLogic {
      @Inject
     private OpcionServicioPersistence persistence;
     
+    @Inject
+    ProveedorLogic proveedorLogic;
      
       /**
      * Crea una opcionServicio
+     * @param proveedorId
      * @param entity
      * @return OpcionServicioEntity
      * @throws BusinessLogicException
      */
-     public OpcionServicioEntity create(OpcionServicioEntity entity)throws BusinessLogicException 
+     public OpcionServicioEntity create(Long proveedorId, OpcionServicioEntity entity)throws BusinessLogicException 
      {
         LOGGER.info("Inicia proceso de creación de una opcion de servicio");
+        ProveedorEntity proveedor = proveedorLogic.getProveedor(proveedorId);
+        entity.setProveedor(proveedor);
         //Verifica que no esten dos opcionServicio con el mismo id
         if(persistence.find(entity.getId())!=null)
             throw new BusinessLogicException("No pueden existir dos opciones de servicio con el mismo id.");
         
         //Si no existe ninguna opcion de servicio con el id.
         persistence.create(entity);
+        LOGGER.info("Termina proceso de creación de regalo");
          return entity;
      }
       /*
      Solicita todas las opcionesServicio existentes
      */
-     public List<OpcionServicioEntity> getOpcionesServicio(){
-         LOGGER.info("Inicia proceso de consultar todas las opciones de servicio");
-        List<OpcionServicioEntity> opciones  = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todas las opcionesServicio");
-        return opciones;
+     public List<OpcionServicioEntity> getOpcionesServicio(Long proveedorId)throws BusinessLogicException {
+        LOGGER.info("Inicia proceso de consultar todas los Regalos");
+        ProveedorEntity proveedor = proveedorLogic.getProveedor(proveedorId);
+        if (proveedor.getOpcionesDeServicio() == null) {
+            throw new BusinessLogicException("El proveedor que consulta aún no tiene opciones de servicio");
+        }
+        if (proveedor.getOpcionesDeServicio().isEmpty()) {
+            throw new BusinessLogicException("El proveedor que consulta aún no tiene opciones de servicio");
+        }
+        return proveedor.getOpcionesDeServicio();
      }
      /*
       *Solicita una opcionServicio con el id dado 
@@ -73,16 +86,15 @@ public class OpcionServicioLogic {
       * @return OpcionServicioEntity
       *@throws si no se encuentra una opcionServicio con el id dado arroja BussinesLogicException
       */
-      public OpcionServicioEntity updateOpcionServicio(Long id, OpcionServicioEntity entity)throws BusinessLogicException
+      public OpcionServicioEntity updateOpcionServicio(Long idProveedor, OpcionServicioEntity entity)throws BusinessLogicException
       {
           LOGGER.info("Inicia proceso de actualizar opcionServicio");
-          
+          ProveedorEntity proveedor = proveedorLogic.getProveedor(idProveedor);
           //Verifica que exista una opcionServicio con el id dado
-          if(persistence.find(id)==null) throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
-          
+          if(persistence.find(idProveedor)==null) throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
           //Actualiza la opcion servicio
-          persistence.update(entity);
-          return entity;
+          entity.setProveedor(proveedor);
+          return persistence.update(entity);
       }
            
       /**
