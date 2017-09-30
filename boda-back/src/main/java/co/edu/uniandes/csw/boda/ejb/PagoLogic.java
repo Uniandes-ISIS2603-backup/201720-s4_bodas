@@ -40,7 +40,7 @@ public class PagoLogic {
         LOGGER.info("Inicia proceso de creación de Pago");
         TarjetaCreditoEntity tarjeta = tarjetaLogic.getTarjetaCredito(tarjetaId);
         entity.setTarjetaCredito(tarjeta);
-        if (entity.getMontoTotal() == 0.0 || entity.getMontoTotal() < 0.0)
+        if (entity.getMontoTotal() == 0 || entity.getMontoTotal() < 0)
         {
             throw new BusinessLogicException("El monto del pago debe ser mayor que 0");
         }
