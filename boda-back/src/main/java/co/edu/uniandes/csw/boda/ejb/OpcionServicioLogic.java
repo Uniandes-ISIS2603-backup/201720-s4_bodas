@@ -35,6 +35,10 @@ public class OpcionServicioLogic {
      public OpcionServicioEntity create(OpcionServicioEntity entity)throws BusinessLogicException 
      {
         LOGGER.info("Inicia proceso de creación de una opcion de servicio");
+        if(entity.getCosto()<0)
+          {
+               throw new BusinessLogicException("El costo no puede ser negativo.");
+          }
         //Verifica que no esten dos opcionServicio con el mismo id
         if(persistence.find(entity.getId())!=null)
             throw new BusinessLogicException("No pueden existir dos opciones de servicio con el mismo id.");
@@ -76,9 +80,17 @@ public class OpcionServicioLogic {
       public OpcionServicioEntity updateOpcionServicio(Long id, OpcionServicioEntity entity)throws BusinessLogicException
       {
           LOGGER.info("Inicia proceso de actualizar opcionServicio");
-          
+         
+         if(entity.getCosto()<0)
+          {
+               throw new BusinessLogicException("El costo no puede ser negativo.");
+          }
+         
           //Verifica que exista una opcionServicio con el id dado
-          if(persistence.find(id)==null) throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
+          if(persistence.find(id)==null) 
+          {
+              throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
+          }
           
           //Actualiza la opcion servicio
           persistence.update(entity);

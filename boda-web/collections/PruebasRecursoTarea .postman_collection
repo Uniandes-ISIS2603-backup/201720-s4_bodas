@@ -1,8 +1,8 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Pruebas del recurso Tarea",
-		"_postman_id": "d1fbc23c-5c42-fef7-58e0-4d1a9672ebea",
+		"name": "Pruebas del recurso Tarea ",
+		"_postman_id": "43b94afd-4558-6634-89ad-7841cec57956",
 		"description": "Pruebas para el recurso Tarea",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -55,7 +55,10 @@
 				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "Consulta una tarea con un id dado"
 			},
 			"response": []
@@ -92,6 +95,28 @@
 			"response": []
 		},
 		{
+			"name": "Error consultando tareas ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"]=responseCode.code===412"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " http://localhost:8080/boda-web/api/bodas/4/tareas",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Error consultano tareas porque la boda no existe"
+			},
+			"response": []
+		},
+		{
 			"name": "Crear una nueva tarea",
 			"event": [
 				{
@@ -116,7 +141,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \n    \"aprobada\": true,\n    \"dia\": \"12/12/12\",\n    \"id\": 7,\n    \"nombre\": \"Flores\"\n}"
+					"raw": "{\n   \n    \"aprobada\": true,\n    \"id\": 7,\n    \"nombre\": \"Flores\"\n}"
 				},
 				"description": "Crea una nueva tarea"
 			},
@@ -167,7 +192,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/14",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
 				"method": "PUT",
 				"header": [
 					{
@@ -178,7 +203,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": false,\n    \"dia\": \"8/17/2017\",\n    \"id\":14,\n    \"nombre\": \"PruebaComida22\"\n}"
+					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": false,\n    \"dia\": \"2017-03-13T00:00:00-05:00\",\n    \"id\":12,\n    \"nombre\": \"Flores\"\n}"
 				},
 				"description": "Actualiza una tarea"
 			},
@@ -212,6 +237,26 @@
 					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": false,\n    \"dia\": \"8/17/2017\",\n    \"id\": 50,\n    \"nombre\": \"PruebaComida\"\n}"
 				},
 				"description": "Error en actualizar una tarea porque el id no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "Error al actualizar por fecha",
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": false,\n    \"dia\": \"2017-12-31T00:00:00-05:00\",\n    \"id\":12,\n    \"nombre\": \"PruebaComida22\"\n}"
+				},
+				"description": "Error al actualizar una tarea porque la fecha actualizada está despues de  la boda"
 			},
 			"response": []
 		},
@@ -260,7 +305,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/112",
+				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/100",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
