@@ -136,6 +136,37 @@
 			"response": []
 		},
 		{
+			"name": "Error al crear opción de servicio por costo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"]=responseCode.code===412"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/opcionServicios",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"costo\": -4,\r\n        \"descripcion\": \"descripcion4\",\r\n        \"diasDisponibles\": \"LunesYMArtes\",\r\n        \"id\": 12\r\n}"
+				},
+				"description": "No se puede crear la opción de servicio porque el costo no  puede ser negativo"
+			},
+			"response": []
+		},
+		{
 			"name": "Actualizar una opcion servicio",
 			"event": [
 				{
@@ -194,6 +225,37 @@
 					"raw": "{\n        \n        \"costo\": 12,\n        \"descripcion\": \"descripcion1\",\n        \"diasDisponibles\": \"LunesMartesMiercoles\",\n        \"id\": 40\n\t\n}"
 				},
 				"description": "Error al actualizar la opcion de servicio porque el id no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "Error a actualizar opción por costo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 412\"]=responseCode.code===412"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/boda-web/api/opcionServicios/12",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \n        \"costo\": -3,\n        \"descripcion\": \"descripcion4\",\n        \"diasDisponibles\": \"LunesYMArtes\",\n        \"id\": 12\n}"
+				},
+				"description": "No se realiza la actualización porque el costo no puede ser negativo"
 			},
 			"response": []
 		},

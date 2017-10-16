@@ -102,6 +102,7 @@ public class TareaResource {
     @PUT
     @Path("{id: \\d+}")
     public TareaDetailDTO updateTarea(@PathParam("idBoda") Long idBoda, @PathParam("id") Long id, TareaDetailDTO tarea) throws BusinessLogicException {
+        
         tarea.setId(id);
         TareaEntity entity = tareaLogic.findTareaById(id);
 

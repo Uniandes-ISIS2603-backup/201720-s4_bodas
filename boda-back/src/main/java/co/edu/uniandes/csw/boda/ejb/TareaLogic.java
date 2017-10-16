@@ -46,6 +46,7 @@ public class TareaLogic {
     public List<TareaEntity> getTareas(Long bodaId) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de consultar todas las tareas");
         BodaEntity boda = bodaLogic.findBodaById(bodaId);
+             
         if (boda.getTareas() == null) {
             throw new BusinessLogicException("La boda que consulta aún no tiene tareas");
         }
@@ -71,6 +72,7 @@ public class TareaLogic {
     /**
      * Actualiza una tarea con el id Dado y la informacion
      *
+     * @param bodaId
      * @param id
      * @param entity
      * @return TareaEntity
@@ -80,7 +82,13 @@ public class TareaLogic {
     public TareaEntity updateTarea(Long bodaId, TareaEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de actualizar tarea");
         BodaEntity boda = bodaLogic.findBodaById(bodaId);
+
         entity.setBoda(boda);
+        if(entity.getDia().after(boda.getFecha()))
+        {
+             throw new BusinessLogicException("No puede reagendar una tarea para despues de "+boda.getFecha());
+        }
+       
         return persistence.update(entity);
     }
 
