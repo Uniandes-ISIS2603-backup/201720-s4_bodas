@@ -182,8 +182,15 @@ public class TarjetaCreditoPersistenceTest {
     public void findByNumDeSegTarjetaCreditoEntityTest()  {
     TarjetaCreditoEntity entity = data.get(0);
     TarjetaCreditoEntity newEntity = persistence.findByNumDeSeg(entity.getNumDeSeg());
+    if(newEntity != null)
+    {
     Assert.assertNotNull(newEntity);
-    Assert.assertEquals(entity.getNumDeSeg(), newEntity.getNumDeSeg());
+    Assert.assertEquals(entity.getNumDeSeg(), newEntity.getNumDeSeg());        
+    }
+    else
+    {
+    Assert.assertNull(newEntity);
+    }
     }
     
     /**
@@ -193,8 +200,15 @@ public class TarjetaCreditoPersistenceTest {
     public void findByNumeroTarjetaCreditoEntityTest() {
     TarjetaCreditoEntity entity = data.get(0);
     TarjetaCreditoEntity newEntity = persistence.findByNumero(entity.getNumero());
+    if(newEntity != null)
+    {
     Assert.assertNotNull(newEntity);
-    Assert.assertEquals(entity.getNumero(), newEntity.getNumero());
+    Assert.assertEquals(entity.getNumDeSeg(), newEntity.getNumDeSeg());        
+    }
+    else
+    {
+    Assert.assertNull(newEntity);
+    }
     }
     
     /**
