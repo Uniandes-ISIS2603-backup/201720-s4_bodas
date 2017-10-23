@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 /**
- * Generic entity with ID and name fields to inherit from.
+ * Generic entity with ID and name fields to inherit from..
  *
  * This entity sets a standar of fields and functions all entities in a project
  * should have. For example, all entities should be compared by ID when not
