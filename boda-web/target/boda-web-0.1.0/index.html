@@ -1,14 +1,74 @@
-<!DOCTYPE html>
-<html>
+
+<html ng-app="mainApp">
     <head>
-        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>La Union | Bodas</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
-        <style type="text/css">
-            
-        </style>
+          <!-- Dependencias Externas -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    
+        <!-- aquí van los modulos bodas del .mod -->
+        <script src="src/modules/bodas/bodas.mod.js" type="text/javascript"></script>
+        
+        <!-- Modulo Pareja .mod  -->
+        <script src="src/modules/parejas/parejas.mod.js" type="text/javascript"></script>
+        <script src="src/modules/parejas/parejas.ctrl.js" type="text/javascript"></script>
+        
+         <script src="src/app.js" type="text/javascript"></script> 
+        <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="https://image.ibb.co/nj4AY6/logobodaspeq.jpg" type="image/x-icon"/>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     </head>
-    <body style="background-color:#F5FFFA;">
-        <div id="heart"></div><style> #heart {position:relative; width:100px; height:90px;} #heart:before, #heart:after {position:absolute; content:""; left:50px; top:0; width:50px; height:80px; background:red; -moz-border-radius:50px 50px 0 0; border-radius:50px 50px 0 0; -webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -o-transform:rotate(-45deg); transform:rotate(-45deg); -webkit-transform-origin:0 100%; -moz-transform-origin:0 100%; -ms-transform-origin:0 100%; -o-transform-origin:0 100%; transform-origin:0 100%;} #heart:after {left:0; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -o-transform:rotate(45deg); transform:rotate(45deg); -webkit-transform-origin:100% 100%; -moz-transform-origin:100% 100%; -ms-transform-origin:100% 100%; -o-transform-origin:100% 100%; transform-origin:100% 100%;} </style>
-       <h1>La Union, planeación de bodas. </h1>
+    <body>
+        <header>
+            <h1>La Union, planeación de bodas. </h1> 
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        <a class="navbar-brand" href="#">La Union</a>
+                      </div>
+
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                          <li class="active"><a href="#">Servicios <span class="sr-only">(current)</span></a></li>
+                          <li><a ui-sref="parejasList">Parejas</a></li>
+                        </ul>                     
+               
+                      </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                  </nav>
+        </header>
+        <section id="seccion_principal" class="container-fluid col-md-7">
+            <img src="https://preview.ibb.co/kqOjRR/Captura.png" alt="paleta de colores" class="img-responsive img-thumbnail" border="0">
+       
+        
+            <p>Thanks Noob Noob, this guy gets it. I'll be with Reuben in my workshop while you guys are having another day in Phil Collin's proverbial paradise. These 2 halves don't belong together, bitch! Why don't you ask the smartest people in the universe, Jerry? Oh yeah you can't. They blew up. </p>
+
+            <p>You know my name, that's disarming. I wish that shotgun was my penis. Nothing you do matters, your existence is a lie! Isn't it obvious Morty? I froze him. </p>
+
+            <p>Rick, is this a Saw thing? Are you seriously Sawing the Vindicators? I'd like to order one large person with extra people please. white people, no no no black people... and hispanic on half. Aw, man! I really liked this life! Well, at least I didn't really crap my pants. Snuffles want to be understood. Snuffles need to be understood. </p>
+
+            <p>That's because losers look stuff up while the rest of us are carp'en all them 'diems. And now, human music. boop beep boop... boop beep boop... Yeah, sure, I mean, if you spend all day shuffling words around, you can make anything sound bad. Lemme hear everybody say hey-yo! All the ladies say yeaaah! Everybody over thirty do this with your hand! Everybody with a red shirt jump up and down! Yo, everyone whose first name begins with an L who isn't hispanic, walk in a circle the same number of times as the square root of your age times teeenn! </p>
+            
+            <div ui-view="mainView">
+            </div>
+        </section>
     </body>
 </html>

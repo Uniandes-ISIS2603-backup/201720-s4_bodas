@@ -54,7 +54,7 @@ public class ParejaDetailDTO  extends ParejaDTO {
     public ParejaEntity toEntity() {
        ParejaEntity parejaE = super.toEntity();
        if(this.boda!=null){
-           System.out.println("ParejaDetailDTO.toEntity() " + this.boda);
+         
            parejaE.setBoda(this.boda.toEntity());
        }
        if(this.tarjetas != null){

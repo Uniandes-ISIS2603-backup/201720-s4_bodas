@@ -14,9 +14,13 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     
-        <!-- aquí van los modulos debajo del .mod -->
+        <!-- aquí van los modulos bodas del .mod -->
         <script src="src/modules/bodas/bodas.mod.js" type="text/javascript"></script>
-
+        
+        <!-- Modulo Pareja .mod  -->
+        <script src="src/modules/parejas/parejas.mod.js" type="text/javascript"></script>
+        <script src="src/modules/parejas/parejas.ctrl.js" type="text/javascript"></script>
+        
          <script src="src/app.js" type="text/javascript"></script> 
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
         
@@ -44,14 +48,14 @@
                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                           <li class="active"><a href="#">Servicios <span class="sr-only">(current)</span></a></li>
-                          <li><a href="#">Parejas</a></li>
+                          <li><a ui-sref="parejasList">Parejas</a></li>
                         </ul>                     
                
                       </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
                   </nav>
         </header>
-        <section id="seccion_principal">
+        <section id="seccion_principal" class="container-fluid col-md-7">
             <img src="https://preview.ibb.co/kqOjRR/Captura.png" alt="paleta de colores" class="img-responsive img-thumbnail" border="0">
        
         
@@ -62,6 +66,9 @@
             <p>Rick, is this a Saw thing? Are you seriously Sawing the Vindicators? I'd like to order one large person with extra people please. white people, no no no black people... and hispanic on half. Aw, man! I really liked this life! Well, at least I didn't really crap my pants. Snuffles want to be understood. Snuffles need to be understood. </p>
 
             <p>That's because losers look stuff up while the rest of us are carp'en all them 'diems. And now, human music. boop beep boop... boop beep boop... Yeah, sure, I mean, if you spend all day shuffling words around, you can make anything sound bad. Lemme hear everybody say hey-yo! All the ladies say yeaaah! Everybody over thirty do this with your hand! Everybody with a red shirt jump up and down! Yo, everyone whose first name begins with an L who isn't hispanic, walk in a circle the same number of times as the square root of your age times teeenn! </p>
+            
+            <div ui-view="mainView">
+            </div>
         </section>
     </body>
 </html>
