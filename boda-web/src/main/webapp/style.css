@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/10/2017, 11:26:59 AM
+    Author     : nf.ortiz
+*/
+body{
+    background: #F5FFFA;
+}
+header{
+    margin: 10px;
+}
+h1{
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}
+#seccion_principal {
+    width: 70%;
+    margin: 12px;
+}
