@@ -1,5 +1,5 @@
 (function (ng) {
-var mod = ng.module("parejasModule", []);
+    var mod = ng.module("parejasModule", []);
     mod.constant("parejasContext", "api/parejas");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/parejas/';

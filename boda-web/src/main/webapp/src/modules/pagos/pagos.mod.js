@@ -1,27 +1,20 @@
 (function (ng) {
-    var mod = ng.module("pagosModule", ['ui.router']);
+    var mod = ng.module("pagosModule", []);
     mod.constant("pagosContext", "api/pagos");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/pagos/';
             $urlRouterProvider.otherwise("/pagosList");
-            $stateProvider.state('pagos', {
-                url: '/pagos/list',
+            
+            $stateProvider.state('pagosList', {
+                url: '/pagos',
                 views: {
                     'mainView': {
-                        templateUrl: basePath + 'pagos.html',
                         controller: 'pagosCtrl',
-                        controllerAs: 'ctrl'
-                    }
-                }
-            }).state('pagosList', {
-                url: '/list',
-                parent: 'pagos',
-                views: {
-                    'listView': {
+                        controllerAs: 'ctrl',
                         templateUrl: basePath + 'pagos.list.html'
                     }
                 }
-            }).state('pagosDetail', {
+                }).state('pagosDetail', {
                 url: '/{pagoId:int}/detail',
                 parent: 'pagos',
                 param: {
