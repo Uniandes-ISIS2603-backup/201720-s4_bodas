@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de Pagos</label></div>
+            <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Descripcion</th>    
+                                <th>Fecha </th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="pago in pagosRecords">
+                                <td id="{{$index}}-descripcion"><a ui-sref="pagoDetail({pagoId: pago.id})">{{pago.name}}</a></td>
+                                <td id="{{$index}}-fecha">{{pago.fecha| date:'yyyy-MM-dd'}}</td>
+                                <td>
+                                    <button id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ng-click="ctrl.deleteRecord(record)">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    </button>
+                                    <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm" ng-click="ctrl.deleteRecord(record)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
