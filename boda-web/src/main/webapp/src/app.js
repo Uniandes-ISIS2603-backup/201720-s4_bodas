@@ -2,6 +2,7 @@
     var app = angular.module('mainApp', [
         // External dependencies
         'ui.router',
+   
        
         // Internal modules dependencies   
         'parejasModule',

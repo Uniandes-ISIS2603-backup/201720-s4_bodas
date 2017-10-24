@@ -66,7 +66,7 @@
             };
             
             this.deleteRecord = function(record) {
-                 return $http.delete(context + "/" + 1)
+                 return $http.delete(context +"/" + record.correoElec)
                             .then(function () {
                                 // $http.delete es una promesa
                                 // cuando termine bien, cambie de estado

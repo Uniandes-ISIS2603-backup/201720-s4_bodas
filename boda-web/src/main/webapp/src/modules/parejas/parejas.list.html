@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <table class="table table-striped" class="col-md-4">
-        <thead>
+     <!--   <thead>
             <tr>
                 <th>Name</th>
                 <th>Actions</th>
@@ -10,10 +10,20 @@
             <tr ng-repeat="record in records">
                 <td id="{{$index}}-name">{{ record.correoElec}} {{ record.nombreInd1}} - {{ record.nombreInd2}}</td>
                 <td>
-                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Remove</button>
-
+                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)">
+                        <span class="glyphicon glyphicon-minus"></span> Remove</button>
                 </td>
             </tr>
         </tbody>
     </table>
+    -->
+    
+    <div class="panel-heading">Lista de Parejas</div>
+       <div class="panel-body">
+            <div ng-repeat="record in records" class="thumbnail">
+                {{ record.correoElec}} {{ record.nombreInd1}} - {{ record.nombreInd2}}
+            </div>
+        </div>
+    
+    
 </div>
