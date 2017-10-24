@@ -15,7 +15,7 @@ var mod = ng.module("bodasModule", []);
                     }
                 }
                }).state('bodaDetail', {
-                url: '/{bodaId:int}/detail',
+                url: '/bodas/{bodaId:int}',
                 parent: 'bodas',
                 param: {
                     bodaId: null
