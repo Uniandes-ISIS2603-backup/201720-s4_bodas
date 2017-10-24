@@ -3,9 +3,9 @@
     mod.constant("pagosContext", "api/pagos");
     mod.controller('pagosCtrl', ['$scope', '$http', 'pagosContext', '$state', '$stateParams',
         function ($scope, $http, pagosContext, $state, $stateParams) {
-                $scope.pagosRecords = {};
-                $http.get(pagosContext).then(function (response) {
-                $scope.pagosRecords = response.data;
+                $scope.records = {};
+                $http.get("data/pagos.json").then(function (response) {
+                $scope.records = response.data;
             });
             
             if ($stateParams.pagosId !== undefined && $stateParams.pagosId !== null) {
