@@ -15,7 +15,7 @@
                 });
             } else {
                
-                $scope.currentTarjeta= {
+                $scope.currentTarjeta = {
                     id: undefined,
                     name: '',
                 };
