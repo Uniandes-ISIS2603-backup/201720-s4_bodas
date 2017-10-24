@@ -6,8 +6,7 @@
        
         // Internal modules dependencies   
         'parejasModule',
-
-        'bodasModule',
+        'bodasModule'
         
     ]);
     // Resuelve problemas de las promesas

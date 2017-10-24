@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+    
+    
+    <div class="panel-heading"><h3 class="panel-title">Lista de Bodas</h3></div>
+       <div class="panel-body">
+         <table class="table "> 
+           <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Opciones</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr ng-repeat="record in records">
+                <td id="{{$index}}-email">{{ record.name}}</td>
+                <td id="{{$index}}-name1">{{ record.fecha.toString().substring(0,10)}}</td>
+                <td>
+                    <button id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ng-click="ctrl.deleteRecord(record)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm" ng-click="ctrl.deleteRecord(record)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+    
+    
+</div>
