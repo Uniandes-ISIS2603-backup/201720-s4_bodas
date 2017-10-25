@@ -28,9 +28,11 @@
                     <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm" ng-click="ctrl.deleteRecord(record)">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
-                    
                 </td>
             </tr>
+            <ul class="nav nav-tabs"">
+                    <li role="presentation" class="active"><a ui-sref="tarjetasList({cityId: currentRecord.id})">Tarjetas De Credito</a></li>
+            </ul>
         </tbody>
     </table>
         </div>
