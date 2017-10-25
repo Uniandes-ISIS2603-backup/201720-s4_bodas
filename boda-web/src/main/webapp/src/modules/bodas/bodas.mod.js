@@ -1,11 +1,10 @@
 (function (ng) {
-var mod = ng.module("bodasModule", []);
+    var mod = ng.module("bodasModule", ['ui.router']);
     mod.constant("bodasContext", "api/bodas");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/bodas/';
+            //var basePathRegalos = 'src/modules/regalos/';
             $urlRouterProvider.otherwise("/bodasList");
-            
-            
             $stateProvider.state('bodas', {
                 url: '/bodas',
                 abstract: true,
@@ -24,46 +23,33 @@ var mod = ng.module("bodasModule", []);
                         templateUrl: basePath + 'bodas.list.html'
                     }
                 }
-     
             }).state('bodaDetail', {
                 url: '/bodas/{bodaId:int}',
                 parent: 'bodas',
                 param: {
                     bodaId: null
                 },
-                views: {               
+                views: {
+                    
                     'detailView': {
                         templateUrl: basePath + 'bodas.detail.html',
-                        controller: 'bodasCtrl', 
+                        controller: 'bodasCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
-            //}).state('bodaCreate', {
-              //  url: '/bodas/create',
-                //views: {
-                  //  'mainView': {
-                    //    controller: 'bodasCtrl',
-                      //  controllerAs: 'ctrl',
-                        //templateUrl: basePath + 'bodas.create.html'
-                   // }
-                //}
 
-            //}).state('bodasEdit', {
-              //  url: '/bodas/:bodaId',
-                //param: {
-                  //  bodaId: null
-             //   },
-               // views: {
-                 //   'mainView': {
-                   //     controller: 'bodasCtrl',
-                     //   controllerAs: 'ctrl',
-                       // templateUrl: basePath + 'bodas.create.html'
-             //       }
-               // }
+            }).state('bodaDelete', {
+                url: '/delete/{bodaId:int}',
+                parent: 'bodas',
+                param: {
+                    authorId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/boda.delete.html',
+                        controller: 'bodaDeleteCtrl'
+                    }
+                }
             });
         }]);
-
 })(window.angular);
-
-
-

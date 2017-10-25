@@ -6,30 +6,20 @@
          <table class="table "> 
            <thead>
             <tr>
-                <th>ID</th>
                 <th>Nombre</th>
                 <th>Fecha</th>
                 <th>Opciones</th>
             </tr>
             </thead>
         <tbody>
-            <tr ng-repeat="record in records">
-                <td id="{{$index}}-id"><a ui-sref="bodaDetail({bodaId: boda.id})">{{record.id}}</a></td>
-                <td id="{{$index}}-email">{{ record.name}}</td>
-                <td id="{{$index}}-name1">{{ record.fecha.toString().substring(0,10)}}</td>
-                <td>
-                    <button id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ng-click="ctrl.deleteRecord(record)">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                    <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm" ng-click="ctrl.deleteRecord(record)">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                    
+            <tr ng-repeat="boda in bodasRecords">
+                <td id="{{$index}}-name"><a ui-sref="bodaDetail({bodaId: boda.id})">{{ boda.name}}</a></td>
+                <td id="{{$index}}-fecha">{{ boda.fecha.toString().substring(0,10)}}</td>
+                <td id="{{$index}}-actions">
+                    <a class="btn btn-danger btn-sm" ui-sref="bodaDelete({bodaId: boda.id})"><span class="glyphicon glyphicon-trash"></span></a>                    
                 </td>
-            </tr>
+           </tr>
         </tbody>
     </table>
-        </div>
-    
-    
+        </div>   
 </div>
