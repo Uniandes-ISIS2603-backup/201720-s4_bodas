@@ -5,16 +5,27 @@ var mod = ng.module("bodasModule", []);
             var basePath = 'src/modules/bodas/';
             $urlRouterProvider.otherwise("/bodasList");
             
-            $stateProvider.state('bodasList', {
+            
+            $stateProvider.state('bodas', {
                 url: '/bodas',
+                abstract: true,
                 views: {
                     'mainView': {
+                        templateUrl: basePath + 'bodas.html',
                         controller: 'bodasCtrl',
-                        controllerAs: 'ctrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('bodasList', {
+                url: '/list',
+                parent: 'bodas',
+                views: {
+                    'listView': {
                         templateUrl: basePath + 'bodas.list.html'
                     }
                 }
-               }).state('bodaDetail', {
+     
+            }).state('bodaDetail', {
                 url: '/bodas/{bodaId:int}',
                 parent: 'bodas',
                 param: {
