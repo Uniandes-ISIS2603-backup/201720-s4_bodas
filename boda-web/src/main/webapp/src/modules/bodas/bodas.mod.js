@@ -34,32 +34,32 @@ var mod = ng.module("bodasModule", []);
                 views: {               
                     'detailView': {
                         templateUrl: basePath + 'bodas.detail.html',
-                        controller: 'bodaCtrl',
+                        controller: 'bodasCtrl', 
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('bodaCreate', {
-                url: '/bodas/create',
-                views: {
-                    'mainView': {
-                        controller: 'bodasCtrl',
-                        controllerAs: 'ctrl',
-                        templateUrl: basePath + 'bodas.create.html'
-                    }
-                }
+            //}).state('bodaCreate', {
+              //  url: '/bodas/create',
+                //views: {
+                  //  'mainView': {
+                    //    controller: 'bodasCtrl',
+                      //  controllerAs: 'ctrl',
+                        //templateUrl: basePath + 'bodas.create.html'
+                   // }
+                //}
 
-            }).state('bodasEdit', {
-                url: '/bodas/:bodaId',
-                param: {
-                    bodaId: null
-                },
-                views: {
-                    'mainView': {
-                        controller: 'bodasCtrl',
-                        controllerAs: 'ctrl',
-                        templateUrl: basePath + 'bodas.create.html'
-                    }
-                }
+            //}).state('bodasEdit', {
+              //  url: '/bodas/:bodaId',
+                //param: {
+                  //  bodaId: null
+             //   },
+               // views: {
+                 //   'mainView': {
+                   //     controller: 'bodasCtrl',
+                     //   controllerAs: 'ctrl',
+                       // templateUrl: basePath + 'bodas.create.html'
+             //       }
+               // }
             });
         }]);
 

@@ -1,3 +1,4 @@
+
 (function (ng) {
 
     var mod = ng.module("bodasModule");
@@ -13,7 +14,7 @@
 
             // el controlador recibió un bodaId ??
             // revisa los parámetros (ver el :bodaId en la definición de la ruta)
-            if ($stateParams.bodaId !== null && $stateParams.bodaId !== undefined) {
+            if ($stateParams.bodaId !== null ) {
 
                 // toma el id del parámetro
                 id = $stateParams.bodaId;
