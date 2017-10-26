@@ -7,6 +7,7 @@
             
             $stateProvider.state('parejasList', {
                 url: '/parejas',
+                abstract: true,
                 views: {
                     'mainView': {
                         controller: 'parejasCtrl',
