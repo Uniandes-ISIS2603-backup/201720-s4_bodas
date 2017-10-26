@@ -5,21 +5,12 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/tarjetasCredito/';
             $urlRouterProvider.otherwise("/tarjetasList");
-                    
-                $stateProvider.state('tarjetasCredito', {
-                url: '/tarjetasCredito',
-                abstract: true,
+            
+                $stateProvider.state('tarjetasList', {
+                url: '/tarjetasList',
                 parent: 'parejasList',
                 views: {
-                    childrenView: {
-                        templateUrl: basePath + 'tarjetasCredito.html'
-                    }
-                }
-                }).state('tarjetasList', {
-                url: '/list',
-                parent: 'tarjetasCredito',
-                views: {
-                    'listView': {
+                    'childrenView': {
                         templateUrl: basePath + 'tarjetasCredito.list.html',
                         controller: 'tarjetasCreditoCtrl',
                         controllerAs: 'ctrl'

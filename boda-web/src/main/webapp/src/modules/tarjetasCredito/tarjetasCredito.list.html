@@ -12,8 +12,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="record in records">
-                                
-                                
+                                <td id="{{$index}}-id"><b>{{currentRecord.name}}</b><span>: </span>{{review.description}}</td> 
                                 <td id="{{$index}}-numero">>{{record.numero}}</td>
                                 <td id="{{$index}}-numDeSeg">{{record.numDeSeg}}</td>
                                 <td id="{{$index}}-name">{{record.name}}</td>

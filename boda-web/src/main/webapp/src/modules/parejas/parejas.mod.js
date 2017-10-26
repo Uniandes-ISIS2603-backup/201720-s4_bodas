@@ -1,5 +1,5 @@
 (function (ng) {
-    var mod = ng.module("parejasModule", []);
+    var mod = ng.module("parejasModule", ['ui.router']);
     mod.constant("parejasContext", "api/parejas");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/parejas/';
@@ -14,7 +14,25 @@
                         templateUrl: basePath + 'parejas.list.html'
                     }
                 }
-               }).state('cityCreate', {
+               }).state('parejasDetail', {
+                url: '/{parejaId:String}/detail',
+                parent: 'parejasList',
+                param: {
+                    parejaId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'parejas.list.html'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'parejas.detail.html',
+                        controller: 'parejasCtrl',
+                        controllerAs: 'ctrl'
+                    }
+
+                }
+
+            }).state('cityCreate', {
                 url: '/cities/create',
                 views: {
                     'mainView': {
@@ -23,7 +41,6 @@
                         templateUrl: basePath + 'cities.create.html'
                     }
                 }
-
             }).state('cityEdit', {
                 url: '/cities/:cityId',
                 param: {
@@ -38,6 +55,4 @@
                 }
             });
         }]);
-
 })(window.angular);
-

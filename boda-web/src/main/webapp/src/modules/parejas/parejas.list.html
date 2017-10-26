@@ -1,6 +1,5 @@
 <div class="panel panel-primary">
     
-    
     <div class="panel-heading"><h3 class="panel-title">Lista de Parejas</h3></div>
        <div class="panel-body">
          <table class="table "> 
@@ -18,7 +17,7 @@
             <tr ng-repeat="record in records">
                 <td id="{{$index}}-email">{{ record.correoElec}}</td>
                 <td id="{{$index}}-name1">{{ record.nombreInd1}}</td>
-                <td id="{{$index}}-name2">{{ record.nombreInd1}}</td>
+                <td id="{{$index}}-name2">{{ record.nombreInd2}}</td>
                 <td id="{{$index}}-direccion">{{ record.direccion}}</td>
                 <td id="{{$index}}-telephone">{{ record.telefono}}</td>
                 <td>
@@ -29,13 +28,9 @@
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
                 </td>
+                <td> <a ui-sref="parejasDetail({parejaId: record.correoElec})">Ver Detalles</a></td>
             </tr>
-            <ul class="nav nav-tabs"">
-                    <li role="presentation" class="active"><a ui-sref="tarjetasList({cityId: currentRecord.id})">Tarjetas De Credito</a></li>
-            </ul>
         </tbody>
-    </table>
+          </table>
         </div>
-    
-    
 </div>
