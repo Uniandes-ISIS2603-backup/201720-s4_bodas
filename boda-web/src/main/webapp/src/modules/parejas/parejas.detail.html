@@ -1,32 +1,27 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-3">
-                <dl>
-                    <dt>{{currentRecord.correoElec}}</dt>
-                    <hr>
-                    <dt>Nombre 1</dt>
-                    <dd>{{currentRecord.nombreInd1}}</dd>
-                    <hr>
-                    <dt>Nombre 2</dt>
-                    <dd>{{currentRecord.nombreInd2}}</dd>
-                    <hr>
-                    <dt>Direccion</dt>
-                    <dd>{{currentRecord.direccion}}</dd>
-                    <hr>
-                    <dt>Telefono</dt>
-                    <dd>{{currentRecord.telefono}}</dd>
-                </dl>
-                <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"> <a ui-sref="tarjetasList({parejaId: currentRecord.correoElec})">Tarjetas de Credito</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-9">
-                <div ui-view="childrenView"></div>
-            </div>
-        </div>
-    </div>
+<div class="col-md-12">
+<div class="container-fluid"> 
+    <table class="table table-striped">
+        <thead>
+                <tr>
+                    <th> Correo Electronico </th>
+                    <th> Nombre 1 </th>
+                    <th> Nombre 2 </th>
+                    <th> Direccion </th>
+                    <th> Telefono </th>
+                </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td id="{{$index}}-correoElec">{{currentPareja.correoElec}}</td>
+                    <td id="{{$index}}-nombreInd1">{{currentPareja.nombreInd1}}</td>
+                    <td id="{{$index}}-nombreInd2">{{currentPareja.nombreInd2}}</td>
+                    <td id="{{$index}}-direccion">{{currentPareja.direccion}}</td>
+                    <td id="{{$index}}-telefono">{{currentPareja.telefono}}</td>
+                    <td>
+                        <li role="presentation" class="active"> <a ui-sref="tarjetasList({parejaId: currentRecord.correoElec})">Tarjetas de Credito</a></li>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
 </div>
