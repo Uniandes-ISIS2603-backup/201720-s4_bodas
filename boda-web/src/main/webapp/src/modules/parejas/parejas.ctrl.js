@@ -2,23 +2,23 @@
 
     var mod = ng.module("parejasModule");
 
-    mod.controller("parejasCtrl", ['$scope', '$state', '$stateParams', '$http', 'parejasContext', function ($scope, $state, $stateParams, $http, context) {
+    mod.controller("parejasCtrl", ['$scope', '$state', '$stateParams', '$http', 'parejasContext', function ($scope, $state, $stateParams, $http, parejasContext) {
 
             // inicialmente el listado de ciudades está vacio
             $scope.records = {};
             // carga las ciudades
-            $http.get(context).then(function (response) {
+            $http.get(parejasContext).then(function (response) {
                 $scope.records = response.data;
             });
 
             // el controlador recibió un cityId ??
             // revisa los parámetros (ver el :cityId en la definición de la ruta)
-            if ($stateParams.cityId !== null && $stateParams.cityId !== undefined) {
+            if ($stateParams.parejaId !== null && $stateParams.parejaId !== undefined) {
 
                 // toma el id del parámetro
-                id = $stateParams.cityId;
+                id = $stateParams.parejaId;
                 // obtiene el dato del recurso REST
-                $http.get(context + "/" + id)
+                $http.get(parejasContext + "/" + id)
                         .then(function (response) {
                             // $http.get es una promesa
                             // cuando llegue el dato, actualice currentRecord
@@ -44,7 +44,7 @@
                 if (id == null) {
 
                     // ejecuta POST en el recurso REST
-                    return $http.post(context, currentRecord)
+                    return $http.post(parejasContext, currentRecord)
                             .then(function () {
                                 // $http.post es una promesa
                                 // cuando termine bien, cambie de estado
@@ -55,7 +55,7 @@
                 } else {
 
                     // ejecuta PUT en el recurso REST
-                    return $http.put(context + "/" + currentRecord.id, currentRecord)
+                    return $http.put(parejasContext + "/" + currentRecord.id, currentRecord)
                             .then(function () {
                                 // $http.put es una promesa
                                 // cuando termine bien, cambie de estado
@@ -66,7 +66,7 @@
             };
             
             this.deleteRecord = function(record) {
-                 return $http.delete(context +"/" + record.correoElec)
+                 return $http.delete(parejasContext +"/" + record.correoElec)
                             .then(function () {
                                 // $http.delete es una promesa
                                 // cuando termine bien, cambie de estado

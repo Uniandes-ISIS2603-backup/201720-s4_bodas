@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <dl>
+                    <dt>{{currentRecord.correoElec}}</dt>
+                    <hr>
+                    <dt>Nombre 1</dt>
+                    <dd>{{currentRecord.nombreInd1}}</dd>
+                    <hr>
+                    <dt>Nombre 2</dt>
+                    <dd>{{currentRecord.nombreInd2}}</dd>
+                    <hr>
+                    <dt>Direccion</dt>
+                    <dd>{{currentRecord.direccion}}</dd>
+                    <hr>
+                    <dt>Telefono</dt>
+                    <dd>{{currentRecord.telefono}}</dd>
+                </dl>
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"> <a ui-sref="tarjetasList({parejaId: currentRecord.correoElec})">Tarjetas de Credito</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <div ui-view="childrenView"></div>
+            </div>
+        </div>
+    </div>
+</div>
