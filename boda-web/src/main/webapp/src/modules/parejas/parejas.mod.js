@@ -24,7 +24,7 @@
                     }
                 }
                }).state('parejasDetail', {
-                url: '/parejas/{parejaId:String}',
+                url: '/parejas/:parejaId',
                 parent: 'parejas',
                 param: {
                     parejaId: null

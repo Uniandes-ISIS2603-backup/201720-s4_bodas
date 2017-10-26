@@ -11,11 +11,12 @@
                 <th>Dirección</th>
                 <th>Telefono</th>
                 <th>Actions</th>
+                <th>Detalles</th>
             </tr>
             </thead>
         <tbody>
             <tr ng-repeat="pareja in parejasRecords">
-                <td id="{{$index}}-email"><a ui-sref="parejasDetail({parejaId: pareja.correoElec})">{{pareja.correoElec}}</a></td>
+                <td id="{{$index}}-email">{{pareja.correoElec}}</td>
                 <td id="{{$index}}-name1">{{ pareja.nombreInd1}}</td>
                 <td id="{{$index}}-name2">{{ pareja.nombreInd2}}</td>
                 <td id="{{$index}}-direccion">{{ pareja.direccion}}</td>
@@ -28,6 +29,7 @@
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
                 </td>
+                <td id="{{$index}}-detail"> <a ui-sref="parejasDetail({parejaId: pareja.correoElec})"> Ver Detalles</a> </td>
             </tr>
         </tbody>
           </table>
