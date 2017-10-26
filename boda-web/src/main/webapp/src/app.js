@@ -5,7 +5,7 @@
         
         // Internal modules dependencies   
         'parejasModule',
-
+        
         'bodasModule',
         
         'pagosModule',

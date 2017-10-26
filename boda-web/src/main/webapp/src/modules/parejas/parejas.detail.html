@@ -1,32 +1,23 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-3">
-                <dl>
-                    <dt>{{currentRecord.correoElec}}</dt>
-                    <hr>
-                    <dt>Nombre 1</dt>
-                    <dd>{{currentRecord.nombreInd1}}</dd>
-                    <hr>
-                    <dt>Nombre 2</dt>
-                    <dd>{{currentRecord.nombreInd2}}</dd>
-                    <hr>
-                    <dt>Direccion</dt>
-                    <dd>{{currentRecord.direccion}}</dd>
-                    <hr>
-                    <dt>Telefono</dt>
-                    <dd>{{currentRecord.telefono}}</dd>
-                </dl>
-                <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"> <a ui-sref="tarjetasList({parejaId: currentRecord.correoElec})">Tarjetas de Credito</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
+<div class="col-md-12">
+<div class="container-fluid"> 
+    <table class="table table-striped">
+            <h3> <b>Informacion de la Pareja </b> </h3> <br>
+        <tbody>
+                    <tr id="{{$index}}-correoElec"><b>Correo:</b> {{currentPareja.correoElec}}</tr><br><br>
+                    <tr id="{{$index}}-nombreInd1"><b>Nombre 1:</b> {{currentPareja.nombreInd1}}</tr><br><br>
+                    <tr id="{{$index}}-nombreInd2"><b>Nombre 2:</b> {{currentPareja.nombreInd2}}</tr><br><br>
+                    <tr id="{{$index}}-direccion"><b>Direccion:</b> {{currentPareja.direccion}}</tr><br><br>
+                    <tr id="{{$index}}-telefono"><b>Telefono:</b> {{currentPareja.telefono}}</tr><br><br>
+        </tbody>
+    </table>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"> <a ui-sref="tarjetasList({parejaId: currentPareja.correoElec})"> Ver tarjetas de Credito </a> </li>
+    </ul>
+</div>
+    <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-9">
                 <div ui-view="childrenView"></div>
             </div>
-        </div>
     </div>
-</div>
+</div

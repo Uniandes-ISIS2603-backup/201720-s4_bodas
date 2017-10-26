@@ -11,26 +11,27 @@
                 <th>Dirección</th>
                 <th>Telefono</th>
                 <th>Actions</th>
+                <th>Detalles</th>
             </tr>
             </thead>
         <tbody>
-            <tr ng-repeat="record in records">
-                <td id="{{$index}}-email">{{ record.correoElec}}</td>
-                <td id="{{$index}}-name1">{{ record.nombreInd1}}</td>
-                <td id="{{$index}}-name2">{{ record.nombreInd2}}</td>
-                <td id="{{$index}}-direccion">{{ record.direccion}}</td>
-                <td id="{{$index}}-telephone">{{ record.telefono}}</td>
+            <tr ng-repeat="pareja in parejasRecords">
+                <td id="{{$index}}-email">{{pareja.correoElec}}</td>
+                <td id="{{$index}}-name1">{{ pareja.nombreInd1}}</td>
+                <td id="{{$index}}-name2">{{ pareja.nombreInd2}}</td>
+                <td id="{{$index}}-direccion">{{ pareja.direccion}}</td>
+                <td id="{{$index}}-telephone">{{ pareja.telefono}}</td>
                 <td>
-                    <button id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ng-click="ctrl.deleteRecord(record)">
+                    <button id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ng-click="ctrl.deleteRecord(pareja)">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </button>
-                    <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm" ng-click="ctrl.deleteRecord(record)">
+                    <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm" ng-click="ctrl.deleteRecord(pareja)">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
                 </td>
-                <td id="{{$index}}-detail"><a ui-sref="parejasDetail({parejaId: record.correoElec})">Ver Detalles</a></td>
+                <td id="{{$index}}-detail"> <a ui-sref="parejasDetail({parejaId: pareja.correoElec})"> Ver Detalles</a> </td>
             </tr>
         </tbody>
-          </table>
+        </table>
         </div>
 </div>

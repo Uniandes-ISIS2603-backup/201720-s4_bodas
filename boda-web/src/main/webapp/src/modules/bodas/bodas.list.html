@@ -1,0 +1,25 @@
+<div class="panel panel-primary">
+    
+    
+    <div class="panel-heading"><h3 class="panel-title">Lista de Bodas</h3></div>
+       <div class="panel-body">
+         <table class="table "> 
+           <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Opciones</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr ng-repeat="boda in bodasRecords">
+                <td id="{{$index}}-name"><a ui-sref="bodaDetail({bodaId: boda.id})">{{ boda.name}}</a></td>
+                <td id="{{$index}}-fecha">{{ boda.fecha.toString().substring(0,10)}}</td>
+                <td id="{{$index}}-actions">
+                    <a class="btn btn-danger btn-sm" ui-sref="bodaDelete({bodaId: boda.id})"><span class="glyphicon glyphicon-trash"></span></a>                    
+                </td>
+           </tr>
+        </tbody>
+    </table>
+        </div>   
+</div>

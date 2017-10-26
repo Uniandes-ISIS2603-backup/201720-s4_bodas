@@ -1,24 +1,23 @@
-<div class="panel panel-primary">
-            <div class="panel-heading"><label>Lista de Tarjetas de Credito</label></div>
-            <div class="panel-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Numero</th>
-                                <th>Numero de Seguridad</th>
-                                <th>Nombre del Banco</th>
-                                <th>Fecha de vencimiento</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="record in records">
-                                <td id="{{$index}}-id"><b>{{currentRecord.name}}</b><span>: </span>{{review.description}}</td> 
-                                <td id="{{$index}}-numero">>{{record.numero}}</td>
-                                <td id="{{$index}}-numDeSeg">{{record.numDeSeg}}</td>
-                                <td id="{{$index}}-name">{{record.name}}</td>
-                                <td id="{{$index}}-fechaVen">{{record.fechaVen| date:'yyyy-MM-dd'}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </div>
+<div class="container-fluid">   
+    <div class="col-sm-12">
+        <br>
+        <table ng-if="!messageTarjetasCredito" class="table table-striped">
+            
+            <tbody>
+            <tr ng-repeat="tarjeta in tarjetasCreditoRecords">
+                <td id="{{$index}}-id"><b>{{currentTarjetaCredito.name}}</b><span>: </span>{{review.description}}</td>                                  
+            </tr>
+            </tbody>
+        </table>
+        
+        <table ng-if="messageTarjetasCredito" class="table table-striped">
+            
+            <tbody>
+                <tr>
+                    <td><b>{{messageTarjetasCredito}}</b></td>                                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

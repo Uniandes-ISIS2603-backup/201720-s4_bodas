@@ -5,33 +5,38 @@
             var basePath = 'src/modules/parejas/';
             $urlRouterProvider.otherwise("/parejasList");
             
-            $stateProvider.state('parejasList', {
+            $stateProvider.state('parejas', {
                 url: '/parejas',
+                abstract: true,
                 views: {
                     'mainView': {
+                        templateUrl: basePath + 'parejas.html',
                         controller: 'parejasCtrl',
-                        controllerAs: 'ctrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('parejasList', {
+                url: '/list',
+                parent: 'parejas',
+                 views: {
+                    'listView': {
                         templateUrl: basePath + 'parejas.list.html'
                     }
                 }
                }).state('parejasDetail', {
-                url: '/parejas/{parejaId:String}',
-                parent: 'parejasList',
+                url: '/:parejaId',
+                parent: 'parejas',
                 param: {
                     parejaId: null
                 },
-                views: {
-                    'listView': {
-                        templateUrl: basePath + 'parejas.list.html'
-                    },
+                 views: {
+                    
                     'detailView': {
                         templateUrl: basePath + 'parejas.detail.html',
                         controller: 'parejasCtrl',
                         controllerAs: 'ctrl'
                     }
-
                 }
-
             }).state('cityCreate', {
                 url: '/cities/create',
                 views: {
