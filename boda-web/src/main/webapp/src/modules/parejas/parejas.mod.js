@@ -7,7 +7,6 @@
             
             $stateProvider.state('parejasList', {
                 url: '/parejas',
-                abstract: true,
                 views: {
                     'mainView': {
                         controller: 'parejasCtrl',
@@ -16,7 +15,7 @@
                     }
                 }
                }).state('parejasDetail', {
-                url: '/{parejaId:String}/detail',
+                url: '/parejas/{parejaId:String}',
                 parent: 'parejasList',
                 param: {
                     parejaId: null
