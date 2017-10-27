@@ -2,7 +2,7 @@
 
     var mod = ng.module("parejasModule");
     mod.constant("parejasContext", "api/parejas"); 
-    mod.controller("parejasCtrl", ['$scope', '$state', '$stateParams', '$http', 'parejasContext', 
+    mod.controller("parejasCtrl", ['$scope', '$state', '$http', 'parejasContext',
         function ($scope, $state, $http, parejasContext) {
             $http.get(parejasContext).then(function (response) {
                 $scope.parejasRecords = response.data;
