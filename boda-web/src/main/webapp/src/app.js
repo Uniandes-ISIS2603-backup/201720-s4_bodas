@@ -8,13 +8,12 @@
         
         'bodasModule',
         
-        'pagosModule',
+        'tarjetasCreditoModule',
         
-        'tarjetasCreditoModule'
+        'pagosModule'
     ]);
     // Resuelve problemas de las promesas
     app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);
         }]);
 })(window.angular);
-

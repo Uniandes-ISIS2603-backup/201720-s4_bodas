@@ -2,9 +2,9 @@
     var mod = ng.module("tarjetasCreditoModule");
     mod.constant("tarjetasCreditoContext", "tarjetasCredito");
     mod.constant("parejasContext", "api/parejas");
-    mod.controller('tarjetasCreditoCtrl', ['$scope', '$http', 'parejasContext', 'tarjetasCreditoContext','$stateParams',
-        function($scope, $http, tarjetasCreditoContext, parejasContext,$stateParams) {
-            $http.get(parejasContext + '/' + $stateParams.parejaId + '/'+ tarjetasCreditoContext).then(function (response) {
+    mod.controller('tarjetasCreditoCtrl', ['$scope', '$http', 'parejasContext','$state','tarjetasCreditoContext',
+        function($scope, $http, tarjetasCreditoContext, $state, parejasContext) {
+            $http.get(parejasContext + '/' + $state.params.parejaId + '/'+ tarjetasCreditoContext).then(function (response) {
                      $scope.tarjetasCreditoRecords = response.data;
                  });
         }
