@@ -2,17 +2,17 @@
 
     var mod = ng.module("parejasModule");
     mod.constant("parejasContext", "api/parejas"); 
-    mod.controller("parejasCtrl", ['$scope', '$state', '$stateParams', '$http', 'parejasContext', 
-        function ($scope, $state, $stateParams, $http, parejasContext) {
+    mod.controller("parejasCtrl", ['$scope', '$state', '$http', 'parejasContext',
+        function ($scope, $state, $http, parejasContext) {
             $http.get(parejasContext).then(function (response) {
                 $scope.parejasRecords = response.data;
             });
 
             // el controlador recibió un cityId ??
             // revisa los parámetros (ver el :cityId en la definición de la ruta)
-            if ($stateParams.parejaId !== undefined) {
+            if ($state.params.parejaId !== undefined) {
                 // obtiene el dato del recurso REST
-                $http.get(parejasContext + "/" + $stateParams.parejaId)
+                $http.get(parejasContext + "/" + $state.params.parejaId)
                         .then(function (response) {
                             // $http.get es una promesa
                             // cuando llegue el dato, actualice currentRecord
@@ -35,7 +35,7 @@
                 currentPareja = $scope.currentPareja;
 
                 // si el id es null, es un registro nuevo, entonces lo crea
-                if (id == null) {
+                if (id === null) {
 
                     // ejecuta POST en el recurso REST
                     return $http.post(parejasContext, currentPareja)

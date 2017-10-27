@@ -2,16 +2,13 @@
     <div class="col-sm-12">
         <br>
         <table ng-if="!messageTarjetasCredito" class="table table-striped">
-            
             <tbody>
             <tr ng-repeat="tarjeta in tarjetasCreditoRecords">
-                <td id="{{$index}}-id"><b>{{currentTarjetaCredito.name}}</b><span>: </span>{{review.description}}</td>                                  
+                <td id="{{$index}}-id"><b>{{currentPareja.correoElec}}</b><span>: </span>{{tarjeta.numero}}</td>                                  
             </tr>
             </tbody>
         </table>
-        
         <table ng-if="messageTarjetasCredito" class="table table-striped">
-            
             <tbody>
                 <tr>
                     <td><b>{{messageTarjetasCredito}}</b></td>                                  
@@ -19,5 +16,4 @@
             </tbody>
         </table>
     </div>
-
 </div>

@@ -7,7 +7,7 @@
             var basePath = 'src/modules/tarjetasCredito/';
             $urlRouterProvider.otherwise("/tarjetasList");
             
-                $stateProvider.state('tarjetas', {
+            $stateProvider.state('tarjetas',{
                 url: '/tarjetasCredito',
                 abstract: true,
                 parent: 'parejasDetail',
@@ -18,7 +18,7 @@
                 }
             }).state('tarjetasList', {
                 url: '/list',
-                parent: 'tarjetasCredito',
+                parent: 'tarjetas',
                 views: {
                     'childrenView': {
                         templateUrl: basePath + 'tarjetasCredito.list.html',
