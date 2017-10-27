@@ -20,7 +20,7 @@
                 url: '/list',
                 parent: 'tarjetas',
                 views: {
-                    'childrenView': {
+                    'listView': {
                         templateUrl: basePath + 'tarjetasCredito.list.html',
                         controller: 'tarjetasCreditoCtrl',
                         controllerAs: 'ctrl'
