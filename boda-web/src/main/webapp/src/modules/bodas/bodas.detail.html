@@ -1,4 +1,17 @@
-<div class="panel panel-default"> 
+<div class="col-md-12">
+     <div class="container-fluid">   
+         <table class="table table-striped">
+         
+                <tbody>
+                 <tr>
+                     <td id="{{$index}}-name">{{currentBoda.name}}</td>
+                 </tr>
+             </tbody>
+         </table>
+      </div>
+       </div>
+  
+  <div class="panel panel-default">   
     <div class="panel-body">
     <div class="row">
         <div class="col-md-3">
@@ -7,10 +20,8 @@
             </div>
 
         </div>
-        <div class="col-md-3">
-            <dl>     
-                <dt>{{currentBoda.name}}</dt>
-                
+        <div class="col-md-3"> 
+            <dl>
                 <hr>
                 <dt>Nos casamos el</dt>
                 <dd>{{currentBoda.fecha| date:'dd-MM-yyyy'}}</dd>
