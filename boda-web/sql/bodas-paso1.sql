@@ -19,9 +19,9 @@ insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, co
 
 --Pruebas BodaEntity
 
-insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,pareja_correoelec) values (1, 'Kris', '3/29/2017', 'tema2', 'judia', 'deRubí','fmarsland0@artisteer.com');
-insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda) values (2,'Galen', '5/2/2017', 'tema2', 'ninguna', 'dePlata');
-insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda) values (3,'Malanie', '10/9/2016', 'tema3', 'católica', 'deRubí');
+insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image,pareja_correoelec) values (1, 'Mafelipe', '3/29/2017', 'Playa', 'judia', 'Boda de Bronce','https://images.pexels.com/photos/254069/pexels-photo-254069.jpeg','fmarsland0@artisteer.com');
+insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (2,'Galen&Rose', '5/2/2017', 'Invierno', 'Ninguna', 'Ninguno','https://images.pexels.com/photos/246490/pexels-photo-246490.jpeg');
+insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (3,'Roberto&Martha', '10/9/2016', 'Primavera', 'católica', 'Boda de Oro','https://images.pexels.com/photos/34761/old-people-couple-together-connected.jpg');
 ---Fin Pruebas BodaEntity
 
 --Pruebas UbicacionEntity
@@ -66,7 +66,7 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Tarea Entity
-    insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (12,0,'2017/2/11', 'Nombre',1,5,12);
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (12,0,'2017/2/11', 'Nombre',1,5,12);
 insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (13,1,'2017/1/2', 'Nombre1',1,3,13);
 insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (14,0,'2017/3/13', 'Nombre2',2,1,12);
 ---Fin Calificacion Tarea Entity
