@@ -8,6 +8,8 @@
             <tr>
                 <th>Nombre</th>
                 <th>Fecha</th>
+                <th>Religion</th>
+                <th>Tema</th>
                 <th>Opciones</th>
             </tr>
             </thead>
@@ -15,6 +17,8 @@
             <tr ng-repeat="boda in bodasRecords">
                 <td id="{{$index}}-name"><a ui-sref="bodaDetail({bodaId: boda.id})">{{ boda.name}}</a></td>
                 <td id="{{$index}}-fecha">{{ boda.fecha.toString().substring(0,10)}}</td>
+                <td id="{{$index}}-reigion">{{ boda.religion}}</td>
+                <td id="{{$index}}-tema">{{ boda.tema}}</td>
                 <td id="{{$index}}-actions">
                     <a class="btn btn-danger btn-sm" ui-sref="bodaDelete({bodaId: boda.id})"><span class="glyphicon glyphicon-trash"></span></a>                    
                 </td>
