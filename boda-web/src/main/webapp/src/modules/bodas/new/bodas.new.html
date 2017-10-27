@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createBoda">Crear nueva boda</label>
+                <label ng-if="edit" id="editBoda">Editar boda</label></div>
+            <div class="panel-body">
+                <form ng-submit="createBoda()" name="boda">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="bodaName" class="col-sm-2">Nombre de la boda:</label>
+                            <input id="bodaName" required ng-model="bodaName" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="bodaFecha" class="col-sm-2">El gran día será:</label>
+                            <input type="date" id="bodaFecha" placeholder="DD/MM/YYYY" required ng-model="bodaFecha" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="bodaTema" class="col-sm-2">Tema:</label>
+                            <textarea id="bodaTema" required ng-model="bodaTema" class="col-sm-6"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="bodaImage" class="col-sm-2">Imagen de la pareja:</label>
+                            <input id="bodaImage" required ng-model="bodaImage" class="col-sm-6"/>
+                        </div>
+                    </div>
+                   <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!boda.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Warning!</strong><p>All inputs are required*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="boda.$valid" type="submit" value="Save" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="bodasList">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
