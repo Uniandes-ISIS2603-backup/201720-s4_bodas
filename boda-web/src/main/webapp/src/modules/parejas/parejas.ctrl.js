@@ -1,34 +1,28 @@
 (function (ng) {
 
     var mod = ng.module("parejasModule");
-
-    mod.controller("parejasCtrl", ['$scope', '$state', '$stateParams', '$http', 'parejasContext', function ($scope, $state, $stateParams, $http, context) {
-
-            // inicialmente el listado de ciudades está vacio
-            $scope.records = {};
-            // carga las ciudades
-            $http.get(context).then(function (response) {
-                $scope.records = response.data;
+    mod.constant("parejasContext", "api/parejas"); 
+    mod.controller("parejasCtrl", ['$scope', '$state', '$http', 'parejasContext',
+        function ($scope, $state, $http, parejasContext) {
+            $http.get(parejasContext).then(function (response) {
+                $scope.parejasRecords = response.data;
             });
 
             // el controlador recibió un cityId ??
             // revisa los parámetros (ver el :cityId en la definición de la ruta)
-            if ($stateParams.cityId !== null && $stateParams.cityId !== undefined) {
-
-                // toma el id del parámetro
-                id = $stateParams.cityId;
+            if ($state.params.parejaId !== undefined) {
                 // obtiene el dato del recurso REST
-                $http.get(context + "/" + id)
+                $http.get(parejasContext + "/" + $state.params.parejaId)
                         .then(function (response) {
                             // $http.get es una promesa
                             // cuando llegue el dato, actualice currentRecord
-                            $scope.currentRecord = response.data;
+                            $scope.currentPareja = response.data;
                         });
 
                 // el controlador no recibió un cityId
             } else {
                 // el registro actual debe estar vacio
-                $scope.currentRecord = {
+                $scope.currentPareja = {
                     id: undefined /*Tipo Long. El valor se asigna en el backend*/,
                     name: '' /*Tipo String*/,
                 };
@@ -38,13 +32,13 @@
 
 
             this.saveRecord = function (id) {
-                currentRecord = $scope.currentRecord;
+                currentPareja = $scope.currentPareja;
 
                 // si el id es null, es un registro nuevo, entonces lo crea
-                if (id == null) {
+                if (id === null) {
 
                     // ejecuta POST en el recurso REST
-                    return $http.post(context, currentRecord)
+                    return $http.post(parejasContext, currentPareja)
                             .then(function () {
                                 // $http.post es una promesa
                                 // cuando termine bien, cambie de estado
@@ -55,7 +49,7 @@
                 } else {
 
                     // ejecuta PUT en el recurso REST
-                    return $http.put(context + "/" + currentRecord.id, currentRecord)
+                    return $http.put(parejasContext + "/" + currentPareja.id, currentPareja)
                             .then(function () {
                                 // $http.put es una promesa
                                 // cuando termine bien, cambie de estado
@@ -65,14 +59,14 @@
                 ;
             };
             
-            this.deleteRecord = function(record) {
-                 return $http.delete(context +"/" + record.correoElec)
+            this.deleteRecord = function(parejaRecord) {
+                 return $http.delete(parejasContext +"/" + parejaRecord.correoElec)
                             .then(function () {
                                 // $http.delete es una promesa
                                 // cuando termine bien, cambie de estado
-                                var index = $scope.records.indexOf(record);
+                                var index = $scope.parejasRecords.indexOf(parejaRecord);
                                 if (index > -1) {
-                                    $scope.records.splice(index, 1);
+                                    $scope.parejasRecords.splice(index, 1);
                                 }
                             });
             }

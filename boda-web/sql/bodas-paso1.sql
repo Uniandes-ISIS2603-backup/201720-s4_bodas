@@ -66,7 +66,7 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (12,0,'2017/2/11', 'Nombre',1,5,12);
+    insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (12,0,'2017/2/11', 'Nombre',1,5,12);
 insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (13,1,'2017/1/2', 'Nombre1',1,3,13);
 insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id) values (14,0,'2017/3/13', 'Nombre2',2,1,12);
 ---Fin Calificacion Tarea Entity
