@@ -37,7 +37,27 @@
                         controllerAs: 'ctrl'
                     }
                 }
-
+            }).state('bodaCreate', {
+                url: '/create',
+                parent: 'bodas',
+                views: {
+                    'detailView': {
+                    templateUrl: basePath + '/new/bodas.new.html',
+                    controller: 'bodarNewCtrl'
+                    }
+                }
+            }).state('bodaUpdate', {
+                url: '/update/{bodaId:int}',
+                parent: 'bodas',
+                param: {
+                    bodaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/bodas.new.html',
+                        controller: 'bodaUpdateCtrl'
+                    }
+                }
             }).state('bodaDelete', {
                 url: '/delete/{bodaId:int}',
                 parent: 'bodas',
