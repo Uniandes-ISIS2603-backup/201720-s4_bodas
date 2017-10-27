@@ -27,6 +27,8 @@ public class BodaDTO {
     private String tema;
     private String religion;
     private String tipoBoda;
+    private String image;
+
     
     /**
      * Constructor por defecto
@@ -49,6 +51,7 @@ public class BodaDTO {
         this.tema = boda.getTema();
         this.religion = boda.getReligion();
         this.tipoBoda = boda.getTipoBoda();
+        this.image = boda.getImage();
     }
 
     
@@ -107,6 +110,16 @@ public class BodaDTO {
     public void setTipoBoda(String tipoBoda) {
         this.tipoBoda = tipoBoda;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
+    
     
     /**
      * Convertir DTO a Entity
@@ -122,6 +135,7 @@ public class BodaDTO {
         entity.setTema(this.tema);
         entity.setReligion(this.religion);
         entity.setTipoBoda(this.tipoBoda);
+        entity.setImage(this.image);        
         return entity;
     }
     

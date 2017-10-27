@@ -1,16 +1,30 @@
-<div class="col-md-12">
-    <div class="container-fluid">   
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nombre</th>                      
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td id="{{$index}}-name">{{currentBoda.name}}</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="thumb">
+                <img class="img-responsive" ng-src="{{currentBoda.image}}"/>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <dl>     
+                <dt>{{currentBoda.name}}</dt>
+                
+                <hr>
+                <dt>Nos casamos el</dt>
+                <dd>{{currentBoda.fecha| date:'dd-MM-yyyy'}}</dd>
+          
+                <hr>
+                <dt>Tema</dt>
+                <dd>{{currentBoda.tema}}</dd>
+                
+                <hr>
+                <dt>Tipo de Boda</dt>
+                <dd>{{currentBoda.tipoBoda}}</dd>
+
+            </dl>
+        </div>
     </div>
+        </div>
 </div>

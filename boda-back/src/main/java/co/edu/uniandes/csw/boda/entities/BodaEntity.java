@@ -32,6 +32,7 @@ public class BodaEntity extends BaseEntity implements Serializable {
     private String tema;
     private String religion;
     private String tipoBoda;
+    private String image;
     
     @PodamExclude
     @OneToOne    
@@ -120,6 +121,20 @@ public class BodaEntity extends BaseEntity implements Serializable {
 
     public void setTipoBoda(String tipoBoda) {
         this.tipoBoda = tipoBoda;
+    }
+    
+     /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
    
 }
