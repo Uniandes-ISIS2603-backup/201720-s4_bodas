@@ -1,19 +1,11 @@
-<div class="container-fluid">   
-    <div class="col-sm-12">
-        <br>
-        <table ng-if="!messageTarjetasCredito" class="table table-striped">
-            <tbody>
-            <tr ng-repeat="tarjeta in tarjetasCreditoRecords">
-                <td id="{{$index}}-id"><b>{{currentPareja.correoElec}}</b><span>: </span>{{tarjeta.numero}}</td>                                  
-            </tr>
-            </tbody>
-        </table>
-        <table ng-if="messageTarjetasCredito" class="table table-striped">
-            <tbody>
-                <tr>
-                    <td><b>{{messageTarjetasCredito}}</b></td>                                  
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="container-fluid"> 
+    <table class="table table-striped">
+        <h2> <b>Informacion de las Tarjetas de Credito</b> </h2> <br>
+        <tbody>
+            <tr id="{{$index}}-numero"><b>Numero</b> {{currentTarjeta.numero}}</tr><br><br>
+            <tr id="{{$index}}-numDeSeg"><b>Numero de seguridad:</b> {{currentTarjeta.numDeSeg}}</tr><br><br>
+            <tr id="{{$index}}-fechaVen"><b>Fecha de Vencimiento:</b> {{currentTarjeta.fechaVen}}</tr><br><br>
+            <tr id="{{$index}}-name"><b>Nombre del Banco:</b> {{currentTarjeta.name}}</tr><br><br>
+        </tbody>
+    </table>
 </div>
