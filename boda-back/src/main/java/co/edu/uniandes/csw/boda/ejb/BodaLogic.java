@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.BodaPersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -64,17 +65,10 @@ public class BodaLogic {
      * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      * si no se encuentra una boda con el id dado arroja exception
       */
-      public BodaEntity updateBoda(Long id, BodaEntity entity)throws BusinessLogicException
-      {
-          LOGGER.info("Inicia proceso de actualizar una boda");
-          
-          //Verifica que exista una boda con el id dado
-          if(persistence.find(id)==null) throw new BusinessLogicException("No existe una boda con el id dado.");
-          
-          //Actualiza la boda si existe
-          persistence.update(entity);
-          return entity;
-      }
+    public BodaEntity updateBoda(BodaEntity entity) {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar una boda ");
+        return persistence.update(entity);
+    }
       
       public BodaEntity findBodaById(Long id) throws BusinessLogicException{
         if(persistence.find(id)==null) 

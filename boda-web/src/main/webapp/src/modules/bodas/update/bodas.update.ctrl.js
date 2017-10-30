@@ -4,7 +4,7 @@
             mod.constant("bodasContext", "api/bodas");
            // mod.constant("regalosContext", "api/regalos");
             mod.controller('bodaUpdateCtrl', ['$scope', '$http', 'bodasContext', '$state', '$rootScope', '$filter',
-                function ($scope, $http, bodasContext, $state, booksContext, $rootScope, $filter) {
+                function ($scope, $http, bodasContext, $state, $rootScope ) {
                     $rootScope.edit = true;
 
                     var idBoda = $state.params.bodaId;
@@ -28,6 +28,7 @@
                         //$scope.allRegalosBoda = boda.regalos;
                         //$scope.mergeRegaloss($scope.allRegalosBoda);
                     });
+                    
 
                   //Faltan los metodos de regalos e invitados
 
@@ -37,19 +38,21 @@
                          */
                         //$scope.newRegalos();
                         $http.put(bodasContext + "/" + idBoda, {
-                            name: $scope.bodaName,
                             fecha: $scope.bodaFecha,
+                            image: $scope.bodaImage,
+                            name: $scope.bodaName,
                             religion: $scope.bodaReligion,
                             tema: $scope.bodaTema,
-                            tipo: $scope.bodaTipo,
-                            image: $scope.bodaImage
+                            tipo: $scope.bodaTipo
                         //}).then(function (response) {
                         //    if (idsRegalos.length >= 0) {
                          //       $http.put(bodasContext + "/" + response.data.id + "/regalos", $scope.allRegalosBoda).then(function (response) {
                            //     });
                             //}
                             //Boda created successfully
-                            //$state.go('bodasList', {bodaId: response.data.id}, {reload: true});
+                            }).then(function (response) {
+                            $state.go('bodasList', {bodaId: response.data.id}, {reload: true});
+                            
                         });
                     };
 
