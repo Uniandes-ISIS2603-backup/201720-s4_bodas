@@ -105,12 +105,16 @@ public class BodaResource {
     @PUT
     @Path("{id: \\d+}")
     public BodaDetailDTO updateBoda(@PathParam("id") Long id, BodaDetailDTO boda) throws BusinessLogicException {
-       BodaEntity entity = bodaLogic.findBodaById(id);
-        if(entity==null)
-       {
-           throw new  WebApplicationException("No existe una boda con el id dado",404);
-       }
-        return  new BodaDetailDTO(bodaLogic.updateBoda(id, boda.toEntity()));
+        BodaEntity entity = boda.toEntity();
+        entity.setId(id);
+        BodaEntity oldEntity = bodaLogic.findBodaById(id);
+        if (oldEntity == null) {
+            throw new WebApplicationException("La boda no existe", 404);
+        }
+        entity.setRegalos((oldEntity.getRegalos()));
+        entity.setInvitados((oldEntity.getInvitados()));
+        return new BodaDetailDTO(bodaLogic.updateBoda(entity));
+
     }
 
     /**

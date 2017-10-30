@@ -43,7 +43,7 @@
                 views: {
                     'detailView': {
                     templateUrl: basePath + '/new/bodas.new.html',
-                    controller: 'bodarNewCtrl'
+                    controller: 'bodaNewCtrl'
                     }
                 }
             }).state('bodaUpdate', {
