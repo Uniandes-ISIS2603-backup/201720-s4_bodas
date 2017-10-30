@@ -33,15 +33,9 @@ public class BodaLogic {
      */
         public BodaEntity create(BodaEntity entity)throws BusinessLogicException 
      {
-        LOGGER.info("Inicia proceso de creación de una boda");
-        //Verifica que no esten dos bodas con el mismo id
-        if(persistence.find(entity.getId())!=null){
-            throw new BusinessLogicException("No pueden existir dos bodas con el mismo id ( " + entity.getId()+ " )");
-        }
-        // Invoca la persistencia para crear la boda
-        persistence.create(entity);
-        LOGGER.info("Termina proceso de creación de una boda");
-         return entity;
+        LOGGER.log(Level.INFO, "Inicia proceso de crear una boda ");
+        
+        return persistence.create(entity);
      }
     /**
      * 

@@ -45,12 +45,7 @@ public class BodaResource {
      */
     @POST
     public BodaDetailDTO createBoda(BodaDetailDTO boda) throws BusinessLogicException {
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        BodaEntity bodaEntity = boda.toEntity();
-        // Invoca la lógica para crear la boda nueva
-        BodaEntity nuevaBoda = bodaLogic.create(bodaEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new  BodaDetailDTO(nuevaBoda);
+        return new  BodaDetailDTO(bodaLogic.create(boda.toEntity()));
     }
 
     /**
