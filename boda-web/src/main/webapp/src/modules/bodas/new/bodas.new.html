@@ -26,7 +26,7 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="bodaReligion" class="col-sm-2">Religion</label>
-                            <select name="bodaReligion"  id="bodaReligion" required ng-model="bodaReligion"  onchange="if(this.value=='Otro') document.getElementById('otrareligion').disabled = false">
+                            <select name="bodaReligion"  for="bodaReligion" onchange="if(this.value=='Otro') document.getElementById('otrareligion').disabled = false">
                                  <option value="catolica">Católica</option>
                                  <option value="judia">Judía</option>
                                  <option value="musulmana">Musulmana</option>
@@ -35,7 +35,7 @@
                                  <option value="cristiana">Cristiana</option>
                                  <option value="ninguna">Ninguna</option>
                                  <option value="Otro">Otra religión</option>
-                                 <input type="text" id="bodaReligion" required ng-model="bodaReligion"  size="12" value="Otra religión" disabled>
+                                  <input type="text" id="otrareligion" size="12" value="Otra religión" disabled>
                             </select>                        
                         </div>
                     </div>
