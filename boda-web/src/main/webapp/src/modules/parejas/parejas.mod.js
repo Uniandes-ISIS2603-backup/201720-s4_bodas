@@ -25,7 +25,7 @@
                 }
                }).state('parejasDetail', {
                 url: '/:parejaId',
-                parent: 'parejas',
+                parent: 'parejasList',
                 param: {
                     parejaId: null
                 },
@@ -37,13 +37,13 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('cityCreate', {
-                url: '/cities/create',
+            }).state('parejasCreate', {
+                url: '/create',
+                parent:'parejas',
                 views: {
-                    'mainView': {
-                        controller: 'citiesCtrl',
-                        controllerAs: 'ctrl',
-                        templateUrl: basePath + 'cities.create.html'
+                    'detailView': {
+                        controller: 'parejasNewCtrl',
+                        templateUrl: basePath + '/create/parejas.new.html'
                     }
                 }
             }).state('cityEdit', {
