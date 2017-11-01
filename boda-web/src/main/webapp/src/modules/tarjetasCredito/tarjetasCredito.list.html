@@ -1,11 +1,23 @@
-<div class="container-fluid"> 
-    <table class="table table-striped">
-        <h2> <b>Informacion de las Tarjetas de Credito</b> </h2> <br>
+<div class="panel panel-primary">
+    <div class="panel-heading"><h3 class="panel-title">Lista de Tarjetas De Credito</h3></div>
+    <div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Numero De Seguridad</th>
+                <th>Fecha De Vencimiento</th>
+                <th>Nombre del Banco</th>
+            </tr>
+        </thead>
         <tbody>
-            <tr id="{{$index}}-numero"><b>Numero</b> {{currentTarjeta.numero}}</tr><br><br>
-            <tr id="{{$index}}-numDeSeg"><b>Numero de seguridad:</b> {{currentTarjeta.numDeSeg}}</tr><br><br>
-            <tr id="{{$index}}-fechaVen"><b>Fecha de Vencimiento:</b> {{currentTarjeta.fechaVen}}</tr><br><br>
-            <tr id="{{$index}}-name"><b>Nombre del Banco:</b> {{currentTarjeta.name}}</tr><br><br>
+            <tr ng-repeat= "tarjeta in tarjetasCreditoRecords">
+              <td id="{{$index}}-numero">{{tarjeta.numero}}</td>
+              <td id="{{$index}}-numDeSeg">{{tarjeta.numDeSeg}}</td>
+              <td id="{{$index}}-fechaVen">{{tarjeta.fechaVen}}</td>
+              <td id="{{$index}}-nombreBanco">{{tarjeta.name}}</td>
+            </tr>
         </tbody>
     </table>
+    </div>
 </div>

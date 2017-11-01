@@ -3,14 +3,14 @@
     mod.constant("tarjetasCreditoContext", "tarjetasCredito");
     mod.constant("parejasContext", "api/parejas");
     mod.controller('tarjetasCreditoCtrl', ['$scope', '$http', 'parejasContext','$state','tarjetasCreditoContext',
-        function($scope, $http, tarjetasCreditoContext, $state, parejasContext) {
+        function($scope, $http, parejasContext, $state, tarjetasCreditoContext) {
             $http.get(parejasContext + '/' + $state.params.parejaId + '/'+ tarjetasCreditoContext).then(function (response) {
                      $scope.tarjetasCreditoRecords = response.data;
                  });
                 if ($state.params.tarjetaId !== undefined) {
                 $http.get(parejasContext + "/" + tarjetasCreditoContext + "/" + $state.params.tarjetaId)
                         .then(function (response) {
-                            $scope.currentTarjeta = response.data;
+                        $scope.currentTarjeta = response.data;
                 });
             }
         }
