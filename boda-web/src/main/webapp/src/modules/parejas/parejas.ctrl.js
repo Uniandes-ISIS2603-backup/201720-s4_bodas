@@ -8,6 +8,33 @@
                 $scope.parejasRecords = response.data;
             });
 
+            //Para la vista de parejas individuales
+            $scope.Open = function(item){                
+                   if ($scope.isOpen(item)){
+                    $scope.opened = undefined;
+                } else {
+                    $scope.opened = item;
+                    }         
+                
+            };
+            $scope.isOpen = function(item){
+                   return $scope.opened === item;
+               };
+               
+               //Para la vista del menu del create
+              
+               $scope.OpenCreate = function(){                
+                   if ($scope.isOpenCreate()){
+                    $scope.openCreate = false;
+                } else {
+                    $scope.openCreate = true;
+                    }         
+                
+            };
+            $scope.isOpenCreate = function(){
+                   return $scope.openCreate === true;
+               };
+              
             // el controlador recibió un cityId ??
             // revisa los parámetros (ver el :cityId en la definición de la ruta)
             if ($state.params.parejaId !== undefined) {
@@ -60,7 +87,20 @@
             };
             
             this.deleteRecord = function(parejaRecord) {
-                 return $http.delete(parejasContext +"/" + parejaRecord.correoElec)
+                swal({ title: "¿Desea eliminar la pareja con correo " + parejaRecord.correoElec +"?",
+                    text: "No podrá recuperar la pareja!",
+                    type: "warning",
+                    dangerMode: true,
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Si, eliminalo",
+                    cancelButtonText: "Cancelar",
+                    closeOnConfirm: false,
+                    closeOnCancel:false,
+                     },
+                    function(eliminado){     
+                        if(eliminado){
+                            var k=  $http.delete(parejasContext +"/" + parejaRecord.correoElec)
                             .then(function () {
                                 // $http.delete es una promesa
                                 // cuando termine bien, cambie de estado
@@ -68,10 +108,36 @@
                                 if (index > -1) {
                                     $scope.parejasRecords.splice(index, 1);
                                 }
-                            });
+                                 swal("Eliminada!", "Tu Pareja fue eliminada.", "success");
+                            }, function (response) {
+                                // called asynchronously if an error occurs
+                                // or server returns response with an error status.
+                                if(response.status === 500){
+                                    swal("Oh! Error!", "Cometimos un error ", "error");
+                                }
+                                 else{
+                                     swal("Oh! Algo anda mal!", response.statusText, "error");
+                                 }
+                                });
+                                
+                                
+                             return k;
+                        }
+                        else{
+                            
+                            swal({ title: "La pareja no se elimino",
+                                    text: "No se ha hecho ningún cambio!",                   
+                                     closeOnConfirm: true
+                                    });
+                        }
+                     
+                    });
+                
+                 
             }
+            
 
-// Código continua con las funciones de despliegue de errores
+ // Código continua con las funciones de despliegue de errores
 
 
         }]);

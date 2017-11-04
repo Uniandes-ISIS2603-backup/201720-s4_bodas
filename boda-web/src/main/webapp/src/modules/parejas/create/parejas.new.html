@@ -1,78 +1,149 @@
-<div class="container-fluid">
-    <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="createPareja">Crear una Pareja</label>
-                <label ng-if="edit" id="editPareja">Editar Pareja</label></div>
-            <div class="panel-body">
+
+   
+           <form class="well form-horizontal" ng-submit="createAuthor()" name="pareja" id="contact_form">
+            <fieldset>
            
-                <form ng-submit="createPareja()" name="pareja">
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="correoElec" class="col-sm-4">Email: </label>
-                            <input type="email" id="correoElec" required ng-model="correoElec" class="col-sm-6"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="contrasenia" class="col-sm-4">Contraseña: </label>
-                            <input type="password" id="contrasenia"  required ng-model="contrasenia" class="col-sm-6"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="authorDescription" class="col-sm-4">Biography:</label>
-                            <textarea id="authorDescription" required ng-model="authorDescription" class="col-sm-6"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="authorImage" class="col-sm-4">Image:</label>
-                            <input id="authorImage" required ng-model="authorImage" class="col-sm-6"/>
-                        </div>
-                    </div>
-                    <div ng-if="edit" class="panel-group" id="theBooks">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Associated books</div>
-                            <div class="panel-body">
-                                <div id="div2" ondrop="angular.element(document.getElementById('theBooks')).scope().dropAdd(event)" ondragover="angular.element(document.getElementById('theBooks')).scope().allowDrop(event)">
-                                    <label></label>
-                                    <div ng-show="edit" ng-repeat="book in allBooksAuthor">
-                                        <p draggable="true" ondragstart="angular.element(document.getElementById('theBooks')).scope().drag(event)" id="{{book.id}}">{{book.name}}</p>                                 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-success">
-                            <div class="panel-heading">All books</div>
-                            <div class="panel-body">
-                                <div id="div1" ondrop="angular.element(document.getElementById('theBooks')).scope().dropDelete(event)" ondragover="angular.element(document.getElementById('theBooks')).scope().allowDrop(event)">
-                                    <label></label>
-                                    <div ng-repeat="book in allBooksShow">
-                                        <p draggable="true" ondragstart="angular.element(document.getElementById('theBooks')).scope().drag(event)" id="{{book.id}}">{{book.name}}</p>                
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="form-group col-sm-4" ng-if="!author.$valid">
-
-                            <div class="alert alert-warning" >
-                                <strong>Warning!</strong><p>All inputs are required*</p>
-                            </div> 
-                        </div> 
-                    </div> 
-                    <div class="form-group row">
-                        <div class="form-group col-sm-12">
-                            <input ng-show="author.$valid" type="submit" value="Save" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="authorsList">Cancel</a>
-                        </div>
-                    </div>
-                </form>
+            
+                    
+            <!-- Text input-->
+            
+            
+                 <div class="form-group">
+                <label class="col-md-4 control-label">E-Mail</label>  
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input name="email" placeholder="E-Mail " class="form-control" ng-model="correoElec" type="text">
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
-PpP
+            
+            
+             <!-- Text input-->
+                 <div class="form-group">
+                <label class="col-md-4 control-label">Contraseña</label>  
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input name="contrasenia" placeholder="Contraseña de la cuenta" class="form-control" ng-model="contrasenia" type="password">
+                </div>
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Nombre 1</label>  
+              <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input  name="nombreInd1" placeholder="Nombre 1" class="form-control" ng-model="nombreInd1" type="text">
+                </div>
+              </div>
+            </div>
+
+        
+
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" >Nombre 2</label> 
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="nombreInd2" placeholder="Nombre 2" class="form-control" ng-model="nombreInd2" type="text">
+                </div>
+              </div>
+            </div>
+
+            
+            
+            <div class="form-group">
+              <label class="col-md-4 control-label" >Nombre abreviado</label> 
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="nombreAbreviado" placeholder="Nombre Adv" class="form-control" ng-model="nombreAbreviado" type="text">
+                </div>
+              </div>
+            </div>
+
+            
+            
+            
+            <div class="form-group">
+              <label class="col-md-4 control-label">Dirección</label>  
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input name="direccion" placeholder="Dirección" class="form-control" ng-model="direccion"  type="text">
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Telefono #</label>  
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+              <input name="telefono" placeholder="(845)555-1212" class="form-control" ng-model="telefono" type="text">
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Zip Code</label>  
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input name="zip" placeholder="Zip Code" class="form-control"  type="text">
+                </div>
+            </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Website or domain name</label>  
+               <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+              <input name="website" placeholder="Website or domain name" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+
+            <!-- radio checks -->
+             <div class="form-group">
+                                    <label class="col-md-4 control-label">Do you have hosting?</label>
+                                    <div class="col-md-4">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="hosting" value="yes" /> Yes
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="hosting" value="no" /> No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+      
+           <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label"></label>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+              </div>
+            </div>
+
+            </fieldset>
+            </form>
+
+
 

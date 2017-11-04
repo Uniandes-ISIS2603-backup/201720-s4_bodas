@@ -37,12 +37,27 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('parejasOneDetail', {
+                url: '/:parejaId',
+                parent: 'parejasList',
+                param: {
+                    parejaId: null
+                },
+                 views: {
+                    
+                    'detailOneView': {
+                        templateUrl: basePath + 'parejas.detail.mod.html',
+                        controller: 'parejasCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             }).state('parejasCreate', {
-                url: '/create',
-                parent:'parejas',
+                url: '/',
+                parent:'parejasList',
+                
                 views: {
-                    'detailView': {
-                        controller: 'parejasNewCtrl',
+                    'createOneView': {
+                        controller: 'parejasNewCtrl',                       
                         templateUrl: basePath + '/create/parejas.new.html'
                     }
                 }
