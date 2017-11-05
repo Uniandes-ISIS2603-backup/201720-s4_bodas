@@ -1,36 +1,32 @@
 (function (ng) {
-    var mod = ng.module("pagosModule", []);
-    mod.constant("pagosContext", "api/pagos");
+    var mod = ng.module("pagosModule", ['parejasModule','tarjetasCreditoModule', 'ui.router']);
+    mod.constant("pagosContext", "pagos");
+    mod.constant("tarjetasCreditoContext", "tarjetasCredito");
+    mod.constant("parejasContext", "api/parejas");
+    
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/pagos/';
             $urlRouterProvider.otherwise("/pagosList");
-            $stateProvider.state('pagosList', {
+            
+            $stateProvider.state('pagos',{
                 url: '/pagos',
+                abstract: true,
+                parent: 'tarjetasChild',
                 views: {
-                    'mainView': {
-                        controller: 'pagosCtrl',
-                        controllerAs: 'ctrl',
-                        templateUrl: basePath + 'pagos.list.html'
+                    childrenView: {
+                        templateUrl: basePath + 'pagos.html'
                     }
                 }
-                }).state('pagosDetail', {
-                url: '/{pagoId:int}/detail',
+            }).state('pagosList', {
+                url: '/list',
                 parent: 'pagos',
-                param: {
-                    pagoId: null
-                },
                 views: {
                     'listView': {
-                        templateUrl: basePath + 'pagos.list.html'
-                    },
-                    'detailView': {
-                        templateUrl: basePath + 'pagos.detail.html',
+                       templateUrl: basePath + 'pagos.list.html',
                         controller: 'pagosCtrl',
                         controllerAs: 'ctrl'
                     }
-
                 }
-            })
-            
+                });
         }]);
 })(window.angular);
