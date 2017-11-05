@@ -32,39 +32,51 @@ public class ServicioLogic {
      * @throws BusinessLogicException
      */
     public ServicioEntity createServicio(ServicioEntity entity) throws BusinessLogicException {
-        LOGGER.info("Inicia proceso de creación de Default");
-        // Invoca la persistencia para crear la Default
+        LOGGER.info("Inicia proceso de creación del servicio");
+        // Invoca la persistencia para crear el servicio
         persistence.create(entity);
-        LOGGER.info("Termina proceso de creación de Default");
+        LOGGER.info("Termina proceso de creación del servicio");
         return entity;
     }
 
     /**
      * 
-     * Obtener todas las Defaultes existentes en la base de datos.
+     * Obtener todas los servicios existentes en la base de datos.
      *
-     * @return una lista de Defaultes.
+     * @return una lista de servicios.
      */
-    public List<ServicioEntity> getServicio() {
-        LOGGER.info("Inicia proceso de consultar todas las Defaultes");
+    public List<ServicioEntity> getServicios() {
+        LOGGER.info("Inicia proceso de consultar todos los servicios");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<ServicioEntity> Default = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todas las Defaultes");
-        return Default;
+        List<ServicioEntity> Servicios = persistence.findAll();
+        LOGGER.info("Termina proceso de consultar todos los servicios");
+        return Servicios;
     }
     
     
-    public ServicioEntity getServicio(Long id){
+    public ServicioEntity getServicio(Long id)throws BusinessLogicException{
+        LOGGER.info("Inicia proceso de buscar el servicio por Id");
+        ServicioEntity buscado = persistence.find(id);
+        if(buscado == null )throw new BusinessLogicException("No existe un Servicio con el id \"" + id +"\"");
+            LOGGER.info("Termina proceso de buscar el sevicio por Id");
         return persistence.find(id);
     }
 
-    public ServicioEntity update(ServicioEntity entity)
+    public ServicioEntity update(Long id,ServicioEntity entity)throws BusinessLogicException
     {
+        LOGGER.info("Inicia proceso de actualizar el servicio");
+        
+        //Verifica que exista una pareja con el id dado
+        if(persistence.find(id)==null) throw new BusinessLogicException("No existe un servicio con el id dado.");
+          
         return persistence.update(entity);
     }
 
-    public void deleteServicio(Long id)
+    public void deleteServicio(Long id)throws BusinessLogicException
     {
+        LOGGER.info("Inicia proceso de eliminar un Servicio");
+        if (persistence.find(id)==null) throw new BusinessLogicException("No existe un servicio con el id \"" + id+"\"");
         persistence.delete(id);
+        LOGGER.info("Termina proceso de eliminar un Servicio"); 
     }
 }

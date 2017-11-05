@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="resources/css/proveedoresDetail.css">
+<div class="panel panel-default">
+    <div id="headPanel" class="panel-heading">
+        <h3 id="nombreProveedor" class="panel-title"> 
+            <tr>
+            <td id="{{$index}}-name">{{currentProveedor.name}}</td>
+            </tr>
+        </h3></div>
+       <div class="panel-body">
+         <table class="table "> 
+
+       <tbody>
+        <div class="row">
+        <div class="col-md-3">
+            <div class="thumb">
+                <img class="img-responsive" ng-src="{{currentProveedor.image}}"/>
+            </div>
+
+        </div>
+        <div class="col-md-3"> 
+            <dl>
+                <hr>
+                <dt>Información del Proveedor:</dt>
+                <dd>{{currentProveedor.nombre}}</dd>
+          
+                <hr>
+                <dt>Especialidad:</dt>
+                <dd>{{currentProveedor.especialidad}}</dd>
+
+            </dl>
+        </div>
+    </div>
+  </tbody>  
+             
+         </table>
+      </div>
+ </div>
+  
+  
