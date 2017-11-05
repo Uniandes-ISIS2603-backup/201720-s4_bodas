@@ -1,28 +1,19 @@
+
 <div class="panel panel-default">
     <div id="headPanel" class="panel-heading">
-        <h3 id="nombreUbicacion" class="panel-title" style="text-align: center"> 
+        <h3 id="nombreUbicacion" class="panel-title"> 
             <tr>
             <td id="{{$index}}-name">{{currentUbicacion.name}}</td>
-            
+            </tr>
         </h3></div>
        <div class="panel-body">
          <table class="table "> 
 
        <tbody>
-
+        <div class="row">
+        <div class="col-md-3">
             <div class="thumb">
-                <div id="googleMap" style="width:70%;height:400px;justify-content:center"></div>
-<script>
-function myMap() {
-var mapProp= {
-    center:new google.maps.LatLng(4.636952000,-74.138358000),
-    zoom:15,
-};
-var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnye9NF09bP8ZPLRTqbATIn9Yn_bYsPrg&callback=myMap"></script>
+                
             </div>
         </div>
         <div class="col-md-3"> 

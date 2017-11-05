@@ -62,7 +62,7 @@
                 url: '/delete/{bodaId:int}',
                 parent: 'bodas',
                 param: {
-                    bodaId: null
+                    authorId: null
                 },
                 views: {
                     'detailView': {
