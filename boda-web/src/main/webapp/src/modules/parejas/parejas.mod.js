@@ -37,13 +37,28 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('cityCreate', {
-                url: '/cities/create',
+            }).state('parejasOneDetail', {
+                url: '/:parejaId',
+                parent: 'parejasList',
+                param: {
+                    parejaId: null
+                },
+                 views: {
+                    
+                    'detailOneView': {
+                        templateUrl: basePath + 'parejas.detail.mod.html',
+                        controller: 'parejasCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('parejasCreate', {
+                url: '/',
+                parent:'parejasList',
+                
                 views: {
-                    'mainView': {
-                        controller: 'citiesCtrl',
-                        controllerAs: 'ctrl',
-                        templateUrl: basePath + 'cities.create.html'
+                    'createOneView': {
+                        controller: 'parejasNewCtrl',                       
+                        templateUrl: basePath + '/create/parejas.new.html'
                     }
                 }
             }).state('cityEdit', {

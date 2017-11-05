@@ -1,6 +1,6 @@
 (function (ng) {
     var mod = ng.module("tarjetasCreditoModule", ['parejasModule', 'ui.router']);
-    mod.constant("tarjetasCreditoContext", "tarjetasCredito")
+    mod.constant("tarjetasCreditoContext", "tarjetasCredito");
     mod.constant("parejasContext", "api/parejas");
     
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -26,7 +26,20 @@
                         controllerAs: 'ctrl'
                     }
                 }
-                })
+                }).state('tarjetasChild', {
+                url: '/:tarjetaId',
+                parent: 'tarjetas',
+                param: {
+                    tarjetaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'tarjetas.child.html',
+                        controller: 'tarjetasCreditoCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+                });
         }]);
 })(window.angular);
 
