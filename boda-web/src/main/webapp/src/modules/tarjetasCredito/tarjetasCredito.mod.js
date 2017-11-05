@@ -39,7 +39,19 @@
                         controllerAs: 'ctrl'
                     }
                 }
-                });
+                }).state('tarjetasDelete', {
+                url: '/delete/{tarjetaId:int}',
+                parent: 'tarjetas',
+                param: {
+                    tarjetaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/tarjeta.delete.html',
+                        controller: 'tarjetasCreditoDeleteCtrl',
+                    }
+                }
+            });
         }]);
 })(window.angular);
 
