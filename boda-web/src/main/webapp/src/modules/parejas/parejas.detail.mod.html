@@ -18,14 +18,13 @@
                     <li class="list-group-item">Nombre 2: {{currentPareja.nombreInd2}}</li>
                     <li class="list-group-item">Dirección: {{currentPareja.direccion}}</li>
                     <li class="list-group-item">Telefono: {{currentPareja.telefono}}</li>
-                  </ul> 
-                               
+                  </ul>            
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a ui-sref="tarjetasList({parejaId: currentPareja.correoElec})">Ver Tarjetas De Credito</a></li>
+                    <a ui-sref="tarjetasList({parejaId: currentPareja.correoElec})">Ver Tarjetas De Credito</a>
                 </ul>
             </div>
         <div class="row">
-            <div class="col-md-3"></div>
+            <div class="col-md-1"></div>
             <div class="col-md-9">
                 <div ui-view="childrenView"></div>
             </div>
