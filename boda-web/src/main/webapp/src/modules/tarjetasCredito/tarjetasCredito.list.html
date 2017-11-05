@@ -18,13 +18,9 @@
               <td id="{{$index}}-numDeSeg">{{tarjeta.numDeSeg}}</td>
               <td id="{{$index}}-fechaVen">{{tarjeta.fechaVen}}</td>
               <td id="{{$index}}-nombreBanco">{{tarjeta.nombreBanco}}</td>
-              <td>
-              <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm sweet-2">
-                    <a ui-sref="tarjetasDelete({tarjetaId: tarjeta.id})"> <span class="glyphicon glyphicon-trash"></span></a>
-              </button>
-              <button id="{{$index}}-update-btn" class="btn btn-warning btn-sm sweet-2">
-                    <a ui-sref="tarjetasUpdate({tarjetaId: tarjeta.id})"> <span class="glyphicon glyphicon-pencil"></span></a>
-              </button>
+              <td id="{{$index}}-actions">
+                    <a class="btn btn-danger btn-sm" ui-sref="tarjetasDelete({tarjetaId: tarjeta.id})"> <span class="glyphicon glyphicon-trash"></span></a>
+                    <a class="btn btn-warning btn-sm" ui-sref="tarjetasUpdate({tarjetaId: tarjeta.id})"> <span class="glyphicon glyphicon-pencil"></span></a>
               </td>
               <td><a ui-sref="pagosList({tarjetaId: tarjeta.id})" style="color:#EC11B1">Ver Pagos</a></td>
             </tr>
