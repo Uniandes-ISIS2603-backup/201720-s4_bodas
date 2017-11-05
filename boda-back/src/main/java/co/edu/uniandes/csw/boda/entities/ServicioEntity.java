@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.boda.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -19,11 +18,12 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class ServicioEntity extends BaseEntity implements Serializable  {
     
+    
     private String descripcion;
     @PodamExclude  
     @OneToMany(mappedBy = "servicio")
     private List<ProveedorEntity> proveedores = new ArrayList<>();
-    
+
     public String getDescripcion(){
         return descripcion;
     }

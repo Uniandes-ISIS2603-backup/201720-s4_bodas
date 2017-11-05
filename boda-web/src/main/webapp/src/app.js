@@ -10,7 +10,11 @@
         
         'tarjetasCreditoModule',
         
-        'pagosModule'
+        'pagosModule',
+        
+        'serviciosModule',
+        
+        'proveedoresModule'
     ]);
     // Resuelve problemas de las promesas
     app.config(['$qProvider', function ($qProvider) {

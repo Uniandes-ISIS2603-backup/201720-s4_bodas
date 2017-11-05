@@ -69,8 +69,7 @@ public class ServicioPersistence {
     
     public ServicioEntity find (Long id)
     {
-         ServicioEntity proveedor = em.find(ServicioEntity.class, id);
-         return proveedor;
+         return em.find(ServicioEntity.class, id);
     }
     
     public ServicioEntity update(ServicioEntity entity) { 
@@ -78,7 +77,7 @@ public class ServicioPersistence {
     }
     
     public void delete(Long id) {
-        ServicioEntity entity = find(id);
+        ServicioEntity entity = em.find(ServicioEntity.class, id);
     LOGGER.log(Level.INFO, "Borrando servicio con id={0}", entity.getId());
     em.remove(entity);
 }
