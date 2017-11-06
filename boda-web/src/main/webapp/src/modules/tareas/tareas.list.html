@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="resources/css/tareasList.css">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" ng-repeat="tarea in tareasRecords">
+            <div class="thumbnail">
+                <a ui-sref="tareaDetail({tareaId: tarea.id})">                    
+                    <img class="img-responsive" ng-src='{{tarea.image}}' alt="{{tarea.nombre}}" style =" width:100%"/>                  
+                </a>
+                <div class="caption text-center">
+                        <a ui-sref="tareaDetail({tareaId: tarea.id})" class="thumb">{{tarea.nombre}}</a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

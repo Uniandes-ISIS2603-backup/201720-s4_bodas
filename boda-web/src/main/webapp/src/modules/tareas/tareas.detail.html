@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="resources/css/tareaDetail.css">    
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                 <td id="{{$index}}-detail">{{currentTarea.name}}</td> 
+                <dl>
+                    <dt>Nombre principal </dt>
+                    <dt>{{currentTarea.nombre}}</dt>
+                    <hr>
+                    <dt>Nombre secundario </dt>
+                    <dd>{{currentTarea.nombre}}</dd>
+                    <hr>
+                   
+                </dl>
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a ui-sref="tarjetasList({parejaId: currentPareja.correoElec})">Reagendar tarea</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <div ui-view="childrenView"></div>
+            </div>
+        </div>
+    </div>
+</div>

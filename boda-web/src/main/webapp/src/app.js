@@ -4,13 +4,23 @@
         'ui.router',
         
         // Internal modules dependencies   
+     
+
         'parejasModule',
-        
+        'tareasModule',
         'bodasModule',
-        
+      
         'tarjetasCreditoModule',
         
         'pagosModule'
+        
+        
+        
+        
+      
+        
+        
+       
     ]);
     // Resuelve problemas de las promesas
     app.config(['$qProvider', function ($qProvider) {
