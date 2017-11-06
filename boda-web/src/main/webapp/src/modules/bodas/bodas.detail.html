@@ -18,7 +18,7 @@
 
         </div>
         <div class="col-md-3"> 
-            <dl>
+            <dl> 
                 <hr>
                 <dt>Nos casamos el</dt>
                 <dd>{{currentBoda.fecha| date:'dd-MM-yyyy'}}</dd>
@@ -31,17 +31,27 @@
                 <dt>Tipo de Boda</dt>
                 <dd>{{currentBoda.tipoBoda}}</dd>
                 
-              
-                <td id="{{$index}}-detail"> <a ui-sref="parejasDetail({parejaId: pareja.correoElec})"> Tareas</a> </td>
-
-
+           
             </dl>
+             <ul class="nav nav-tabs">
+                    <a ui-sref="tareasList({bodaId: currentBoda.id})">Tareas</a></li>
+                </ul>
         </div>
     </div>
   </tbody>  
              
          </table>
+           
       </div>
  </div>
   
   
+<div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <div ui-view="childrenView"></div>
+            </div>
+
+
+</div>
+

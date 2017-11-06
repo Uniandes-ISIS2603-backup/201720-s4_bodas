@@ -8,7 +8,16 @@
             $http.get(bodasContext + '/' + $state.params.bodaId + '/' + tareasContext).then(function (response) {
                 $scope.tareasRecords = response.data;
             });
-        }
-    ]);
-}
-)(window.angular);
+       if ($state.params.tareaId !== undefined) {
+                $http.get(bodasContext + '/' + $state.params.bodaId + '/' +tareasContext + '/' + $state.params.tareaId).then(function (response) {
+                   
+                    $scope.currentTarea = response.data;
+                });   
+            }
+    
+            }]);
+      
+
+
+            
+    })(window.angular);

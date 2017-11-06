@@ -4,10 +4,12 @@
         'ui.router',
         
         // Internal modules dependencies   
+     
+
         'parejasModule',
-        
+     
         'bodasModule',
-        
+      
         'tarjetasCreditoModule',
         
         'pagosModule',
@@ -16,7 +18,9 @@
         
         'proveedoresModule',
 
-        'ubicacionesModule'
+        'ubicacionesModule',
+      
+        'tareasModule'
 
     ]);
     // Resuelve problemas de las promesas
