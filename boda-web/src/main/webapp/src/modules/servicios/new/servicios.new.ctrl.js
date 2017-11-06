@@ -1,21 +1,16 @@
 (function (ng) {
-    var mod = ng.module("bodasModule");
-    mod.constant("bodasContext", "api/bodas");
-    mod.controller('bodaNewCtrl', ['$scope', '$http', 'bodasContext', '$state',  '$rootScope',
-        function ($scope, $http, bodasContext, $state,  $rootScope) {
+    var mod = ng.module("serviciosModule");
+    mod.constant("serviciosContext", "api/servicios");
+    mod.controller('servicioNewCtrl', ['$scope', '$http', 'serviciosContext', '$state',  '$rootScope',
+        function ($scope, $http, serviciosContext, $state,  $rootScope) {
             $rootScope.edit = false;
-            $scope.createBoda = function () {
-                $http.post(bodasContext, {
-                    fecha: $scope.bodaFecha,
-                    image: $scope.bodaImage,
-                    name: $scope.bodaName,
-                    religion: $scope.bodaReligion,
-                    tema: $scope.bodaTema,
-                    tipo: $scope.bodaTipo
-                    
+            $scope.createServicio = function () {
+                $http.post(serviciosContext, {
+                    name: $scope.servicioName,
+                    descripcion: $scope.servicioDescripcion
                 }).then(function (response) {
-                    //Boda created successfully
-                    $state.go('bodasList', {bodaId: response.data.id}, {reload: true});
+                    //Servicio created successfully
+                    $state.go('serviciosList', {servicioId: response.data.id}, {reload: true});
                 });
             };
         }
