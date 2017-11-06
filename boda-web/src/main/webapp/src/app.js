@@ -20,7 +20,11 @@
 
         'ubicacionesModule',
       
-        'tareasModule'
+        'tareasModule',
+        
+        'regalosModule',
+        
+        'invitadosModule'
 
     ]);
     // Resuelve problemas de las promesas
