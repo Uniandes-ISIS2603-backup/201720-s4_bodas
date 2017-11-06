@@ -29,7 +29,7 @@
                     }
                 }
             }).state('tareaDetail', {
-                url: 'detail/{tareaId:int}',
+                url: '/detail/{tareaId:int}',
                 parent: 'tareas',
                 param: {
                     tareaId: null
@@ -43,7 +43,7 @@
                     },
                     'detailView': {
                         templateUrl: basePath + 'tareas.detail.html',
-                        controller: 'tareasDetCtrl',
+                        controller: 'tareasCtrl',
                         controllerAs: 'ctrl'
                     }
                     
