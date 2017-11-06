@@ -1,0 +1,18 @@
+<div class="panel panel-primary">
+   <div class="panel-heading"><h3 class="panel-title">Lista de Invitados</h3></div>
+       <div class="panel-body">
+           <table class="table "> 
+           <thead>
+            <tr>
+  
+              <th>Nombre</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr ng-repeat="invitado in invitadosRecords">
+                <td id="{{$index}}-name">{{ invitado.name}}</td>
+           </tr>
+        </tbody>
+    </table>
+    </div>   
+</div>
