@@ -14,7 +14,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.websocket.server.PathParam;
-import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -40,13 +39,12 @@ public class ServicioResource {
     
     @GET
     @Path("{id: \\d+}")
-    public ServicioDetailDTO getServicio(@PathParam("id") Long id){
+    public ServicioDetailDTO getServicio(@PathParam("id") Long id)throws BusinessLogicException{
         ServicioEntity entity = servicioLogic.getServicio(id);
     if (entity == null) {
         throw new WebApplicationException("El recurso servicio: " + id + " no existe.", 404);
     }
-    ServicioDetailDTO city = new ServicioDetailDTO(entity);
-    return city;
+    return new ServicioDetailDTO(entity);
     }
     
     @POST
@@ -61,7 +59,7 @@ public class ServicioResource {
     
     @GET
     public List<ServicioDetailDTO> getServicios() throws BusinessLogicException {
-        return listEntity2DetailDTO(servicioLogic.getServicio());
+        return listEntity2DetailDTO(servicioLogic.getServicios());
     }
    
     private List<ServicioDetailDTO> listEntity2DetailDTO(List<ServicioEntity> entityList) {
@@ -81,12 +79,12 @@ public class ServicioResource {
         if (entity == null) {
             throw new WebApplicationException("El recurso /servicio/" + id + " no existe.", 404);
         }
-        return new ServicioDetailDTO(servicioLogic.update(servicio.toEntity()));
+        return new ServicioDetailDTO(servicioLogic.update(id, servicio.toEntity()));
     }
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteServicio(@javax.ws.rs.PathParam("id") Long id) 
+    public void deleteServicio(@javax.ws.rs.PathParam("id") Long id)throws BusinessLogicException 
     { 
     ServicioEntity entity = servicioLogic.getServicio(id);
     if (entity == null) {
