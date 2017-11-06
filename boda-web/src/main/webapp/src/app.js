@@ -14,7 +14,7 @@
         
         'serviciosModule',
         
-        'proveedoresModule'
+        'proveedoresModule',
 
         'ubicacionesModule'
 
