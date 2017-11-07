@@ -1,15 +1,15 @@
 
 .margin-top{
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 
-#nombreBoda, #headPanel {
+#nombreTarea, #headPanel {
    
-   text-align: center;
+   text-align: left;
    background: #ffdffc;
    font-size: xx-large;
-   font-family: 'Pacifico', cursive;
+   font-family: 'Pacifico';
 }
 
 .panel-default

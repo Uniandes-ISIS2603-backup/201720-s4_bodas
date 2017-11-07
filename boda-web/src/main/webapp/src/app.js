@@ -21,6 +21,8 @@
         'ubicacionesModule',
       
         'tareasModule'
+        
+        
 
     ]);
     // Resuelve problemas de las promesas

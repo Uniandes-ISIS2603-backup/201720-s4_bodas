@@ -63,11 +63,7 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
 
---Pruebas para OpcionServicio Entity
 
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Tarea Entity
@@ -85,12 +81,17 @@ insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id
 
 --Pruebas ProveedorEntity
 delete from ProveedorEntity;
-insert into  ProveedorEntity (name, especialidad) values ('Babbleblab', 'Ingamar');
-insert into  ProveedorEntity (name, especialidad) values ('Demizz', 'Hillary');
-insert into  ProveedorEntity (name, especialidad) values ('Topiczoom', 'Langston');
-insert into  ProveedorEntity (name, especialidad) values ('Yodel', 'Townsend');
+insert into  ProveedorEntity (id,name, especialidad) values (1,'Babbleblab', 'Ingamar');
+insert into  ProveedorEntity (id,name, especialidad) values (2,'Demizz', 'Hillary');
+insert into  ProveedorEntity (id,name, especialidad) values (3,'Topiczoom', 'Langston');
+insert into  ProveedorEntity (id,name, especialidad) values (4,'Yodel', 'Townsend');
 ---Fin Pruebas ProveedorEntity
 
+--Pruebas para OpcionServicio Entity
+
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes',1);
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes',2);
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles',2);
 --Pruebas ServicioEntity
 delete from ServicioEntity;
 insert into ServicioEntity (name, descripcion) values ('SALICYLIC ACID', 'Merrick');

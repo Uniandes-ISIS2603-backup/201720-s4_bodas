@@ -29,7 +29,7 @@ import javax.ws.rs.WebApplicationException;
  * @author sp.joven
  */
 
-@Path("opcionServicios")
+
 @Produces("application/json")
 @Consumes("application/json")
 @Stateless
@@ -55,12 +55,10 @@ public class OpcionServicioResource {
      * @throws BusinessLogicException
      */
     @POST
-    public OpcionServicioDetailDTO createOpcionServicio(OpcionServicioDetailDTO opcionServicio) throws BusinessLogicException {
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
+    public OpcionServicioDetailDTO createOpcionServicio(@PathParam("idProveedor") Long idProveedor,OpcionServicioDetailDTO opcionServicio) throws BusinessLogicException {
+      
         OpcionServicioEntity opcionServicioEntity =opcionServicio.toEntity();
-        // Invoca la lógica para crear la boda nueva
-        OpcionServicioEntity nuevaOpcion = opcionServicioLogic.create(opcionServicioEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
+        OpcionServicioEntity nuevaOpcion = opcionServicioLogic.create(idProveedor,opcionServicioEntity);
         return new  OpcionServicioDetailDTO(nuevaOpcion);
     }
 
@@ -72,9 +70,9 @@ public class OpcionServicioResource {
      * @throws BusinessLogicException
      */
   @GET
-    public List<OpcionServicioDetailDTO> getOpcionesServicio() throws BusinessLogicException {
-        return listEntity2DetailDTO(opcionServicioLogic.getOpcionesServicio());
-    }
+    public List<OpcionServicioDetailDTO> getOpcionesServicio(@PathParam("idProveedor") Long idProveedor) throws BusinessLogicException {
+        return listEntity2DetailDTO(opcionServicioLogic.getOpcionesServicio(idProveedor));
+    } 
 
     /**
      * GET para una opcion servicio
@@ -143,6 +141,8 @@ public class OpcionServicioResource {
        }
        opcionServicioLogic.removeOpcionServicio(id);
     }
+    
+    
     @Path("{opcionId: \\d+}/calificaciones")
     public Class<CalificacionResource> darCalificaciones(@PathParam("opcionId") Long id) throws BusinessLogicException {
         if(opcionServicioLogic.getOpcionServicio(id)==null)throw new  WebApplicationException("No existe una opcion con el id dado",404);

@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.ProveedorPersistence;
@@ -66,5 +67,13 @@ public class ProveedorLogic {
     public void deleteProveedor(ProveedorEntity entity)
     {
         persistence.delete(entity);
+    }
+       
+      public ProveedorEntity findProveedorById(Long id) throws BusinessLogicException{
+        if(persistence.find(id)==null) 
+        {
+            throw new BusinessLogicException("No existe una proveedor con el id dado.");
+        }
+        return persistence.find(id);
     }
 }

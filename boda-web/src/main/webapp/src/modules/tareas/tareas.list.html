@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="resources/css/tareasList.css">
 <div class="container-fluid">
     <div class="row">
+       
         <div class="col-md-2" ng-repeat="tarea in tareasRecords">
             <div class="thumbnail">
                 <a ui-sref="tareaDetail({tareaId: tarea.id})">                    
@@ -12,7 +13,23 @@
                 </div>
             </div>
         </div>
+       
     </div>
+    <p>
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="tareaCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva tarea</a>
+                    </div>
+                </div>
+    </p>
+         <p>
+
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-danger" ui-sref="tareaDelete"><span class="glyphicon glyphicon-plus-sign"></span> Eliminar tarea</a>
+                    </div>
+                </div>
+         </p>
 </div>
 
 
