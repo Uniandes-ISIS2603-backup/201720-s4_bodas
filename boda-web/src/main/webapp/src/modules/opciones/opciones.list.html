@@ -1,0 +1,36 @@
+
+<div class="container-fluid">
+    <div class="row">
+       
+        <div class="col-md-2" ng-repeat="opcion in opcionesRecords">
+            <div class="thumbnail">
+                <a ui-sref="opcionDetail({opcionId: opcion.id})">                    
+                    <img class="img-responsive" ng-src='{{opcion.image}}' alt="{{opcion.descripcion}}" style =" width:100%"/>                  
+                </a>
+                <div class="caption text-center">
+                        <a ui-sref="opcionDetail({opcionId: opcion.id})" class="thumb">{{opcion.descripcion}}</a>
+                
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <p>
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="opcionCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva opcion </a>
+                    </div>
+                </div>
+    </p>
+         <p>
+
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-danger" ui-sref="tareaDelete"><span class="glyphicon glyphicon-plus-sign"></span> Eliminar tarea</a>
+                    </div>
+                </div>
+         </p>
+</div>
+
+
+

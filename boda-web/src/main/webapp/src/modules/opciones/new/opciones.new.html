@@ -1,33 +1,33 @@
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="tareaCreate">Agregar nueva tarea</label>
+            <div class="panel-heading"><label ng-if="!edit" id="opcionesCreate">Agregar nueva opcion de servicio</label>
             <div class="panel-body">
-                <form ng-submit="createTarea()" name="tarea">
+                <form ng-submit="createOpcionServicio()" name="opcion">
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <label for="tareaNombre" class="col-sm-2">Nombre de la tarea:</label>
-                            <input id="tareaNombre" required ng-model="tareaNombre" class="col-sm-6"/>
+                            <label for="opcionesDescripcion" class="col-sm-2">Descripcion de la opcion:</label>
+                            <input id="opcionesDescripcion" required ng-model="opcionesDescripcion" class="col-sm-6"/>
                         </div>
                     </div>
                
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <label for="tareaDia" class="col-sm-2">Fecha:</label>
-                            <input type="date" id="tareaDia" placeholder="DD/MM/YYYY" required ng-model="tareaDia" class="col-sm-6"/>
+                            <label for="opcionesDiasDisponibles" class="col-sm-2">Dias disponibles:</label>
+                            <input  id="opcionesDiasDisponibles"  required ng-model="opcionesDiasDisponibles" class="col-sm-6"/>
                         </div>
                     </div>
                    
                      <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <label for="tareaAprobada" class="col-sm-2">Estado:</label>
-                            <input  id="tareaDia"  required ng-model="tareaAprobada" class="col-sm-6"/>
+                            <label for="opcionesCosto" class="col-sm-2">Costo:</label>
+                            <input  id="opcionesCosto"  required ng-model="opcionesCosto" class="col-sm-6"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <label for="tareaImage" class="col-sm-2">Imagen:</label>
-                            <input id="tareaImage" required ng-model="tareaImage" class="col-sm-6"/>                     
+                            <label for="opcionesImage" class="col-sm-2">Imagen:</label>
+                            <input id="opcionesImage" required ng-model="opcionesImage" class="col-sm-6"/>                     
                         </div>
                     </div>
                    <div class="form-group row">
@@ -40,8 +40,8 @@
                     </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="tarea.$valid" type="submit" value="Agregar" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="bodasList">Cancelar</a>
+                            <input ng-show="opciones.$valid" type="submit" value="Agregar" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="opcionesList">Cancelar</a>
                         </div>
                     </div>
                 </form>
@@ -50,6 +50,7 @@
         </div>
     </div>
 </div>
+
 
 
 
