@@ -50,6 +50,7 @@ public class TareaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private OpcionServicioEntity opcionServicio;
+    
     public boolean isAprobada() {
         return aprobada;
     }

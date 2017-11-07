@@ -1,27 +1,49 @@
+<link rel="stylesheet" href="resources/css/tareaDetail.css">
 <div class="panel panel-default">
+     <div id="headPanel" class="panel-heading">
+        <h3 id="nombreTarea" class="panel-title"> 
+            <tr>
+            <td id="{{$index}}-name">{{currentTarea.nombre}}</td>
+            </tr>
+        </h3></div>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3">
-                <td >{{currentTarea.nombre}}</td> 
                 <dl>
                     <dt>Fecha </dt>              
                      <dd>{{currentTarea.dia| date:'dd-MM-yyyy'}}</dd>
                     <hr>
-                    <dt>Nombre s </dt>
-                    <dd>{{currentTarea.nombre}}</dd>
+                    <dt>Estado </dt>
+                    
+                    <div class="checkbox">
+  <label><input type="checkbox" value="{{currentTarea.aprobada }}"></label>
+</div>
+                    
+            
+                    <hr>
+                    <dt>Lugar </dt>
+                    <dd>{{currentTarea.ubicacion.nombre}}</dd>
                     <hr>
                    
                 </dl>
-                <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a ui-sref="">Reagendar tarea</a></li>
-                </ul>
+                 
+                
             </div>
+            <div class="col-md-4">
+            <div class="thumb">
+                <img class="img-responsive" ng-src="{{currentTarea.image}}"/>
+            </div>
+
         </div>
+           
+        </div>
+       
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-9">
                 <div ui-view="childrenView"></div>
             </div>
         </div>
+         <button type="button" class="btn"><a ui-sref="">Reagendar tarea</button
     </div>
 </div>

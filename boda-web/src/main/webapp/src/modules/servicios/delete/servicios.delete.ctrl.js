@@ -1,12 +1,12 @@
 (function (ng) {
-    var mod = ng.module("bodasModule");
-    mod.constant("bodasContext", "api/bodas");
-    mod.controller('bodaDeleteCtrl', ['$scope', '$http', 'bodasContext', '$state',
-        function ($scope, $http, bodasContext, $state) {
-            var idBoda = $state.params.bodaId;
-            $scope.deleteBoda = function () {
-                $http.delete(bodasContext + '/' + idBoda, {}).then(function (response) {
-                    $state.go('bodasList', {bodaId: response.data.id}, {reload: true});
+    var mod = ng.module("serviciosModule");
+    mod.constant("serviciosContext", "api/servicios");
+    mod.controller('servicioDeleteCtrl', ['$scope', '$http', 'serviciosContext', '$state',
+        function ($scope, $http, serviciosContext, $state) {
+            var idServicio = $state.params.servicioId;
+            $scope.deleteServicio = function () {
+                $http.delete(serviciosContext + '/' + idServicio, {}).then(function (response) {
+                    $state.go('serviciosList', {servicioId: response.data.id}, {reload: true});
                 });
             };
         }
