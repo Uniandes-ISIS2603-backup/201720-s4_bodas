@@ -51,6 +51,18 @@
                         controller: 'tarjetasCreditoDeleteCtrl'
                     }
                 }
+            }).state('tarjetasUpdate', {
+                url: '/update/{tarjetaId:int}',
+                parent: 'tarjetas',
+                param: {
+                    tarjetaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/tarjetas.update.html',
+                        controller: 'tarjetasUpdateCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);
