@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.boda.dtos;
+import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
+import co.edu.uniandes.csw.boda.entities.RegaloEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,6 +19,7 @@ public class ProveedorDetailDTO extends ProveedorDTO{
      /**
      * Constructor por defecto
      */
+     private List<OpcionServicioDTO> opciones;
     public ProveedorDetailDTO() {
         //Constructor por defecto
     }
@@ -26,6 +31,12 @@ public class ProveedorDetailDTO extends ProveedorDTO{
      */
     public ProveedorDetailDTO(ProveedorEntity entity) {
         super(entity);
+        if (entity.getOpcionesServicio() != null) {
+            opciones = new ArrayList<>();
+            for (OpcionServicioEntity entityRegalo : entity.getOpcionesServicio()) {
+                opciones.add(new OpcionServicioDTO(entityRegalo));
+            }
+        }
     }
 
     /**
@@ -38,4 +49,12 @@ public class ProveedorDetailDTO extends ProveedorDTO{
         ProveedorEntity ProveedorE = super.toEntity();
         return ProveedorE;
     }
+     public List<OpcionServicioDTO> getOpciones() {
+        return opciones;
+    }
+
+    public void setOpciones(List<OpcionServicioDTO> ubicacion) {
+        this.opciones = ubicacion;
+    }
+    
 }

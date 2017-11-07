@@ -1,21 +1,21 @@
-<div class="panel panel-primary">
+<div class="panel panel-default">
     <div class="panel-heading"><label>Lista de Pagos</label></div>
         <div class="panel-body">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th>Descripcion </th>
-                        <th>Fecha </th>
-                        <th>Monto Total </th>
-                    </tr>
-                </thead>
-                    <tbody>
-                        <tr ng-repeat="pago in pagosRecords">
-                        <td id="{{$index}}-name">{{pago.name}}</td>
-                        <td id="{{$index}}-fecha">{{pago.fecha | date:'yyyy-MM-dd'}}</td>
-                        <td id="{{$index}}-montoTotal">{{pago.montoTotal}}</td>
-                        </tr>
-                    </tbody>
+              <thead>
+                <tr>
+                    <th>Descripcion </th>
+                    <th>Fecha </th>
+                    <th>Monto Total </th>
+                </tr>
+              </thead>
+                  <tbody>
+                      <tr ng-repeat="pago in pagosRecords">
+                      <td id="{{$index}}-nombrePago">{{pago.nombrePago}}</td>
+                      <td id="{{$index}}-fecha">{{pago.fecha | date:'yyyy-MM-dd'}}</td>
+                      <td id="{{$index}}-montoTotal">{{pago.montoTotal}}</td>
+                      </tr>
+                  </tbody>
             </table>
         </div>
 </div>

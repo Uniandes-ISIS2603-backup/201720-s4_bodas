@@ -48,12 +48,7 @@ public class UbicacionResource {
      */
     @POST
     public UbicacionDetailDTO createUbicacion(UbicacionDetailDTO ubicacion) throws BusinessLogicException {
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        UbicacionEntity ubicacionEntity = ubicacion.toEntity();
-        // Invoca la lógica para crear la ubicacion nueva
-        UbicacionEntity nuevaUbicacion = ubicacionLogic.create(ubicacionEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new  UbicacionDetailDTO(nuevaUbicacion);
+        return new  UbicacionDetailDTO(ubicacionLogic.create(ubicacion.toEntity()));
     }
 
     /**
@@ -108,12 +103,16 @@ public class UbicacionResource {
     @PUT
     @Path("{id: \\d+}")
     public UbicacionDetailDTO updateUbicacion(@PathParam("id") Long id, UbicacionDetailDTO ubicacion) throws BusinessLogicException {
-       UbicacionEntity entity = ubicacionLogic.findUbicacionById(id);
-        if(entity==null)
-       {
-           throw new  WebApplicationException("No existe una ubicacion con el id dado",404);
-       }
-        return  new UbicacionDetailDTO(ubicacionLogic.updateUbicacion(id, ubicacion.toEntity()));
+        UbicacionEntity entity = ubicacion.toEntity();
+        entity.setId(id);
+        UbicacionEntity oldEntity = ubicacionLogic.findUbicacionById(id);
+        if (oldEntity == null) {
+            throw new WebApplicationException("La ubicacion no existe", 404);
+        }
+        entity.setRegalos(oldEntity.getRegalos());
+        entity.setTarea((oldEntity.getTarea()));
+        return new UbicacionDetailDTO(ubicacionLogic.updateUbicacion(id, entity));
+
     }
 
 /**

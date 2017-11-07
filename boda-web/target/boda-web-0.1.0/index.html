@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <title>La Union | Bodas</title>
+        <title style="color:#B2208B">La Union | Bodas</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
           <!-- Dependencias Externas -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -34,9 +34,11 @@
         
         <script src="src/modules/regalos/regalos.mod.js" type="text/javascript"></script>
         <script src="src/modules/regalos/regalos.ctrl.js" type="text/javascript"></script>
+
         <script src="src/modules/regalos/delete/regalos.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/regalos/new/regalos.new.ctrl.js" type="text/javascript"></script> 
         <script src="src/modules/regalos/update/regalos.update.ctrl.js" type="text/javascript"></script> 
+
         
         <script src="src/modules/invitados/invitados.mod.js" type="text/javascript"></script>
         <script src="src/modules/invitados/invitados.ctrl.js" type="text/javascript"></script>
@@ -48,6 +50,8 @@
         <!-- Modulos TarjetasCredito -->
         <script src="src/modules/tarjetasCredito/tarjetasCredito.mod.js" type="text/javascript"></script>
         <script src="src/modules/tarjetasCredito/tarjetasCredito.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetasCredito/delete/tarjetas.delete.js" type="text/javascript"></script>
+        <script src="src/modules/tarjetasCredito/update/tarjetas.update.js" type="text/javascript"></script>
         
         <!-- Modulos Pagos -->
         <script src="src/modules/pagos/pagos.mod.js" type="text/javascript"></script>
@@ -70,6 +74,10 @@
        <!-- Modulos Tareas -->
         <script src="src/modules/tareas/tareas.mod.js" type="text/javascript"></script>
         <script src="src/modules/tareas/tareas.ctrl.js" type="text/javascript"></script>
+        
+          <!-- Modulos OpcionesServicio -->
+        <script src="src/modules/opciones/opciones.mod.js" type="text/javascript"></script>
+        <script src="src/modules/opciones/opciones.ctrl.js" type="text/javascript"></script>
       
         
         <script src="src/app.js" type="text/javascript"></script> 
@@ -101,7 +109,6 @@
                           <li><a ui-sref="parejasList">Parejas</a></li>
                           <li><a ui-sref="bodasList">Bodas</a></li>
                           <li><a ui-sref="ubicacionesList">Ubicaciones</a></li>
-                          <li><a ui-sref="pagosList">Pagos</a></li>
                           <li><a ui-sref="serviciosList">Servicios</a></li>
                           <li><a ui-sref="proveedoresList">Proveedores</a></li>
                         </ul>

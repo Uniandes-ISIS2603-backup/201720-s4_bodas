@@ -1,5 +1,5 @@
-<div class="panel panel-primary">
-    <div class="panel-heading"><h3 class="panel-title">Lista de Tarjetas De Credito</h3></div>
+<div class="panel panel-default" style="color:#0000FF">
+    <div class="panel-heading"><h3 class="panel-title"><b>Lista de Tarjetas De Credito</b></h3></div>
     <div class="panel-body">
     <table class="table">
         <thead>
@@ -8,6 +8,7 @@
                 <th>Numero De Seguridad</th>
                 <th>Fecha De Vencimiento</th>
                 <th>Nombre del Banco</th>
+                <th>Acciones</th>
                 <th>Pagos</th>
             </tr>
         </thead>
@@ -17,7 +18,11 @@
               <td id="{{$index}}-numDeSeg">{{tarjeta.numDeSeg}}</td>
               <td id="{{$index}}-fechaVen">{{tarjeta.fechaVen}}</td>
               <td id="{{$index}}-nombreBanco">{{tarjeta.nombreBanco}}</td>
-              <td><li role="presentation" class="active"><a ui-sref="pagosList({tarjetaId: tarjeta.id})">Ver Pagos</a></li></td>
+              <td id="{{$index}}-actions">
+                    <a class="btn btn-danger btn-sm" ui-sref="tarjetasDelete({tarjetaId: tarjeta.id})"> <span class="glyphicon glyphicon-trash"></span></a>
+                    <a class="btn btn-warning btn-sm" ui-sref="tarjetasUpdate({tarjetaId: tarjeta.id})"> <span class="glyphicon glyphicon-pencil"></span></a>
+              </td>
+              <td><a ui-sref="pagosList({tarjetaId: tarjeta.id})" style="color:#EC11B1">Ver Pagos</a></td>
             </tr>
         </tbody>
     </table>

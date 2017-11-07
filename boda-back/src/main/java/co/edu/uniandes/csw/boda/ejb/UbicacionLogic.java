@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.boda.entities.UbicacionEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.UbicacionPersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -33,12 +34,7 @@ public class UbicacionLogic {
      */
         public UbicacionEntity create(UbicacionEntity entity)throws BusinessLogicException 
      {
-        LOGGER.info("Inicia proceso de creación de una ubicacion");
-        //Verifica que no esten dos ubicaciones con el mismo id
-        if(persistence.find(entity.getId())!=null){
-            throw new BusinessLogicException("No pueden existir dos ubiaciones con el mismo id ( " + entity.getId()+ " )");
-        }
-        // Invoca la persistencia para crear la ubicacion
+        LOGGER.info("Inicia proceso de creación de una ubicacion!");
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de una ubicacion");
          return entity;
@@ -67,17 +63,8 @@ public class UbicacionLogic {
       */
       public UbicacionEntity updateUbicacion(Long id, UbicacionEntity entity)throws BusinessLogicException
       {
-          LOGGER.info("Inicia proceso de actualizar una ubicacion");
-          
-          //Verifica que exista una ubicacion con el id dado
-          if(persistence.find(id)==null) 
-          {
-              throw new BusinessLogicException("No existe una ubicacion con el id dado.");
-          }
-          
-          //Actualiza la ubicacion  si existe
-          persistence.update(entity);
-          return entity;
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar una ubicacion ");
+        return persistence.update(entity);
       }
       
       public UbicacionEntity findUbicacionById(Long id) throws BusinessLogicException{
