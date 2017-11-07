@@ -7,6 +7,11 @@
             $http.get(bodasContext + '/' + $state.params.bodaId + '/' + regalosContext).then(function (response) {
                 $scope.regalosRecords = response.data;
             });
+            if ($state.params.regaloId !== undefined) {
+                $http.get(bodasContext + '/' + $state.params.bodaId + '/' + regalosContext + '/'+ $state.params.regaloId).then(function (response) {
+                    $scope.currentRegalo = response.data;
+                });   
+            }
         }
     ]);
 }

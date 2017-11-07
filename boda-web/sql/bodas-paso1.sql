@@ -46,9 +46,9 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 
 --Pruebas para Regalo Entity
 
-insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (100, 'Cama', 1, 'https://robohash.org/addeseruntvero.jpg?size=50x50&set=set1',1);
-insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (200, 'Tendidos', 0, 'https://robohash.org/estutomnis.jpg?size=50x50&set=set1',1);
-insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (300, 'Lavadora', 0, 'https://robohash.org/eadoloremquearchitecto.bmp?size=50x50&set=set1',2);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (100, 'Cama', 1, 'https://static.pexels.com/photos/164595/pexels-photo-164595.jpeg',1);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (200, 'Platos', 0, 'https://static.pexels.com/photos/6305/holidays-dinner-eating-lunch.jpg',1);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (300, 'Lavadora', 0, 'https://static.pexels.com/photos/4414/black-and-white-clean-housework-launderette.jpg',2);
 
 insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (100,1);
 insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (100,2);
