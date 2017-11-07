@@ -52,8 +52,8 @@
                 url: '/create',
                 parent: 'tareas',
                 views: {
-                    'listView': {
-                    templateUrl: basePath + '/new/tareas.new.html',
+                    'detailView': {
+                    templateUrl: basePath + 'new/tareas.new.html',
                     controller: 'tareasNewCtrl'
                     }
                 }
