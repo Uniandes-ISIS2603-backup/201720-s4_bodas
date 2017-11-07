@@ -63,6 +63,15 @@
                         controller: 'tarjetasUpdateCtrl'
                     }
                 }
+            }).state('tarjetasCreate', {
+                url: '/create',
+                parent: 'tarjetas',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/tarjetas.update.html',
+                        controller: 'tarjetasNewCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);
