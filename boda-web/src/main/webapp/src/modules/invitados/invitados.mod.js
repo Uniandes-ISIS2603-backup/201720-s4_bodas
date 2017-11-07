@@ -16,7 +16,7 @@
                     }
                 }
             }).state('invitadosList', {
-                url: '/list/{bodaId: int}',
+                url: '/list',
                 parent: 'invitados',
                 param:{
                     bodaId:null
@@ -26,6 +26,39 @@
                         templateUrl: basePath + 'invitados.list.html',
                         controller: 'invitadosCtrl',
                         controllerAs: 'ctrl'
+                    }
+                }
+            }).state('invitadoCreate', {
+                url: '/create',
+                parent: 'invitados',
+                views: {
+                    'detailView': {
+                    templateUrl: basePath + 'new/invitados.new.html',
+                    controller: 'invitadosNewCtrl'
+                    }
+                }
+            }).state('invitadoUpdate', {
+                url: '/update/{invitadoId:int}',
+                parent: 'invitados',
+                param: {
+                    invitadoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'new/invitados.new.html',
+                        controller: 'invitadosUpdateCtrl'
+                    }
+                }
+            }).state('invitadoDelete', {
+                url: '/delete/{invitadoId:int}',
+                parent: 'invitados',
+                param: {
+                    invitadoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'delete/invitados.delete.html',
+                        controller: 'invitadosDeleteCtrl'
                     }
                 }
             });
