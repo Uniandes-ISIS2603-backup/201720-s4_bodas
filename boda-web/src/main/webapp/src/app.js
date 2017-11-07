@@ -18,8 +18,8 @@
         
         'proveedoresModule',
 
-        'ubicacionesModule',
-      
+        'ubicacionesModule', 
+
         'tareasModule',
         
         'regalosModule',

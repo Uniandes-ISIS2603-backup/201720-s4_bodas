@@ -48,6 +48,27 @@
                     }
                     
                 }
+            }).state('tareaCreate', {
+                url: '/create',
+                parent: 'tareas',
+                views: {
+                    'listView': {
+                    templateUrl: basePath + '/new/tareas.new.html',
+                    controller: 'tareasNewCtrl'
+                    }
+                }
+            }).state('tareaDelete', {
+                url: '/delete/{tareaId:int}',
+                parent: 'tareaDetail',
+                param: {
+                    tareaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/tareas.delete.html',
+                        controller: 'tareasDeleteCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);

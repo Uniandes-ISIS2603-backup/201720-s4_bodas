@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -23,13 +24,16 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     private String descripcion;
     private Long  costo;
     private String diasDisponibles;
+     private String image;
     
     @OneToMany(mappedBy = "opcionServicio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CalificacionEntity> calificacion;
-    /*
+    
+    @PodamExclude
+    @ManyToOne
     private ProveedorEntity proveedor;    
     
-      */
+      
     @PodamExclude
     @OneToMany(mappedBy = "opcionServicio")
     private List<TareaEntity> tareas;
@@ -71,9 +75,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     public void setTareas(List<TareaEntity> tareas) {
         this.tareas = tareas;
     }
-     /* 
-   
-
+     
     public ProveedorEntity getProveedor() {
         return proveedor;
     }
@@ -81,7 +83,19 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable{
     public void setProveedor(ProveedorEntity proveedor) {
         this.proveedor = proveedor;
     }
-   */
+   /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
+    }
     
     
 }
