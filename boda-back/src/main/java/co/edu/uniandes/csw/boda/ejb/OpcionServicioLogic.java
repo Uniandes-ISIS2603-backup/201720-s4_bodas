@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
+import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
+import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.OpcionServicioPersistence;
 import java.util.List;
@@ -25,16 +28,19 @@ public class OpcionServicioLogic {
      @Inject
     private OpcionServicioPersistence persistence;
     
-     
+      @Inject
+      ProveedorLogic proveedorLogic;
       /**
      * Crea una opcionServicio
      * @param entity
      * @return OpcionServicioEntity
      * @throws BusinessLogicException
      */
-     public OpcionServicioEntity create(OpcionServicioEntity entity)throws BusinessLogicException 
+     public OpcionServicioEntity create(Long proveedorId,OpcionServicioEntity entity)throws BusinessLogicException 
      {
         LOGGER.info("Inicia proceso de creación de una opcion de servicio");
+        ProveedorEntity proveedor = proveedorLogic.findProveedorById(proveedorId);
+        entity.setProveedor(proveedor);
         if(entity.getCosto()<0)
           {
                throw new BusinessLogicException("El costo no puede ser negativo.");
@@ -47,15 +53,24 @@ public class OpcionServicioLogic {
         persistence.create(entity);
          return entity;
      }
+    
       /*
      Solicita todas las opcionesServicio existentes
      */
-     public List<OpcionServicioEntity> getOpcionesServicio(){
+     public List<OpcionServicioEntity> getOpcionesServicio(Long proveedorId) throws BusinessLogicException{
          LOGGER.info("Inicia proceso de consultar todas las opciones de servicio");
-        List<OpcionServicioEntity> opciones  = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todas las opcionesServicio");
-        return opciones;
-     }
+           ProveedorEntity proveedor= proveedorLogic.findProveedorById(proveedorId);
+            if (proveedor.getOpcionesServicio() == null) {
+            throw new BusinessLogicException("El proveedor que consulta aún no tiene opciones de servicio");
+        }
+        if (proveedor.getOpcionesServicio().isEmpty()) {
+            throw new BusinessLogicException("El proveedor que consulta aún no tiene opciones de servicio");
+        }
+      
+
+        return proveedor.getOpcionesServicio();
+    }
+
      /*
       *Solicita una opcionServicio con el id dado 
       * @param id
@@ -77,17 +92,19 @@ public class OpcionServicioLogic {
       * @return OpcionServicioEntity
       *@throws si no se encuentra una opcionServicio con el id dado arroja BussinesLogicException
       */
-      public OpcionServicioEntity updateOpcionServicio(Long id, OpcionServicioEntity entity)throws BusinessLogicException
+      public OpcionServicioEntity updateOpcionServicio(Long proveedorId, OpcionServicioEntity entity)throws BusinessLogicException
       {
-          LOGGER.info("Inicia proceso de actualizar opcionServicio");
-         
+          
+         ProveedorEntity proveedor = proveedorLogic.findProveedorById(proveedorId);
+
+        entity.setProveedor(proveedor);
          if(entity.getCosto()<0)
           {
                throw new BusinessLogicException("El costo no puede ser negativo.");
           }
          
           //Verifica que exista una opcionServicio con el id dado
-          if(persistence.find(id)==null) 
+          if(persistence.find(proveedorId)==null) 
           {
               throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
           }
@@ -96,6 +113,12 @@ public class OpcionServicioLogic {
           persistence.update(entity);
           return entity;
       }
+     
+        
+        
+          
+       
+       
            
       /**
        * Borra una opcionServicio con el id Dado

@@ -1,16 +1,13 @@
 <link rel="stylesheet" href="resources/css/bodasDetail.css">
 <div class="panel panel-default">
     <div id="headPanel" class="panel-heading">
-        <h3 id="nombreBoda" class="panel-title"> 
-            <tr>
-            <td id="{{$index}}-name">{{currentBoda.name}}</td>
-            </tr>
+        <h3 id="nombreBoda"  class="panel-title"> 
+            <a id="{{$index}}-name">{{currentBoda.name}}</a>
         </h3></div>
        <div class="panel-body">
          <table class="table "> 
 
        <tbody>
-        <div class="row">
         <div class="col-md-3">
             <div class="thumb">
                 <img class="img-responsive" ng-src="{{currentBoda.image}}"/>
@@ -18,7 +15,7 @@
 
         </div>
         <div class="col-md-3"> 
-            <dl>
+            <dl> 
                 <hr>
                 <dt>Nos casamos el</dt>
                 <dd>{{currentBoda.fecha| date:'dd-MM-yyyy'}}</dd>
@@ -31,17 +28,28 @@
                 <dt>Tipo de Boda</dt>
                 <dd>{{currentBoda.tipoBoda}}</dd>
                 
-              
-                <td id="{{$index}}-detail"> <a ui-sref="parejasDetail({parejaId: pareja.correoElec})"> Tareas</a> </td>
-
-
             </dl>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a ui-sref="regalosList({bodaId: currentBoda.id})">Regalos</a></li>
+                <li role="presentation" class="active"> <a ui-sref="invitadosList({bodaId: currentBoda.id})">Invitados</a></li>
+                <li role="presentation" class="active">  <a ui-sref="tareasList({bodaId: currentBoda.id})">Tareas</a></li>
+            </ul>
         </div>
     </div>
   </tbody>  
              
-         </table>
-      </div>
+  </table>
+           
+    </div>
  </div>
   
   
+<div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <div ui-view="childrenView"></div>
+            </div>
+
+
+</div>
+

@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+   <div id="headPanel" class="panel-heading"><h3  class="panel-title">Lista de Regalos</h3></div>
+       <div class="panel-body">
+           <table class="table "> 
+           <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Comprado</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr ng-repeat="regalo in regalosRecords">
+                <td id="{{$index}}-name">{{ regalo.name}}</td>
+                <td id="{{$index}}-picture"><img ng-src="{{regalo.imagen}}"></td>
+                <td id="{{$index}}-comprado">{{regalo.comprado}}</td>
+           </tr>
+        </tbody>
+    </table>
+    </div>   
+</div>

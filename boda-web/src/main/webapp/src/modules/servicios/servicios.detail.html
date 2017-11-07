@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div id="headPanel" class="panel-heading">
+        <h3 id="nombreServicio" class="panel-title"> 
+            <tr>
+            <td id="{{$index}}-name">{{currentServicio.name}}</td>
+            </tr>
+        </h3></div>
+       <div class="panel-body">
+         <table class="table "> 
+
+       <tbody>
+        <div class="row">
+        <div class="col-md-3">
+            <div class="thumb">
+                <img class="img-responsive" ng-src="{{currentBoda.image}}"/>
+            </div>
+
+        </div>
+        <div class="col-md-3"> 
+            <dl>
+                
+                <hr>
+                <dt>Nombre</dt>
+                <dd>{{currentServicio.nombre}}</dd>
+                
+                <hr>
+                <dt>Tipo de Boda</dt>
+                <dd>{{currentBoda.tipoBoda}}</dd>
+
+            </dl>
+        </div>
+    </div>
+  </tbody>  
+             
+         </table>
+      </div>
+ </div>
+  
+  

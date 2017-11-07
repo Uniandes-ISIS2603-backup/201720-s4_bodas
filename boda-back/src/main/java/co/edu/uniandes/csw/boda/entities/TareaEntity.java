@@ -28,10 +28,12 @@ public class TareaEntity extends BaseEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date  dia;
     private String nombre;
+    private String image;
 
     @PodamExclude
     @ManyToOne
     private BodaEntity boda;
+    
 
     public BodaEntity getBoda() {
         return boda;
@@ -48,6 +50,7 @@ public class TareaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private OpcionServicioEntity opcionServicio;
+    
     public boolean isAprobada() {
         return aprobada;
     }
@@ -85,5 +88,18 @@ public class TareaEntity extends BaseEntity implements Serializable {
         this.ubicacion = ubicacion;
     }
     
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
+    }
     
 }
