@@ -18,11 +18,13 @@
         
         'proveedoresModule',
 
-        'ubicacionesModule',
-      
-        'tareasModule'
+        'ubicacionesModule', 
+
+        'tareasModule',
         
+        'regalosModule',
         
+        'invitadosModule'
 
     ]);
     // Resuelve problemas de las promesas

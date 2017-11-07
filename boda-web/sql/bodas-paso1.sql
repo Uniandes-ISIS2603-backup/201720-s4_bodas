@@ -67,9 +67,9 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (12,0,'2017/2/11', 'Prueba de vestido',1,5,12,'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (13,1,'2017/1/2', 'Floristería',1,3,13,'https://www.kukyflor.com/blog/wp-content/uploads/2014/11/flores-boda-casamiento-matrimonio-altar-novia.jpg');
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (14,0,'2017/3/13', 'Fotografía',2,1,12,'http://img3.woman.es/8a/b4/b8/10-preguntas-novia-debe-fotografo-boda-640x422.jpg');
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (12,0,'2/11/2017', 'Prueba de vestido',1,5,12,'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (13,1,'1/2/2017', 'Floristería',1,3,13,'https://www.kukyflor.com/blog/wp-content/uploads/2014/11/flores-boda-casamiento-matrimonio-altar-novia.jpg');
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (14,0,'3/13/2017', 'Fotografía',2,1,12,'http://img3.woman.es/8a/b4/b8/10-preguntas-novia-debe-fotografo-boda-640x422.jpg');
 ---Fin Calificacion Tarea Entity
 
 --Pruebas para Calificacion Entity
