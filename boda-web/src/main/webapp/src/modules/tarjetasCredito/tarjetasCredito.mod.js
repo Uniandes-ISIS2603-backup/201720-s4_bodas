@@ -47,8 +47,8 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/tarjetas.delete.html',
-                        controller: 'tarjetasCreditoDeleteCtrl',
+                        templateUrl: basePath + 'delete/tarjetas.delete.html',
+                        controller: 'tarjetasCreditoDeleteCtrl'
                     }
                 }
             });
