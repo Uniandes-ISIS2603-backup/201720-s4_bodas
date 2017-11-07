@@ -14,7 +14,7 @@
                         asistencia: $scope.invitadoAsistencia
                     
                 }).then(function (response) {
-                    $state.go('inviadosList', {invitadoId: response.data.id}, {reload: true});
+                    $state.go('invitadosList',{invitadoId: response.data.id}, {reload: true});
                 });
             };
         }

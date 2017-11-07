@@ -16,6 +16,20 @@
                         templateUrl: basePath + 'regalos.html'
                     }
                 }
+            }).state('regaloDetail', {
+                url: '/{regaloId:int}',
+                parent: 'regalos',
+                param: {
+                    regaloId: null
+                },
+                views: {
+                    
+                    'detailView': {
+                        templateUrl: basePath + 'regalos.detail.html',
+                        controller: 'regalosCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             }).state('regalosList', {
                 url: '/list',
                 parent: 'regalos',
@@ -24,6 +38,39 @@
                         templateUrl: basePath + 'regalos.list.html',
                         controller: 'regalosCtrl',
                         controllerAs: 'ctrl'
+                    }
+                }
+            }).state('regaloCreate', {
+                url: '/create',
+                parent: 'regalos',
+                views: {
+                    'detailView': {
+                    templateUrl: basePath + 'new/regalos.new.html',
+                    controller: 'regalosNewCtrl'
+                    }
+                }
+            }).state('regaloUpdate', {
+                url: '/update/{regaloId:int}',
+                parent: 'regalos',
+                param: {
+                    regaloId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'new/regalos.new.html',
+                        controller: 'regalosUpdateCtrl'
+                    }
+                }
+            }).state('regaloDelete', {
+                url: '/delete/{regaloId:int}',
+                parent: 'regalos',
+                param: {
+                    regaloId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'delete/regalos.delete.html',
+                        controller: 'regalosDeleteCtrl'
                     }
                 }
             });
