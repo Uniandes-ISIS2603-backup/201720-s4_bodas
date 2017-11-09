@@ -57,6 +57,9 @@ public class TarjetaCreditoLogic {
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
             throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
         }
+        if (entity.getFechaVen() == null) {
+            throw new BusinessLogicException("Debe ingresar la fecha en la cual vence la Tarjeta de credito");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de TarjetaCredito");
         return entity;
@@ -88,6 +91,9 @@ public class TarjetaCreditoLogic {
         int ingresoNumeroSeguridad = String.valueOf(entity.getNumDeSeg()).length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
             throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
+        }
+        if (entity.getFechaVen() == null) {
+            throw new BusinessLogicException("Debe ingresar la fecha en la cual vence la Tarjeta de credito");
         }
         ParejaEntity pareja = parejaLogic.getPareja(parejaId);
         entity.setPareja(pareja);
