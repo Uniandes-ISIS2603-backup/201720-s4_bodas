@@ -12,7 +12,7 @@
                 abstract: true,
                 parent: 'parejasDetail',
                 views: {
-                    childrenView: {
+                    'childrenView': {
                         templateUrl: basePath + 'tarjetasCredito.html'
                     }
                 }
@@ -64,7 +64,6 @@
                     }
                 }
             }).state('tarjetasCreate', {
-                url: '/create',
                 parent: 'tarjetas',
                 views: {
                     'detailView': {

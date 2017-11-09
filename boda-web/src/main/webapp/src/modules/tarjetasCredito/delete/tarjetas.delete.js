@@ -5,7 +5,7 @@
     mod.controller('tarjetasCreditoDeleteCtrl', ['$scope', '$http', 'parejasContext', 'tarjetasCreditoContext', '$state',
         function ($scope, $http, parejasContext, tarjetasCreditoContext, $state) {
             $scope.deleteTarjetaCredito = function () {
-                $http.delete(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext + '/' + $state.params.tarjetaId, {}).then(function (response) {
+                $http.delete(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext + '/' + $state.params.tarjetaId, {}).then(function () {
                 $state.go('tarjetasList', {reload: true});
                 });
             };

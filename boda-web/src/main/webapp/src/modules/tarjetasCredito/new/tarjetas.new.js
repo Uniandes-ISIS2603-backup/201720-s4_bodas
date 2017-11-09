@@ -7,11 +7,11 @@
             $rootScope.edit = false;
             
             $scope.createTarjeta = function () {
-                $http.post(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext + '/' + $state.params.tarjetaId, {
+                $http.post(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext, {
+                    nombreBanco: $scope.tarjetaBanco,
                     fecha: $scope.tarjetaFecha,
                     numero: $scope.tarjetaNumero,
-                    numDeseg: $scope.tarjetaNumDeSeg,
-                    nombreBanco: $scope.tarjetaBanco
+                    numDeSeg: $scope.tarjetaNumDeSeg
                 }).then(function (response) {
                     $state.go('tarjetasList', {tarjetaId: response.data.id}, {reload: true});
                 });

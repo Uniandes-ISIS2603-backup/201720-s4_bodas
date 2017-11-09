@@ -1,6 +1,4 @@
 <div class="panel">
-    
-        
             <div class="container-fluid">
                 <h4> Detalles de la Pareja </h4>
                 <!--<form>                    
@@ -20,13 +18,7 @@
                     <li class="list-group-item">Telefono: {{currentPareja.telefono}}</li>
                   </ul>            
                 <ul class="nav nav-tabs">
-                   <a ui-sref="tarjetasList({parejaId: currentPareja.correoElec})" style="color:#EC11B1">Ver Tarjetas De Credito</a>
+                   <a ui-sref="tarjetasList({parejaId: currentPareja.correoElec})">Ver Tarjetas De Credito</a>
                 </ul>
             </div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-9">
-                <div ui-view="childrenView"></div>
-            </div>
-        </div>
     </div>
