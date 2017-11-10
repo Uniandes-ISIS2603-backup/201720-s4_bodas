@@ -10,7 +10,7 @@
             $stateProvider.state('tarjetas',{
                 url: '/tarjetasCredito',
                 abstract: true,
-                parent: 'parejasOneDetail',
+                parent: 'parejasDetail',
                 views: {
                     'childrenView': {
                         templateUrl: basePath + 'tarjetasCredito.html'

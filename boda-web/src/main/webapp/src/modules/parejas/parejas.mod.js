@@ -23,7 +23,20 @@
                         templateUrl: basePath + 'parejas.list.html'
                     }
                 }
-               }).state('parejasOneDetail', {
+               }).state('parejasDetail', {
+                url: '/:parejaId',
+                parent: 'parejas',
+                param: {
+                    parejaId: null
+                },
+                 views: {                     
+                    'detailView': {
+                        templateUrl: basePath + 'parejas.detail.html',
+                        controller: 'parejasCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('parejasOneDetail', {
                 url: '/:parejaId',
                 parent: 'parejasList',
                 param: {
