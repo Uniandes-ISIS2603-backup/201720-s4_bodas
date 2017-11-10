@@ -50,14 +50,12 @@
 <div class="panel panel-primary  " >    
     <div class="panel-heading"><h3 class="panel-title">Lista de Parejas Perronas</h3></div>
        <div class="panel-body">
-           <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <!-- ng-click="OpenCreate()"--->
-                        <a  ui-sref="parejasCreate"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                            <span class="glyphicon glyphicon-zoom-in"  ></span> Nueva Pareja  
-                        </button></a>
-                    </div>
-            </div>
+           
+                        <!-- ng-click="OpenCreate()" ng-click="ctrl.pruebaRecord()" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" --->
+                        <a class="btn btn-primary" ui-sref="parejasCreate" ><!---data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"-->
+                            <span class="glyphicon glyphicon-plus"  ></span> Nueva Pareja 
+                        </a> 
+                        
          <table class="table "> 
            <thead>
             <tr>
@@ -73,16 +71,14 @@
                 <td id="{{$index}}-email">{{pareja.correoElec}}    
                                   
                   <div ng-show="isOpen(pareja)">                   
-                    <div ui-view="detailOneView">
-                               
-                    </div>
+                      <div ui-view="detailOneView"></div>
                  </div> 
                 </td>
                 
                 <td>
-                    <button id="{{$index}}-edit-btn" class="btn btn-warning btn-sm  sweet-2" ng-click="ctrl.editMod()">
+                    <a id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ui-sref="parejaUpdate({parejaId: pareja.correoElec})">
                         <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
+                    </a>
                     <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm sweet-2" ng-click="ctrl.deleteRecord(pareja)">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -115,7 +111,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Registro</h4>
+        <h4 class="modal-title" id="exampleModalLabel"></h4>
       </div>
       <div class="modal-body">
           
@@ -124,8 +120,7 @@
          </div>
          
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+       
       </div>
     </div>
   </div>

@@ -8,11 +8,16 @@
                 $http.post(parejasContext, {
                     correoElec: $scope.correoElec,
                     contrasenia: $scope.contrasenia,
-                    description: $scope.authorDescription,
-                    image: $scope.authorImage
+                    nombreInd1: $scope.nombreInd1,
+                    nombreInd2: $scope.nombreInd2,
+                    nombreAbreviado: $scope.nombreAbreviado,
+                    direccion: $scope.direccion,
+                    telefono: $scope.telefono,
+                    pago: 0
                 }).then(function (response) {
                     //Author created successfully
-                    $state.go('parejasList', {authorId: response.data.id}, {reload: true});
+                    swal("Creada!", "Tu Pareja fue creada.", "success");
+                    $state.go('parejasList', {parejaId: response.data.correoElec}, {reload: true});
                 });
             };
         }

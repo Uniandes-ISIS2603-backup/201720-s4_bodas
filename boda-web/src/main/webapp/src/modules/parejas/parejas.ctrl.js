@@ -89,18 +89,16 @@
             this.deleteRecord = function(parejaRecord) {
                 swal({ title: "¿Desea eliminar la pareja con correo " + parejaRecord.correoElec +"?",
                     text: "No podrá recuperar la pareja!",
-                    type: "warning",
-                    dangerMode: true,
+                    type: "warning",                   
                     showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
                     confirmButtonClass: "btn-danger",
                     confirmButtonText: "Si, eliminalo",
-                    cancelButtonText: "Cancelar",
-                    closeOnConfirm: false,
-                    closeOnCancel:false,
-                     },
-                    function(eliminado){     
-                        if(eliminado){
-                            var k=  $http.delete(parejasContext +"/" + parejaRecord.correoElec)
+                    cancelButtonText: "Cancelar"
+                  
+                     }).then(function () {
+                        var k=  $http.delete(parejasContext +"/" + parejaRecord.correoElec)
                             .then(function () {
                                 // $http.delete es una promesa
                                 // cuando termine bien, cambie de estado
@@ -122,16 +120,17 @@
                                 
                                 
                              return k;
-                        }
-                        else{
-                            
-                            swal({ title: "La pareja no se elimino",
-                                    text: "No se ha hecho ningún cambio!",                   
-                                     closeOnConfirm: true
+                      }, function (dismiss) {
+                        // dismiss can be 'cancel', 'overlay',
+                        // 'close', and 'timer'
+                        if (dismiss === 'cancel') {
+                                       swal({ title: "La pareja no se elimino",
+                                    text: "No se ha hecho ningún cambio!"                 
+                                  
                                     });
                         }
-                     
-                    });
+                      });
+                  
                 
                  
             }
