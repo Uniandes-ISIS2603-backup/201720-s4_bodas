@@ -64,7 +64,6 @@
                     }
                 }
             }).state('tarjetasCreate', {
-                url: '/create',
                 parent: 'tarjetas',
                 views: {
                     'detailView': {
