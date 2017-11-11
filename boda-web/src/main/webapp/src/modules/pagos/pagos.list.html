@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading"><label>Lista de Pagos</label></div>
+    <div class="panel-heading"><h3 class="panel-title"><b>Lista de Pagos</b></h3></div>
         <div class="panel-body">
             <table class="table">
               <thead>
@@ -7,13 +7,15 @@
                     <th>Descripcion </th>
                     <th>Fecha </th>
                     <th>Monto Total </th>
+                    <th>Acciones </th>
                 </tr>
               </thead>
                   <tbody>
                       <tr ng-repeat="pago in pagosRecords">
                       <td id="{{$index}}-nombrePago">{{pago.nombrePago}}</td>
-                      <td id="{{$index}}-fecha">{{pago.fecha | date:'yyyy-MM-dd'}}</td>
+                      <td id="{{$index}}-fecha">{{pago.fecha | date:'dd-MM-yyyy'}}</td>
                       <td id="{{$index}}-montoTotal">{{pago.montoTotal}}</td>
+                      <td id="{{$index}}-detail"><a class = "btn btn-info" ui-sref="pagosDetail({pagoId: pago.id})"><span class="glyphicon glyphicon-eye-open"></span>Ver detalles</a></td>
                       </tr>
                   </tbody>
             </table>

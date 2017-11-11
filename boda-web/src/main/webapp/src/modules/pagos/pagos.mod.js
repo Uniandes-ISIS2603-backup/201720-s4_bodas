@@ -22,11 +22,24 @@
                 parent: 'pagos',
                 views: {
                     'listView': {
-                       templateUrl: basePath + 'pagos.list.html',
+                        templateUrl: basePath + 'pagos.list.html',
                         controller: 'pagosCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
-                });
+                }).state('pagosDetail', {
+                url: '/:pagoId',
+                parent: 'pagos',
+                param: {
+                    pagoId: null
+                },
+                 views: {
+                    'detailView': {
+                        templateUrl: basePath + 'pagos.detail.html',
+                        controller: 'pagosCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            });
         }]);
 })(window.angular);
