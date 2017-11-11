@@ -1,5 +1,7 @@
-<div>
-    <form class="well form-horizontal" ng-submit="createPareja()" name="pareja" id="contact_form">
+
+    <form class="well form-horizontal" ng-submit="createPareja()" name="pareja" id="registro_form">
+       <div> <label ng-if="!edit" id="createAuthor"><legend>Crear Pareja</legend></label>
+         <label ng-if="edit" id="editAuthor"><legend>Editar Pareja</legend></label></div>
         <fieldset>
             <!-- Text input-->
             <div class="form-group">
@@ -7,7 +9,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="email" placeholder="E-Mail " class="form-control" ng-model="correoElec" type="text">
+                        <input name="email" placeholder="E-Mail " class="form-control" required ng-model="data.correoElec" type="text">
                     </div>
                 </div>
             </div>
@@ -17,7 +19,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input name="contrasenia" placeholder="Contraseña de la cuenta" class="form-control" ng-model="contrasenia" type="password">
+                        <input name="contrasenia" placeholder="Contraseña de la cuenta" class="form-control" required ng-model="data.contrasenia" type="password">
                     </div>
                 </div>
             </div>
@@ -27,7 +29,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input  name="nombreInd1" placeholder="Nombre 1" class="form-control" ng-model="nombreInd1" type="text">
+                        <input  name="nombreInd1" placeholder="Nombre 1" class="form-control" required ng-model="data.nombreInd1" type="text">
                     </div>
                 </div>
             </div>
@@ -37,7 +39,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="nombreInd2" placeholder="Nombre 2" class="form-control" ng-model="nombreInd2" type="text">
+                        <input name="nombreInd2" placeholder="Nombre 2" class="form-control" required ng-model="data.nombreInd2" type="text">
                     </div>
                 </div>
             </div>
@@ -47,7 +49,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="nombreAbreviado" placeholder="Nombre Adv" class="form-control" ng-model="nombreAbreviado" type="text">
+                        <input name="nombreAbreviado" placeholder="Nombre Adv" class="form-control" ng-model="data.nombreAbreviado" type="text">
                     </div>
                 </div>
             </div>
@@ -57,7 +59,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="direccion" placeholder="Dirección" class="form-control" ng-model="direccion"  type="text">
+                        <input name="direccion" placeholder="Dirección" class="form-control" required ng-model="data.direccion"  type="text">
                     </div>
                 </div>
             </div>
@@ -68,21 +70,30 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="telefono" placeholder="(845)555-1212" class="form-control" ng-model="telefono" type="text">
+                        <input name="telefono" placeholder="(845)555-1212" class="form-control" required ng-model="data.telefono" type="text">
                     </div>
                 </div>
             </div>
             
+            <div class="form-group">
+                        <div class="form-group col-sm-4 col-md-4" ng-if="!pareja.$valid">
+                            <div class="alert alert-warning" >
+                                <strong>Warning!</strong><p>Todos los campos son requeridos*</p>
+                            </div> 
+                        </div> 
+            </div> 
 
-
-
+            
 
             <!-- Button </input>  <span class="glyphicon glyphicon-send"></span>-->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <input type="submit" class="btn btn-warning" value="Crear" > 
-                    <button  class="btn btn-default"  ui-sref="parejasList" >Cancelar <span class="glyphicon glyphicon-arrow-left"></span></button>
+                    
+                    <button  class="btn btn-default"  ui-sref="parejasList" ><span class="glyphicon glyphicon-arrow-left"></span>Cancelar </button>
+                    <input ng-show="pareja.$valid" ng-if="!edit" type="submit" value="Crear" class="btn btn-success"/>
+                    <input ng-show="edit"  type="submit"  value="Editar" class="btn btn-warning"/>
+                    
                 </div>
             </div>
 

@@ -111,7 +111,7 @@
                                 // called asynchronously if an error occurs
                                 // or server returns response with an error status.
                                 if(response.status === 500){
-                                    swal("Oh! Error!", "Cometimos un error ", "error");
+                                    swal("La Pareja tiene una boda asociada, primero borre la boda.", "error ", "error");
                                 }
                                  else{
                                      swal("Oh! Algo anda mal!", response.statusText, "error");
