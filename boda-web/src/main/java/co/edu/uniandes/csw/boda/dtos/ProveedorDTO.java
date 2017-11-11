@@ -47,7 +47,7 @@ public class ProveedorDTO {
         this.name = name;
     }
     
-    public String getExpecialidad(){
+    public String getEspecialidad(){
         return especialidad;
     }
     

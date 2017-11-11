@@ -49,6 +49,7 @@ public class ProveedorDetailDTO extends ProveedorDTO{
         ProveedorEntity ProveedorE = super.toEntity();
         return ProveedorE;
     }
+    
      public List<OpcionServicioDTO> getOpciones() {
         return opciones;
     }
