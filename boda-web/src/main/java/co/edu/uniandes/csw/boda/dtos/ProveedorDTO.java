@@ -14,9 +14,9 @@ import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 public class ProveedorDTO {
     
     
-    private Long id;
+    private long id;
     private String name;
-    public String especialidad;
+    private String especialidad;
     
     /**
      * Clase constructor
@@ -31,11 +31,11 @@ public class ProveedorDTO {
         this.especialidad = proveedor.getEspecialidad();
     }
     
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
