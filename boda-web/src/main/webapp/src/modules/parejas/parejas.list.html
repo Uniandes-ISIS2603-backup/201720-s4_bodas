@@ -32,12 +32,12 @@
              
         		<a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev">
         			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        			<span class="sr-only">Previous</span>
+        			<span class="sr-only">Anterior</span>
         		</a>
 
         		<a class="right carousel-control" href="#carousel-1" role="button" data-slide="next">
         			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        			<span class="sr-only">Next</span>
+        			<span class="sr-only">Siguiente</span>
         		</a>
         </div>
     </div>
@@ -76,7 +76,7 @@
                 </td>
                 
                 <td>
-                    <a id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ui-sref="parejaUpdate({parejaId: pareja.correoElec})">
+                    <a id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ui-sref="parejasUpdate({parejaId: pareja.correoElec})">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                     <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm sweet-2" ng-click="ctrl.deleteRecord(pareja)">
