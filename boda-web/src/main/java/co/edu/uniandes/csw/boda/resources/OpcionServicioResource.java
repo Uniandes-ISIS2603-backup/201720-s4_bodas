@@ -32,7 +32,7 @@ import javax.ws.rs.WebApplicationException;
 
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
+
 public class OpcionServicioResource {
     
 
@@ -95,6 +95,7 @@ public class OpcionServicioResource {
        }
         return  new OpcionServicioDetailDTO(opcionServicioLogic.findOpcionServicioById(id));
     }
+
 
     /**
      * PUT 

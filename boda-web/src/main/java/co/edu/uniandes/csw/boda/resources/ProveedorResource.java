@@ -70,6 +70,13 @@ public class ProveedorResource {
         }
         return list;
     }
+   
+     @Path("{idProveedor: \\d+}/opcionServicios")
+    public Class<OpcionServicioResource> obtenerOpciones(@PathParam("idProveedor") Long idProveedor) throws BusinessLogicException{
+        ProveedorEntity buscado = proveedorLogic.findProveedorById(idProveedor);
+        if(buscado==null)throw new WebApplicationException("El recurso /proveedor/" + idProveedor + " no existe.", 404);
+        return OpcionServicioResource.class;
+    }
     
     @PUT
     @Path("{id: \\d+}")

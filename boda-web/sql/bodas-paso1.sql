@@ -2,16 +2,20 @@
 delete from RegaloEntity_UbicacionEntity;
 delete from PagoEntity;
 delete from TarjetaCreditoEntity;
-
+delete from TareaEntity;
+delete from calificacionentity;
+delete from OpcionServicioEntity;
+delete from ProveedorEntity;
+delete from ServicioEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
-delete from calificacionentity;
+delete from UbicacionEntity;
 
-delete from TareaEntity;
 delete from BodaEntity;
 delete from ParejaEntity;
-delete from OpcionServicioEntity;
 
+
+Alter table ProveedorEntity alter column id Restart with 1;
 
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 21493925, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
@@ -30,7 +34,7 @@ insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values 
 ---Fin Pruebas BodaEntity
 
 --Pruebas UbicacionEntity
-delete from UbicacionEntity;
+
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (1, 'Automotive', 50.1681931, 14.0545902, 24356, '88734 Marcy Avenue');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (2, 'Clothing', -17.8119748, -50.5981252, 38447, '4701 Dorton Place');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
@@ -63,18 +67,22 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
 
+
+
+--Pruebas ProveedorEntity
+
+insert into  ProveedorEntity (name, especialidad) values ('Babbleblab', 'Ingamar');
+insert into  ProveedorEntity (name, especialidad) values ('Demizz', 'Hillary');
+insert into  ProveedorEntity (name, especialidad) values ('Topiczoom', 'Langston');
+insert into  ProveedorEntity (name, especialidad) values ('Yodel', 'Townsend');
+---Fin Pruebas ProveedorEntity
+
 --Pruebas para OpcionServicio Entity
 
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (12,'descripcion1',12 ,'Lunes');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (13,'descripcion2',14 ,'Martes');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles) values (14,'descripcion3',13 ,'Miercoles');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id) values (12,'descripcion1',12 ,'Lunes',1 );
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id) values (13,'descripcion2',14 ,'Martes',1);
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id) values (14,'descripcion3',13 ,'Miercoles', 2);
 ---Fin Calificacion OpcionServicio Entity
-
---Pruebas para Tarea Entity
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (12,0,'2/11/2017', 'Prueba de vestido',1,5,12,'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (13,1,'1/2/2017', 'Floristería',1,3,13,'https://www.kukyflor.com/blog/wp-content/uploads/2014/11/flores-boda-casamiento-matrimonio-altar-novia.jpg');
-insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (14,0,'3/13/2017', 'Fotografía',2,1,12,'http://img3.woman.es/8a/b4/b8/10-preguntas-novia-debe-fotografo-boda-640x422.jpg');
----Fin Calificacion Tarea Entity
 
 --Pruebas para Calificacion Entity
 insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'kQBADEH JERKKW ZDSI', 4,1);
@@ -83,16 +91,15 @@ insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id
 insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (13,'mGKZXTE POZSBU ODLB', 2,4);
 ---Fin Calificacion Pareja Entity
 
---Pruebas ProveedorEntity
-delete from ProveedorEntity;
-insert into  ProveedorEntity (name, especialidad) values ('Babbleblab', 'Ingamar');
-insert into  ProveedorEntity (name, especialidad) values ('Demizz', 'Hillary');
-insert into  ProveedorEntity (name, especialidad) values ('Topiczoom', 'Langston');
-insert into  ProveedorEntity (name, especialidad) values ('Yodel', 'Townsend');
----Fin Pruebas ProveedorEntity
+--Pruebas para Tarea Entity
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (12,0,'2/11/2017', 'Prueba de vestido',1,5,12,'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (13,1,'1/2/2017', 'Floristería',1,3,13,'https://www.kukyflor.com/blog/wp-content/uploads/2014/11/flores-boda-casamiento-matrimonio-altar-novia.jpg');
+insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionservicio_id,image) values (14,0,'3/13/2017', 'Fotografía',2,1,12,'http://img3.woman.es/8a/b4/b8/10-preguntas-novia-debe-fotografo-boda-640x422.jpg');
+---Fin Calificacion Tarea Entity
+
 
 --Pruebas ServicioEntity
-delete from ServicioEntity;
+
 insert into ServicioEntity (name, descripcion) values ('SALICYLIC ACID', 'Merrick');
 insert into ServicioEntity (name, descripcion) values ('Morphine Sulfate', 'Mandrake');
 insert into ServicioEntity (name, descripcion) values ('Glycerin', 'Almo');
