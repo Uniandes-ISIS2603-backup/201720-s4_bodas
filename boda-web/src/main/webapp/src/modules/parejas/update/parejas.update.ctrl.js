@@ -36,7 +36,7 @@
                             
                             //la Pareja fue creada 
                              swal("Actualizada!", "La Pareja fue "+ idPareja+ " modificada.", "success");
-                            $state.go('parejasList', {parejaId: response.data.id}, {reload: true});
+                            $state.go('parejasList', {parejaId: response.data.correElec}, {reload: true});
                         });
                     };
 
