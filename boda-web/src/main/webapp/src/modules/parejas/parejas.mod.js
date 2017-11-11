@@ -30,7 +30,6 @@
                     parejaId: null
                 },
                  views: {
-                    
                     'detailView': {
                         templateUrl: basePath + 'parejas.detail.html',
                         controller: 'parejasCtrl',

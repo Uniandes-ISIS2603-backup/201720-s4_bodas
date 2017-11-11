@@ -9,6 +9,11 @@
                     .then(function (response) {
                     $scope.pagosRecords = response.data;
             });
+            if (($state.params.pagoId !== undefined) && ($state.params.pagoId !== null)) {
+                $http.get(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext + '/' + $state.params.tarjetaId + '/' + pagosContext + '/' + $state.params.pagoId).then(function (response) {
+                    $scope.currentPago = response.data;
+                });
+            }
     }
     ]);
 }
