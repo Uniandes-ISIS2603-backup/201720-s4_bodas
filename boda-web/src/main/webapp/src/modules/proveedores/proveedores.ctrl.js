@@ -19,6 +19,7 @@
                 $scope.currentProveedor = {
                     id: undefined /*Tipo Long. El valor se asigna en el backend*/,
                     name: '' /*Tipo String*/,
+                    especificacion:''
                 };
 
                 $scope.alerts = [];

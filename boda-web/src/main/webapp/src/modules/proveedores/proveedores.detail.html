@@ -3,7 +3,7 @@
     <div id="headPanel" class="panel-heading">
         <h3 id="nombreProveedor" class="panel-title"> 
             <tr>
-            <td id="{{$index}}-name">{{currentProveedor.name}}</td>
+            <td id="{{$index}}-name">Información del proveedor {{currentProveedor.name}}</td>
             </tr>
         </h3></div>
        <div class="panel-body">
@@ -21,19 +21,24 @@
             <dl>
                 <hr>
                 <dt>Información del Proveedor:</dt>
-                <dd>{{currentProveedor.name}}</dd>
+                <dd>{{currentProveedor.name}} : {{currentProveedor.id}}</dd>
           
                 <hr>
                 <dt>Especialidad:</dt>
                 <dd>{{currentProveedor.especialidad}}</dd>
 
             </dl>
+            <a ui-sref="opcionesList({proveedorId:currentProveedor.id})" class="btn btn-default" >Ver Opciones</a>
         </div>
+        
     </div>
   </tbody>  
              
          </table>
       </div>
  </div>
-  
+<div ui-view="childrenView">
+    
+</div>
+
   

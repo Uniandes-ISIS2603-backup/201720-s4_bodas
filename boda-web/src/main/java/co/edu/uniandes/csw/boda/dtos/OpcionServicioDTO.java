@@ -25,7 +25,8 @@ public class OpcionServicioDTO  {
   private Long id;
   private String descripcion;
   private Long  costo;
-  private String diasDisponibles;   
+  private String diasDisponibles;  
+  private String image;
   
     
     
@@ -48,6 +49,7 @@ public class OpcionServicioDTO  {
         this.descripcion = opcionServicio.getDescripcion();
         this.costo = opcionServicio.getCosto(); 
         this.diasDisponibles = opcionServicio.getDiasDisponibles();
+        this.image=opcionServicio.getImage();
     }
     public Long getId() {
         return id;
@@ -78,6 +80,14 @@ public class OpcionServicioDTO  {
     public void setCosto(Long costo) {
         this.costo =costo;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
     
     /**
      * Convertir DTO a Entity
@@ -91,6 +101,7 @@ public class OpcionServicioDTO  {
         entity.setDescripcion(this.descripcion);
         entity.setCosto(this.costo);
         entity.setDiasDisponibles(this.diasDisponibles);
+        entity.setImage(this.image);
         
         return entity;
     }

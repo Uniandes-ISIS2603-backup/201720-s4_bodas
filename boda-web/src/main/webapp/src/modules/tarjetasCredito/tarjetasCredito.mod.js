@@ -27,7 +27,7 @@
                     }
                 }
                 }).state('tarjetasChild', {
-                url: '/:tarjetaId',
+                url: '/{tarjetaId:int}',
                 parent: 'tarjetas',
                 param: {
                     tarjetaId: null
