@@ -15,7 +15,7 @@
                       <td id="{{$index}}-nombrePago">{{pago.nombrePago}}</td>
                       <td id="{{$index}}-fecha">{{pago.fecha | date:'dd-MM-yyyy'}}</td>
                       <td id="{{$index}}-montoTotal">{{pago.montoTotal}}</td>
-                      <td id="{{$index}}-detail"><a ui-sref="pagosDetail({pagoId: pago.id})">Ver detalles</a></td>
+                      <td id="{{$index}}-detail"><a class = "btn btn-info" ui-sref="pagosDetail({pagoId: pago.id})"><span class="glyphicon glyphicon-eye-open"></span>Ver detalles</a></td>
                       </tr>
                   </tbody>
             </table>

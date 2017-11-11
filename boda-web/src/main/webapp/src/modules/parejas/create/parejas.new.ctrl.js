@@ -4,15 +4,13 @@
     mod.controller('parejasNewCtrl', ['$scope', '$http', 'parejasContext', '$state', '$rootScope',
         function ($scope, $http, parejasContext, $state , $rootScope) {
             $rootScope.edit = false;
+            $scope.data = {};
+            $scope.data.pago=0;
             $scope.createPareja = function () {
-                $http.post(parejasContext, {
-                    correoElec: $scope.correoElec,
-                    contrasenia: $scope.contrasenia,
-                    description: $scope.authorDescription,
-                    image: $scope.authorImage
-                }).then(function (response) {
+                $http.post(parejasContext, $scope.data ).then(function (response) {
                     //Author created successfully
-                    $state.go('parejasList', {authorId: response.data.id}, {reload: true});
+                    swal("Creada!", "Tu Pareja fue creada.", "success");
+                    $state.go('parejasList', {parejaId: response.data.correoElec}, {reload: true});
                 });
             };
         }

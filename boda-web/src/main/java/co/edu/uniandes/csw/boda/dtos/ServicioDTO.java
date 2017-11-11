@@ -13,9 +13,9 @@ import co.edu.uniandes.csw.boda.entities.ServicioEntity;
  */
 public class ServicioDTO {
     
-    private Long id;
+    private long id;
     private String name;
-    public String descripcion;
+    private String descripcion;
     
     public ServicioDTO(){
         //Constructor por defecto
@@ -33,11 +33,11 @@ public class ServicioDTO {
         this.descripcion = servicio.getDescripcion();
     }
     
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
