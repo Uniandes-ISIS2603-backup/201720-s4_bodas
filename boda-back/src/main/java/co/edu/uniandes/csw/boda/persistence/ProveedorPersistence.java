@@ -30,7 +30,7 @@ public class ProveedorPersistence {
 
     /**
      *
-     * @param entity objeto boda que se creará en la base de datos
+     * @param entity objeto proveedor que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public ProveedorEntity create(ProveedorEntity entity) {
@@ -41,10 +41,10 @@ public class ProveedorPersistence {
     }
 
     /**
-     * Busca si hay alguna boda con el nombre que se envía de argumento
+     * Busca si hay alguna proveedor con el nombre que se envía de argumento
      *
-     * @param name: Nombre de la boda que se está buscando
-     * @return null si no existe ninguna boda con el nombre del argumento. Si
+     * @param name: Nombre de la proveedor que se está buscando
+     * @return null si no existe ninguna proveedor con el nombre del argumento. Si
      * existe alguna devuelve la primera.
      */
     public ProveedorEntity findByName(String name) {

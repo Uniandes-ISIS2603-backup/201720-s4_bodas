@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -44,8 +43,8 @@ public class ProveedorResource {
     if (entity == null) {
         throw new WebApplicationException("El recurso proveedor: " + id + " no existe.", 404);
     }
-    ProveedorDetailDTO city = new ProveedorDetailDTO(entity);
-    return city;
+    ProveedorDetailDTO proveedor = new ProveedorDetailDTO(entity);
+    return proveedor;
     }
     
     @POST
@@ -82,11 +81,13 @@ public class ProveedorResource {
     @Path("{id: \\d+}")
     public ProveedorDetailDTO updateProveedor(@javax.ws.rs.PathParam("id") Long id, ProveedorDetailDTO proveedor) throws BusinessLogicException
     {
-        proveedor.setId(id);
+        ProveedorEntity nEntity = proveedor.toEntity();
+        nEntity.setId(id);
         ProveedorEntity entity = proveedorLogic.getProveedor(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /proveedor/" + id + " no existe.", 404);
         }
+        entity.setOpcionesServicio(entity.getOpcionesServicio());
         return new ProveedorDetailDTO(proveedorLogic.update(proveedor.toEntity()));
     }
     

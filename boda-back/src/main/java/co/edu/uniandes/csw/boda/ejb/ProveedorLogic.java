@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
-import co.edu.uniandes.csw.boda.entities.BodaEntity;
+
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.ProveedorPersistence;
