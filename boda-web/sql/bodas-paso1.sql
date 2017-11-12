@@ -8,6 +8,8 @@ delete from calificacionentity;
 delete from OpcionServicioEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
+delete from ProveedorEntity;
+delete from ServicioEntity;
 delete from UbicacionEntity;
 delete from BodaEntity;
 delete from ParejaEntity;
@@ -59,18 +61,14 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 
 
 --Pruebas ProveedorEntity
-delete from ProveedorEntity;
 insert into  ProveedorEntity (id, name, especialidad) values (100, 'Babbleblab', 'Ingamar');
 insert into  ProveedorEntity (id, name, especialidad) values (200, 'Demizz', 'Hillary');
 insert into  ProveedorEntity (id, name, especialidad) values (300, 'Topiczoom', 'Langston');
 insert into  ProveedorEntity (id, name, especialidad) values (400, 'Yodel', 'Townsend');
 
 --Pruebas ServicioEntity
-delete from ServicioEntity;
 insert into ServicioEntity (id, name, descripcion, image) values (1, 'Vestidos', 'Te ofrecemos una gran variedad de opciones y proveedores para que encuentres tu vestido ideal', 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg');
 insert into ServicioEntity (id, name, descripcion, image) values (2, 'Flores', 'Encuentra las flores ideales para tu matrimonio, que tu día especial sea el más vivo y colorido','https://images.pexels.com/photos/306066/pexels-photo-306066.jpeg');
-insert into ServicioEntity (id, name, descripcion, image) values (3, 'Glycerin', 'Almo','http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
-insert into ServicioEntity (id, name, descripcion, image) values (4, 'RISEDRONATE SODIUM', 'Kingsford', 'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
 insert into ServicioEntity (id, name, descripcion, image) values (5, 'Catering', 'Comida para la boda: Entrada, Platos Fuertes y Picadas', 'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
 insert into ServicioEntity (id, name, descripcion, image) values (6, 'Decoración', 'Decoración para la boda', 'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
 insert into ServicioEntity (id, name, descripcion, image) values (7, 'Música', 'DJ o Música en vivo para la boda', 'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
@@ -89,10 +87,10 @@ insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) 
 insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,100);
 insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,200);
 insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,400);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (3,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (3,400);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (4,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (4,300);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (11,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (11,400);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (12,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (12,300);
 insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (5,100);
 insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (5,200);
 insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (6,300);
