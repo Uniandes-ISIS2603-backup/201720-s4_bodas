@@ -9,7 +9,7 @@
                     <th>Monto Total </th>
                     <th>Acciones </th>
                 </tr>
-              </thead>
+                </thead>
                   <tbody>
                       <tr ng-repeat="pago in pagosRecords">
                       <td id="{{$index}}-nombrePago">{{pago.nombrePago}}</td>
@@ -19,5 +19,9 @@
                       </tr>
                   </tbody>
             </table>
+            <hr>
+            <dl>
+            <dd><a class = "btn btn-info" ui-sref="tarjetasList">Volver</a></dd>
+            </dl>
         </div>
 </div>
