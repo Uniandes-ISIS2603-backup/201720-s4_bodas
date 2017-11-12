@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -24,8 +24,8 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
     private String especialidad;
     
     @PodamExclude
-    @ManyToOne
-    private ServicioEntity servicio;
+    @ManyToMany
+    private List<ServicioEntity> servicios;
     
     @PodamExclude
     @OneToMany(mappedBy="proveedor", cascade = CascadeType.ALL)
@@ -38,14 +38,15 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
     public void setEspecialidad(String especialidad){
         this.especialidad=especialidad;
     }
-    
-    public ServicioEntity getServicio(){
-        return servicio;
+
+    public List<ServicioEntity> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<ServicioEntity> servicios) {
+        this.servicios = servicios;
     }
     
-    public void setServicio(ServicioEntity servicio){
-        this.servicio=servicio;
-    }
     public List<OpcionServicioEntity> getOpcionesServicio(){
         return opcionesServicio;
     }

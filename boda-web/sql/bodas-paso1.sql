@@ -1,21 +1,16 @@
 --Pruebas para Pareja Entity
+delete from ServicioEntity_ProveedorEntity;
 delete from RegaloEntity_UbicacionEntity;
 delete from PagoEntity;
 delete from TarjetaCreditoEntity;
 delete from TareaEntity;
 delete from calificacionentity;
 delete from OpcionServicioEntity;
-delete from ProveedorEntity;
-delete from ServicioEntity;
 delete from RegaloEntity;
 delete from InvitadoEntity;
 delete from UbicacionEntity;
-
 delete from BodaEntity;
 delete from ParejaEntity;
-
-
-Alter table ProveedorEntity alter column id Restart with 1;
 
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 21493925, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
@@ -27,7 +22,6 @@ insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, co
 ---Fin Pruebas Pareja Entity
 
 --Pruebas BodaEntity
-
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image,pareja_correoelec) values (1, 'Mafelipe', '3/29/2017', 'Playa', 'Judia', 'Boda de Bronce','https://images.pexels.com/photos/254069/pexels-photo-254069.jpeg','fmarsland0@artisteer.com');
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (2,'Galen&Rose', '5/2/2017', 'Invierno', 'Ninguna', 'Ninguno','https://images.pexels.com/photos/246490/pexels-photo-246490.jpeg');
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (3,'Roberto&Martha', '10/9/2016', 'Primavera', 'Católica', 'Boda de Oro','https://images.pexels.com/photos/34761/old-people-couple-together-connected.jpg');
@@ -39,14 +33,9 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (2, 'Clothing', -17.8119748, -50.5981252, 38447, '4701 Dorton Place');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (4, 'HomeLand', 55.816167, 37.8768998, 859591, '976 Myrtle Center');
-
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (5, 'HomeLands', 55.81617, 37.878998, 85591, '976f Myrtle Center');
 
 ---Fin Pruebas UbicacionEntity
-
-
-
-
 
 --Pruebas para Regalo Entity
 
@@ -67,8 +56,17 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
 
---Pruebas ServicioEntity
 
+
+--Pruebas ProveedorEntity
+delete from ProveedorEntity;
+insert into  ProveedorEntity (id, name, especialidad) values (100, 'Babbleblab', 'Ingamar');
+insert into  ProveedorEntity (id, name, especialidad) values (200, 'Demizz', 'Hillary');
+insert into  ProveedorEntity (id, name, especialidad) values (300, 'Topiczoom', 'Langston');
+insert into  ProveedorEntity (id, name, especialidad) values (400, 'Yodel', 'Townsend');
+
+--Pruebas ServicioEntity
+delete from ServicioEntity;
 insert into ServicioEntity (id, name, descripcion, image) values (1, 'Vestidos', 'Te ofrecemos una gran variedad de opciones y proveedores para que encuentres tu vestido ideal', 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg');
 insert into ServicioEntity (id, name, descripcion, image) values (2, 'Flores', 'Encuentra las flores ideales para tu matrimonio, que tu día especial sea el más vivo y colorido','https://images.pexels.com/photos/306066/pexels-photo-306066.jpeg');
 insert into ServicioEntity (id, name, descripcion, image) values (3, 'Glycerin', 'Almo','http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
@@ -83,21 +81,39 @@ insert into ServicioEntity (id, name, descripcion, image) values (11, 'Transport
 insert into ServicioEntity (id, name, descripcion, image) values (12, 'Pastelería', 'Pastel y postre para el evento', 'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
 insert into ServicioEntity (id, name, descripcion, image) values (13, 'Bebidas', 'Bebidas y Licores para el evento', 'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
 ---Fin Pruebas ServicioEntity
----Fin Pruebas ServicioEntity
 
---Pruebas ProveedorEntity
 
-insert into  ProveedorEntity (id, name, especialidad, servicio_id) values (1, 'Babbleblab', 'Ingamar', 1);
-insert into  ProveedorEntity (id, name, especialidad, servicio_id) values (2, 'Demizz', 'Hillary',2 );
-insert into  ProveedorEntity (id, name, especialidad, servicio_id) values (3, 'Topiczoom', 'Langston', 1);
-insert into  ProveedorEntity (id, name, especialidad, servicio_id) values (4, 'Yodel', 'Townsend', 2);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (1,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (1,200);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (1,300);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,200);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,400);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (3,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (3,400);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (4,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (4,300);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (5,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (5,200);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (6,300);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (6,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (7,400);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (7,300);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (8,100);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (8,200);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (9,200);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (9,300);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (10,300);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (10,400);
+insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (11,300);
+
+
 ---Fin Pruebas ProveedorEntity
 
 --Pruebas para OpcionServicio Entity
-
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (12,'descripcion1',12 ,'Lunes',1 ,'http://lorempixel.com/242/200/');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (13,'descripcion2',14 ,'Martes',1,'http://lorempixel.com/242/200/');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (14,'descripcion3',13 ,'Miercoles', 2,'http://lorempixel.com/242/200/');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (12,'descripcion1',12 ,'Lunes',100 ,'http://lorempixel.com/242/200/');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (13,'descripcion2',14 ,'Martes',100,'http://lorempixel.com/242/200/');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (14,'descripcion3',13 ,'Miercoles', 200,'http://lorempixel.com/242/200/');
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity
