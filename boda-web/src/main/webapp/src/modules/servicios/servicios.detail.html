@@ -12,22 +12,28 @@
         <div class="row">
         <div class="col-md-3">
             <div class="thumb">
-                <img class="img-responsive" ng-src="{{currentBoda.image}}"/>
+                <img class="img-responsive" ng-src="{{currentServicio.image}}"/>
             </div>
 
         </div>
         <div class="col-md-3"> 
-            <dl>
-                
+            <dl>               
                 <hr>
-                <dt>Nombre</dt>
-                <dd>{{currentServicio.nombre}}</dd>
-                
-                <hr>
-                <dt>Tipo de Boda</dt>
-                <dd>{{currentBoda.tipoBoda}}</dd>
+                <dt>Descripcion</dt>
+                <dd>{{currentServicio.descripcion}}</dd>
 
             </dl>
+            
+                <dt>Proveedores</dt> 
+                <dd>
+            <tr ng-repeat="proveedor in currentServicio.proveedores">
+                <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId: ubicacion.id})">{{ proveedor.name}}</a></td>
+                <td id="{{$index}}-especialidad">{{ proveedor.especialidad}}</td>
+                <td id="{{$index}}-actions">
+                    <a class="btn btn-danger btn-sm" ui-sref="ubicacionDelete({ubicacionId: ubicacion.id})"><span class="glyphicon glyphicon-trash"></span></a>   
+                    <a class="btn btn-default btn-sm" ui-sref="ubicacionUpdate({ubicacionId: ubicacion.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                </td>
+           </tr>
         </div>
     </div>
   </tbody>  
