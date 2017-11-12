@@ -23,6 +23,7 @@ public class ServicioEntity extends BaseEntity implements Serializable  {
     @PodamExclude  
     @OneToMany(mappedBy = "servicio")
     private List<ProveedorEntity> proveedores = new ArrayList<>();
+    private String image;
 
     public String getDescripcion(){
         return descripcion;
@@ -38,5 +39,19 @@ public class ServicioEntity extends BaseEntity implements Serializable  {
     
     public void setProveedores(List<ProveedorEntity> proveedores){
         this.proveedores=proveedores;
+    }
+    
+     /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -67,14 +67,20 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
 
+--Pruebas ServicioEntity
 
+insert into ServicioEntity (id, name, descripcion, image) values (1, 'Vestido', 'Te ofrecemos una gran variedad de opciones y proveedores para que encuentres tu vestido ideal', 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg');
+insert into ServicioEntity (id, name, descripcion, image) values (2, 'Flores', 'Encuentra las flores ideales para tu matrimonio, que tu día especial sea el más vivo y colorido','https://images.pexels.com/photos/306066/pexels-photo-306066.jpeg');
+insert into ServicioEntity (id, name, descripcion, image) values (3, 'Glycerin', 'Almo','http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
+insert into ServicioEntity (id, name, descripcion, image) values (4, 'RISEDRONATE SODIUM','http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg', 'Kingsford');
+---Fin Pruebas ServicioEntity
 
 --Pruebas ProveedorEntity
 
-insert into  ProveedorEntity (name, especialidad) values ('Babbleblab', 'Ingamar');
-insert into  ProveedorEntity (name, especialidad) values ('Demizz', 'Hillary');
-insert into  ProveedorEntity (name, especialidad) values ('Topiczoom', 'Langston');
-insert into  ProveedorEntity (name, especialidad) values ('Yodel', 'Townsend');
+insert into  ProveedorEntity (id, name, especialidad, servicio_id) values (1, 'Babbleblab', 'Ingamar', 1);
+insert into  ProveedorEntity (id, name, especialidad, servicio_id) values (2, 'Demizz', 'Hillary',2 );
+insert into  ProveedorEntity (id, name, especialidad, servicio_id) values (3, 'Topiczoom', 'Langston', 1);
+insert into  ProveedorEntity (id, name, especialidad, servicio_id) values (4, 'Yodel', 'Townsend', 2);
 ---Fin Pruebas ProveedorEntity
 
 --Pruebas para OpcionServicio Entity
@@ -98,13 +104,7 @@ insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionserv
 ---Fin Calificacion Tarea Entity
 
 
---Pruebas ServicioEntity
 
-insert into ServicioEntity (name, descripcion) values ('SALICYLIC ACID', 'Merrick');
-insert into ServicioEntity (name, descripcion) values ('Morphine Sulfate', 'Mandrake');
-insert into ServicioEntity (name, descripcion) values ('Glycerin', 'Almo');
-insert into ServicioEntity (name, descripcion) values ('RISEDRONATE SODIUM', 'Kingsford');
----Fin Pruebas ServicioEntity
 
 ---Pruebas TarjetaCreditoEntity
 delete from TarjetaCreditoEntity;

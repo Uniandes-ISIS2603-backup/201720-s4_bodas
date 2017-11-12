@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.boda.dtos;
 
+import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 import co.edu.uniandes.csw.boda.entities.ServicioEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,6 +16,8 @@ import co.edu.uniandes.csw.boda.entities.ServicioEntity;
  */
 public class ServicioDetailDTO extends ServicioDTO {
     
+    private List<ProveedorDTO> proveedores;
+
      /**
      * Constructor por defecto
      */
@@ -27,6 +32,12 @@ public class ServicioDetailDTO extends ServicioDTO {
      */
     public ServicioDetailDTO(ServicioEntity entity) {
         super(entity);
+        if (entity.getProveedores()!= null) {
+            proveedores = new ArrayList<>();
+            for (ProveedorEntity entityProveedor : entity.getProveedores()) {
+                proveedores.add(new ProveedorDTO(entityProveedor));
+            }
+        }
     }
 
     /**
@@ -37,6 +48,23 @@ public class ServicioDetailDTO extends ServicioDTO {
     @Override
     public ServicioEntity toEntity() {
         ServicioEntity ServicioE = super.toEntity();
+            if (proveedores != null) {
+            List<ProveedorEntity> proveedoresEntity = new ArrayList<>();
+            for (ProveedorDTO dtoRegalo : proveedores) {
+                proveedoresEntity.add(dtoRegalo.toEntity());
+            }
+            ServicioE.setProveedores(proveedoresEntity);
+        }
         return ServicioE;
     }
+
+    public List<ProveedorDTO> getProveedores() {
+        return proveedores;
+    }
+
+    public void setProveedores(List<ProveedorDTO> proveedores) {
+        this.proveedores = proveedores;
+    }
+    
+   
 }
