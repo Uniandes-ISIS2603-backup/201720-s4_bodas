@@ -21,11 +21,9 @@
                 <hr>
                 <dt>Descripcion</dt>
                 <dd>{{currentServicio.descripcion}}</dd>
-
-            </dl>
-            
+                
                 <dt>Proveedores</dt> 
-                <dd>
+                <dl>
             <tr ng-repeat="proveedor in currentServicio.proveedores">
                 <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId: ubicacion.id})">{{ proveedor.name}}</a></td>
                 <td id="{{$index}}-especialidad">{{ proveedor.especialidad}}</td>
@@ -34,6 +32,9 @@
                     <a class="btn btn-default btn-sm" ui-sref="ubicacionUpdate({ubicacionId: ubicacion.id})"><span class="glyphicon glyphicon-edit"></span></a>
                 </td>
            </tr>
+            </dl>
+            
+                
         </div>
     </div>
   </tbody>  
