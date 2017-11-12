@@ -71,10 +71,19 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 
 --Pruebas ProveedorEntity
 
-insert into  ProveedorEntity (name, especialidad) values ('Babbleblab', 'Ingamar');
-insert into  ProveedorEntity (name, especialidad) values ('Demizz', 'Hillary');
-insert into  ProveedorEntity (name, especialidad) values ('Topiczoom', 'Langston');
-insert into  ProveedorEntity (name, especialidad) values ('Yodel', 'Townsend');
+insert into  ProveedorEntity (name, especialidad) values ('Andres Carne de Res', 'Comida Latina');
+insert into  ProveedorEntity (name, especialidad) values ('Rosas y Claveles', 'Arreglos de flores');
+insert into  ProveedorEntity (name, especialidad) values ('WOK', 'Comida Asiática');
+insert into  ProveedorEntity (name, especialidad) values ('DJ InTheHouse', 'Música para cualquier tipo de evento');
+insert into  ProveedorEntity (name, especialidad) values ('MasLindo', 'Música para cualquier tipo de evento');
+insert into  ProveedorEntity (name, especialidad) values ('Casa de Eventos', 'Atender y Decorar Eventos');
+insert into  ProveedorEntity (name, especialidad) values ('Primi', 'Comida Italiana');
+insert into  ProveedorEntity (name, especialidad) values ('Harry Sasson', 'Comida de mar y mediterráneo');
+insert into  ProveedorEntity (name, especialidad) values ('MacroEventos', 'Atender eventos y Musica');
+insert into  ProveedorEntity (name, especialidad) values ('Iglesia Minuto de Dios', 'Boda Católica');
+insert into  ProveedorEntity (name, especialidad) values ('Nicolukas', 'Pastelería');
+insert into  ProveedorEntity (name, especialidad) values ('Alexis Vargas', 'Alquiler y compra de vestidos');
+
 ---Fin Pruebas ProveedorEntity
 
 --Pruebas para OpcionServicio Entity
@@ -100,10 +109,16 @@ insert into TareaEntity(id,aprobada, dia,nombre,boda_id, ubicacion_id,opcionserv
 
 --Pruebas ServicioEntity
 
-insert into ServicioEntity (name, descripcion) values ('SALICYLIC ACID', 'Merrick');
-insert into ServicioEntity (name, descripcion) values ('Morphine Sulfate', 'Mandrake');
-insert into ServicioEntity (name, descripcion) values ('Glycerin', 'Almo');
-insert into ServicioEntity (name, descripcion) values ('RISEDRONATE SODIUM', 'Kingsford');
+insert into ServicioEntity (name, descripcion) values ('Catering', 'Comida para la boda: Entrada, Platos Fuertes y Picadas');
+insert into ServicioEntity (name, descripcion) values ('Decoración', 'Decoración para la boda');
+insert into ServicioEntity (name, descripcion) values ('Música', 'DJ o Música en vivo para la boda');
+insert into ServicioEntity (name, descripcion) values ('Entretenimiento', 'Bailes y Presentaciones');
+insert into ServicioEntity (name, descripcion) values ('Flores', 'Bailes y Presentaciones');
+insert into ServicioEntity (name, descripcion) values ('Vestidos', 'Vestido de boda para la pareja');
+insert into ServicioEntity (name, descripcion) values ('Estética', 'Maquillaje, Peinado y Manicure');
+insert into ServicioEntity (name, descripcion) values ('Fotografía y Filmación', 'Fotografía y Filmación para el evento');
+insert into ServicioEntity (name, descripcion) values ('Transporte', 'Transporte de los invistados para el evento');
+insert into ServicioEntity (name, descripcion) values ('Pastelería', 'Pastel y postre para el evento');
 ---Fin Pruebas ServicioEntity
 
 ---Pruebas TarjetaCreditoEntity

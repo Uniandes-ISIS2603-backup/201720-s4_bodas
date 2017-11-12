@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.boda.dtos;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
-import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +46,13 @@ public class ProveedorDetailDTO extends ProveedorDTO{
     @Override
     public ProveedorEntity toEntity() {
         ProveedorEntity ProveedorE = super.toEntity();
+                if (opciones != null) {
+            List<OpcionServicioEntity> opcionesEntity = new ArrayList<>();
+            for (OpcionServicioDTO dtoOpcion : opciones) {
+                opcionesEntity.add(dtoOpcion.toEntity());
+            }
+            ProveedorE.setOpcionesServicio(opcionesEntity);
+        }
         return ProveedorE;
     }
      public List<OpcionServicioDTO> getOpciones() {
