@@ -23,22 +23,51 @@
                         templateUrl: basePath + 'parejas.list.html'
                     }
                 }
-               }).state('parejasDetail', {
-                url: '/:parejaId',
+            }).state('parejasDetail', {
+                url: '/detail/:parejaId',
                 parent: 'parejas',
                 param: {
                     parejaId: null
                 },
-                 views: {
-                    
+                 views: {                     
                     'detailView': {
                         templateUrl: basePath + 'parejas.detail.html',
                         controller: 'parejasCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('parejasCreate', {
+                url: '/create',
+                parent:'parejas',   
+                //parent: 'parejasDetail',
+                views: {
+                    
+//                    'childrenView': {
+//                        template: '=<p> sdfjlsdfjsldfjsdlkfjldf </p><script> alert("sdklfjksdlfj"); </script>'
+//                    },
+                    'detailView': {
+                        controller: 'parejasNewCtrl',                       
+                        templateUrl: basePath + '/create/parejas.new.html'
+                    }
+//                    'childrenView': {
+//                        controller: 'parejasNewCtrl',                       
+//                        templateUrl: basePath + '/create/parejas.new.html'
+//                    }
+                }
+            }).state('parejasUpdate', {
+                url: '/editar/:parejaId',
+                parent: 'parejas',
+                param: {
+                    parejaId: null
+                },
+                 views: {                     
+                    'detailView': {
+                        controller: 'parejaUpdateCtrl',
+                        templateUrl: basePath + '/create/parejas.new.html'                       
+                    }
+                }
             }).state('parejasOneDetail', {
-                url: '/:parejaId',
+                url: '/one/:parejaId',
                 parent: 'parejasList',
                 param: {
                     parejaId: null
@@ -51,28 +80,7 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('parejasCreate', {
-                url: '/',
-                parent:'parejasList',
-                
-                views: {
-                    'createOneView': {
-                        controller: 'parejasNewCtrl',                       
-                        templateUrl: basePath + '/create/parejas.new.html'
-                    }
-                }
-            }).state('cityEdit', {
-                url: '/cities/:cityId',
-                param: {
-                    cityId: null
-                },
-                views: {
-                    'mainView': {
-                        controller: 'citiesCtrl',
-                        controllerAs: 'ctrl',
-                        templateUrl: basePath + 'cities.create.html'
-                    }
-                }
-            });
+            })
+            ;
         }]);
 })(window.angular);

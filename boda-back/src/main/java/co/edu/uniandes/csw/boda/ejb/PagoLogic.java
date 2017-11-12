@@ -42,11 +42,35 @@ public class PagoLogic {
         entity.setTarjetaCredito(tarjeta);
         if (entity.getMontoTotal() == 0 || entity.getMontoTotal() < 0)
         {
-            throw new BusinessLogicException("El monto del pago debe ser mayor que 0");
+            throw new BusinessLogicException("El monto total del pago debe ser mayor que 0");
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Pago");
         return entity;
+    }
+    
+    /**
+     *
+     * Actualizar un Pago.
+     *
+     * @param tarjetaId
+     * @param id: id de la Pago para buscarla en la base de datos.
+     * @param entity: Pago con los cambios para ser actualizado, por
+     * ejemplo el montoTotal.
+     * @return el Pago con los cambios actualizados en la base de datos.
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
+     */
+    public PagoEntity updatePago(Long tarjetaId, Long id, PagoEntity entity) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar Pago con id={0}", id);
+        
+        TarjetaCreditoEntity tarjeta = tarjetaLogic.getTarjetaCredito(tarjetaId);
+        entity.setTarjetaCredito(tarjeta);
+        if (entity.getMontoTotal() == 0 || entity.getMontoTotal() < 0)
+        {
+            throw new BusinessLogicException("El monto total del pago debe ser mayor que 0");
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar Pago con id={0}", entity.getId());
+        return persistence.update(entity);
     }
     
      /**

@@ -12,7 +12,7 @@
                 abstract: true,
                 parent: 'parejasDetail',
                 views: {
-                    childrenView: {
+                    'childrenView': {
                         templateUrl: basePath + 'tarjetasCredito.html'
                     }
                 }
@@ -27,7 +27,7 @@
                     }
                 }
                 }).state('tarjetasChild', {
-                url: '/:tarjetaId',
+                url: '/{tarjetaId:int}',
                 parent: 'tarjetas',
                 param: {
                     tarjetaId: null
@@ -61,6 +61,14 @@
                     'detailView': {
                         templateUrl: basePath + 'update/tarjetas.update.html',
                         controller: 'tarjetasUpdateCtrl'
+                    }
+                }
+            }).state('tarjetasCreate', {
+                parent: 'tarjetas',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/tarjetas.update.html',
+                        controller: 'tarjetasNewCtrl'
                     }
                 }
             });

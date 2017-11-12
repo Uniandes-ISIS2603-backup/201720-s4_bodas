@@ -22,6 +22,7 @@ public class PagoDTO {
     
     @Temporal(TemporalType.DATE)
     private Date fecha;
+    private Long tarjetaNumero;
     
     /**
      * Constructor por defecto
@@ -39,6 +40,7 @@ public class PagoDTO {
         this.montoTotal = pago.getMontoTotal();
         this.fecha = pago.getFecha();
         this.nombrePago = pago.getName();
+        this.tarjetaNumero = pago.getTarjetaCredito().getNumero();
     }
 
      /**
@@ -95,6 +97,21 @@ public class PagoDTO {
     public void setNombrePago(String nombrePago) {
         this.nombrePago = nombrePago;
     }
+
+    /**
+     * @return numero de la tarjeta de credito del pago
+     */
+    public Long getTarjetaNumero() {
+        return tarjetaNumero;
+    }
+
+    /**
+    * @param tarjetaNumero el nuevo numero de la tarjeta de credito del pago 
+    */
+    public void setTarjetaNumero(Long tarjetaNumero) {
+        this.tarjetaNumero = tarjetaNumero;
+    }
+    
     
      /**
      * Convertir DTO a Entity

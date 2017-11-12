@@ -1,21 +1,24 @@
 <div class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-3">
-                <dl>
-                    <dt>{{currentPago.name}}</dt>
-                    <hr>
-                    <dt>Monto del Pago</dt>
-                    <dd>{{currentPago.montoTotal}}</dd>
-                    <hr>
-                    <dt>Fecha </dt>
-                    <dd>{{currentPago.fecha| date:'yyyy-MM-dd'}}</dd>
-                    <hr>
-                    <dt>Tarjeta de Credito N°</dt>
-                    <dd>{{currentPago.tarjetaCredito.numero}}</dd>
-                    <hr>
-                </dl>
-            </div>
-        </div>
-    </div>
+    <div id="headPanel" class="panel-heading">
+        <h3 id="descripcion" class="panel-title"><b>{{currentPago.nombrePago}}</b>
+        </h3></div>
+       <div class="panel-body">
+        <table class="table ">
+        <tbody>
+            <dl>
+                <hr>
+                <dt>Fecha </dt>
+                <dd>{{currentPago.fecha| date:'dd-MM-yyyy'}}</dd>
+                <hr>
+                <dt>Monto total</dt>
+                <dd>{{currentPago.montoTotal}}</dd>
+                <hr>
+                <dt>Se realizó con la Tarjeta N°</dt>
+                <dd>{{currentPago.tarjetaNumero}}</dd>
+                <hr>
+                <dd><a class = "btn btn-info" ui-sref="pagosList">Volver</a></dd>
+            </dl>
+        </tbody>
+        </table>
+       </div>
 </div>

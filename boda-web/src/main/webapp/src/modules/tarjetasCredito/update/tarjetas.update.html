@@ -1,7 +1,7 @@
-<div class="container-fluid">
-    <div class="panel-group">
+<div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="tarjetaCreate">Agregar una Tarjeta De Credito</label>
+            <div class="panel-heading">
+                <label ng-if="!edit" id="createTarjeta">Agregar una Tarjeta De Credito</label>
                 <label ng-if="edit" id="editTarjeta">Cambiar Datos de Tarjeta De Credito</label></div>
             <div class="panel-body">
                 <form ng-submit="createTarjeta()" name="tarjeta">
@@ -44,8 +44,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
-</div>

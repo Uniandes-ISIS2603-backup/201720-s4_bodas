@@ -1,6 +1,6 @@
 (function (ng) {
     var mod = ng.module("opcionesModule", ['bodasModule', 'ui.router']);
-    mod.constant("opcionesContext", "opciones");
+    mod.constant("opcionesContext", "opcionServicios");
     mod.constant("proveedoresContext", "api/proveedores");
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -10,7 +10,7 @@
             $stateProvider.state('opciones', {
                 url: '/opciones',
                 abstract: true,
-                parent: 'proveedoresDetail',
+                parent: 'proveedorDetail',
               views: {
                      'childrenView': {
                         templateUrl: basePath + 'opciones.html'
@@ -18,18 +18,18 @@
                 
                 }
             }).state('opcionesList', {
-                url: '/list',
+                url: '/lista',
                 parent: 'opciones',
                 views: {
-                    'listView':{
-                      
+                    'listView':{                
+                        //opciones.list.html
                         templateUrl: basePath + 'opciones.list.html',
                         controller: 'opcionesCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
             }).state('opcionDetail', {
-                url: '/detail/{opcionId:int}',
+                url: '/detail/:opcionId',
                 parent: 'opciones',
                 param: {
                     opcionId: null
