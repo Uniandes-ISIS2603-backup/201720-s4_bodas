@@ -79,9 +79,9 @@ insert into  ProveedorEntity (name, especialidad) values ('Yodel', 'Townsend');
 
 --Pruebas para OpcionServicio Entity
 
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id) values (12,'descripcion1',12 ,'Lunes',1 );
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id) values (13,'descripcion2',14 ,'Martes',1);
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id) values (14,'descripcion3',13 ,'Miercoles', 2);
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (12,'descripcion1',12 ,'Lunes',1 ,'http://lorempixel.com/242/200/');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (13,'descripcion2',14 ,'Martes',1,'http://lorempixel.com/242/200/');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (14,'descripcion3',13 ,'Miercoles', 2,'http://lorempixel.com/242/200/');
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity

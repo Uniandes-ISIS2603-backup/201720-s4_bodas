@@ -18,7 +18,9 @@
         
         'proveedoresModule',
 
-        'ubicacionesModule', 
+        'ubicacionesModule',
+        
+        'opcionesModule',
 
         'tareasModule',
         

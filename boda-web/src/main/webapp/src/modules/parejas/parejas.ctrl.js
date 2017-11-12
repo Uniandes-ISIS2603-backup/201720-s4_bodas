@@ -35,7 +35,7 @@
                    return $scope.openCreate === true;
                };
               
-            // el controlador recibió un cityId ??
+            // el controlador recibió un parejaId ??
             // revisa los parámetros (ver el :cityId en la definición de la ruta)
             if ($state.params.parejaId !== undefined) {
                 // obtiene el dato del recurso REST
