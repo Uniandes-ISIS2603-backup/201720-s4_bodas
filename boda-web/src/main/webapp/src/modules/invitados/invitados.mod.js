@@ -15,6 +15,20 @@
                         templateUrl: basePath + 'invitados.html'
                     }
                 }
+            }).state('invitadoDetail', {
+                url: '/{invitadoId:int}',
+                parent: 'invitados',
+                param: {
+                    invitadoId: null
+                },
+                views: {
+                    
+                    'detailView': {
+                        templateUrl: basePath + 'invitados.detail.html',
+                        controller: 'invitadosCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             }).state('invitadosList', {
                 url: '/list',
                 parent: 'invitados',

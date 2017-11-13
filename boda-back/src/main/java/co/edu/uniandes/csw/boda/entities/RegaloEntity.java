@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -29,6 +30,18 @@ public class RegaloEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToMany
     private List<UbicacionEntity> locations;
+    
+    @PodamExclude
+    @OneToOne
+    private InvitadoEntity invitado;
+
+    public InvitadoEntity getInvitado() {
+        return invitado;
+    }
+
+    public void setInvitado(InvitadoEntity invitado) {
+        this.invitado = invitado;
+    }
 
     public List<UbicacionEntity> getLocations() {
         return locations;
