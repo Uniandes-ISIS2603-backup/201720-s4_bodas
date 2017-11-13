@@ -20,7 +20,7 @@
             </thead>
         <tbody>
             <tr ng-repeat="invitado in invitadosRecords">
-                <td id="{{$index}}-documento">{{invitado.documento}}</td>
+                <td id="{{$index}}-documento"><a ui-sref="invitadoDetail({invitadoId: invitado.id})">{{invitado.documento}}</a></td>
                 <td id="{{$index}}-name">{{invitado.name}}</td>
                 <td id="{{$index}}-correo">{{invitado.correo}}</td>
                 <td id="{{$index}}-categoria">{{invitado.categoria}}</td>
