@@ -9,11 +9,8 @@ import co.edu.uniandes.csw.boda.dtos.TarjetaCreditoDetailDTO;
 import co.edu.uniandes.csw.boda.ejb.TarjetaCreditoLogic;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.boda.persistence.TarjetaCreditoPersistence;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -34,8 +31,6 @@ import javax.ws.rs.WebApplicationException;
 public class TarjetaCreditoResource {
     @Inject
     TarjetaCreditoLogic tarjetaCreditoLogic;
-    
-    private static final Logger LOGGER = Logger.getLogger(TarjetaCreditoPersistence.class.getName());
     
     /**
      * POST http://localhost:8080/boda-web/api/tarjetasCredito Ejemplo
@@ -64,9 +59,7 @@ public class TarjetaCreditoResource {
      * @param tarjeta corresponde a al objeto con los cambios que se van a
      * realizar.
      * @return La tarjeta actualizada.
-     * @throws BusinessLogicException
-     *
-     * En caso de no existir el id de la tarjeta a actualizar se retorna un
+     * @throws BusinessLogicException En caso de no existir el id de la tarjeta a actualizar se retorna un
      * 404 con el mensaje.
      */
     @PUT
@@ -94,7 +87,6 @@ public class TarjetaCreditoResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteTarjetaCredito(@PathParam("idPareja") String idPareja,@PathParam("id") Long id) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar una tarjetaCredito con id {0}", id);
         TarjetaCreditoEntity entity =  tarjetaCreditoLogic.getTarjetaCredito( id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /parejas/tarjetasCredito/" + id + " no existe.", 404);
@@ -159,7 +151,7 @@ public class TarjetaCreditoResource {
      */
     private List<TarjetaCreditoDetailDTO> listEntity2DetailDTO(List<TarjetaCreditoEntity> entityList) {
         List<TarjetaCreditoDetailDTO> list = new ArrayList<>();
-        for (TarjetaCreditoEntity entity : entityList) {
+        for(TarjetaCreditoEntity entity : entityList) {
             list.add(new TarjetaCreditoDetailDTO(entity));
         }
         return list;

@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 /**
  *
@@ -21,8 +21,10 @@ public class ServicioEntity extends BaseEntity implements Serializable  {
     
     private String descripcion;
     @PodamExclude  
-    @OneToMany(mappedBy = "servicio")
+    @ManyToMany
     private List<ProveedorEntity> proveedores = new ArrayList<>();
+    
+    private String image;
 
     public String getDescripcion(){
         return descripcion;
@@ -38,5 +40,19 @@ public class ServicioEntity extends BaseEntity implements Serializable  {
     
     public void setProveedores(List<ProveedorEntity> proveedores){
         this.proveedores=proveedores;
+    }
+    
+     /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }
