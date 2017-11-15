@@ -4,7 +4,7 @@
          <label ng-if="edit" id="editAuthor"><legend>Editar Pareja</legend></label></div>
         <fieldset>
             <!-- Text input-->
-            <div class="form-group" ng-class="{'has-success': pareja.email.$valid,'has-error' : !pareja.email.$valid}" >
+            <div class="form-group" ng-class="{'has-success': pareja.email.$valid,'has-error' : !pareja.email.$valid && pareja.email.$touched}" >
                 <label class="col-md-4 control-label">E-Mail</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -14,7 +14,7 @@
                 </div>
             </div>
             <!-- Text input-->
-            <div class="form-group" ng-class="{'has-success': pareja.contrasenia.$valid,'has-error' : !pareja.contrasenia.$valid}" >
+            <div class="form-group" ng-class="{'has-success': pareja.contrasenia.$valid,'has-error' : !pareja.contrasenia.$valid && pareja.contrasenia.$touched}" >
                 <label class="col-md-4 control-label">Contraseña</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <!-- Text input-->
-            <div class="form-group"  ng-class="{'has-success': pareja.nombreInd1.$valid,'has-error' : !pareja.nombreInd1.$valid}" >
+            <div class="form-group"  ng-class="{'has-success': pareja.nombreInd1.$valid,'has-error' : !pareja.nombreInd1.$valid && pareja.nombreInd1.$touched}" >
                 <label class="col-md-4 control-label">Nombre 1</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <!-- Text input-->
-            <div class="form-group"  ng-class="{'has-success': pareja.nombreInd2.$valid,'has-error' : !pareja.nombreInd2.$valid}">
+            <div class="form-group"  ng-class="{'has-success': pareja.nombreInd2.$valid,'has-error' : !pareja.nombreInd2.$valid && pareja.nombreInd2.$touched}">
                 <label class="col-md-4 control-label" >Nombre 2</label> 
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             
-            <div class="form-group" ng-class="{'has-success': pareja.nombreAbreviado.$valid,'has-error' : !pareja.nombreAbreviado.$valid}">
+            <div class="form-group" ng-class="{'has-success': pareja.nombreAbreviado.$valid,'has-error' : !pareja.nombreAbreviado.$valid && pareja.nombreAbreviado.$touched}">
                 <label class="col-md-4 control-label" >Nombre abreviado</label> 
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="form-group"  ng-class="{'has-success': pareja.direccion.$valid,'has-error' : !pareja.direccion.$valid}">
+            <div class="form-group"  ng-class="{'has-feedback':  pareja.direccion.$valid,'has-success': pareja.direccion.$valid,'has-error' : !pareja.direccion.$valid && pareja.direccion.$touched}">
                 <label class="col-md-4 control-label">Dirección</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -65,7 +65,7 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group"  ng-class="{'has-success': pareja.telefono.$valid,'has-error' : !pareja.telefono.$valid}">
+            <div class="form-group"  ng-class="{'has-success': pareja.telefono.$valid,'has-error' : !pareja.telefono.$valid && pareja.telefono.$touched}">
                 <label class="col-md-4 control-label">Telefono #</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
