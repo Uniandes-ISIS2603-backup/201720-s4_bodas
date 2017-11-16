@@ -77,6 +77,8 @@ public class TarjetaCreditoLogic {
      */
     public TarjetaCreditoEntity updateTarjetaCredito(String parejaId, Long id, TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar TarjetaCredito con id={0}", id);
+        ParejaEntity pareja = parejaLogic.getPareja(parejaId);
+        entity.setPareja(pareja);
         if (persistence.findByNumDeSeg(entity.getNumDeSeg()) != null && entity.getNumDeSeg() != persistence.find(id).getNumDeSeg()) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
@@ -94,8 +96,6 @@ public class TarjetaCreditoLogic {
         if (entity.getFechaVen() == null) {
             throw new BusinessLogicException("Debe ingresar la fecha en la cual vence la Tarjeta de credito");
         }
-        ParejaEntity pareja = parejaLogic.getPareja(parejaId);
-        entity.setPareja(pareja);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar TarjetaCredito con id={0}", entity.getId());
         return persistence.update(entity);
     }
