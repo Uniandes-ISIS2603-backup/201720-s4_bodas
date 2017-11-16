@@ -15,8 +15,8 @@
                     <dd><div class="well">{{calificacio.comentario}}</div></dd> 
                 </dl>
                 <div class="btn-group" role="group" >
-                    <a  ui-sref="calificacionesUpdate({cafId: calificacio.id})"><button id="{{$index}}-edit-btn"  type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> Editar</button></a>
-                    <button id="{{$index}}-delete-btn" type="button" class="btn btn-danger btn-sm sweet-2"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                    <a  ui-sref="calificacionesUpdate({cafId: calificacio.id})" id="{{$index}}-edit-btn"  type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                    <a  ng-click="ctrl.deleteCalificacion(calificacio)" id="{{$index}}-delete-btn" type="button" class="btn btn-danger btn-sm sweet-2"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>                    
                 </div>
             </div>        
         </div>   

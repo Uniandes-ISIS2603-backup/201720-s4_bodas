@@ -3,7 +3,7 @@
     mod.constant("calificaionesContext", "calificaciones");
     mod.constant("opcionServicioContext","opcionServicios");
     mod.constant("proveedorContext","api/proveedores");
-    mod.controller('calificacionesNewCtrl', ['$scope','$http','$state','calificaionesContext','opcionesContext','proveedoresContext','$rootScope','$filter',
+    mod.controller('calificacionesUpdateCtrl', ['$scope','$http','$state','calificaionesContext','opcionesContext','proveedoresContext','$rootScope','$filter',
         function ($scope,$http,$state,calificaionesContext,opcionesContext,proveedoresContext,$rootScope,$filter) {
           
             $rootScope.editC = true;
