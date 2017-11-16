@@ -14,7 +14,7 @@
                 <th>Fecha De Vencimiento</th>
                 <th>Nombre del Banco</th>
                 <th>Acciones</th>
-                <th>Pagos</th>
+                <th>Detalles</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@
                     <a class="btn btn-danger btn-sm" ui-sref="tarjetasDelete({tarjetaId: tarjeta.id})"> <span class="glyphicon glyphicon-trash"></span></a>
                     <a class="btn btn-warning btn-sm" ui-sref="tarjetasUpdate({tarjetaId: tarjeta.id})"> <span class="glyphicon glyphicon-pencil"></span></a>
               </td>
-              <td><a class="btn btn-info" ui-sref="pagosList({tarjetaId: tarjeta.id})"><span class="glyphicon glyphicon-eye-open"></span>Ver Pagos</a></td>
+              <td><a class="btn btn-info" ui-sref="tarjetasDetail({tarjetaId: tarjeta.id})"><span class="glyphicon glyphicon-eye-open"></span>Ver Detalles</a></td>
             </tr>
         </tbody>
     </table>

@@ -47,7 +47,7 @@
                 views: {
                     'modView': {
                         templateUrl: basePath + 'create/calificaciones.create.html',
-                        controller: 'calificacionesNewCtrl',
+                        controller: 'calificacionesUpdateCtrl',
                     }
                 }
             });
