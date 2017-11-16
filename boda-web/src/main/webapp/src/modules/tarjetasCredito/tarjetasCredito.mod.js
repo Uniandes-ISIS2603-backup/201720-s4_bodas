@@ -26,7 +26,7 @@
                         controllerAs: 'ctrl'
                     }
                 }
-                }).state('tarjetasChild', {
+                }).state('tarjetasDetail', {
                 url: '/{tarjetaId:int}',
                 parent: 'tarjetas',
                 param: {
@@ -34,7 +34,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + 'tarjetas.child.html',
+                        templateUrl: basePath + 'tarjetas.detail.html',
                         controller: 'tarjetasCreditoCtrl',
                         controllerAs: 'ctrl'
                     }
