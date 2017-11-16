@@ -40,6 +40,18 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('pagosUpdate', {
+                url: '/update/:pagoId',
+                parent: 'pagos',
+                param: {
+                    pagoId: null
+                },
+                 views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/pagos.update.html',
+                        controller: 'pagosUpdateCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);
