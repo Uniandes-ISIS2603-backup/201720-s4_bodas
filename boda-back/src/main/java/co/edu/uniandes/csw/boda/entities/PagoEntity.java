@@ -67,5 +67,4 @@ public class PagoEntity extends BaseEntity implements Serializable{
     public void setOpcionServicio(OpcionServicioEntity opcionServicio) {
         this.opcionServicio = opcionServicio;
     }
-    
 }

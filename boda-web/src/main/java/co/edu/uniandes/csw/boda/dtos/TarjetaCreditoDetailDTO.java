@@ -37,7 +37,6 @@ public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
             for (PagoEntity entityPago : entity.getPagos()) {
                 pagos.add(new PagoDTO(entityPago));
             }
-
         }
     }
     
@@ -50,7 +49,7 @@ public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
     public TarjetaCreditoEntity toEntity() {
         TarjetaCreditoEntity resp =super.toEntity();
         if (this.pagos != null) {
-            List<PagoEntity> pag = new ArrayList<PagoEntity>();
+            List<PagoEntity> pag = new ArrayList<>();
             for (PagoDTO dtoPago : this.pagos) {
                 pag.add(dtoPago.toEntity());
             }

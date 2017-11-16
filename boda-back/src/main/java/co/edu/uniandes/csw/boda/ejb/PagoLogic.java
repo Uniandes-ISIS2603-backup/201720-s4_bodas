@@ -65,11 +65,14 @@ public class PagoLogic {
         
         TarjetaCreditoEntity tarjeta = tarjetaLogic.getTarjetaCredito(tarjetaId);
         entity.setTarjetaCredito(tarjeta);
+        entity.setOpcionServicio(entity.getOpcionServicio());
         if (entity.getMontoTotal() == 0 || entity.getMontoTotal() < 0)
         {
             throw new BusinessLogicException("El monto total del pago debe ser mayor que 0");
         }
-        entity.setOpcionServicio(entity.getOpcionServicio());
+        if (entity.getFecha() == null) {
+            throw new BusinessLogicException("Debe ingresar la fecha en la cual se realizo el Pago");
+        }
         LOGGER.log(Level.INFO, "Termina proceso de actualizar Pago con id={0}", entity.getId());
         return persistence.update(entity);
     }
@@ -93,6 +96,7 @@ public class PagoLogic {
      *
      * @param idTarjeta
      * @return una lista de Pagos.
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
     public List<PagoEntity> getPagos(Long idTarjeta) throws BusinessLogicException{
         LOGGER.info("Inicia proceso de consultar todos los Pagos");
