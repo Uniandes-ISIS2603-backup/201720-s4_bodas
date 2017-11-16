@@ -66,7 +66,7 @@ public class BodaEntity extends BaseEntity implements Serializable {
      * Atributo privado OpcionServicio.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "boda", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "boda")
     private List<OpcionServicioEntity> opcionServicio;
 
     /**
