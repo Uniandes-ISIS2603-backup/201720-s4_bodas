@@ -11,8 +11,6 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -68,9 +66,8 @@ public class BodaEntity extends BaseEntity implements Serializable {
      * Atributo privado OpcionServicio.
      */
     @PodamExclude
-    @OneToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "opcionServicio_id")
-    private OpcionServicioEntity opcionServicio;
+    @OneToMany(mappedBy = "boda", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OpcionServicioEntity> opcionServicio;
 
     /**
      * Coleccion privada de invitados.
@@ -278,18 +275,17 @@ public class BodaEntity extends BaseEntity implements Serializable {
      *
      * @return la opcionServicio
      */
-    public OpcionServicioEntity getOpcionServicio() {
+    public List<OpcionServicioEntity> getOpcionServicio() {
         return opcionServicio;
     }
 
     /**
      * Establece el valor del atributo opcionServicio.
      *
-     * @param opcionServicio la opcionServicio a cambiar
+     * @param opcionServicio las opcioneServicio a cambiar
      */
-    public void setOpcionServicio(OpcionServicioEntity opcionServicio) {
+    public void setOpcionServicio(List<OpcionServicioEntity> opcionServicio) {
         this.opcionServicio = opcionServicio;
     }
-   
     
 }

@@ -93,6 +93,7 @@ public class PagoLogic {
      *
      * @param idTarjeta
      * @return una lista de Pagos.
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
     public List<PagoEntity> getPagos(Long idTarjeta) throws BusinessLogicException{
         LOGGER.info("Inicia proceso de consultar todos los Pagos");
