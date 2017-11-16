@@ -13,7 +13,7 @@
                 abstract: true,
                 parent: 'tarjetasDetail',
                 views: {
-                    'detailView': {
+                    'childrenView': {
                         templateUrl: basePath + 'pagos.html'
                     }
                 }
