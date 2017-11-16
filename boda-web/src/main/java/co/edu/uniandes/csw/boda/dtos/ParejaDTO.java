@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.boda.dtos;
 
-import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 
 /**

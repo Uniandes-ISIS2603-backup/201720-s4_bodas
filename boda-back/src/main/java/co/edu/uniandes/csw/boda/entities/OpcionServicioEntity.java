@@ -43,11 +43,21 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
      */
     private String image;
     
+     /**
+     * Atributo privado pago.
+     */
     @PodamExclude
     @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="pago_id")
     private PagoEntity pago;
-
+    
+     /**
+     * Atributo privado boda.
+     */
+    @PodamExclude
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="boda_id")
+    private BodaEntity boda;
     /**
      * Coleccion privada de calificacion.
      */
@@ -211,4 +221,24 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     public void setPago(PagoEntity pago) {
         this.pago = pago;
     }
+
+    /**
+     * Obtiene el atributo boda.
+     *
+     * @return la boda asociada
+     */
+    public BodaEntity getBoda() {
+        return boda;
+    }
+
+     /**
+     * Establece el valor del atributo boda.
+     *
+     * @param boda la boda a cambiar
+     */
+    public void setBoda(BodaEntity boda) {
+        this.boda = boda;
+    }
+    
+    
 }

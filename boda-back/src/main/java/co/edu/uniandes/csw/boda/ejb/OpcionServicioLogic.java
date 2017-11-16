@@ -5,10 +5,8 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
-import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
-import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.OpcionServicioPersistence;
 import java.util.List;
@@ -33,6 +31,7 @@ public class OpcionServicioLogic {
       /**
      * Crea una opcionServicio
      * @param entity
+     * @param proveedorId
      * @return OpcionServicioEntity
      * @throws BusinessLogicException
      */
@@ -87,10 +86,10 @@ public class OpcionServicioLogic {
       
        /**
       *Actualiza una opcionServicio con el id Dado y la informacion
-      * @param id
+      * @param proveedorId
       * @param entity
       * @return OpcionServicioEntity
-      *@throws si no se encuentra una opcionServicio con el id dado arroja BussinesLogicException
+      * @throws BussinesLogicException si no se encuentra una opcionServicio con el id dado
       */
       public OpcionServicioEntity updateOpcionServicio(Long proveedorId, OpcionServicioEntity entity)throws BusinessLogicException
       {
@@ -109,17 +108,12 @@ public class OpcionServicioLogic {
               throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
           }
           entity.setPago(entity.getPago());
+          entity.setBoda(entity.getBoda());
           //Actualiza la opcion servicio
           persistence.update(entity);
           return entity;
       }
-     
-        
-        
-          
-       
-       
-           
+         
       /**
        * Borra una opcionServicio con el id Dado
        * @param id
