@@ -1,3 +1,24 @@
-<div ng-repeat="calificacio in calificacionesRecords">
-    
+<div class="container-fluid">
+    <div class="btn-group" role="group" >
+     <a class="btn btn-primary" ui-sref="calificacionesCreate" ><span class="glyphicon glyphicon-plus"  ></span> Agregar Comentario</a>  
+    </div>
+    <div ui-view="modView"></div>
+    <br />
+    <div ng-repeat="calificacio in calificacionesRecords">
+        <div class="panel panel-default">            
+            <div class="panel-body">                
+                <dl>
+                    <dt>Calificación </dt>              
+                    <dd>{{calificacio.calificacionNum}}</dd>
+                    <hr>
+                    <dt>Comentario </dt>
+                    <dd><div class="well">{{calificacio.comentario}}</div></dd> 
+                </dl>
+                <div class="btn-group" role="group" >
+                    <a  ui-sref="calificacionesUpdate({cafId: calificacio.id})"><button id="{{$index}}-edit-btn"  type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> Editar</button></a>
+                    <button id="{{$index}}-delete-btn" type="button" class="btn btn-danger btn-sm sweet-2"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                </div>
+            </div>        
+        </div>   
+    </div>
 </div>

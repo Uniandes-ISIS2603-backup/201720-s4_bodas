@@ -14,6 +14,8 @@ delete from UbicacionEntity;
 delete from BodaEntity;
 delete from ParejaEntity;
 
+Alter table calificacionentity alter column id Restart with 1;
+
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 21493925, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('cgammack0@foxnews.com', 'Doralia', 'Chauncey', 57015334, 0, 'joMOxXNK', 'bgreenham0', '5892 1st Way');
@@ -115,10 +117,10 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'kQBADEH JERKKW ZDSI', 4,1);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'oFABDOL YEZPUU ETSN', 5,2);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (12,'gQUMMPI DNPMSV DIWL', 5,3);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum,id) values (13,'mGKZXTE POZSBU ODLB', 2,4);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'kQBADEH JERKKW ZDSI', 4);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'oFABDOL YEZPUU ETSN', 5);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'gQUMMPI DNPMSV DIWL', 5);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (13,'mGKZXTE POZSBU ODLB', 2);
 ---Fin Calificacion Pareja Entity
 
 --Pruebas para Tarea Entity

@@ -1,5 +1,5 @@
 (function (ng) {
-    var mod = ng.module("opcionesModule", ['bodasModule', 'ui.router']);
+    var mod = ng.module("opcionesModule", ['proveedoresModule', 'ui.router']);
     mod.constant("opcionesContext", "opcionServicios");
     mod.constant("proveedoresContext", "api/proveedores");
 
@@ -35,18 +35,12 @@
                     opcionId: null
                 },
                 views: {
-                    'listView':{
+                    'detailView':{
                       
-                        templateUrl: basePath + 'opciones.list.html',
-                        controller: 'opcionesCtrl',
-                        controllerAs: 'ctrl'
-                    },
-                    'detailView': {
                         templateUrl: basePath + 'opciones.detail.html',
                         controller: 'opcionesCtrl',
                         controllerAs: 'ctrl'
                     }
-                    
                 }
             }).state('opcionesCreate', {
                 url: '/create',
