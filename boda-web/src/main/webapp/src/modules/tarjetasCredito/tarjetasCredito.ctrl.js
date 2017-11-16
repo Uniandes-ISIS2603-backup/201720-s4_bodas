@@ -7,6 +7,11 @@
             $http.get(parejasContext + '/' + $state.params.parejaId + '/'+ tarjetasCreditoContext).then(function (response) {
                      $scope.tarjetasCreditoRecords = response.data;
                  });
+                if (($state.params.tarjetaId !== undefined) && ($state.params.tarjetaId !== null)) {
+                $http.get(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext + '/' + $state.params.tarjetaId).then(function (response) {
+                    $scope.currentTarjeta = response.data;
+                });
+            }
         }
     ]);
 }
