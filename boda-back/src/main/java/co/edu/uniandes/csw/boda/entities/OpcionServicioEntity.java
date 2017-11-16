@@ -9,8 +9,11 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -39,6 +42,11 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
      * Atributo privado image.
      */
     private String image;
+    
+    @PodamExclude
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="pago_id")
+    private PagoEntity pago;
 
     /**
      * Coleccion privada de calificacion.
@@ -186,4 +194,21 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
         this.image = image;
     }
 
+     /**
+     * Obtiene el atributo pago.
+     *
+     * @return el pago
+     */
+    public PagoEntity getPago() {
+        return pago;
+    }
+
+     /**
+     * Establece el valor del atributo pago.
+     *
+     * @param pago el pago a cambiar
+     */
+    public void setPago(PagoEntity pago) {
+        this.pago = pago;
+    }
 }

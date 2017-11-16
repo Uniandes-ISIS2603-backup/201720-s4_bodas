@@ -61,7 +61,10 @@ public class ParejaLogic {
       
      /**
       *Actualiza una pareja con el id Dado y la informacion
-      *@throws si no se encuentra una pareja con el id dado arroja exception
+      *@param id de la pareja a editar
+      *@param entity la pareja a editar 
+      *@throws BusinessLogicException si no se encuentra una pareja con el id dado arroja exception
+      *@return la pareja con los cambios que se realizaron 
       */
       public ParejaEntity updatePareja(String id, ParejaEntity entity)throws BusinessLogicException
       {

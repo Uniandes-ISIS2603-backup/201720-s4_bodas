@@ -95,7 +95,7 @@ public class OpcionServicioLogic {
       public OpcionServicioEntity updateOpcionServicio(Long proveedorId, OpcionServicioEntity entity)throws BusinessLogicException
       {
           
-         ProveedorEntity proveedor = proveedorLogic.findProveedorById(proveedorId);
+        ProveedorEntity proveedor = proveedorLogic.findProveedorById(proveedorId);
 
         entity.setProveedor(proveedor);
          if(entity.getCosto()<0)
@@ -108,7 +108,7 @@ public class OpcionServicioLogic {
           {
               throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
           }
-          
+          entity.setPago(entity.getPago());
           //Actualiza la opcion servicio
           persistence.update(entity);
           return entity;

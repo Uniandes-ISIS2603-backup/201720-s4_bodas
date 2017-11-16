@@ -69,6 +69,7 @@ public class PagoLogic {
         {
             throw new BusinessLogicException("El monto total del pago debe ser mayor que 0");
         }
+        entity.setOpcionServicio(entity.getOpcionServicio());
         LOGGER.log(Level.INFO, "Termina proceso de actualizar Pago con id={0}", entity.getId());
         return persistence.update(entity);
     }
@@ -88,7 +89,6 @@ public class PagoLogic {
     }
     
     /**
-     * 
      * Obtener todos los Pagos existentes en la base de datos.
      *
      * @param idTarjeta
