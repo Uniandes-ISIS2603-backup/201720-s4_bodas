@@ -2,12 +2,12 @@
     var mod = ng.module("tarjetasCreditoModule", ['parejasModule', 'ui.router']);
     mod.constant("tarjetasCreditoContext", "tarjetasCredito");
     mod.constant("parejasContext", "api/parejas");
-    
+
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/tarjetasCredito/';
             $urlRouterProvider.otherwise("/tarjetasList");
-            
-            $stateProvider.state('tarjetas',{
+
+            $stateProvider.state('tarjetas', {
                 url: '/tarjetasCredito',
                 abstract: true,
                 parent: 'parejasDetail',
@@ -26,7 +26,7 @@
                         controllerAs: 'ctrl'
                     }
                 }
-                }).state('tarjetasDetail', {
+            }).state('tarjetasDetail', {
                 url: '/{tarjetaId:int}',
                 parent: 'tarjetas',
                 param: {
@@ -39,7 +39,7 @@
                         controllerAs: 'ctrl'
                     }
                 }
-                }).state('tarjetasDelete', {
+            }).state('tarjetasDelete', {
                 url: '/delete/{tarjetaId:int}',
                 parent: 'tarjetas',
                 param: {
@@ -74,5 +74,3 @@
             });
         }]);
 })(window.angular);
-
-
