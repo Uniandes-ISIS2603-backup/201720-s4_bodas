@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package co.edu.uniandes.csw.boda.ejb;
 
-import co.edu.uniandes.csw.boda.entities.BodaEntity;
+import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.TareaPersistence;
@@ -27,12 +23,20 @@ public class TareaLogic {
     private TareaPersistence persistence;
 
     @Inject
-    BodaLogic bodaLogic;
+    OpcionServicioLogic opcionLogic;
+    
+     /**
+     *Crea  una tarea con la informacion
+     * @param opcionId
+     * @param entity
+     * @return TareaEntity
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
+     *
+     */
+    public TareaEntity create(Long opcionId, TareaEntity entity) throws BusinessLogicException {
 
-    public TareaEntity create(Long bodaId, TareaEntity entity) throws BusinessLogicException {
-
-        BodaEntity boda = bodaLogic.findBodaById(bodaId);
-        entity.setBoda(boda);
+        OpcionServicioEntity opcion = opcionLogic.findOpcionServicioById(opcionId);
+        entity.setOpcionServicio(opcion);
         if (persistence.find(entity.getId()) != null) {
             throw new BusinessLogicException("No pueden existir dos tareas con el mismo id.");
         }
@@ -40,24 +44,30 @@ public class TareaLogic {
         return entity;
     }
 
-    /*
-     Solicita todas las Tareas existentes
+    /**
+     * Consulta de todas las tareas 
+     * @param opcionId
+     * @return TareaEntity
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
-    public List<TareaEntity> getTareas(Long bodaId) throws BusinessLogicException {
+    public List<TareaEntity> getTareas(Long opcionId) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de consultar todas las tareas");
-        BodaEntity boda = bodaLogic.findBodaById(bodaId);
+        OpcionServicioEntity opcion = opcionLogic.findOpcionServicioById(opcionId);
              
-        if (boda.getTareas() == null) {
-            throw new BusinessLogicException("La boda que consulta aún no tiene tareas");
+        if (opcion.getTareas() == null) {
+            throw new BusinessLogicException("La opcion que consulta aún no tiene tareas");
         }
-        if (boda.getTareas().isEmpty()) {
-            throw new BusinessLogicException("La boda que consulta aún no tiene tareas");
+        if (opcion.getTareas().isEmpty()) {
+            throw new BusinessLogicException("La opcion que consulta aún no tiene tareas");
         }
-        return boda.getTareas();
+        return opcion.getTareas();
     }
 
-    /*
-     Solicita la tarea por el id
+      /**
+     * Consulta una tarea con el id dado
+     * @param id
+     * @return TareaEntity
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
     public TareaEntity getTarea(Long id) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de buscar la tarea por Id");
@@ -70,31 +80,21 @@ public class TareaLogic {
     }
 
     /**
-     * Actualiza una tarea con el id Dado y la informacion
-     *
-     * @param bodaId
-     * @param id
+     * Actualiza una tarea con el id dado y la informacion
+     * @param opcionId
      * @param entity
      * @return TareaEntity
      * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
-     *
      */
-    public TareaEntity updateTarea(Long bodaId, TareaEntity entity) throws BusinessLogicException {
+    public TareaEntity updateTarea(Long opcionId, TareaEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de actualizar tarea");
-        BodaEntity boda = bodaLogic.findBodaById(bodaId);
-
-        entity.setBoda(boda);
-        if(entity.getDia().after(boda.getFecha()))
-        {
-             throw new BusinessLogicException("No puede reagendar una tarea para despues de "+boda.getFecha());
-        }
-       
+        OpcionServicioEntity opcion = opcionLogic.findOpcionServicioById(opcionId);
+        entity.setOpcionServicio(opcion);
         return persistence.update(entity);
     }
 
     /**
      * Borra una tarea con el id Dado
-     *
      * @param id
      * @throws BusinessLogicException si no existe la tarea con el id dado
      */
@@ -108,8 +108,7 @@ public class TareaLogic {
     }
 
     /**
-     * Encuentra una opcionServicio con el id Dado
-     *
+     * Encuentra una tarea con el id Dado
      * @param id
      * @throws BusinessLogicException si no existe la opcionServicio con el id
      * dado
