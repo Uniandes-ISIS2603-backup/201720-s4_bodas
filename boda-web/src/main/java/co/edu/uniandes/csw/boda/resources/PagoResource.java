@@ -63,6 +63,7 @@ public class PagoResource {
      * @throws BusinessLogicException
      */
     @PUT
+    @Path("{id: \\d+}")
     public PagoDetailDTO updatePago(@PathParam("idTarjeta") Long idTarjeta, @PathParam("id") Long id, PagoDetailDTO pago) throws BusinessLogicException {
         pago.setId(id);
         PagoEntity entity = pagoLogic.getPago(id);

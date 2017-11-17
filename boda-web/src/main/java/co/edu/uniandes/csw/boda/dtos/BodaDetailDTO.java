@@ -7,8 +7,8 @@ package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
+import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
-import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +20,9 @@ public class BodaDetailDTO extends BodaDTO{
     
     private List<RegaloDTO> regalos;
     private List<InvitadoDTO> invitados;
-    private List<TareaDTO> tareas;
+
+    private List<OpcionServicioDTO> opcionServicio;
+
     /**
      * Constructor por defecto
      */
@@ -47,10 +49,11 @@ public class BodaDetailDTO extends BodaDTO{
                 invitados.add(new InvitadoDTO(entityInvitado));
             }
         }
-         if (entity.getTareas() != null) {
-            tareas = new ArrayList<>();
-            for (TareaEntity entityTarea : entity.getTareas()) {
-                tareas.add(new TareaDTO(entityTarea));
+
+        if (entity.getOpcionServicio() != null) {
+            this.opcionServicio = new ArrayList<>();
+            for (OpcionServicioEntity entityOpcionServicio : entity.getOpcionServicio()) {
+                opcionServicio.add(new OpcionServicioDTO(entityOpcionServicio));
             }
         }
 
@@ -74,13 +77,15 @@ public class BodaDetailDTO extends BodaDTO{
             }
             bodaE.setInvitados(invitadosEntity);
         }
-        if (tareas != null) {
-            List<TareaEntity> tareasEntity = new ArrayList<>();
-            for (TareaDTO dtoTarea : tareas) {
-                tareasEntity.add(dtoTarea.toEntity());
+
+        if (this.opcionServicio != null) {
+            List<OpcionServicioEntity> opcionServicioEntity = new ArrayList<>();
+            for (OpcionServicioDTO dtoOpcionServicio : this.opcionServicio) {
+                opcionServicioEntity.add(dtoOpcionServicio.toEntity());
             }
-            bodaE.setTareas(tareasEntity);
+            bodaE.setOpcionServicio(opcionServicioEntity);
         }
+
         return bodaE;
     }
 
@@ -101,15 +106,11 @@ public class BodaDetailDTO extends BodaDTO{
         this.invitados = invitados;
     }
 
-    public List<TareaDTO> getTareas() {
-        return tareas;
+    public List<OpcionServicioDTO> getOpcionServicio() {
+        return opcionServicio;
     }
 
-    public void setTareas(List<TareaDTO> tareas) {
-        this.tareas = tareas;
+    public void setOpcionServicio(List<OpcionServicioDTO> opcionServicio) {
+        this.opcionServicio = opcionServicio;
     }
-    
-    
-
-    
 }

@@ -61,6 +61,13 @@ public class BodaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToOne
     private ParejaEntity pareja;
+    
+    /**
+     * Atributo privado OpcionServicio.
+     */
+    @PodamExclude
+    @OneToMany(mappedBy = "boda")
+    private List<OpcionServicioEntity> opcionServicio;
 
     /**
      * Coleccion privada de invitados.
@@ -75,31 +82,6 @@ public class BodaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToMany(mappedBy = "boda", cascade = CascadeType.ALL)
     private List<RegaloEntity> regalos = new ArrayList();
-
-    /**
-     * Coleccion privada de tareas.
-     */
-    @PodamExclude
-    @OneToMany(mappedBy = "boda", cascade = CascadeType.ALL)
-    private List<TareaEntity> tareas;
-
-    /**
-     * Obtiene la colección de tareas.
-     *
-     * @return colección tareas.
-     */
-    public List<TareaEntity> getTareas() {
-        return tareas;
-    }
-
-    /**
-     * Establece el valor de la colección de tareas.
-     *
-     * @param tareas nuevo valor de la colección.
-     */
-    public void setTareas(List<TareaEntity> tareas) {
-        this.tareas = tareas;
-    }
 
     /**
      * Obtiene la colección de invitados.
@@ -263,4 +245,22 @@ public class BodaEntity extends BaseEntity implements Serializable {
         this.image = image;
     }
 
+    /**
+     * Obtiene el atributo opcionServicio.
+     *
+     * @return la opcionServicio
+     */
+    public List<OpcionServicioEntity> getOpcionServicio() {
+        return opcionServicio;
+    }
+
+    /**
+     * Establece el valor del atributo opcionServicio.
+     *
+     * @param opcionServicio las opcioneServicio a cambiar
+     */
+    public void setOpcionServicio(List<OpcionServicioEntity> opcionServicio) {
+        this.opcionServicio = opcionServicio;
+    }
+    
 }

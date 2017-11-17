@@ -1,16 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -39,7 +38,22 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
      * Atributo privado image.
      */
     private String image;
-
+    
+     /**
+     * Atributo privado pago.
+     */
+    @PodamExclude
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="pago_id")
+    private PagoEntity pago;
+    
+    /**
+    * Atributo privado boda.
+    */
+    @PodamExclude
+    @ManyToOne
+    private BodaEntity boda;
+    
     /**
      * Coleccion privada de calificacion.
      */
@@ -153,7 +167,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     /**
      * Obtiene el atributo proveedor.
      *
-     * @return atributo boda.
+     * @return atributo proveedor.
      */
     public ProveedorEntity getProveedor() {
         return proveedor;
@@ -186,4 +200,41 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
         this.image = image;
     }
 
+     /**
+     * Obtiene el atributo pago.
+     *
+     * @return el pago
+     */
+    public PagoEntity getPago() {
+        return pago;
+    }
+
+     /**
+     * Establece el valor del atributo pago.
+     *
+     * @param pago el pago a cambiar
+     */
+    public void setPago(PagoEntity pago) {
+        this.pago = pago;
+    }
+
+    /**
+     * Obtiene el atributo boda.
+     *
+     * @return la boda asociada
+     */
+    public BodaEntity getBoda() {
+        return boda;
+    }
+
+     /**
+     * Establece el valor del atributo boda.
+     *
+     * @param boda la boda a cambiar
+     */
+    public void setBoda(BodaEntity boda) {
+        this.boda = boda;
+    }
+    
+    
 }

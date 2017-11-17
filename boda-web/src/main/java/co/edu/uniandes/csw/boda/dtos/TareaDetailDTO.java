@@ -15,6 +15,7 @@ public class TareaDetailDTO extends TareaDTO{
     
     
     private UbicacionDTO ubicacion;
+    private OpcionServicioDTO opcion;
   
     /**
      * Constructor por defecto
@@ -35,6 +36,11 @@ public class TareaDetailDTO extends TareaDTO{
         } else {
             entity.setUbicacion(null);
         }
+         if (entity.getOpcionServicio()!= null) {
+            this.opcion= new OpcionServicioDTO(entity.getOpcionServicio());
+        } else {
+            entity.setOpcionServicio(null);
+        }
     }
 
     public UbicacionDTO getUbicacion() {
@@ -43,6 +49,13 @@ public class TareaDetailDTO extends TareaDTO{
 
     public void setUbicacion(UbicacionDTO ubicacion) {
         this.ubicacion = ubicacion;
+    }
+    public OpcionServicioDTO getOpcionServicio() {
+        return opcion;
+    }
+
+    public void setOpcionServicio(OpcionServicioDTO opcion) {
+        this.opcion = opcion;
     }
     
      

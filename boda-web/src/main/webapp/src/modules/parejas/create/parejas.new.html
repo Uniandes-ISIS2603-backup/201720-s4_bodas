@@ -1,20 +1,20 @@
-
-    <form class="well form-horizontal" ng-submit="createPareja()" name="pareja" id="registro_form">
+<!---css-form-->
+    <form class="well form-horizontal css-form" ng-submit="createPareja()" name="pareja" id="registro_form" >
        <div> <label ng-if="!edit" id="createAuthor"><legend>Crear Pareja</legend></label>
          <label ng-if="edit" id="editAuthor"><legend>Editar Pareja</legend></label></div>
         <fieldset>
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-class="{'has-success': pareja.email.$valid,'has-error' : !pareja.email.$valid && pareja.email.$touched}" >
                 <label class="col-md-4 control-label">E-Mail</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="email" placeholder="E-Mail " class="form-control" required ng-model="data.correoElec" type="text">
+                        <input name="email" placeholder="E-Mail " class="form-control" required ng-model="data.correoElec" type="email">
                     </div>
                 </div>
             </div>
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-class="{'has-success': pareja.contrasenia.$valid,'has-error' : !pareja.contrasenia.$valid && pareja.contrasenia.$touched}" >
                 <label class="col-md-4 control-label">Contraseña</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group"  ng-class="{'has-success': pareja.nombreInd1.$valid,'has-error' : !pareja.nombreInd1.$valid && pareja.nombreInd1.$touched}" >
                 <label class="col-md-4 control-label">Nombre 1</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group"  ng-class="{'has-success': pareja.nombreInd2.$valid,'has-error' : !pareja.nombreInd2.$valid && pareja.nombreInd2.$touched}">
                 <label class="col-md-4 control-label" >Nombre 2</label> 
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             
-            <div class="form-group">
+            <div class="form-group" ng-class="{'has-success': pareja.nombreAbreviado.$valid,'has-error' : !pareja.nombreAbreviado.$valid && pareja.nombreAbreviado.$touched}">
                 <label class="col-md-4 control-label" >Nombre abreviado</label> 
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group"  ng-class="{'has-feedback':  pareja.direccion.$valid,'has-success': pareja.direccion.$valid,'has-error' : !pareja.direccion.$valid && pareja.direccion.$touched}">
                 <label class="col-md-4 control-label">Dirección</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -65,22 +65,23 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group"  ng-class="{'has-success': pareja.telefono.$valid,'has-error' : !pareja.telefono.$valid && pareja.telefono.$touched}">
                 <label class="col-md-4 control-label">Telefono #</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="telefono" placeholder="(845)555-1212" class="form-control" required ng-model="data.telefono" type="text">
+                        <input name="telefono" placeholder="(845)555-1212" class="form-control" required ng-model="data.telefono" type="tel">
                     </div>
                 </div>
             </div>
             
-            <div class="form-group">
+            <div class="form-group" >
                         <div class="form-group col-sm-4 col-md-4" ng-if="!pareja.$valid">
                             <div class="alert alert-warning" >
                                 <strong>Warning!</strong><p>Todos los campos son requeridos*</p>
                             </div> 
                         </div> 
+                <div class="alert alert-success" role="alert" id="success_message" ng-show="pareja.$valid"  ng-if="!edit">Correcto! <i class="glyphicon glyphicon-thumbs-up"></i></div>
             </div> 
 
             
@@ -90,9 +91,9 @@
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
                     
-                    <button  class="btn btn-default"  ui-sref="parejasList" ><span class="glyphicon glyphicon-arrow-left"></span>Cancelar </button>
+                    <button  class="btn btn-default"  ui-sref="parejasList" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
                     <input ng-show="pareja.$valid" ng-if="!edit" type="submit" value="Crear" class="btn btn-success"/>
-                    <input ng-show="edit"  type="submit"  value="Editar" class="btn btn-warning"/>
+                    <input ng-show="edit" ng-if="edit" type="submit"  value="Editar" class="btn btn-warning"/>
                     
                 </div>
             </div>
@@ -100,4 +101,64 @@
         </fieldset>
     </form>
     
+<!--    <style type="text/css">
+  .css-form input.ng-invalid.ng-touched {
+    border-color: #a94442;
+    background-color: #f2dede;
+    background-image: glyphicon glyphicon-arrow-left;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    border-color: #3c763d; 
+  }
+</style>
 </div>
+<script>
+     $('#registro_form').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            email: {
+                validators: {
+                        stringLength: {
+                        min: 2,
+                    },
+                        notEmpty: {
+                        message: 'Por favor coloque un email'
+                    }
+                }
+            },
+             last_name: {
+                validators: {
+                     stringLength: {
+                        min: 2,
+                    },
+                    notEmpty: {
+                        message: 'Please supply your last name'
+                    }
+                }
+            }
+        }
+    }).on('success.form.bv', function(e) {
+            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');
+        });
+</script> -->

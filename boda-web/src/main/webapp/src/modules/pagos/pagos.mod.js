@@ -11,9 +11,9 @@
             $stateProvider.state('pagos',{
                 url: '/pagos',
                 abstract: true,
-                parent: 'tarjetasChild',
+                parent: 'tarjetasDetail',
                 views: {
-                    childrenView: {
+                    'childrenView': {
                         templateUrl: basePath + 'pagos.html'
                     }
                 }
@@ -38,6 +38,30 @@
                         templateUrl: basePath + 'pagos.detail.html',
                         controller: 'pagosCtrl',
                         controllerAs: 'ctrl'
+                    }
+                }
+            }).state('pagosUpdate', {
+                url: '/update/:pagoId',
+                parent: 'pagos',
+                param: {
+                    pagoId: null
+                },
+                 views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/pagos.update.html',
+                        controller: 'pagosUpdateCtrl'
+                    }
+                }
+            }).state('pagosCreate', {
+                url: '/create/:pagoId',
+                parent: 'pagos',
+                param: {
+                    pagoId: null
+                },
+                 views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/pagos.update.html',
+                        controller: 'pagosNewCtrl'
                     }
                 }
             });

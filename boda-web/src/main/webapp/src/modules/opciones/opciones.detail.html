@@ -1,42 +1,50 @@
 
 <div class="panel panel-default">
-     <div id="headPanel" class="panel-heading">
-       </div>
+    <div id="headPanel" class="panel-heading">
+        <h3 id="nombreProveedor" class="panel-title"> 
+
+            Información de la opción {{currentOpcion.id}}
+
+        </h3>
+    </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3">
                 <dl>
                     <dt>Descripcion </dt>              
-                     <dd>{{currentOpcion.descripcion}}</dd>
-                   
+                    <dd>{{currentOpcion.descripcion}}</dd>
+
                     <dt>Costo </dt>
                     <dd>{{currentOpcion.costo}}</dd>
-                    
-           
-                  
+
+
+
                     <dt>Dias disponibles </dt>
                     <dd>{{currentOpcion.diasDisponibles}}</dd>
-                   
-                   
+
+
                 </dl>
-                 
-                
+
+
             </div>
-            <div class="col-md-4">
-            <div class="thumb">
-                <img class="img-responsive" ng-src="{{currentOpcion.image}}"/>
+            <div class="col-xs-6 col-md-4">
+                <div class="thumbnail">
+                    <img class="img-responsive" ng-src="{{currentOpcion.image}}"/>
+                </div>
             </div>
 
+
         </div>
-           
+        <div class="btn-group" role="group">
+            <a class = "btn btn-default" ui-sref="opcionesList"><span class="glyphicon glyphicon-arrow-left"></span> Lista de Opciones</a>
+
+            <a class = "btn btn-info" ui-sref="calificacionesList({opcionId:currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Ver calificaciones</a>
         </div>
-       
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-9">
-                
-            </div>
-        </div>
+
+
+
+    </div>
+    <div ui-view="listCView">
         
     </div>
 </div>

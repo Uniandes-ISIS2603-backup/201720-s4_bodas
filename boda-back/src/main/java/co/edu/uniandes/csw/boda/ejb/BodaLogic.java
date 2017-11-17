@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package co.edu.uniandes.csw.boda.ejb;
 
 import co.edu.uniandes.csw.boda.entities.BodaEntity;
@@ -52,15 +48,13 @@ public class BodaLogic {
     }
   
      /**
-      *Actualiza una boda con el id dado y la informacion
-     * @param id
+     * Actualiza una boda con el id dado y la informacion
      * @param entity
      * @return BodaEntity
-     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
-     * si no se encuentra una boda con el id dado arroja exception
       */
     public BodaEntity updateBoda(BodaEntity entity) {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar una boda ");
+        entity.setOpcionServicio(entity.getOpcionServicio());
         return persistence.update(entity);
     }
       
@@ -86,8 +80,5 @@ public class BodaLogic {
          }
          persistence.delete(id);
          LOGGER.info("Termina proceso de eliminar una boda");  
-      }
-
-      
-     
+      }    
 }

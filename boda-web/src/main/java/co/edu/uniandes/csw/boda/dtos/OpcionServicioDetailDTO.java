@@ -24,6 +24,7 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
     List<CalificacionDTO>calificaciones;
     private List<TareaDTO> tareas;
     
+    
      /**
      * Constructor por defecto
      */

@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package co.edu.uniandes.csw.boda.ejb;
 
-import co.edu.uniandes.csw.boda.entities.BodaEntity;
+package co.edu.uniandes.csw.boda.ejb;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
-import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.OpcionServicioPersistence;
 import java.util.List;
@@ -26,13 +19,15 @@ public class OpcionServicioLogic {
     private static final Logger LOGGER = Logger.getLogger(OpcionServicioLogic.class.getName());
     
      @Inject
-    private OpcionServicioPersistence persistence;
+      private OpcionServicioPersistence persistence;
     
       @Inject
       ProveedorLogic proveedorLogic;
+      
       /**
      * Crea una opcionServicio
      * @param entity
+     * @param proveedorId
      * @return OpcionServicioEntity
      * @throws BusinessLogicException
      */
@@ -54,8 +49,11 @@ public class OpcionServicioLogic {
          return entity;
      }
     
-      /*
-     Solicita todas las opcionesServicio existentes
+    /**
+     * Consulta  laa opcionesServicio
+     * @param proveedorId
+     * @return Lista de OpcionServicioEntity
+     * @throws BusinessLogicException
      */
      public List<OpcionServicioEntity> getOpcionesServicio(Long proveedorId) throws BusinessLogicException{
          LOGGER.info("Inicia proceso de consultar todas las opciones de servicio");
@@ -66,17 +64,15 @@ public class OpcionServicioLogic {
         if (proveedor.getOpcionesServicio().isEmpty()) {
             throw new BusinessLogicException("El proveedor que consulta aún no tiene opciones de servicio");
         }
-      
 
         return proveedor.getOpcionesServicio();
     }
-
-     /*
-      *Solicita una opcionServicio con el id dado 
-      * @param id
-      * @return OpcionServicioEntity
-      *@throws si no se encuentra una opcionServicio con el id dado arroja BussinesLogicException
-      */
+     /**
+     * Consulta una opcionServicio con el id dado
+     * @param id
+     * @return OpcionServicioEntity
+     * @throws BusinessLogicException
+     */
       public OpcionServicioEntity getOpcionServicio(Long id)throws BusinessLogicException{          
             LOGGER.info("Inicia proceso de buscar la tarea por Id");
             OpcionServicioEntity buscado = persistence.find(id);
@@ -87,15 +83,16 @@ public class OpcionServicioLogic {
       
        /**
       *Actualiza una opcionServicio con el id Dado y la informacion
-      * @param id
+      * @param proveedorId
       * @param entity
       * @return OpcionServicioEntity
-      *@throws si no se encuentra una opcionServicio con el id dado arroja BussinesLogicException
+     * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
+      * @throws BussinesLogicException si no se encuentra una opcionServicio con el id dado
       */
       public OpcionServicioEntity updateOpcionServicio(Long proveedorId, OpcionServicioEntity entity)throws BusinessLogicException
       {
           
-         ProveedorEntity proveedor = proveedorLogic.findProveedorById(proveedorId);
+        ProveedorEntity proveedor = proveedorLogic.findProveedorById(proveedorId);
 
         entity.setProveedor(proveedor);
          if(entity.getCosto()<0)
@@ -108,23 +105,18 @@ public class OpcionServicioLogic {
           {
               throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
           }
-          
+          entity.setPago(entity.getPago());
+          entity.setBoda(entity.getBoda());
           //Actualiza la opcion servicio
           persistence.update(entity);
           return entity;
       }
-     
-        
-        
-          
-       
-       
-           
+         
       /**
-       * Borra una opcionServicio con el id Dado
-       * @param id
-       * @throws BusinessLogicException si no existe la opcionServicio con el id dado
-       */
+     * Elimina una opcionServicio con el id dado
+     * @param id
+     * @throws BusinessLogicException
+     */
       public void removeOpcionServicio(Long id) throws BusinessLogicException
       {
          LOGGER.info("Inicia proceso de eliminar opcion servicio");

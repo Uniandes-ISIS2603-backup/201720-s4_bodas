@@ -26,7 +26,9 @@
         
         'regalosModule',
         
-        'invitadosModule'
+        'invitadosModule',
+        
+        'calificaionesModule'
 
     ]);
     // Resuelve problemas de las promesas
