@@ -24,7 +24,7 @@ public class CalificacionEntity implements Serializable{
      * Atributo privado id.
      */    
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     /**

@@ -47,12 +47,11 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     @JoinColumn(name="pago_id")
     private PagoEntity pago;
     
-     /**
-     * Atributo privado boda.
-     */
+    /**
+    * Atributo privado boda.
+    */
     @PodamExclude
-    @OneToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="boda_id")
+    @ManyToOne
     private BodaEntity boda;
     
     /**
