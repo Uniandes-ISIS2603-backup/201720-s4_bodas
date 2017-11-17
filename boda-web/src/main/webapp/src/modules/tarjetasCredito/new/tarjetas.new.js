@@ -2,6 +2,7 @@
     var mod = ng.module("tarjetasCreditoModule");
     mod.constant("tarjetasCreditoContext", "tarjetasCredito");
     mod.constant("parejasContext", "api/parejas");
+    
     mod.controller('tarjetasNewCtrl', ['$scope', '$http', 'parejasContext', 'tarjetasCreditoContext' , '$state',  '$rootScope',
         function ($scope, $http, parejasContext, tarjetasCreditoContext, $state,  $rootScope) {
             $rootScope.edit = false;

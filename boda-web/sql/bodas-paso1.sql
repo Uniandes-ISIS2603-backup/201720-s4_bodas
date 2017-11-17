@@ -28,7 +28,8 @@ insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image,pareja_c
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (2,'Galen&Rose', '5/2/2017', 'Invierno', 'Ninguna', 'Ninguno','https://images.pexels.com/photos/246490/pexels-photo-246490.jpeg');
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (3,'Roberto&Martha', '10/9/2016', 'Primavera', 'Católica', 'Boda de Oro','https://images.pexels.com/photos/34761/old-people-couple-together-connected.jpg');
 ---Fin Pruebas BodaEntity
-
+update ParejaEntity Set boda_id =1 where correoElec = 'fmarsland0@artisteer.com';
+ 
 --Pruebas UbicacionEntity
 
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (1, 'Automotive', 50.1681931, 14.0545902, 24356, '88734 Marcy Avenue');

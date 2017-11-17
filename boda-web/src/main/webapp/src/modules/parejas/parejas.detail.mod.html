@@ -16,9 +16,11 @@
                     <li class="list-group-item">Nombre 2: {{currentPareja.nombreInd2}}</li>
                     <li class="list-group-item">Dirección: {{currentPareja.direccion}}</li>
                     <li class="list-group-item">Telefono: {{currentPareja.telefono}}</li>
+                    <li class="list-group-item">Boda: </li>
                   </ul>            
                 <ul class="nav nav-tabs">
                    <a class="btn btn-info" ui-sref="tarjetasList({parejaId: currentPareja.correoElec})"><span class="glyphicon glyphicon-eye-open"></span>Ver Tarjetas De Credito</a>
+                   <a class="btn btn-info" ui-sref="bodaDetail({bodaId:currentPareja.boda.id})"><span class="glyphicon glyphicon-eye-open"></span>Ver Boda</a>
                 </ul>
             </div>
 

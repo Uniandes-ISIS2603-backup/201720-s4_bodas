@@ -55,7 +55,7 @@ public class BodaDetailDTO extends BodaDTO{
                 tareas.add(new TareaDTO(entityTarea));
             }
         }
-            if (entity.getOpcionServicio() != null) {
+        if (entity.getOpcionServicio() != null) {
             this.opcionServicio = new ArrayList<>();
             for (OpcionServicioEntity entityOpcionServicio : entity.getOpcionServicio()) {
                 opcionServicio.add(new OpcionServicioDTO(entityOpcionServicio));
@@ -89,11 +89,11 @@ public class BodaDetailDTO extends BodaDTO{
             bodaE.setTareas(tareasEntity);
         }
         if (this.opcionServicio != null) {
-            List<OpcionServicioEntity> pag = new ArrayList<>();
-            for (OpcionServicioDTO dtoPago : this.opcionServicio) {
-                pag.add(dtoPago.toEntity());
+            List<OpcionServicioEntity> opcionServicioEntity = new ArrayList<>();
+            for (OpcionServicioDTO dtoOpcionServicio : this.opcionServicio) {
+                opcionServicioEntity.add(dtoOpcionServicio.toEntity());
             }
-            bodaE.setOpcionServicio(pag);
+            bodaE.setOpcionServicio(opcionServicioEntity);
         }
         return bodaE;
     }
