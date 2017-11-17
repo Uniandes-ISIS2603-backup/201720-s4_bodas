@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.boda.dtos;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
-import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import java.util.ArrayList;
 import java.util.List;
 

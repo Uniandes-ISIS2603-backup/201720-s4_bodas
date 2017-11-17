@@ -87,31 +87,6 @@ public class BodaEntity extends BaseEntity implements Serializable {
     private List<RegaloEntity> regalos = new ArrayList();
 
     /**
-     * Coleccion privada de tareas.
-     */
-    @PodamExclude
-    @OneToMany(mappedBy = "boda", cascade = CascadeType.ALL)
-    private List<TareaEntity> tareas;
-
-    /**
-     * Obtiene la colección de tareas.
-     *
-     * @return colección tareas.
-     */
-    public List<TareaEntity> getTareas() {
-        return tareas;
-    }
-
-    /**
-     * Establece el valor de la colección de tareas.
-     *
-     * @param tareas nuevo valor de la colección.
-     */
-    public void setTareas(List<TareaEntity> tareas) {
-        this.tareas = tareas;
-    }
-
-    /**
      * Obtiene la colección de invitados.
      *
      * @return colección tareas.
