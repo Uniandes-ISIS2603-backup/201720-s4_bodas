@@ -18,39 +18,72 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class ServicioEntity extends BaseEntity implements Serializable  {
     
-    
+    /**
+     * Atributo privado descripcion.
+     */
     private String descripcion;
+    
+    /**
+     * Coleccion privada de proveedores.
+     */
     @PodamExclude  
     @ManyToMany
     private List<ProveedorEntity> proveedores = new ArrayList<>();
     
+    /**
+     * Atributo privado image.
+     */
     private String image;
-
+    
+    /**
+     * Obtiene el atributo descripcion.
+     *
+     * @return atributo descripcion.
+     */
     public String getDescripcion(){
         return descripcion;
     }
     
+    /**
+     * Establece el valor del atributo descripcion.
+     *
+     * @param descripcion nuevo valor del atributo
+     */
     public void setDescripcion(String descripcion){
         this.descripcion=descripcion;
     }
     
+    /**
+     * Obtiene la colección de proveedores.
+     *
+     * @return colección proveedores.
+     */
     public List<ProveedorEntity> getProveedores(){
         return proveedores;
     }
     
+    /**
+     * Establece el valor de la colección de proveedores.
+     *
+     * @param proveedores nuevo valor de la colección.
+     */    
     public void setProveedores(List<ProveedorEntity> proveedores){
         this.proveedores=proveedores;
     }
     
-     /**
-     * @return the image
+    /**
+     * Obtiene el atributo image.
+     *
+     * @return atributo image.
      */
     public String getImage() {
         return image;
     }
 
     /**
-     * @param image the image to set
+     * Establece el valor del atributo image.
+     *
+     * @param image nuevo valor del atributo
      */
     public void setImage(String image) {
         this.image = image;

@@ -21,36 +21,75 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class ProveedorEntity extends BaseEntity implements Serializable{
     
+    /**
+     * Atributo privado especialidad.
+     */    
     private String especialidad;
     
+    /**
+     * Coleccion privada de servicios.
+     */
     @PodamExclude
     @ManyToMany
     private List<ServicioEntity> servicios;
     
+    /**
+     * Coleccion privada de opcionesServicio.
+     */
     @PodamExclude
     @OneToMany(mappedBy="proveedor", cascade = CascadeType.ALL)
     private List<OpcionServicioEntity> opcionesServicio;  
     
+    /**
+     * Obtiene el atributo especialidad.
+     *
+     * @return atributo especialidad.
+     */    
     public String getEspecialidad(){
         return especialidad;
     }
     
+    /**
+     * Establece el valor del atributo especialidad.
+     *
+     * @param especialidad nuevo valor del atributo
+     */    
     public void setEspecialidad(String especialidad){
         this.especialidad=especialidad;
     }
-
+    
+    /**
+     * Obtiene la colección de servicios.
+     *
+     * @return colección servicios.
+     */
     public List<ServicioEntity> getServicios() {
         return servicios;
     }
-
+    
+    /**
+     * Establece el valor de la colección de servicios.
+     *
+     * @param servicios nuevo valor de la colección.
+     */
     public void setServicios(List<ServicioEntity> servicios) {
         this.servicios = servicios;
     }
     
+    /**
+     * Obtiene la colección de opcionesServicio.
+     *
+     * @return colección opcionesServicio.
+     */
     public List<OpcionServicioEntity> getOpcionesServicio(){
         return opcionesServicio;
     }
     
+    /**
+     * Establece el valor de la colección de opcionesServicio.
+     *
+     * @param servicio nuevo valor de la colección.
+     */
     public void setOpcionesServicio(List<OpcionServicioEntity> servicio){
         this.opcionesServicio=servicio;
     }

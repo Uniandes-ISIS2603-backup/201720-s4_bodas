@@ -23,15 +23,18 @@ import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity 
 public class TareaEntity extends BaseEntity implements Serializable {
+
     /**
      * Atributo privado aprobada.
      */
     private boolean aprobada;
+
     /**
      * Atributo privado dia.
      */
     @Temporal(TemporalType.DATE)
     private Date  dia;
+  
     /**
      * Atributo privado nombre.
      */
@@ -47,6 +50,7 @@ public class TareaEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToOne
     private UbicacionEntity ubicacion;
+
     /**
      * Atributo privado opcionServicio.
      */
@@ -54,6 +58,7 @@ public class TareaEntity extends BaseEntity implements Serializable {
     @ManyToOne
     private OpcionServicioEntity opcionServicio;
     
+
      /**
      * Obtiene el atributo aprobada
      *
@@ -72,12 +77,12 @@ public class TareaEntity extends BaseEntity implements Serializable {
         this.aprobada = aprobada;
     }
     
-     /**
-     * Obtiene el atributo dia
+    /**
+     * Obtiene el atributo dia.
      *
      * @return atributo dia.
      */
-      public Date getDia() {
+    public Date getDia() {
         return dia;
     }
      /**
@@ -88,9 +93,9 @@ public class TareaEntity extends BaseEntity implements Serializable {
     public void setDia(Date dia) {
         this.dia = dia;
     }
-    
-     /**
-     * Obtiene el atributo nombre
+
+    /**
+     * Obtiene el atributo nombre.
      *
      * @return atributo nombre.
      */

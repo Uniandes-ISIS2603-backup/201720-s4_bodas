@@ -86,7 +86,7 @@ public class BodaEntity extends BaseEntity implements Serializable {
     /**
      * Obtiene la colección de invitados.
      *
-     * @return colección tareas.
+     * @return colección invitados.
      */
     public List<InvitadoEntity> getInvitados() {
         return invitados;
