@@ -36,12 +36,11 @@ public class PagoEntity extends BaseEntity implements Serializable{
     private TarjetaCreditoEntity tarjetaCredito;
     
 
-     * Atributo privado opcionServicio.
-     */
+    
     @PodamExclude
     @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="opcionServicio_id")
-
+    private OpcionServicioEntity opcionServicio;
 
      /**
      * Obtiene el atributo montoTotal.
