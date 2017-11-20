@@ -11,8 +11,7 @@ delete from InvitadoEntity;
 delete from ProveedorEntity;
 delete from ServicioEntity;
 delete from UbicacionEntity;
-
-update BodaEntity set pareja_correoelec = null where id = 1;
+delete from ParejaEntity;
 delete from BodaEntity;
 
 Alter table calificacionentity alter column id Restart with 1;
@@ -31,7 +30,7 @@ insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values 
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (2,'Galen&Rose', '5/2/2017', 'Invierno', 'Ninguna', 'Ninguno','https://images.pexels.com/photos/246490/pexels-photo-246490.jpeg');
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (3,'Roberto&Martha', '10/9/2016', 'Primavera', 'Católica', 'Boda de Oro','https://images.pexels.com/photos/34761/old-people-couple-together-connected.jpg');
 ---Fin Pruebas BodaEntity
-update ParejaEntity Set boda_id =1 where correoElec = 'fmarsland0@artisteer.com';
+update BodaEntity Set pareja_correoelec = 'fmarsland0@artisteer.com' where id = 1;
  
 --Pruebas UbicacionEntity
 
