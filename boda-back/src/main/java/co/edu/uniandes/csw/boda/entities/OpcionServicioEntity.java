@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
@@ -57,6 +53,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private BodaEntity boda;
+    
     /**
      * Coleccion privada de calificacion.
      */
@@ -170,7 +167,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     /**
      * Obtiene el atributo proveedor.
      *
-     * @return atributo boda.
+     * @return atributo proveedor.
      */
     public ProveedorEntity getProveedor() {
         return proveedor;

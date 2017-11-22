@@ -52,6 +52,18 @@
                         controller: 'pagosUpdateCtrl'
                     }
                 }
+            }).state('pagosCreate', {
+                url: '/create/:pagoId',
+                parent: 'pagos',
+                param: {
+                    pagoId: null
+                },
+                 views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/pagos.update.html',
+                        controller: 'pagosNewCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);

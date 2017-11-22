@@ -55,7 +55,7 @@ public class InvitadoEntity extends BaseEntity implements Serializable {
     /**
      * Obtiene el atributo regalo.
      *
-     * @return atributo boda.
+     * @return atributo regalo.
      */
     public RegaloEntity getRegalo() {
         return regalo;

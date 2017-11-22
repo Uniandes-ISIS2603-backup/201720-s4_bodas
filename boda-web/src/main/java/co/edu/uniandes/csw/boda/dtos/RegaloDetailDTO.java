@@ -16,9 +16,9 @@ import java.util.List;
  */
 public class RegaloDetailDTO extends RegaloDTO{
 
+    public InvitadoDTO invitado;
     
     private List<UbicacionDTO> locations;
-    
 
     /**
      * Constructor por defecto
@@ -29,6 +29,9 @@ public class RegaloDetailDTO extends RegaloDTO{
 
     public RegaloDetailDTO(RegaloEntity entity) {
         super(entity);
+        if (entity.getInvitado() != null) {
+            this.invitado = new InvitadoDTO(entity.getInvitado());
+        }
         if (entity.getLocations() != null) {
             locations = new ArrayList<>();
             for (UbicacionEntity entityUbicacion : entity.getLocations()) {
@@ -41,6 +44,10 @@ public class RegaloDetailDTO extends RegaloDTO{
     @Override
     public RegaloEntity toEntity() {
         RegaloEntity regaloE = super.toEntity();
+        if (this.invitado != null) {
+
+            regaloE.setInvitado(invitado.toEntity());
+        }
         if (locations != null) {
             List<UbicacionEntity> locationsEntity = new ArrayList<>();
             for (UbicacionDTO dtoAuthor : locations) {
@@ -57,5 +64,13 @@ public class RegaloDetailDTO extends RegaloDTO{
 
     public void setLocations(List<UbicacionDTO> locations) {
         this.locations = locations;
+    }
+    
+    public InvitadoDTO getInvitado() {
+        return invitado;
+    }
+
+    public void setInvitado(InvitadoDTO invitado) {
+        this.invitado = invitado;
     }
 }
