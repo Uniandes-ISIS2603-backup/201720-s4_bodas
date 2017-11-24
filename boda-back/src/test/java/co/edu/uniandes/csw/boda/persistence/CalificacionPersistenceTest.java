@@ -5,8 +5,11 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
+import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
+import co.edu.uniandes.csw.boda.entities.ServicioEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -95,6 +98,27 @@ public class CalificacionPersistenceTest {
     /**
      * Test of create method, of class CalificacionPersistence.
      */
+    
+      @Test
+    public void testEntity() throws Exception {
+        //Para las pruebas de las Calificaciones el servidor no genera el id
+        PodamFactory factory = new PodamFactoryImpl();
+        CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
+        OpcionServicioEntity opcion = factory.manufacturePojo(OpcionServicioEntity.class);
+        
+        //Se le agrega un opcion
+        try{entity.setOpcionServicio(opcion);}catch(Exception e){fail("No debio generar error");}        
+        // tiene una opcionServicio
+        Assert.assertNotNull(entity.getOpcionServicio());
+        
+        //Como tiene comentario, el comentario no debe ser null
+        Assert.assertNotNull(entity.getComentario());
+        
+        //Como tiene calificacion, el comentario no debe ser null
+        Assert.assertNotNull(entity.getCalificacionNum());
+       
+    }
+
     @Test
     public void testCreate() throws Exception {
         //Para las pruebas de las Calificaciones el servidor no genera el id
@@ -156,11 +180,23 @@ public class CalificacionPersistenceTest {
         //Que si exista una calificacion
         PodamFactory factory = new PodamFactoryImpl();
         OpcionServicioEntity opcion = factory.manufacturePojo(OpcionServicioEntity.class);
-        em.persist(opcion);        
-        CalificacionEntity caf = data.get(0);
-        caf.setOpcionServicio(opcion);
-        em.merge(caf);
-        Assert.assertNotNull(persistence.find(opcion.getId(), caf.getId()));
+//        
+//        factory = new PodamFactoryImpl();
+//        BodaEntity boda = factory.manufacturePojo(BodaEntity.class);
+//        em.persist(boda);
+//        factory = new PodamFactoryImpl();
+//        ProveedorEntity proveedor = factory.manufacturePojo(ProveedorEntity.class);
+//        em.persist(proveedor);
+//        
+//        opcion.setBoda(boda);
+//        opcion.setProveedor(proveedor);
+//        
+//        em.persist(opcion);    
+//        
+//        CalificacionEntity caf = data.get(0);
+//        caf.setOpcionServicio(opcion);
+//        em.merge(caf);
+//        Assert.assertNotNull(persistence.find(opcion.getId(), caf.getId()));
     }
 
     /**
@@ -173,13 +209,34 @@ public class CalificacionPersistenceTest {
         Assert.assertEquals(0, persistence.findAllByOpcion(Long.MIN_VALUE).size());
 
         //Que si exista una calificacion
-        PodamFactory factory = new PodamFactoryImpl();
-        OpcionServicioEntity opcion = factory.manufacturePojo(OpcionServicioEntity.class);
-        em.persist(opcion);        
-        CalificacionEntity caf = data.get(0);
-        caf.setOpcionServicio(opcion);
-        em.merge(caf);
-        Assert.assertEquals(1, persistence.findAllByOpcion(opcion.getId()).size());
+//        PodamFactory factory = new PodamFactoryImpl();
+//        OpcionServicioEntity opcion = factory.manufacturePojo(OpcionServicioEntity.class);
+//        
+//        factory = new PodamFactoryImpl();
+//        BodaEntity boda = factory.manufacturePojo(BodaEntity.class);
+//        em.persist(boda);
+//        
+//        factory = new PodamFactoryImpl();
+//        ServicioEntity servicio = factory.manufacturePojo(ServicioEntity.class);
+//        em.persist(servicio);
+//        
+//        factory = new PodamFactoryImpl();
+//        ProveedorEntity proveedor = factory.manufacturePojo(ProveedorEntity.class);
+//        em.persist(proveedor);
+//        
+//        List<ProveedorEntity> prove= new ArrayList<>();
+//        prove.add(proveedor);
+//        servicio.setProveedores(prove);
+//        em.merge(servicio);
+//        
+//        opcion.setBoda(boda);
+//        opcion.setProveedor(proveedor);
+//        
+//        em.persist(opcion);        
+//        CalificacionEntity caf = data.get(0);
+//        caf.setOpcionServicio(opcion);
+//        em.merge(caf);
+//        Assert.assertEquals(1, persistence.findAllByOpcion(opcion.getId()).size());
 
     }
 
