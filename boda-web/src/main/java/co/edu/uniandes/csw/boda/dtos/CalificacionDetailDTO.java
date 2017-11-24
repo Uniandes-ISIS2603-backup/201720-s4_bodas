@@ -12,12 +12,22 @@ import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
  * @author nf.ortiz
  */
 public class CalificacionDetailDTO extends CalificacionDTO {
-
+    
+    
+    
     public CalificacionDetailDTO() {
-        //Constructor por defecto
+        super();
     }
-
+    
+  
     public CalificacionDetailDTO(CalificacionEntity calificacion) {
         super(calificacion);
     } 
+     @Override
+    public CalificacionEntity toEntity() {
+        CalificacionEntity m = super.toEntity();
+       
+        return m; //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

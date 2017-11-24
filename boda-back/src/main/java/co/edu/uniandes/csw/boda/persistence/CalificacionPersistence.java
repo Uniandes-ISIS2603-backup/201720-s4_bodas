@@ -85,8 +85,8 @@ public class CalificacionPersistence {
         q.setParameter("opcionId", opcionId);
         q.setParameter("calificacionId", id);
         List<CalificacionEntity> results = q.getResultList();
-        CalificacionEntity calificacion = null;
-        if (results == null||results.isEmpty()) {
+        CalificacionEntity calificacion;
+        if (results.isEmpty()) {
             calificacion = null;
         }else {
             calificacion = results.get(0);
