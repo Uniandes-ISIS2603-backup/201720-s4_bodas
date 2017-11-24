@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.PagoEntity;
+import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -121,7 +123,37 @@ public class TarjetaCreditoPersistenceTest {
     @After
     public void tearDown() {
     }
-
+    
+    /**
+     * Test of create method, of class TarjetaCreditoPersistence.
+     */
+    @Test
+    public void testEntity() {
+        PodamFactory factory = new PodamFactoryImpl();
+        TarjetaCreditoEntity newEntity = factory.manufacturePojo(TarjetaCreditoEntity.class);
+        
+        //Prueba el metodo getFechaVen() 
+        Assert.assertNotNull("Contiene una fecha asignada", newEntity.getFechaVen());
+        
+        //Prueba el metodo getPagos()
+        Assert.assertNull("No Contiene una lista de pagos asignada", newEntity.getPagos());
+        
+        //Prueba el metodo setPagos()
+        factory = new PodamFactoryImpl();
+        List<PagoEntity>pagos = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            pagos.add(factory.manufacturePojo(PagoEntity.class));
+        }
+        try{newEntity.setPagos(pagos);}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+        //Prueba el metodo getPareja()
+        Assert.assertNull("No Contiene una pareja asignada", newEntity.getPareja()); 
+        
+        //Prueba el metodo setPareja()
+        factory = new PodamFactoryImpl();
+         try{newEntity.setPareja(factory.manufacturePojo(ParejaEntity.class));}catch(Exception e){Assert.fail("No debio generar error");}
+    }
+    
     /**
      * Test of create method, of class TarjetaCreditoPersistence.
      */
