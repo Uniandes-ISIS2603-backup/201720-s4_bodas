@@ -36,3 +36,15 @@
             $qProvider.errorOnUnhandledRejections(false);
         }]);
 })(window.angular);
+
+jQuery(document).on('ready', function ($) {
+    "use strict";
+
+    /*----------------------------
+        LOADING
+    ------------------------------*/
+$(window).load(function () {
+    $(".loader").fadeOut("slow");
+});
+
+}(jQuery));
