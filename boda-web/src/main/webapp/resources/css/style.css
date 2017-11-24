@@ -40,3 +40,33 @@ h1{
  box-sizing: border-box;
  transition: all 500ms ease;
 }
+
+
+
+#iconos{
+     vertical-align: text-bottom; 
+     width:40px;
+     height:40px;
+}
+
+#invit{
+     vertical-align: text-bottom; 
+     width:50px;
+     height:50px;
+}
+
+
+
+#navegador ul{
+   list-style-type: none;
+   text-align: center;
+}
+#navegador li{
+   display: inline;
+   text-align: center;
+   margin: 0 10px 0 0;
+}
+#navegador li a {
+   padding: 2px 7px 2px 7px;
+   text-decoration: none;
+}
