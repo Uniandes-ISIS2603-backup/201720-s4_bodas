@@ -86,11 +86,9 @@ public class CalificacionPersistence {
         q.setParameter("calificacionId", id);
         List<CalificacionEntity> results = q.getResultList();
         CalificacionEntity calificacion = null;
-        if (results == null) {
+        if (results == null||results.isEmpty()) {
             calificacion = null;
-        } else if (results.isEmpty()) {
-            calificacion = null;
-        } else if (results.size() >= 1) {
+        }else {
             calificacion = results.get(0);
         }
 
@@ -116,11 +114,9 @@ public class CalificacionPersistence {
         q.setParameter("calificacionId", id);
         List<CalificacionEntity> results = q.getResultList();
         CalificacionEntity calificacion = null;
-        if (results == null) {
+        if (results == null||results.isEmpty()) {
             calificacion = null;
-        } else if (results.isEmpty()) {
-            calificacion = null;
-        } else if (results.size() >= 1) {
+        }else  {
             calificacion = results.get(0);
         }
 

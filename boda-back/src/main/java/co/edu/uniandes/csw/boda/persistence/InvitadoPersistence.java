@@ -51,11 +51,9 @@ public class InvitadoPersistence {
         query = query.setParameter("documento", documento);
         List<InvitadoEntity> results = query.getResultList();
         InvitadoEntity invitado = null;
-        if (results == null) {
+        if (results == null||results.isEmpty()) {
             invitado = null;
-        } else if (results.isEmpty()) {
-            invitado = null;
-        } else if (results.size() >= 1) {
+        } else{
             invitado = results.get(0);
         }
         return invitado;

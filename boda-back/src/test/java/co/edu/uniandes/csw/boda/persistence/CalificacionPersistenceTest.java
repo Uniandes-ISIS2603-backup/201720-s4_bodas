@@ -46,6 +46,8 @@ public class CalificacionPersistenceTest {
     @Inject
     private CalificacionPersistence persistence;
     
+
+    
     @PersistenceContext
     private EntityManager em;
     

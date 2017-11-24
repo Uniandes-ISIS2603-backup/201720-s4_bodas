@@ -153,9 +153,14 @@ public class InvitadoPersistenceTest {
     
     @Test
     public void testDocumento(){
+        //Caso: el documento Existe
         InvitadoEntity entity = data.get(0);
         InvitadoEntity newEntity = persistence.findByDocumento(entity.getDocumento());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getDocumento(), newEntity.getDocumento());
+        
+        //Caso: el documento NO Existe
+        newEntity = persistence.findByDocumento(9951L);
+        Assert.assertNull(newEntity);
     }
 }
