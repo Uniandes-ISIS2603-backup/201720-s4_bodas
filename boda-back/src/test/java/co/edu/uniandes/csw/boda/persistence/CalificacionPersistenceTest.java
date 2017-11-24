@@ -152,6 +152,15 @@ public class CalificacionPersistenceTest {
     public void testFind() throws Exception {
         //Se supone que ningun opcion Servicio tiene Calificacion
         Assert.assertNull(persistence.find(Long.MIN_VALUE, data.get(0).getId()));
+        
+        //Que si exista una calificacion
+        PodamFactory factory = new PodamFactoryImpl();
+        OpcionServicioEntity opcion = factory.manufacturePojo(OpcionServicioEntity.class);
+        em.persist(opcion);        
+        CalificacionEntity caf = data.get(0);
+        caf.setOpcionServicio(opcion);
+        em.merge(caf);
+        Assert.assertNotNull(persistence.find(opcion.getId(), caf.getId()));
     }
 
     /**

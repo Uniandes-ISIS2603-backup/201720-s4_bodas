@@ -78,7 +78,7 @@ public class TarjetaCreditoPersistence {
         q = q.setParameter("numDeSeg", numDeSeg);
         List<TarjetaCreditoEntity> results = q.getResultList();
         TarjetaCreditoEntity tarjeta;
-        if (results == null||results.isEmpty()) {
+        if (results.isEmpty()) {
             tarjeta = null;
         } else {
             tarjeta = results.get(0);
