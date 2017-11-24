@@ -16,6 +16,7 @@ delete from ParejaEntity;
 
 
 Alter table calificacionentity alter column id Restart with 1;
+Alter table calificacionentity alter column id Restart with 1;
 
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('fmarsland0@artisteer.com', 'Aaren', 'Ferrell', 86, 1, 'cGUDt68M', 'Agavaceae', '46 Gulseth Place');
 insert into ParejaEntity (correoElec, nombreInd1, nombreInd2, telefono, pago, contrasenia, nombreAbreviado, direccion) values ('bsimcoe1@dion.ne.jp', 'Elbertina', 'Baxy', 21493925, 0, '66tNlmFd', 'Asteraceae', '936 Mendota Plaza');
@@ -31,7 +32,10 @@ insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values 
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (2,'Galen&Rose', '5/2/2017', 'Invierno', 'Ninguna', 'Ninguno','https://images.pexels.com/photos/246490/pexels-photo-246490.jpeg');
 insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values (3,'Roberto&Martha', '10/9/2016', 'Primavera', 'Católica', 'Boda de Oro','https://images.pexels.com/photos/34761/old-people-couple-together-connected.jpg');
 ---Fin Pruebas BodaEntity
- 
+
+update ParejaEntity Set boda_id =1 where correoElec = 'fmarsland0@artisteer.com';
+
+
 --Pruebas UbicacionEntity
 
 insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (1, 'Automotive', 50.1681931, 14.0545902, 24356, '88734 Marcy Avenue');
@@ -64,10 +68,19 @@ insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, b
 
 
 --Pruebas ProveedorEntity
-insert into  ProveedorEntity (id, name, especialidad) values (100, 'Babbleblab', 'Ingamar');
-insert into  ProveedorEntity (id, name, especialidad) values (200, 'Demizz', 'Hillary');
-insert into  ProveedorEntity (id, name, especialidad) values (300, 'Topiczoom', 'Langston');
-insert into  ProveedorEntity (id, name, especialidad) values (400, 'Yodel', 'Townsend');
+
+insert into  ProveedorEntity (id, name, especialidad) values (100,'Andres Carne de Res', 'Comida Latina');
+insert into  ProveedorEntity (id, name, especialidad) values (200,'Rosas y Claveles', 'Arreglos de flores');
+insert into  ProveedorEntity (id, name, especialidad) values (300,'WOK', 'Comida Asiática');
+insert into  ProveedorEntity (id, name, especialidad) values (400,'DJ InTheHouse', 'Música para cualquier tipo de evento');
+insert into  ProveedorEntity (id, name, especialidad) values (500,'MasLindo', 'Música para cualquier tipo de evento');
+insert into  ProveedorEntity (id, name, especialidad) values (600,'Casa de Eventos', 'Atender y Decorar Eventos');
+insert into  ProveedorEntity (id, name, especialidad) values (700,'Primi', 'Comida Italiana');
+insert into  ProveedorEntity (id, name, especialidad) values (800,'Harry Sasson', 'Comida de mar y mediterráneo');
+insert into  ProveedorEntity (id, name, especialidad) values (900,'MacroEventos', 'Atender eventos y Musica');
+insert into  ProveedorEntity (id, name, especialidad) values (1000,'Iglesia Minuto de Dios', 'Boda Católica');
+insert into  ProveedorEntity (id, name, especialidad) values (1100,'Nicolukas', 'Pastelería');
+insert into  ProveedorEntity (id, name, especialidad) values (1200,'Alexis Vargas', 'Alquiler y compra de vestidos');
 
 --Pruebas ServicioEntity
 insert into ServicioEntity (id, name, descripcion, image) values (1, 'Vestidos', 'Te ofrecemos una gran variedad de opciones y proveedores para que encuentres tu vestido ideal', 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg');

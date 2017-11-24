@@ -55,11 +55,9 @@ public class RegaloPersistence {
         query = query.setParameter("name", name);
         List<RegaloEntity> results = query.getResultList();
         RegaloEntity regalo = null;
-        if (results == null) {
+        if (results.isEmpty()) {
             regalo = null;
-        } else if (results.isEmpty()) {
-            regalo = null;
-        } else if (results.size() >= 1) {
+        } else{
             regalo = results.get(0);
         }
 

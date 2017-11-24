@@ -29,7 +29,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class RegaloPersistenceTest {
-    
+
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -38,13 +38,13 @@ public class RegaloPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    
+
     public RegaloPersistenceTest() {
     }
-    
+
     /**
-     * Inyección de la dependencia a la clase RegaloPersistence cuyos métodos
-     * se van a probar.
+     * Inyección de la dependencia a la clase RegaloPersistence cuyos métodos se
+     * van a probar.
      */
     @Inject
     private RegaloPersistence persistence;
@@ -62,7 +62,7 @@ public class RegaloPersistenceTest {
      */
     @Inject
     UserTransaction utx;
-    
+
     @Before
     public void setUp() {
         try {
@@ -80,12 +80,12 @@ public class RegaloPersistenceTest {
             }
         }
     }
-    
+
     private void clearData() {
         em.createQuery("delete from RegaloEntity").executeUpdate();
     }
 
-     /**
+    /**
      *
      */
     private List<RegaloEntity> data = new ArrayList<RegaloEntity>();
@@ -104,7 +104,7 @@ public class RegaloPersistenceTest {
      * Test of find method, of class RegaloPersistence.
      */
     @Test
-    public void testFind(){
+    public void testFind() {
         RegaloEntity entity = data.get(0);
         RegaloEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
@@ -115,7 +115,7 @@ public class RegaloPersistenceTest {
      * Test of create method, of class RegaloPersistence.
      */
     @Test
-    public void testCreate(){
+    public void testCreate() {
         PodamFactory factory = new PodamFactoryImpl();
         RegaloEntity newEntity = factory.manufacturePojo(RegaloEntity.class);
         RegaloEntity result = persistence.create(newEntity);
@@ -129,7 +129,7 @@ public class RegaloPersistenceTest {
      * Test of update method, of class RegaloPersistence.
      */
     @Test
-    public void testUpdate(){
+    public void testUpdate() {
         RegaloEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         RegaloEntity newEntity = factory.manufacturePojo(RegaloEntity.class);
@@ -147,18 +147,24 @@ public class RegaloPersistenceTest {
      * Test of Delete method, of class RegaloPersistence.
      */
     @Test
-    public void testDelete(){
+    public void testDelete() {
         RegaloEntity entity = data.get(0);
         persistence.delete(entity.getId());
         RegaloEntity deleted = em.find(RegaloEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
-    
+
     @Test
-    public void getBodaByNameTest() {
-    RegaloEntity entity = data.get(0);
-    RegaloEntity newEntity = persistence.findByName(entity.getName());
-    Assert.assertNotNull(newEntity);
-    Assert.assertEquals(entity.getName(), newEntity.getName());
-}
+    public void getRegaloByNameTest() {
+        //Caso: El regalo existe
+        RegaloEntity entity = data.get(0);
+        RegaloEntity newEntity = persistence.findByName(entity.getName());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+
+        //Caso: El regalo NO existe
+        newEntity = persistence.findByName("Un_Regalo_No_Existente");
+        Assert.assertNull("El regalo no existe.",newEntity);
+
+    }
 }

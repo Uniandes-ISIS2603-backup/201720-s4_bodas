@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
-
+import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 import co.edu.uniandes.csw.boda.entities.ServicioEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +35,10 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class ServicioPersistenceTest {
-    
+
     public ServicioPersistenceTest() {
     }
-    
+
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
@@ -48,14 +48,12 @@ public class ServicioPersistenceTest {
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-
-     /**
+     */
+    /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de Boda, el descriptor de la
-     * base de datos y el archivo beans.xml para resolver la inyección de
-     * dependencias.
+     * embebido. El jar contiene las clases de Boda, el descriptor de la base de
+     * datos y el archivo beans.xml para resolver la inyección de dependencias.
      */
     @Deployment
     public static JavaArchive createDeployment() {
@@ -65,10 +63,10 @@ public class ServicioPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    
+
     /**
-     * Inyección de la dependencia a la clase BodaPersistence cuyos métodos
-     * se van a probar.
+     * Inyección de la dependencia a la clase BodaPersistence cuyos métodos se
+     * van a probar.
      */
     @Inject
     private ServicioPersistence persistence;
@@ -86,9 +84,9 @@ public class ServicioPersistenceTest {
      */
     @Inject
     UserTransaction utx;
-    
-     @Before
-    public void setUp(){
+
+    @Before
+    public void setUp() {
         try {
             utx.begin();
             em.joinTransaction();
@@ -104,16 +102,16 @@ public class ServicioPersistenceTest {
             }
         }
     }
-    
+
     private void clearData() {
         em.createQuery("delete from ServicioEntity").executeUpdate();
     }
 
-     /**
+    /**
      * Arreglo que contiene el conjunto de datos de prueba
      */
     private List<ServicioEntity> data = new ArrayList<ServicioEntity>();
-    
+
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
@@ -123,72 +121,104 @@ public class ServicioPersistenceTest {
             data.add(entity);
         }
     }
+    
+     @Test
+    public void testEntity() {
+        PodamFactory factory = new PodamFactoryImpl();
+        ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        
+        //Prueba el metodo getDescripcion()
+        Assert.assertNotNull("Contiene una fecha asignada", newEntity.getDescripcion());
+        
+        //Prueba el metodo getProveedores()
+        Assert.assertEquals("No Contiene una lista de proveedores asignada", 0,newEntity.getProveedores().size());
+        
+        //Prueba el metodo setProveedores()
+        factory = new PodamFactoryImpl();
+        List<ProveedorEntity>proveedores = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            proveedores.add(factory.manufacturePojo(ProveedorEntity.class));
+        }
+        try{newEntity.setProveedores(proveedores);}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+        //Prueba el metodo getPareja()
+        Assert.assertNotNull(" Contiene una imagen asignada", newEntity. getImage());       
+    }
 
     @Test
     public void createServicioEntityTest() {
-     PodamFactory factory = new PodamFactoryImpl();
-     ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
-     ServicioEntity result = persistence.create(newEntity);
+        PodamFactory factory = new PodamFactoryImpl();
+        ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        ServicioEntity result = persistence.create(newEntity);
 
-     Assert.assertNotNull(result);
-     ServicioEntity entity = em.find(ServicioEntity.class, result.getId());
-     Assert.assertNotNull(entity);
-     Assert.assertEquals(newEntity.getName(), entity.getName());
+        Assert.assertNotNull(result);
+        ServicioEntity entity = em.find(ServicioEntity.class, result.getId());
+        Assert.assertNotNull(entity);
+        Assert.assertEquals(newEntity.getName(), entity.getName());
     }
-    
+
     @Test
-public void getServiciosTest() {
-    List<ServicioEntity> list = persistence.findAll();
-    Assert.assertEquals(data.size(), list.size());
-    for (ServicioEntity ent : list) {
-        boolean found = false;
-        for (ServicioEntity entity : data) {
-            if (ent.getId().equals(entity.getId())) {
-                found = true;
+    public void getServiciosTest() {
+        List<ServicioEntity> list = persistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (ServicioEntity ent : list) {
+            boolean found = false;
+            for (ServicioEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
             }
+            Assert.assertTrue(found);
         }
-        Assert.assertTrue(found);
     }
-}
-     @Test
+
+    @Test
     public void getServicioTest() {
-    ServicioEntity entity = data.get(0);
-    ServicioEntity newEntity = persistence.find(entity.getId());
-    Assert.assertNotNull(newEntity);
-    Assert.assertEquals(entity.getName(), newEntity.getName());
+        //Caso: El servicio existe
+        ServicioEntity entity = data.get(0);
+        ServicioEntity newEntity = persistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+
+        //Caso: El servicio No existe
+        newEntity = persistence.find(1000L);
+        Assert.assertNull("El servicio no existe, debe retornar null",newEntity);
+        
     }
-    
+
     @Test
     public void getServicioByNameTest() {
-    ServicioEntity entity = data.get(0);
-    ServicioEntity newEntity = persistence.findByName(entity.getName());
-    Assert.assertNotNull(newEntity);
-    Assert.assertEquals(entity.getName(), newEntity.getName());
-}
+        ServicioEntity entity = data.get(0);
+        ServicioEntity newEntity = persistence.findByName(entity.getName());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+        
+        //Caso: El servicio No existe
+        newEntity = persistence.findByName("UnServicioSantaFe");
+        Assert.assertNull("El servicio no existe, debe retornar null",newEntity);
+    }
 
     @Test
     public void updateServicioTest() {
-    ServicioEntity entity = data.get(0);
-    PodamFactory factory = new PodamFactoryImpl();
-    ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        ServicioEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
 
-    newEntity.setId(entity.getId());
+        newEntity.setId(entity.getId());
 
-    persistence.update(newEntity);
+        persistence.update(newEntity);
 
-    ServicioEntity resp = em.find(ServicioEntity.class, entity.getId());
+        ServicioEntity resp = em.find(ServicioEntity.class, entity.getId());
 
-    Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 
     @Test
     public void deleteServicioTest() {
-    ServicioEntity entity = data.get(0);
-    persistence.delete(entity.getId());
-    ServicioEntity deleted = em.find(ServicioEntity.class, entity.getId());
-    assertNull(deleted);
+        ServicioEntity entity = data.get(0);
+        persistence.delete(entity.getId());
+        ServicioEntity deleted = em.find(ServicioEntity.class, entity.getId());
+        assertNull(deleted);
     }
 
 }
-
-

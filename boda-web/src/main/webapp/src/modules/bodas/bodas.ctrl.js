@@ -1,3 +1,16 @@
+
+jQuery(document).on('ready', function ($) {
+    "use strict";
+
+    /*----------------------------
+        LOADING
+    ------------------------------*/
+$(window).load(function () {
+    $(".loader").fadeOut("slow");
+});
+
+}(jQuery));
+
 (function (ng) {
     var mod = ng.module("bodasModule");
     mod.constant("bodasContext", "api/bodas");

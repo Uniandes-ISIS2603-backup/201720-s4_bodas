@@ -1,9 +1,13 @@
-<link rel="stylesheet" href="resources/css/bodasDetail.css">
+<link rel="stylesheet" href="resources/css/style.css">
 <div class="panel panel-default">
     <div id="headPanel" class="panel-heading">
-        <h3 id="nombreBoda"  class="panel-title"> 
-            <a id="{{$index}}-name">{{currentBoda.name}}</a>
-        </h3></div>
+            <h1>{{currentBoda.name}}</h1>
+            <ul id="navegador">
+                <li><a ui-sref="regalosList({bodaId: currentBoda.id})"><img id="iconos" src="resources/icons/regalos.PNG"> Regalos</a></li>
+                <li><a ui-sref="invitadosList({bodaId: currentBoda.id})"><img id="invit" src="resources/icons/invitados.PNG">Invitados</a></li>
+                <li><a ui-sref="opcionesList({bodaId: currentBoda.id})"><img id="iconos" src="resources/icons/servicios.PNG">Servicios contratados</a></li>
+            </ul>
+        </div>
        <div class="panel-body">
          <table class="table "> 
 
@@ -33,11 +37,7 @@
                 <dd>{{currentBoda.pareja}}</dd>
                 
             </dl>
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a ui-sref="regalosList({bodaId: currentBoda.id})">Regalos</a></li>
-                <li role="presentation" class="active"> <a ui-sref="invitadosList({bodaId: currentBoda.id})">Invitados</a></li>
-                <li role="presentation" class="active">  <a ui-sref="opcionesList({bodaId: currentBoda.id})">Servicios</a></li>
-            </ul>
+
         </div>
     </div>
   </tbody>  
