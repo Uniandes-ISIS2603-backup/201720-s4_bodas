@@ -22,10 +22,11 @@
                 <dt>Descripcion</dt>
                 <dd>{{currentServicio.descripcion}}</dd>
                 
-                <dt>Proveedores</dt> 
+                <dt>Proveedores: </dt> 
                 <dl>
+                    
             <tr ng-repeat="proveedor in currentServicio.proveedores">
-                <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId: ubicacion.id})">{{ proveedor.name}}</a></td>
+                <td id="{{$index}}-name"><a ui-sref="proveedorDetail({proveedorId: proveedor.id})">{{ proveedor.name}}</a></td>
                 <td id="{{$index}}-especialidad">{{ proveedor.especialidad}}</td>
                 <td id="{{$index}}-actions">
                     <a class="btn btn-danger btn-sm" ui-sref="ubicacionDelete({ubicacionId: ubicacion.id})"><span class="glyphicon glyphicon-trash"></span></a>   
