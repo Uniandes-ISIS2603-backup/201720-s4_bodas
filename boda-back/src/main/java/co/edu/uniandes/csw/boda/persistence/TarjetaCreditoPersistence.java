@@ -77,7 +77,7 @@ public class TarjetaCreditoPersistence {
         TypedQuery<TarjetaCreditoEntity> q = em.createQuery("select u from TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
         q = q.setParameter("numDeSeg", numDeSeg);
         List<TarjetaCreditoEntity> results = q.getResultList();
-        TarjetaCreditoEntity tarjeta = null;
+        TarjetaCreditoEntity tarjeta;
         if (results == null||results.isEmpty()) {
             tarjeta = null;
         } else {

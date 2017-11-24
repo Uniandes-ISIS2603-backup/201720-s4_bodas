@@ -106,14 +106,13 @@ public class CalificacionPersistence {
        LOGGER.log(Level.INFO, "Consultando calificacion por id de servicio ", opcionId);
         TypedQuery<CalificacionEntity> query = em.createQuery("Select y From CalificacionEntity y where y.opcionServicio.id = :opcionId", CalificacionEntity.class);
         query = query.setParameter("opcionId", opcionId);
-        List<CalificacionEntity> results = query.getResultList();
-       return results;
+       return query.getResultList();
     }
        public CalificacionEntity findById(Long id) {
        TypedQuery<CalificacionEntity> q = em.createQuery("select z from CalificacionEntity z where z.id = :calificacionId", CalificacionEntity.class);
         q.setParameter("calificacionId", id);
         List<CalificacionEntity> results = q.getResultList();
-        CalificacionEntity calificacion = null;
+        CalificacionEntity calificacion;
         if (results == null||results.isEmpty()) {
             calificacion = null;
         }else  {
