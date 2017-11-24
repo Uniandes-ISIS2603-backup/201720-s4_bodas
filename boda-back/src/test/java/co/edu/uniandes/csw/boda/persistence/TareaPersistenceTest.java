@@ -87,6 +87,7 @@ public void createTareaPersistenceTest() {
     Assert.assertNotNull(entity);
     Assert.assertEquals(newEntity.getName(), entity.getName());
 }
+/*
 @Test
 public void getTareasTest() {
     List<TareaEntity> list = persistence.findAll();
@@ -101,6 +102,18 @@ public void getTareasTest() {
         Assert.assertTrue(found);
     }
 }
+*/
+
+ /**
+     * Test of findAllByOpcion method, of class CalificacionPersistence.
+     * busca todas las calificaciones de un servicio
+     */
+    @Test
+    public void testFindAllByOpcion() throws Exception {
+          //Se supone que ningun opcion Servicio tiene Calificacion
+        Assert.assertEquals(0,persistence.findAllByOpcion(Long.MIN_VALUE).size());
+    }
+
 @Test
 public void getTareaTest() {
     TareaEntity entity = data.get(0);

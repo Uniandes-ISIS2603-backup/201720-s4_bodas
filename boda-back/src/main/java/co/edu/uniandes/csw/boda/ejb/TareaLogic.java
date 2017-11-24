@@ -60,7 +60,9 @@ public class TareaLogic {
         if (opcion.getTareas().isEmpty()) {
             throw new BusinessLogicException("La opcion que consulta aún no tiene tareas");
         }
-        return opcion.getTareas();
+        List<TareaEntity> lista=persistence.findAllByOpcion(opcionId);
+        System.out.println("Tareas em tareaLogiccccc:   "+lista.size() );
+        return lista;
     }
 
       /**
@@ -120,4 +122,5 @@ public class TareaLogic {
         }
         return persistence.find(id);
     }
+    
 }
