@@ -88,12 +88,17 @@ public class TareaLogic {
      * @return TareaEntity
      * @throws co.edu.uniandes.csw.boda.exceptions.BusinessLogicException
      */
-    public TareaEntity updateTarea(Long opcionId, TareaEntity entity) throws BusinessLogicException {
+public TareaEntity updateTarea(Long opcionId, TareaEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de actualizar tarea");
         OpcionServicioEntity opcion = opcionLogic.findOpcionServicioById(opcionId);
         entity.setOpcionServicio(opcion);
+        if(opcion.getBoda().getFecha().before(entity.getDia()))
+        {
+            throw new BusinessLogicException("La fecha de la tarea no puede ser posterior a la de la boda"); 
+        }
         return persistence.update(entity);
     }
+
 
     /**
      * Borra una tarea con el id Dado
