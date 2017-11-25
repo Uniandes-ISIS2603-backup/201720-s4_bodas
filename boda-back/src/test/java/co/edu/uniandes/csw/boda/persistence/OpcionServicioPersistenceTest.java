@@ -107,7 +107,7 @@ public class OpcionServicioPersistenceTest {
         try{newEntity.setCalificacion(calificaciones);}catch(Exception e){Assert.fail("No debio generar error");}
         
          //Prueba el metodo getTareas()
-        Assert.assertNull("No Contiene tareas asignadas", newEntity.getTareas());
+        Assert.assertNull("No Contiene tareas asignadas",newEntity.getTareas());
         
         //Prueba el metodo  setTareas()
         factory = new PodamFactoryImpl();
