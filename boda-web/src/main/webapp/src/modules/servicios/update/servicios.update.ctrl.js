@@ -15,7 +15,7 @@
                     $http.get(serviciosContext + '/' + idServicio).then(function (response) {
                         var servicio = response.data;
                         $scope.servicioName = servicio.name;
-                        $scope.servicioDescripcion = servicio.description;
+                        $scope.servicioDescripcion = servicio.descripcion;
                         
                     });
                     
