@@ -88,14 +88,14 @@ public class OpcionServicioResource {
     @Path("{id: \\d+}")
     public OpcionServicioDetailDTO getOpcionServicio(@PathParam("id") Long id) throws BusinessLogicException {
        OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(id);
-        
+        if(entity==null)
+       {
+           throw new  WebApplicationException("No existe una opcion con el id dado",404);
+       }
         
         OpcionServicioDetailDTO x = new OpcionServicioDetailDTO(entity);
-      
-                
         return  x;
     }
-
 
     /**
      * PUT 
@@ -168,12 +168,12 @@ public class OpcionServicioResource {
         return list;
     }
   @Path("{idOpcion: \\d+}/tareas")
-    public Class<OpcionServicioResource> getOpcionServicioResource(@PathParam("idOpcion") Long opcionId) throws BusinessLogicException {
+    public Class<TareaResource> getOpcionServicioResource(@PathParam("idOpcion") Long opcionId) throws BusinessLogicException {
         OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(opcionId);
         if (entity == null) {
             throw new WebApplicationException("El recurso /opciones/" + opcionId + "/tarea no existe.", 404);
         }
-        return OpcionServicioResource.class;
+        return TareaResource.class;
     }
 
     

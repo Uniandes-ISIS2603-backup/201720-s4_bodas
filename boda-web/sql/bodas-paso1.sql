@@ -73,18 +73,18 @@ insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, 
 
 --Pruebas ProveedorEntity
 
-insert into  ProveedorEntity (id, name, especialidad) values (100,'Andres Carne de Res', 'Comida Latina');
-insert into  ProveedorEntity (id, name, especialidad) values (200,'Rosas y Claveles', 'Arreglos de flores');
-insert into  ProveedorEntity (id, name, especialidad) values (300,'WOK', 'Comida Asiática');
-insert into  ProveedorEntity (id, name, especialidad) values (400,'DJ InTheHouse', 'Música para cualquier tipo de evento');
-insert into  ProveedorEntity (id, name, especialidad) values (500,'MasLindo', 'Música para cualquier tipo de evento');
-insert into  ProveedorEntity (id, name, especialidad) values (600,'Casa de Eventos', 'Atender y Decorar Eventos');
-insert into  ProveedorEntity (id, name, especialidad) values (700,'Primi', 'Comida Italiana');
-insert into  ProveedorEntity (id, name, especialidad) values (800,'Harry Sasson', 'Comida de mar y mediterráneo');
-insert into  ProveedorEntity (id, name, especialidad) values (900,'MacroEventos', 'Atender eventos y Musica');
-insert into  ProveedorEntity (id, name, especialidad) values (1000,'Iglesia Minuto de Dios', 'Boda Católica');
-insert into  ProveedorEntity (id, name, especialidad) values (1100,'Nicolukas', 'Pastelería');
-insert into  ProveedorEntity (id, name, especialidad) values (1200,'Alexis Vargas', 'Alquiler y compra de vestidos');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (100,'Andres Carne de Res', 'Comida Latina','https://images.pexels.com/photos/597422/pexels-photo-597422.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (200,'Rosas y Claveles', 'Arreglos de flores','https://images.pexels.com/photos/15239/flower-roses-red-roses-bloom.jpg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (300,'WOK', 'Comida Asiática','https://images.pexels.com/photos/357756/pexels-photo-357756.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (400,'DJ InTheHouse', 'Música para cualquier tipo de evento','https://images.pexels.com/photos/374703/pexels-photo-374703.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (500,'MasLindo', 'Música para cualquier tipo de evento','https://images.pexels.com/photos/332688/pexels-photo-332688.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (600,'Casa de Eventos', 'Atender y Decorar Eventos','https://images.pexels.com/photos/206673/pexels-photo-206673.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (700,'Primi', 'Comida Italiana','https://images.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (800,'Harry Sasson', 'Comida de mar y mediterráneo','https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (900,'MacroEventos', 'Atender eventos y Musica','https://images.pexels.com/photos/5156/people-eiffel-tower-lights-night.jpg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (1000,'Iglesia Minuto de Dios', 'Boda Católica','https://images.pexels.com/photos/161081/eucharist-body-of-christ-church-mass-161081.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (1100,'Nicolukas', 'Pastelería','https://images.pexels.com/photos/416534/pexels-photo-416534.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (1200,'Alexis Vargas', 'Alquiler y compra de vestidos','https://images.pexels.com/photos/313702/pexels-photo-313702.jpeg');
 
 --Pruebas ServicioEntity
 insert into ServicioEntity (id, name, descripcion, image) values (1, 'Vestidos', 'Te ofrecemos una gran variedad de opciones y proveedores para que encuentres tu vestido ideal', 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg');

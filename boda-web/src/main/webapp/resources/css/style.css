@@ -24,6 +24,32 @@ h2{
     color:#F48FB1;
 }
 
+.HC{
+    font-family: 'Pacifico', cursive;
+    font-size:20px;
+        text-align: center;
+}
+
+.HC33{
+    font-family: 'Pacifico', cursive;
+    font-size:20px;
+}
+
+.HC1{
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    color:#F48FB1;
+    font-size:70px;
+}
+.normal{
+    font-family: cursive;
+        text-align: center;
+}
+.fecha{
+    font-family: cursive;
+    text-align: center;
+    font-size:70px;
+}
 .loader {
 	position: fixed;
 	left: 0px;
@@ -46,21 +72,11 @@ h2{
  transition: all 500ms ease;
 }
 
-
-
 #iconos{
      vertical-align: text-bottom; 
      width:40px;
      height:40px;
 }
-
-#invit{
-     vertical-align: text-bottom; 
-     width:50px;
-     height:50px;
-}
-
-
 
 #navegador ul{
    list-style-type: none;
@@ -75,3 +91,14 @@ h2{
    padding: 2px 7px 2px 7px;
    text-decoration: none;
 }
+
+#lista ul{
+   list-style-type: none;
+   text-align: center;
+}
+#lista li{
+   display: inline;
+   text-align: center;
+   margin: 0 10px 0 0;
+}
+
