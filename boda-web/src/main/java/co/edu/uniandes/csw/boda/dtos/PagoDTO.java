@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.PagoEntity;
+import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,8 +22,8 @@ public class PagoDTO {
     private Double montoTotal;
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    private Long tarjetaNumero;
-    
+    private String correoPareja;
+    private TarjetaCreditoEntity tarjeta;
     /**
      * Constructor por defecto
      */
@@ -39,7 +40,8 @@ public class PagoDTO {
         this.montoTotal = pago.getMontoTotal();
         this.fecha = pago.getFecha();
         this.nombrePago = pago.getName();
-        this.tarjetaNumero = pago.getTarjetaCredito().getNumero();
+        this.correoPareja = pago.getCorreoPareja();
+        this.tarjeta = pago.getTarjetaCredito();
     }
 
      /**
@@ -98,19 +100,26 @@ public class PagoDTO {
     }
 
     /**
-     * @return numero de la tarjeta de credito del pago
+     * @return pareja que hara del pago
      */
-    public Long getTarjetaNumero() {
-        return tarjetaNumero;
+    public String getCorreoPareja() {
+        return correoPareja;
     }
 
     /**
-    * @param tarjetaNumero el nuevo numero de la tarjeta de credito del pago 
+    * @param correoPareja la nueva pareja que hara pago
     */
-    public void setTarjetaNumero(Long tarjetaNumero) {
-        this.tarjetaNumero = tarjetaNumero;
+    public void setCorreoPareja(String correoPareja) {
+        this.correoPareja = correoPareja;
     }
-    
+
+    public TarjetaCreditoEntity getTarjeta() {
+        return tarjeta;
+    }
+
+    public void setTarjeta(TarjetaCreditoEntity tarjeta) {
+        this.tarjeta = tarjeta;
+    }
     
      /**
      * Convertir DTO a Entity
@@ -122,6 +131,8 @@ public class PagoDTO {
         entity.setMontoTotal(this.montoTotal);
         entity.setFecha(this.fecha);
         entity.setName(this.nombrePago);
+        entity.setCorreoPareja(this.correoPareja);
+        entity.setTarjetaCredito(tarjeta);
         return entity;
     }
 }

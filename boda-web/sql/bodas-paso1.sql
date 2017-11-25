@@ -152,15 +152,11 @@ insert into TareaEntity(opcionservicio_id,id,aprobada, dia,nombre, ubicacion_id,
 
 ---Pruebas TarjetaCreditoEntity
 delete from TarjetaCreditoEntity;
-insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (108, 'Banca Mia', 4445556667778889, 777, '3/8/2022','fmarsland0@artisteer.com');
-insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (2, 'Banca Tuya', 7894561230789456, 456, '6/29/2017', 'fmarsland0@artisteer.com');
-insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (3, 'Banca Nuestra', 7777771111115556, 123, '1/12/2019', 'bsimcoe1@dion.ne.jp');
+insert into TarjetaCreditoEntity (numero, name, numDeSeg, fechaVen, pareja_correoElec) values (4445556667778889, 'Banca Mia', 777, '3/8/2022','fmarsland0@artisteer.com');
+insert into TarjetaCreditoEntity (numero, name, numDeSeg, fechaVen, pareja_correoElec) values (7894561230789456, 'Banca Tuya', 456, '6/29/2017', 'fmarsland0@artisteer.com');
+insert into TarjetaCreditoEntity (numero, name, numDeSeg, fechaVen, pareja_correoElec) values (7777771111115556, 'Banca Nuestra', 123, '1/12/2019', 'bsimcoe1@dion.ne.jp');
 ---Fin Pruebas TarjetaCreditoEntity
 
 ---Pruebas PagoEntity
 
-insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (1, 'Pago por mesas', 150000, '4/4/2017',108);
-insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (2, 'Pago por transporte', 200000, '6/29/2017', 108);
-insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (3, 'Pago por banquete', 30000, '3/14/2017', 2);
-insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (4, 'Pago por sillas', 70000, '1/12/2017', 3);
 ---Fin Pruebas PagoEntity

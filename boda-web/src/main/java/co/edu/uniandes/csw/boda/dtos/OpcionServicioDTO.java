@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.boda.dtos;
-
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 
 /**
@@ -27,8 +26,7 @@ public class OpcionServicioDTO  {
   private Long  costo;
   private String diasDisponibles;  
   private String image;
-  
-    
+  private String correoPareja;
     
     /**
      * Constructor por defecto
@@ -88,6 +86,15 @@ public class OpcionServicioDTO  {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getCorreoPareja() {
+        return correoPareja;
+    }
+
+    public void setCorreoPareja(String correoPareja) {
+        this.correoPareja = correoPareja;
+    }
+
     
     /**
      * Convertir DTO a Entity
@@ -105,6 +112,4 @@ public class OpcionServicioDTO  {
         
         return entity;
     }
-    
 }
-

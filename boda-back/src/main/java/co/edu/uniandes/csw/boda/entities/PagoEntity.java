@@ -27,7 +27,7 @@ public class PagoEntity extends BaseEntity implements Serializable{
      */
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    
+       
     /**
      * Atributo privado tarjetaCredito.
      */
@@ -36,12 +36,19 @@ public class PagoEntity extends BaseEntity implements Serializable{
     private TarjetaCreditoEntity tarjetaCredito;
     
 
-    
+     /**
+     * Atributo privado opcionServicio.
+     */
     @PodamExclude
     @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="opcionServicio_id")
     private OpcionServicioEntity opcionServicio;
-
+    
+    /**
+    * Atributo privado correoPareja.
+    */
+    private String correoPareja;
+    
      /**
      * Obtiene el atributo montoTotal.
      *
@@ -96,11 +103,38 @@ public class PagoEntity extends BaseEntity implements Serializable{
         this.tarjetaCredito = tarjetaCredito;
     }
 
+    /**
+     * Obtiene el atributo opcionServicio.
+     *
+     * @return atributo opcionServicio.
+     */
     public OpcionServicioEntity getOpcionServicio() {
         return opcionServicio;
     }
-
+     /**
+     * Establece el valor del atributo opcionServicio.
+     *
+     * @param opcionServicio nuevo valor del atributo
+     */
     public void setOpcionServicio(OpcionServicioEntity opcionServicio) {
         this.opcionServicio = opcionServicio;
+    }
+    
+    /**
+     * Obtiene el atributo opcionServicio.
+     *
+     * @return atributo correoPareja.
+     */
+    public String getCorreoPareja() {
+        return correoPareja;
+    }
+
+    /**
+     * Establece el valor del atributo correoPareja.
+     *
+     * @param correoPareja nuevo valor del atributo
+     */
+    public void setCorreoPareja(String correoPareja) {
+        this.correoPareja = correoPareja;
     }
 }
