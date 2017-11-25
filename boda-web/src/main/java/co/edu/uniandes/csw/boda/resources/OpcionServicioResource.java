@@ -115,12 +115,12 @@ public class OpcionServicioResource {
     @Path("{id: \\d+}")
     public OpcionServicioDetailDTO updateOpcionServicio(@PathParam("idProveedor")  Long idProveedor,@PathParam("id") Long id, OpcionServicioDetailDTO opcion) throws BusinessLogicException {
         opcion.setId(id);
-        OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(id);
+        OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioByIdProveedor(idProveedor,id);
         if(entity==null)
        {
-           throw new  WebApplicationException("No existe una opcion con el id dado",404);
+           throw new  WebApplicationException("No existe una opcion con el id dado chao",404);
        }
-        return  new OpcionServicioDetailDTO(opcionServicioLogic.updateOpcionServicio(idProveedor, opcion.toEntity()));
+        return  new OpcionServicioDetailDTO(opcionServicioLogic.updateOpcionServicio(idProveedor,id, opcion.toEntity()));
     }
  
   
@@ -139,13 +139,13 @@ public class OpcionServicioResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteOpcionServicio(@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteOpcionServicio(@PathParam("idProveedor")  Long idProveedor,@PathParam("id") Long id) throws BusinessLogicException {
         
        if(opcionServicioLogic.findOpcionServicioById(id)==null)
        {
            throw new  WebApplicationException("No existe una opcion con el id dado",404);
        }
-       opcionServicioLogic.removeOpcionServicio(id);
+       opcionServicioLogic.removeOpcionServicio(idProveedor,id);
     }
     
     
