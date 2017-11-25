@@ -12,6 +12,11 @@
                     $scope.currentInvitado = response.data;
                 });   
             }
+            
+            $scope.buscarInv= function(){
+                
+                console.log($scope.nameInv);
+            };
         }
     ]);
 }
