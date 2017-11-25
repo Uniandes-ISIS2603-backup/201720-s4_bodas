@@ -100,14 +100,12 @@ public class OpcionServicioLogic {
                throw new BusinessLogicException("El costo no puede ser negativo.");
           }
          
-          //Verifica que exista una opcionServicio con el id dado
           if(persistence.find(proveedorId)==null) 
           {
               throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
           }
           entity.setPago(entity.getPago());
           entity.setBoda(entity.getBoda());
-          //Actualiza la opcion servicio
           persistence.update(entity);
           return entity;
       }
@@ -132,7 +130,10 @@ public class OpcionServicioLogic {
        * @return OpcionServicioEntity
        */
  public OpcionServicioEntity findOpcionServicioById(Long id) throws BusinessLogicException{
-        if(persistence.find(id)==null) throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
+        if(persistence.find(id)==null)
+        {
+            throw new BusinessLogicException("No existe una opcion servicio con el id dado.");
+        }
         return persistence.find(id);
     }
 
