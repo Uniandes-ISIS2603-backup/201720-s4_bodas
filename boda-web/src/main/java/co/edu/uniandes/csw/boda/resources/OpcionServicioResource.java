@@ -113,14 +113,19 @@ public class OpcionServicioResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public OpcionServicioDetailDTO updateOpcionServicio(@PathParam("id") Long id, OpcionServicioDetailDTO opcion) throws BusinessLogicException {
-       OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(id);
+    public OpcionServicioDetailDTO updateOpcionServicio(@PathParam("idProveedor")  Long idProveedor,@PathParam("id") Long id, OpcionServicioDetailDTO opcion) throws BusinessLogicException {
+        opcion.setId(id);
+        OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(id);
         if(entity==null)
        {
            throw new  WebApplicationException("No existe una opcion con el id dado",404);
        }
-        return  new OpcionServicioDetailDTO(opcionServicioLogic.updateOpcionServicio(id, opcion.toEntity()));
+        return  new OpcionServicioDetailDTO(opcionServicioLogic.updateOpcionServicio(idProveedor, opcion.toEntity()));
     }
+ 
+  
+        
+   
 
     /**
      * DELETE http://localhost:8080/boda-web/api/opcionServicios/1

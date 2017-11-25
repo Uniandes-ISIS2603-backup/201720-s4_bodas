@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Pruebas para el recurso OpcionServicio",
-		"_postman_id": "c3a14437-7c02-01a8-a87f-1f19baa580ac",
+		"_postman_id": "c9b41cb4-abcc-0c64-0c76-655d714299ad",
 		"description": "Pruebas para el recurso OpcionServicio",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -21,7 +21,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -43,7 +43,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios/13",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -65,7 +65,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios/55",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/55",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -87,7 +87,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios",
 				"method": "POST",
 				"header": [
 					{
@@ -118,7 +118,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios",
 				"method": "POST",
 				"header": [
 					{
@@ -149,7 +149,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios",
 				"method": "POST",
 				"header": [
 					{
@@ -180,7 +180,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios/12",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12",
 				"method": "PUT",
 				"header": [
 					{
@@ -211,7 +211,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios/40",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/40",
 				"method": "PUT",
 				"header": [
 					{
@@ -242,7 +242,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios/12",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12",
 				"method": "PUT",
 				"header": [
 					{
@@ -273,7 +273,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios/14",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/14",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
@@ -295,7 +295,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/opcionServicios/2",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/2",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
