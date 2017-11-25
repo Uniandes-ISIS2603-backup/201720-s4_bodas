@@ -71,8 +71,8 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     /**
      * Coleccion privada de tareas.
      */
-    @PodamExclude
-    @OneToMany(mappedBy = "opcionServicio")
+    
+    @OneToMany(mappedBy = "opcionServicio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TareaEntity> tareas;
 
     /**

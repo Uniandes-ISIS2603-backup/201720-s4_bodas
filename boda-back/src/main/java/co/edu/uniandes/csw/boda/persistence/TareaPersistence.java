@@ -71,14 +71,25 @@ public TareaEntity findByName(String name) {
      * datos, "select u from DefaultEntity u" es como un "select * from
      * DefaultEntity;" - "SELECT * FROM table_codigo" en SQL.
      */
-    public List< TareaEntity> findAll() {
+    public List< TareaEntity> findAllByOpcion(Long opcionId) {
+        
+        LOGGER.log(Level.INFO, "Consultando tarea por id de servicio ", opcionId);
+        TypedQuery<TareaEntity> query = em.createQuery("Select y From TareaEntity y where y.opcionServicio.id = :opcionId", TareaEntity.class);
+        query = query.setParameter("opcionId", opcionId);
+        List<TareaEntity> results = query.getResultList();
+       return results;
+    }
+    
+    }
+        /*
         LOGGER.info("Consultando todas las  Tareas");
         // Se crea un query para buscar todas las Tarea en la base de datos.
-        TypedQuery query = em.createQuery("select u from TareaEntity u",  TareaEntity.class);
+        TypedQuery query = em.createQuery("select u from TareaEntity u ",  TareaEntity.class);
         // Note que en el query se hace uso del método getResultList() que obtiene una lista de Default.
         return query.getResultList();
-    }
-}
+*/
+   
+
     
 
 

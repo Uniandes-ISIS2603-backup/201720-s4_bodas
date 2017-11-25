@@ -28,7 +28,7 @@ import javax.ws.rs.WebApplicationException;
  * @author sp.joven
  */
 
-
+@Path("opciones")
 @Produces("application/json")
 @Consumes("application/json")
 
@@ -88,11 +88,20 @@ public class OpcionServicioResource {
     @Path("{id: \\d+}")
     public OpcionServicioDetailDTO getOpcionServicio(@PathParam("id") Long id) throws BusinessLogicException {
        OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(id);
+         System.out.println("Tareaa: "+ entity.getDescripcion());
+          System.out.println("Tareas tamaño: "+ entity.getTareas().size());
+        System.out.println("Tareas: "+ entity.getTareas().get(0));
         if(entity==null)
        {
            throw new  WebApplicationException("No existe una opcion con el id dado",404);
        }
-        return  new OpcionServicioDetailDTO(opcionServicioLogic.findOpcionServicioById(id));
+        
+        OpcionServicioDetailDTO x = new OpcionServicioDetailDTO(entity);
+        System.out.println("Tareaasss: "+ x.getDescripcion());
+          System.out.println("Tareasss tamaño: "+ x.getTareas().size());
+        System.out.println("Tareasss: "+ x.getTareas().get(0));
+                
+        return  x;
     }
 
 
@@ -166,7 +175,14 @@ public class OpcionServicioResource {
         }
         return list;
     }
-
+  @Path("{idOpcion: \\d+}/tareas")
+    public Class<OpcionServicioResource> getOpcionServicioResource(@PathParam("idOpcion") Long opcionId) throws BusinessLogicException {
+        OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(opcionId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /opciones/" + opcionId + "/tarea no existe.", 404);
+        }
+        return OpcionServicioResource.class;
+    }
 
     
 }
