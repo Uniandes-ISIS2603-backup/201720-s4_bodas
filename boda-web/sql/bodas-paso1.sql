@@ -63,7 +63,12 @@ insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values 
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (1,'Miguel', 90570, 'mloughnan0@noaa.gov', 1, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
-
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (6, 'Adah O''Lochan', 389257353, 'aolochan5@bbb.org', 0, 'trabajo', 2);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (7, 'Courtnay Sommersett', 235286536, 'csommersett6@cbslocal.com', 0, 'familia', 2);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (8, 'Melina Gibbetts', 52660220, 'mgibbetts7@constantcontact.com', 0, 'familia', 5);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (10, 'Kizzie Tolan', 859644071, 'ktolan9@amazon.de', 0, 'familia', 3);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (11, 'Giana Lathy', 602042642, 'glathya@wikia.com', 1, 'familia', 4);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (12, 'Doria Revey', 821785894, 'dreveyb@php.net', 1, 'familia', 1);
 
 
 --Pruebas ProveedorEntity

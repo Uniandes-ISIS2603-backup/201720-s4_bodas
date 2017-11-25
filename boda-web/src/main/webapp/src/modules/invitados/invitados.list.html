@@ -15,7 +15,25 @@
                     </div>
                 </div>
             </form>
-
+            
+            <div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <strong>Ordenar: </strong>{{criterioOrdenar}}<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a ng-click="orderInv('name','Nombre')">Nombre</a></li>
+    <li><a ng-click="orderInv('documento','Documento')">Documento</a></li>
+    <li><a ng-click="orderInv('correo','Correo')">Email</a></li>
+  </ul>
+</div>
+<!--<div class="large-12 columns">
+         <label>Establece un orden: </label>
+          <select ng-model="tipoOrden">
+         <option value="documento">Documento</option>
+         <option value="name">Nombre</option>
+         <option value="correo">Correo</option>
+      </select>
+     </div>-->
             <!--  </div>-->
         </div>
         <table class="table "> 

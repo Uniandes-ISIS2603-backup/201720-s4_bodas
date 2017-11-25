@@ -13,9 +13,9 @@
                 });   
             }
             
-            $scope.buscarInv= function(){
-                
-                console.log($scope.nameInv);
+            $scope.orderInv= function(condicion, tipoCondicion){
+                 $scope.tipoOrden = condicion;
+                 $scope.criterioOrdenar= tipoCondicion;
             };
         }
     ]);
