@@ -180,7 +180,7 @@
 				}
 			],
 			"request": {
-				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/13",
 				"method": "PUT",
 				"header": [
 					{
@@ -191,7 +191,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"type\": \"opcionServicioDetailDTO\",\n        \"costo\": 12,\n        \"descripcion\": \"descripcion11\",\n        \"diasDisponibles\": \"LunesMartesMiercolesJuevesViernes\",\n        \"id\": 12\n    }"
+					"raw": "{\n        \"type\": \"opcionServicioDetailDTO\",\n        \"costo\": 12,\n        \"descripcion\": \"descripcion11\",\n        \"diasDisponibles\": \"LunesMartesMiercolesJuevesViernes\",\n        \"id\": 14\n    }"
 				},
 				"description": "Actualiza una opcion servicio con un id dado"
 			},
