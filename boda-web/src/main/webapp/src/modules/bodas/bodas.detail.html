@@ -3,49 +3,57 @@
     <div id="headPanel" class="panel-heading">
             <h1>{{currentBoda.name}}</h1>
             <ul id="navegador">
-                <li><a ui-sref="regalosList({bodaId: currentBoda.id})"><img id="iconos" src="resources/icons/regalos.PNG"> Regalos</a></li>
-                <li><a ui-sref="invitadosList({bodaId: currentBoda.id})"><img id="invit" src="resources/icons/invitados.PNG">Invitados</a></li>
-                <li><a ui-sref="opcionesList({bodaId: currentBoda.id})"><img id="iconos" src="resources/icons/servicios.PNG">Servicios contratados</a></li>
+                <li><a ui-sref="regalosList({bodaId: currentBoda.id})"><img id="iconos" src="resources/icons/regalosBN.PNG"> Regalos</a></li>
+                <li><a ui-sref="invitadosList({bodaId: currentBoda.id})"><img id="iconos" src="resources/icons/invitadosBN.PNG">Invitados</a></li>
+                <li><a ui-sref="opcionesList({bodaId: currentBoda.id})"><img id="iconos" src="resources/icons/servicioBN.PNG">Servicios contratados</a></li>
             </ul>
         </div>
        <div class="panel-body">
-         <table class="table "> 
 
-       <tbody>
         <div class="col-md-3">
-            <div class="thumb">
-                <img class="img-responsive" ng-src="{{currentBoda.image}}"/>
+            <div class="thumb" >
+                <img id="parejaImg" class="img-responsive" ng-src="{{currentBoda.image}}"/>
             </div>
 
         </div>
-        <div class="col-md-3"> 
-            <dl> 
-                <hr>
-                <dt>Nos casamos el</dt>
-                <dd>{{currentBoda.fecha| date:'dd-MM-yyyy'}}</dd>
+        <div> 
+                
+                <h2 class="HC1">Nos casamos el</h2>
+                <p class="fecha"> {{currentBoda.fecha| date:'dd-MM-yyyy'}}</p>
+                <br>
+                <p class="normal"> Solo faltan :
+                
+                <h id="demo"></h>
+                <script>
+                
+                var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+                var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                document.getElementById("demo").innerHTML = days + "d " + hours + "h "  + minutes + "m " + seconds + "s ";
+    
+                if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";}
+                }, 1000);
+               </script>
+                </h>
           
                 <hr>
-                <dt>Tema</dt>
-                <dd>{{currentBoda.tema}}</dd>
+                <p class="HC33">Tema: {{currentBoda.tema}}</p>
                 
-                <hr>
-                <dt>Tipo de Boda</dt>
-                <dd>{{currentBoda.tipoBoda}}</dd>
+                <p class="HC33">Tipo de Boda:{{currentBoda.tipoBoda}}</p>
                 
-                <hr>
-                <dt>Pareja</dt>
-                <dd>{{currentBoda.pareja}}</dd>
-                
-            </dl>
-
+                <p class="HC33">Pareja: {{currentBoda.pareja}}</p>
         </div>
     </div>
-  </tbody>  
-             
-  </table>
-           
+                        
     </div>
- </div>
   
   
 <div class="row">
