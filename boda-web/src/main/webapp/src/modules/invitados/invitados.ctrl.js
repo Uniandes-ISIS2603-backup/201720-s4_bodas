@@ -12,6 +12,11 @@
                     $scope.currentInvitado = response.data;
                 });   
             }
+            
+            $scope.orderInv= function(condicion, tipoCondicion){
+                 $scope.tipoOrden = condicion;
+                 $scope.criterioOrdenar= tipoCondicion;
+            };
         }
     ]);
 }

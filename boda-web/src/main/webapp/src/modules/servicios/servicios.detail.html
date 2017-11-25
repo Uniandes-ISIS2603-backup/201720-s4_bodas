@@ -2,7 +2,7 @@
     <div id="headPanel" class="panel-heading">
         <h3 id="nombreServicio" class="panel-title"> 
             <tr>
-            <td id="{{$index}}-name">{{currentServicio.name}}</td>
+            <td id="{{$index}}-name">Información del Servicio: {{currentServicio.name}}</td>
             </tr>
         </h3></div>
        <div class="panel-body">
@@ -17,7 +17,10 @@
 
         </div>
         <div class="col-md-3"> 
-            <dl>               
+            <dl> 
+                <hr>
+                <dt>Nombre del Servicio:</dt>
+                <dd>{{currentServicio.name}} </dd>
                 <hr>
                 <dt>Descripcion</dt>
                 <dd>{{currentServicio.descripcion}}</dd>
