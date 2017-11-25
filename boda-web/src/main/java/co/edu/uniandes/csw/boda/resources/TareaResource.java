@@ -78,15 +78,16 @@ public class TareaResource {
      * En caso de no existir el id de la tarea buscada se retorna un 404 con el
      * mensaje.
      */
-    @GET
+   @GET
     @Path("{id: \\d+}")
-    public TareaDetailDTO getTarea(@PathParam("idOpcion") Long idOpcion) throws BusinessLogicException {
-        TareaEntity entity = tareaLogic.findTareaById(idOpcion);
+    public TareaDetailDTO getTarea(@PathParam("id") Long id) throws BusinessLogicException {
+        TareaEntity entity = tareaLogic.findTareaById(id);
         if (entity == null) {
             throw new WebApplicationException("No existe una tarea con el id dado", 404);
         }
         return new TareaDetailDTO(entity);
     }
+   
    
    
     
