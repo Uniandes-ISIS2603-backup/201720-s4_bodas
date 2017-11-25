@@ -41,6 +41,7 @@ public class TareaResource {
      * POST http://localhost:8080/bodas-web/api/tareas Ejemplo json: {
      * "name":"Norma" }
      *
+     * @param idOpcion
      * @param tarea correponde a la representación java del objeto json enviado
      * en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
@@ -79,8 +80,8 @@ public class TareaResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public TareaDetailDTO getTarea(@PathParam("idOpcion") Long idOpcion, @PathParam("id") Long id) throws BusinessLogicException {
-        TareaEntity entity = tareaLogic.findTareaById(id);
+    public TareaDetailDTO getTarea(@PathParam("idOpcion") Long idOpcion) throws BusinessLogicException {
+        TareaEntity entity = tareaLogic.findTareaById(idOpcion);
         if (entity == null) {
             throw new WebApplicationException("No existe una tarea con el id dado", 404);
         }

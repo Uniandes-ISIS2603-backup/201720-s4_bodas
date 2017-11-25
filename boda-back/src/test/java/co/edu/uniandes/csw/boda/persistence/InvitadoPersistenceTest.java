@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
+import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -96,6 +98,39 @@ public class InvitadoPersistenceTest {
             data.add(entity);
         }
     }
+    
+     @Test
+    public void testEntity() {
+        PodamFactory factory = new PodamFactoryImpl();
+        InvitadoEntity newEntity = factory.manufacturePojo(InvitadoEntity.class);
+        
+        //Prueba el metodo getRegalo()
+        Assert.assertNull("No Contiene regalo asignado", newEntity.getRegalo());
+        
+        //Prueba el metodo setRegalo()
+        factory = new PodamFactoryImpl();        
+        try{newEntity.setRegalo(factory.manufacturePojo(RegaloEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+         //Prueba el metodo getBoda()
+        junit.framework.Assert.assertNull("No tiene bodas asignadas", newEntity.getBoda());
+        
+        
+        //Prueba el metodo setBoda()
+        factory = new PodamFactoryImpl();
+        BodaEntity boda = factory.manufacturePojo(BodaEntity.class);
+        try{newEntity.setBoda(boda);}catch(Exception e){junit.framework.Assert.fail("No debio generar error");} 
+        
+               
+        //Prueba el metodo getCorreo()
+        Assert.assertNotNull(" Contiene una imagen asignada", newEntity.getCorreo());  
+        
+        //Prueba el metodo isAsistencia() 
+        Assert.assertNotNull(" Contiene una asistencia asignada", newEntity.isAsistencia());
+        
+        //Prueba el metodo getCategoria() 
+        Assert.assertNotNull(" Contiene una imagen asignada", newEntity.getCategoria());  
+    }
+    
     
     /**
      * Test of create method, of class InvitadoPersistence.

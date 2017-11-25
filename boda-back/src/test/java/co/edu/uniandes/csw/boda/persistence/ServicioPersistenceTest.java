@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 import co.edu.uniandes.csw.boda.entities.ServicioEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -119,6 +120,29 @@ public class ServicioPersistenceTest {
             em.persist(entity);
             data.add(entity);
         }
+    }
+    
+     @Test
+    public void testEntity() {
+        PodamFactory factory = new PodamFactoryImpl();
+        ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
+        
+        //Prueba el metodo getDescripcion()
+        Assert.assertNotNull("Contiene una fecha asignada", newEntity.getDescripcion());
+        
+        //Prueba el metodo getProveedores()
+        Assert.assertEquals("No Contiene una lista de proveedores asignada", 0,newEntity.getProveedores().size());
+        
+        //Prueba el metodo setProveedores()
+        factory = new PodamFactoryImpl();
+        List<ProveedorEntity>proveedores = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            proveedores.add(factory.manufacturePojo(ProveedorEntity.class));
+        }
+        try{newEntity.setProveedores(proveedores);}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+        //Prueba el metodo getPareja()
+        Assert.assertNotNull(" Contiene una imagen asignada", newEntity. getImage());       
     }
 
     @Test

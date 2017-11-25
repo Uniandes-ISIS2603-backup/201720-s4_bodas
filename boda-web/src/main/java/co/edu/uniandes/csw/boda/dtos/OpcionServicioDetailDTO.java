@@ -22,7 +22,7 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
     
     
     List<CalificacionDTO>calificaciones;
-    private List<TareaDTO> tareas;
+    List<TareaDTO> tareas;
     
     
      /**
@@ -40,18 +40,23 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
    
      public OpcionServicioDetailDTO(OpcionServicioEntity entity) {
          super(entity);
+          System.out.println("TareaS:::"+ entity.getTareas().size());
+         if(entity.getTareas()!=null){
+             this.tareas = new ArrayList<>();
+                 System.out.println("Entro al for");    
+            for (TareaEntity ent :  entity.getTareas()){
+                this.tareas.add(new TareaDTO(ent));
+            }
+         }
          if(entity.getCalificacion()!=null){
+               System.out.println("calificacionessss:::"+ entity.getCalificacion().size());
              this.calificaciones = new ArrayList<>();
             for (CalificacionEntity ent :  entity.getCalificacion()){
                 this.calificaciones.add(new CalificacionDTO(ent));
             }
          }
-         if(entity.getTareas()!=null){
-             this.tareas = new ArrayList<>();
-            for (TareaEntity ent :  entity.getTareas()){
-                this.tareas.add(new TareaDTO(ent));
-            }
-         }
+         
+       
         
     }
 
@@ -66,17 +71,21 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
         return tareas;
     }
 
-    public void seTareas(List<TareaDTO> tareas) {
+    public void setTareas(List<TareaDTO> tareas) {
         this.tareas = tareas;
     }
 
     @Override
     public OpcionServicioEntity toEntity() {
         OpcionServicioEntity m = super.toEntity();
+          System.out.println("Hola");
+        
         if(calificaciones != null){
-            List<CalificacionEntity> lista= new ArrayList<>();
+           List<CalificacionEntity> lista= new ArrayList<>();
             for (CalificacionDTO c : calificaciones)
-            {
+           {
+               
+               System.out.println("To entity  calidficaciones");
                 lista.add(c.toEntity());
             }
             m.setCalificacion(lista);
@@ -85,12 +94,15 @@ public class OpcionServicioDetailDTO extends OpcionServicioDTO {
             List<TareaEntity> lista= new ArrayList<>();
             for (TareaDTO c : tareas)
             {
+                  System.out.println("To entity  tareas");
                 lista.add(c.toEntity());
             }
             m.setTareas(lista);
+            System.out.println("M: "+m.getTareas().size());
         }
-        return m; //To change body of generated methods, choose Tools | Templates.
+        return m;
     }
+
     
 }
 
