@@ -110,6 +110,7 @@ public class ProveedorDTO {
         entity.setId(this.id);
         entity.setName(this.name);
         entity.setEspecialidad(this.especialidad);
+        entity.setImagen(this.imagen);
         return entity;
     }
 }
