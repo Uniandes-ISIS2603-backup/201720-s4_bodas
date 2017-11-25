@@ -1,21 +1,22 @@
 (function (ng) {
-    var mod = ng.module("PagosModule");
+    var mod = ng.module("tarjetasCreditoModule");
     mod.constant("pagosContext", "pagos");
-    mod.constant("tarjetasCreditoContext", "tarjetasCredito");
+     mod.constant("tarjetasCreditoContext", "tarjetasCredito");
     mod.constant("parejasContext", "api/parejas");
     
-    mod.controller('tarjetasNewCtrl', ['$scope', '$http', 'parejasContext', 'tarjetasCreditoContext', 'pagosContext' , '$state',  '$rootScope',
-        function ($scope, $http, parejasContext, tarjetasCreditoContext, pagosContext, $state,  $rootScope) {
+    mod.controller('pagosNewCtrl', ['$scope', '$http','parejasContext','tarjetasCreditoContext', 'pagosContext','$state',  '$rootScope',
+        function ($scope, $http, parejasContext,tarjetasCreditoContext, pagosContext, $state,  $rootScope) {
             $rootScope.edit = false;
             
-            $scope.updatePago = function () {
-                $http.post(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext + '/' + $state.params.tarjetaId + '/' + pagosContext + '/' + $state.params.pagoId, {
+            $scope.createPago = function () {
+                $http.post(parejasContext + '/' + $scope.pagoPareja + '/' + tarjetasCreditoContext + '/' + $scope.pagoTarjeta + '/' + pagosContext , {
+                    correoPareja: $scope.pagoPareja,
                     montoTotal: $scope.pagoMontoTotal,
                     fecha: $scope.pagoFecha,
                     nombrePago: $scope.pagoNombrePago,
-                    tarjetaNumero: $scope.pagoTarjetaNumero
+                    tarjetaId: $scope.pagoTarjeta
                 }).then(function (response) {
-                    $state.go('pagosList', {pagoId: response.data.id}, {reload: true});
+                    $state.go('pagosConfirm', {pagoId: response.data.id}, {reload: true});
                 });
             };
         }

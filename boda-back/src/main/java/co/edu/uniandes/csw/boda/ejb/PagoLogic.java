@@ -28,6 +28,9 @@ public class PagoLogic {
     
     @Inject
     private TarjetaCreditoLogic tarjetaLogic;
+    
+    @Inject
+    private ParejaLogic parejaLogic;
 
     /**
      *
@@ -38,11 +41,19 @@ public class PagoLogic {
      */
     public PagoEntity createPago(Long tarjetaId, PagoEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Pago");
+        if(tarjetaLogic.getTarjetaCredito(tarjetaId) == null)
+        {
+            throw new BusinessLogicException("No existe una tarjeta de credito N°: " + entity.getCorreoPareja());
+        }
         TarjetaCreditoEntity tarjeta = tarjetaLogic.getTarjetaCredito(tarjetaId);
         entity.setTarjetaCredito(tarjeta);
         if (entity.getMontoTotal() == 0 || entity.getMontoTotal() < 0)
         {
             throw new BusinessLogicException("El monto total del pago debe ser mayor que 0");
+        }
+        if(parejaLogic.getPareja(entity.getCorreoPareja()) == null)
+        {
+            throw new BusinessLogicException("No existe una pareja con el correo electronico: " + entity.getCorreoPareja());
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Pago");

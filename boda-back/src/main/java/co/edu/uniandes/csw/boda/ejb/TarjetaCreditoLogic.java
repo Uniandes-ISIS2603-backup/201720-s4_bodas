@@ -96,7 +96,7 @@ public class TarjetaCreditoLogic {
         if (entity.getFechaVen() == null) {
             throw new BusinessLogicException("Debe ingresar la fecha en la cual vence la Tarjeta de credito");
         }
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar TarjetaCredito con id={0}", entity.getId());
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar TarjetaCredito con id={0}", entity.getNumero());
         return persistence.update(entity);
     }
     

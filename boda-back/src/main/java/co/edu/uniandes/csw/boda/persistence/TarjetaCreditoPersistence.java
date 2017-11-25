@@ -38,7 +38,7 @@ public class TarjetaCreditoPersistence {
      * @return un TarjetaCredito con los cambios aplicados.
      */
     public TarjetaCreditoEntity update(TarjetaCreditoEntity entity) {
-        LOGGER.log(Level.INFO, "Actualizando TarjetaCredito con id={0}", entity.getId());
+        LOGGER.log(Level.INFO, "Actualizando TarjetaCredito con id={0}", entity.getNumero());
         return em.merge(entity);
     }
 
