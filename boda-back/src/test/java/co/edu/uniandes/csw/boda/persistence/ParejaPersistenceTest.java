@@ -159,6 +159,10 @@ public class ParejaPersistenceTest {
         
         //Prueba el metodo dar numero
         Assert.assertNotNull("Tiene numero asignado", entity.getTelefono());
+        
+        //Prueba el metodo dar numero
+        Assert.assertNotNull( entity.isPago());
+        
     }
     
     /**

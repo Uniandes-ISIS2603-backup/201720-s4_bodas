@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.TareaEntity;
+import co.edu.uniandes.csw.boda.entities.UbicacionEntity;
 import co.edu.uniandes.csw.boda.persistence.TareaPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +77,40 @@ public class TareaPersistenceTest {
                 .addPackage(TareaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    }
+    
+    @Test
+     public void testEntity() throws Exception {
+        PodamFactory factory = new PodamFactoryImpl();
+        TareaEntity entity = factory.manufacturePojo(TareaEntity.class);
+        
+        //Prueba el metodo  isAprobada())
+        Assert.assertNotNull( entity.isAprobada());
+        
+        //Prueba el metodo  getDia() 
+        Assert.assertNotNull("Tiene dia asignada", entity.getDia() );
+        
+        //Prueba el metodo  getNombre()
+        Assert.assertNotNull("Tiene nombre asignado", entity.getNombre());
+        
+        //Prueba el metodo  getImage()
+        Assert.assertNotNull("Tiene imagen asignada", entity.getImage());
+        
+        //Prueba el metodo getOpcionServicio()
+        Assert.assertNull("No Tiene opcionServicio asignada", entity.getOpcionServicio());
+        
+        //Prueba el metodo  setOpcionServicio()
+        factory = new PodamFactoryImpl();
+        try{entity. setOpcionServicio(factory.manufacturePojo(OpcionServicioEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+              
+       //Prueba el metodo getUbicacion() 
+        Assert.assertNull("No Tiene ubicacion asignada", entity.getUbicacion());
+        
+        //Prueba el metodo  setUbicacion() 
+        factory = new PodamFactoryImpl();
+        try{entity.setUbicacion(factory.manufacturePojo(UbicacionEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
+        
     }
     @Test
 public void createTareaPersistenceTest() {
