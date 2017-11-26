@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="resources/css/style.css">
 <div class="panel panel-default">
-    <div id="headPanel" class="panel-heading">
+    <div >
             <h1>{{currentBoda.name}}</h1>
             <ul id="navegador">
                 <li><a ui-sref="regalosList({bodaId: currentBoda.id})"><img id="iconos" src="resources/icons/regalosBN.PNG"> Regalos</a></li>
@@ -26,7 +26,7 @@
                 <h id="demo"></h>
                 <script>
                 
-                var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+                var countDownDate = new Date("Mar 29, 2019 15:37:25").getTime();
                 var x = setInterval(function() {
                 var now = new Date().getTime();
                 var distance = countDownDate - now;
@@ -43,25 +43,18 @@
                 }, 1000);
                </script>
                 </h>
-          
-                <hr>
-                <p class="HC33">Tema: {{currentBoda.tema}}</p>
-                
-                <p class="HC33">Tipo de Boda:{{currentBoda.tipoBoda}}</p>
-                
-                <p class="HC33">Pareja: {{currentBoda.pareja}}</p>
         </div>
-    </div>
-                        
-    </div>
-  
-  
+    </div>                        
+</div>
 <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-9">
                 <div ui-view="childrenView"></div>
             </div>
-
-
 </div>
-
+<hr>
+                <p class="HC33">Tema: {{currentBoda.tema}}</p>
+                
+                <p class="HC33">Tipo de Boda:{{currentBoda.tipoBoda}}</p>
+                
+                <p class="HC33">Pareja: {{currentBoda.pareja}}</p>

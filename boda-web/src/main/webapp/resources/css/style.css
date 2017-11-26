@@ -34,7 +34,6 @@ h1{
     font-family: 'Pacifico', cursive;
     text-align: center;
     color:#F48FB1;
-    font-size:70px;
 }
 .normal{
     font-family: cursive;
@@ -43,7 +42,6 @@ h1{
 .fecha{
     font-family: cursive;
     text-align: center;
-    font-size:70px;
 }
 .loader {
 	position: fixed;
