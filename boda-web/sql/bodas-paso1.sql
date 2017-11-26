@@ -11,8 +11,8 @@ delete from InvitadoEntity;
 delete from ProveedorEntity;
 delete from ServicioEntity;
 delete from UbicacionEntity;
-delete from BodaEntity;
 delete from ParejaEntity;
+delete from BodaEntity;
 
 
 Alter table calificacionentity alter column id Restart with 1;
