@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -16,12 +17,19 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author ca.guerrero
  */
 @Entity
-public class TarjetaCreditoEntity extends BaseEntity implements Serializable{
+public class TarjetaCreditoEntity implements Serializable{
     
     /**
      * Atributo privado numero.
      */
+    @Id
     private Long numero;
+    
+     /**
+     * Atributo privado name
+     */
+    private String name;
+    
     /**
      * Atributo privado numDeSeg.
      */
@@ -81,6 +89,24 @@ public class TarjetaCreditoEntity extends BaseEntity implements Serializable{
      */
     public void setNumero(Long numero) {
         this.numero = numero;
+    }
+    
+    /**
+     * Obtiene el atributo name.
+     *
+     * @return atributo name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Establece el valor del atributo name.
+     *
+     * @param name nuevo valor del atributo
+     */
+    public void setName(String name) {
+        this.name = name;
     }
     
     /**

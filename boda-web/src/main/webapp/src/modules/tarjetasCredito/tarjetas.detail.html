@@ -1,36 +1,32 @@
 <div class="panel panel-default">
     <div id="headPanel" class="panel-heading">
         <h3 id="descripcion" class="panel-title"><b>Tarjeta N° {{currentTarjeta.numero}}</b>
-        </h3></div>
-       <div class="panel-body">
-        <table class="table ">
-        <tbody>
-            <dl>
-                <hr>
-                <dt>Numero de Seguridad </dt>
-                <dd>{{currentTarjeta.numDeSeg}}</dd>
-                <hr>
-                <dt>Fecha de Vencimiento</dt>
-                <dd>{{currentTarjeta.fechaVen | date:'dd-MM-yyyy'}}</dd>
-                <hr>
-                <dt>Nombre del Banco</dt>
-                <dd>{{currentTarjeta.nombreBanco}}</dd>
-                <hr>
-                <dd><a class = "btn btn-info" ui-sref="pagosList"><span class="glyphicon glyphicon-eye-open"></span>Ver Pagos</a></dd>
-                <hr>
-                <dd><a class = "btn btn-info" ui-sref="tarjetasList">Volver</a></dd>
-            </dl>
-        </tbody>
-        </table>
-       </div>
-    <div class="panel panel-default">
+        </h3>
+    </div>
     <div class="panel-body">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-9">
+      <table class="table ">
+       <tbody>
+        <dl>
+            <hr>
+            <dt>Numero de Seguridad </dt>
+            <dd>{{currentTarjeta.numDeSeg}}</dd>
+            <hr>
+            <dt>Fecha de Vencimiento</dt>
+            <dd>{{currentTarjeta.fechaVen | date:'dd-MM-yyyy'}}</dd>
+            <hr>
+            <dt>Nombre del Banco</dt>
+            <dd>{{currentTarjeta.nombreBanco}}</dd>
+            <hr>
+            <dd><a class = "btn btn-info" ui-sref="pagosList"><span class="glyphicon glyphicon-eye-open"></span>Ver Pagos</a></dd>
+            <hr>
+            <dd><a class = "btn btn-default" ui-sref="tarjetasList"><span class="glyphicon glyphicon-arrow-left"></span>Volver</a></dd>
+        </dl>
+       </tbody>
+      </table>
+    </div>
+        <div class="panel-body">
+            <div class="row">
                 <div ui-view="childrenView"></div>
             </div>
         </div>
-    </div>
-</div>
 </div>

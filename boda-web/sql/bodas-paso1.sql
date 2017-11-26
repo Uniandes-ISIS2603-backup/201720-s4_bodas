@@ -63,23 +63,28 @@ insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values 
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (1,'Miguel', 90570, 'mloughnan0@noaa.gov', 1, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
 insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
-
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (6, 'Adah O''Lochan', 389257353, 'aolochan5@bbb.org', 0, 'trabajo', 2);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (7, 'Courtnay Sommersett', 235286536, 'csommersett6@cbslocal.com', 0, 'familia', 2);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (8, 'Melina Gibbetts', 52660220, 'mgibbetts7@constantcontact.com', 0, 'familia', 5);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (10, 'Kizzie Tolan', 859644071, 'ktolan9@amazon.de', 0, 'familia', 3);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (11, 'Giana Lathy', 602042642, 'glathya@wikia.com', 1, 'familia', 4);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (12, 'Doria Revey', 821785894, 'dreveyb@php.net', 1, 'familia', 1);
 
 
 --Pruebas ProveedorEntity
 
-insert into  ProveedorEntity (id, name, especialidad) values (100,'Andres Carne de Res', 'Comida Latina');
-insert into  ProveedorEntity (id, name, especialidad) values (200,'Rosas y Claveles', 'Arreglos de flores');
-insert into  ProveedorEntity (id, name, especialidad) values (300,'WOK', 'Comida Asiática');
-insert into  ProveedorEntity (id, name, especialidad) values (400,'DJ InTheHouse', 'Música para cualquier tipo de evento');
-insert into  ProveedorEntity (id, name, especialidad) values (500,'MasLindo', 'Música para cualquier tipo de evento');
-insert into  ProveedorEntity (id, name, especialidad) values (600,'Casa de Eventos', 'Atender y Decorar Eventos');
-insert into  ProveedorEntity (id, name, especialidad) values (700,'Primi', 'Comida Italiana');
-insert into  ProveedorEntity (id, name, especialidad) values (800,'Harry Sasson', 'Comida de mar y mediterráneo');
-insert into  ProveedorEntity (id, name, especialidad) values (900,'MacroEventos', 'Atender eventos y Musica');
-insert into  ProveedorEntity (id, name, especialidad) values (1000,'Iglesia Minuto de Dios', 'Boda Católica');
-insert into  ProveedorEntity (id, name, especialidad) values (1100,'Nicolukas', 'Pastelería');
-insert into  ProveedorEntity (id, name, especialidad) values (1200,'Alexis Vargas', 'Alquiler y compra de vestidos');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (100,'Andres Carne de Res', 'Comida Latina','https://images.pexels.com/photos/597422/pexels-photo-597422.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (200,'Rosas y Claveles', 'Arreglos de flores','https://images.pexels.com/photos/15239/flower-roses-red-roses-bloom.jpg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (300,'WOK', 'Comida Asiática','https://images.pexels.com/photos/357756/pexels-photo-357756.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (400,'DJ InTheHouse', 'Música para cualquier tipo de evento','https://images.pexels.com/photos/374703/pexels-photo-374703.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (500,'MasLindo', 'Música para cualquier tipo de evento','https://images.pexels.com/photos/332688/pexels-photo-332688.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (600,'Casa de Eventos', 'Atender y Decorar Eventos','https://images.pexels.com/photos/206673/pexels-photo-206673.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (700,'Primi', 'Comida Italiana','https://images.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (800,'Harry Sasson', 'Comida de mar y mediterráneo','https://images.pexels.com/photos/629093/pexels-photo-629093.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (900,'MacroEventos', 'Atender eventos y Musica','https://images.pexels.com/photos/5156/people-eiffel-tower-lights-night.jpg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (1000,'Iglesia Minuto de Dios', 'Boda Católica','https://images.pexels.com/photos/161081/eucharist-body-of-christ-church-mass-161081.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (1100,'Nicolukas', 'Pastelería','https://images.pexels.com/photos/416534/pexels-photo-416534.jpeg');
+insert into  ProveedorEntity (id, name, especialidad,imagen) values (1200,'Alexis Vargas', 'Alquiler y compra de vestidos','https://images.pexels.com/photos/313702/pexels-photo-313702.jpeg');
 
 --Pruebas ServicioEntity
 insert into ServicioEntity (id, name, descripcion, image) values (1, 'Vestidos', 'Te ofrecemos una gran variedad de opciones y proveedores para que encuentres tu vestido ideal', 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg');
@@ -147,15 +152,11 @@ insert into TareaEntity(opcionservicio_id,id,aprobada, dia,nombre, ubicacion_id,
 
 ---Pruebas TarjetaCreditoEntity
 delete from TarjetaCreditoEntity;
-insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (108, 'Banca Mia', 4445556667778889, 777, '3/8/2022','fmarsland0@artisteer.com');
-insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (2, 'Banca Tuya', 7894561230789456, 456, '6/29/2017', 'fmarsland0@artisteer.com');
-insert into TarjetaCreditoEntity (id, name, numero, numDeSeg, fechaVen, pareja_correoElec) values (3, 'Banca Nuestra', 7777771111115556, 123, '1/12/2019', 'bsimcoe1@dion.ne.jp');
+insert into TarjetaCreditoEntity (numero, name, numDeSeg, fechaVen, pareja_correoElec) values (4445556667778889, 'Banca Mia', 777, '3/8/2022','fmarsland0@artisteer.com');
+insert into TarjetaCreditoEntity (numero, name, numDeSeg, fechaVen, pareja_correoElec) values (7894561230789456, 'Banca Tuya', 456, '6/29/2017', 'fmarsland0@artisteer.com');
+insert into TarjetaCreditoEntity (numero, name, numDeSeg, fechaVen, pareja_correoElec) values (7777771111115556, 'Banca Nuestra', 123, '1/12/2019', 'bsimcoe1@dion.ne.jp');
 ---Fin Pruebas TarjetaCreditoEntity
 
 ---Pruebas PagoEntity
 
-insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (1, 'Pago por mesas', 150000, '4/4/2017',108);
-insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (2, 'Pago por transporte', 200000, '6/29/2017', 108);
-insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (3, 'Pago por banquete', 30000, '3/14/2017', 2);
-insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_id) values (4, 'Pago por sillas', 70000, '1/12/2017', 3);
 ---Fin Pruebas PagoEntity
