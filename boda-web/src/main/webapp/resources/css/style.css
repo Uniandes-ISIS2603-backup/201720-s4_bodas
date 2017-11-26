@@ -37,12 +37,17 @@ h1{
 }
 .normal{
     font-family: cursive;
-        text-align: center;
 }
 .fecha{
     font-family: cursive;
     text-align: center;
 }
+
+#parejaImg
+{
+   background-size: cover;
+}
+
 .loader {
 	position: fixed;
 	left: 0px;
@@ -71,6 +76,10 @@ h1{
      height:40px;
 }
 
+#header{
+     vertical-align: text-bottom; 
+}
+
 #navegador ul{
    list-style-type: none;
    text-align: center;
@@ -95,3 +104,67 @@ h1{
    margin: 0 10px 0 0;
 }
 
+.progress{
+    border-radius: 50px;
+    height: 14px;
+}
+
+.progress-bar{
+    width: 0;
+    height: 10px;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    transition: .6s ease-out width;
+    transition-property: width;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-out;
+    transition-delay: initial;
+    background: #FA626F;
+    background-image: linear-gradient(to right, rgb(250, 98, 111) 0px, rgb(228, 149, 105) 100%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background: -moz-linear-gradient(left,#fa626f 0,#e9896a 100%);
+    background-image: linear-gradient(to right, #F48FB1 0px, rgb(228, 149, 105) 100%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background: -webkit-linear-gradient(left,#fa626f 0,#e9896a 100%);
+    background-image: linear-gradient(to right, rgb(250, 98, 111) 0px, rgb(228, 149, 105) 100%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background: linear-gradient(to right,#fa626f 0,#e49569 100%);
+    background-image: linear-gradient(to right, rgb(250, 98, 111) 0px, rgb(228, 149, 105) 100%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa626f', endColorstr='#e9896a', GradientType=1);
+}
