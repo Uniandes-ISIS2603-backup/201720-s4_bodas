@@ -18,6 +18,8 @@ $(window).load(function () {
         function ($scope, $http,bodasContext, $state) {
             $http.get(bodasContext).then(function (response) {
                 $scope.bodasRecords = response.data;
+                let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                $scope.months=meses;
             });
 
             if ($state.params.bodaId !== undefined) {
