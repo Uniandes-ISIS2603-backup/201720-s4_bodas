@@ -47,7 +47,30 @@ h2{
     font-family: cursive;
     text-align: center;
 }
-
+.boton-agregar{
+    color:#fff;
+    box-shadow: 3px 3px 0px #F48FB1;
+    background-color: rgba(244,143,177,0.6); 
+    border-color: rgba(244,143,177,0.9);
+}
+.boton-agregar:hover {
+    color:#fff;
+    box-shadow: 3px 3px 0px #F48FB1;
+    background-color: rgba(244,143,177,0.7); 
+    border-color: rgba(244,143,177,0.9);
+}
+.boton-agregar:active {
+     color:#fff;
+    box-shadow: 2px 2px 0px #F48FB1;
+    background-color: rgba(244,143,177,0.8); 
+    border-color:rgba(244,143,177,1);
+}
+.boton-agregar:visited {
+     color:#fff;
+    box-shadow: 2px 2px 0px #F48FB1;
+    background-color: rgba(244,143,177,0.7); 
+    border-color: rgba(244,143,177,0.9);
+}
 #parejaImg
 {
    background-size: cover;

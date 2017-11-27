@@ -55,7 +55,7 @@
         <div class="panel-body">
 
 
-            <a class="btn btn-primary" style="box-shadow: 2px 3px 0px #F48FB1; background-color: rgba(244,143,177,0.8); border-color: rgba(244,143,177,0.8);" ui-sref="parejasCreate" >
+            <a class="btn boton-agregar" ui-sref="parejasCreate" >
                 <span class="glyphicon glyphicon-plus"   ></span> <b>Nueva Pareja</b> 
             </a> 
 
@@ -79,7 +79,7 @@
                         </td>
 
                         <td>
-                            <a id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ui-sref="parejasUpdate({parejaId: pareja.correoElec})">
+                            <a id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ui-sref="parejasUpdate({parejaId: pareja.correoElec})">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a>
                             <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm sweet-2" ng-click="ctrl.deleteRecord(pareja)">
