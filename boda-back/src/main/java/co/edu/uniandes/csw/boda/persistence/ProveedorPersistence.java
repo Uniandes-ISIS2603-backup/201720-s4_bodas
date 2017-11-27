@@ -81,8 +81,13 @@ public class ProveedorPersistence {
     
   
     public void delete(ProveedorEntity entity) {
+        LOGGER.log(Level.INFO, "Borrando proveedor con id={0}", entity.getId());
          ProveedorEntity entity2 = em.find(ProveedorEntity.class, entity.getId());
-    LOGGER.log(Level.INFO, "Borrando proveedor con id={0}", entity.getId());
+         if(entity.getOpcionesServicio()!=null){
+         LOGGER.log(Level.INFO, "Numero de opciones ={0}", entity.getOpcionesServicio().size());}
+         else{
+             LOGGER.log(Level.INFO, "No retorna nada de opciones");
+         }
     em.remove(entity2);
 }
 
