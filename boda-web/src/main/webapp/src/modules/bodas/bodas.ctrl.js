@@ -24,6 +24,7 @@ $(window).load(function () {
                 $http.get(bodasContext + '/' + $state.params.bodaId).then(function (response) {
                     //$scope.regalosRecords = response.data.regalos;
                     $scope.currentBoda = response.data;
+                    $scope.currentFecha = $scope.currentBoda.fecha;
                 });   
             }
             

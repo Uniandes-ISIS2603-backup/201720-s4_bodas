@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -74,7 +73,10 @@ public class ProveedorResource {
      @Path("{idProveedor: \\d+}/opcionServicios")
     public Class<OpcionServicioResource> obtenerOpciones(@PathParam("idProveedor") Long idProveedor) throws BusinessLogicException{
         ProveedorEntity buscado = proveedorLogic.findProveedorById(idProveedor);
-        if(buscado==null)throw new WebApplicationException("El recurso /proveedor/" + idProveedor + " no existe.", 404);
+        if(buscado==null)
+        {throw new WebApplicationException("El recurso /proveedor/" + idProveedor + " no existe.", 404);
+        
+        }
         return OpcionServicioResource.class;
     }
     

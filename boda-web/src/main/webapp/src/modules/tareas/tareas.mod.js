@@ -1,19 +1,22 @@
 (function (ng) {
-    var mod = ng.module("tareasModule", ['bodasModule', 'ui.router']);
+    var mod = ng.module("tareasModule", ['proveedoresModule','opcionesModule', 'ui.router']);
     mod.constant("tareasContext", "tareas");
-    mod.constant("bodasContext", "api/bodas");
+     mod.constant("proveedoresContext", "api/proveedores");
+    mod.constant("opcionesContext", "opcionServicios");
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/tareas/';
             $urlRouterProvider.otherwise("/tareasList");
-
+         
             $stateProvider.state('tareas', {
                 url: '/tareas',
                 abstract: true,
-                parent: 'bodaDetail',
+                parent: 'opcionDetail',
               views: {
-                     'childrenView': {
-                        templateUrl: basePath + 'tareas.html'
+                     'listCView': {
+                        templateUrl: basePath + 'tareas.html',
+                        controller: 'tareasCtrl',
+                        controllerAs: 'ctrl'
                     }
                 
                 }

@@ -21,15 +21,14 @@
                 url: '/lista',
                 parent: 'opciones',
                 views: {
-                    'listView':{                
-                        //opciones.list.html
+                    'listView':{                                      
                         templateUrl: basePath + 'opciones.list.html',
                         controller: 'opcionesCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
             }).state('opcionDetail', {
-                url: '/detail/:opcionId',
+                url: '/:opcionId',
                 parent: 'opciones',
                 param: {
                     opcionId: null
