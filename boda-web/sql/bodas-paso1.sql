@@ -49,26 +49,32 @@ insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) v
 
 insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (100, 'Cama', 1, 'https://static.pexels.com/photos/164595/pexels-photo-164595.jpeg',1);
 insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (200, 'Platos', 0, 'https://static.pexels.com/photos/6305/holidays-dinner-eating-lunch.jpg',1);
-insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (300, 'Lavadora', 0, 'https://static.pexels.com/photos/4414/black-and-white-clean-housework-launderette.jpg',2);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (300, 'Lavadora', 0, 'https://static.pexels.com/photos/4414/black-and-white-clean-housework-launderette.jpg',1);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (400, 'Sábanas', 0, 'http://4.bp.blogspot.com/-_alFBn_y8zo/TluyLPQfXfI/AAAAAAAAAMw/uGKk-3CKuFE/s1600/sabanas-hotel-blancas.jpg',1);
+
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (500, 'Cama', 1, 'https://static.pexels.com/photos/164595/pexels-photo-164595.jpeg',2);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (600, 'Platos', 0, 'https://static.pexels.com/photos/6305/holidays-dinner-eating-lunch.jpg',2);
+insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (700, 'Lavadora', 0, 'https://static.pexels.com/photos/4414/black-and-white-clean-housework-launderette.jpg',2);
 
 insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (100,1);
 insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (100,2);
 insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (200,2);
 insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (200,3);
+insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (400,1);
 
 
 
 --Pruebas para Invitado Entity
 
-insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (1,'Miguel', 90570, 'mloughnan0@noaa.gov', 1, 'trabajo',1);
-insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 0, 'trabajo',1);
-insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 0, 'familia',2);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (6, 'Adah O''Lochan', 389257353, 'aolochan5@bbb.org', 0, 'trabajo', 2);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (7, 'Courtnay Sommersett', 235286536, 'csommersett6@cbslocal.com', 0, 'familia', 2);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (8, 'Melina Gibbetts', 52660220, 'mgibbetts7@constantcontact.com', 0, 'familia', 5);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (10, 'Kizzie Tolan', 859644071, 'ktolan9@amazon.de', 0, 'familia', 3);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (11, 'Giana Lathy', 602042642, 'glathya@wikia.com', 1, 'familia', 4);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (12, 'Doria Revey', 821785894, 'dreveyb@php.net', 1, 'familia', 1);
+insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (1,'Miguel', 90570, 'mloughnan0@noaa.gov', 'Confirmado', 'Trabajo',1);
+insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 'Confirmado', 'Trabajo',1);
+insert into InvitadoEntity (id,name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 'Confirmado', 'Familia',2);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (4, 'Adah O''Lochan', 389257353, 'aolochan5@bbb.org', 'Pendiente', 'Trabajo', 2);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (5, 'Courtnay Sommersett', 235286536, 'csommersett6@cbslocal.com', 'Confirmado', 'Familia', 2);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (6, 'Melina Gibbetts', 52660220, 'mgibbetts7@constantcontact.com', 'Pendiente', 'Familia', 3);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (7, 'Kizzie Tolan', 859644071, 'ktolan9@amazon.de', 'Confirmado', 'Familia', 3);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (8, 'Giana Lathy', 602042642, 'glathya@wikia.com', 'Confirmado', 'Familia', 3);
+insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (9, 'Doria Revey', 821785894, 'dreveyb@php.net', 'Pendiente', 'Familia', 1);
 
 
 --Pruebas ProveedorEntity

@@ -7,6 +7,7 @@
             $http.get(bodasContext + '/' + $state.params.bodaId + '/' + invitadosContext).then(function (response) {
                 $scope.invitadosRecords = response.data;
             });
+            
             if ($state.params.invitadoId !== undefined) {
                 $http.get(bodasContext + '/' + $state.params.bodaId + '/' + invitadosContext + '/'+ $state.params.invitadoId).then(function (response) {
                     $scope.currentInvitado = response.data;
@@ -17,6 +18,7 @@
                  $scope.tipoOrden = condicion;
                  $scope.criterioOrdenar= tipoCondicion;
             };
+            
         }
     ]);
 }
