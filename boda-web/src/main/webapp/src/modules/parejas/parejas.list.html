@@ -1,99 +1,102 @@
 <!-- Sitio del slide show -->
 <section>
-<div class="container-fluid" style="margin-bottom: 15px;">
-    <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div id="carousel-1" class="carousel slide" data-ride="carousel">
-            
-            <!-- Indicadores -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-1" data-slide-to="0" class="active">  </li>
-                <li data-target="#carousel-1" data-slide-to="1">  </li>
-                <li data-target="#carousel-1" data-slide-to="2">  </li>
-            </ol>             
-            
-             <!-- Contenedor de slides -->
-             <div class="carousel-inner" role="listbox">
-                 <div class="item active">
-                     <img src="resources/img/boda2.jpg" alt="Segundo Slide" />
-                     <div class="carousel-caption ">
-                         <p>Las imagenes son de pixabay.com con licencia CC0 Creative Commons</p>
-                     </div>
-                 </div>
-                 <div class="item">
-                     <img src="resources/img/boda1mod.jpg" alt="Primer Slide" />
-                     
-                 </div>
-                <div class="item ">
-                     <img src="resources/img/boda3mod.jpg" alt="Tercer Slide" />
-                 </div>
-             </div>
-             
-             
-        		<a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev">
-        			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        			<span class="sr-only">Anterior</span>
-        		</a>
+    <div class="container-fluid" style="margin-bottom: 15px;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div id="carousel-1" class="carousel slide" data-ride="carousel">
 
-        		<a class="right carousel-control" href="#carousel-1" role="button" data-slide="next">
-        			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        			<span class="sr-only">Siguiente</span>
-        		</a>
+                    <!-- Indicadores -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-1" data-slide-to="0" class="active">  </li>
+                        <li data-target="#carousel-1" data-slide-to="1">  </li>
+                        <li data-target="#carousel-1" data-slide-to="2">  </li>
+                    </ol>             
+
+                    <!-- Contenedor de slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="resources/img/boda2.jpg" alt="Segundo Slide" />
+                            <div class="carousel-caption ">
+                                <p>Las imagenes son de pixabay.com con licencia CC0 Creative Commons</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="resources/img/boda1mod.jpg" alt="Primer Slide" />
+
+                        </div>
+                        <div class="item ">
+                            <img src="resources/img/boda3mod.jpg" alt="Tercer Slide" />
+                        </div>
+                    </div>
+
+
+                    <a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+
+                    <a class="right carousel-control" href="#carousel-1" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Siguiente</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-</div>
 </section>
 
 <!-- sITIO DE LA LISTA DE PAREJAS -->
 <section class="col-sm-8 col-sm-offset-2" id="seccion_pareja">
-<div class="panel panel-primary  " >    
-    <div class="panel-heading"><h3 class="panel-title">Lista de Parejas</h3></div>
-       <div class="panel-body">
-           
-                        <!-- ng-click="OpenCreate()" ng-click="ctrl.pruebaRecord()" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" --->
-                        <a class="btn btn-primary" ui-sref="parejasCreate" ><!---data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"-->
-                            <span class="glyphicon glyphicon-plus"  ></span> Nueva Pareja 
-                        </a> 
-                        
-         <table class="table "> 
-           <thead>
-            <tr>
-                <th>Correo</th>
+    <div class="panel panel-danger  " >    
+<!--        <div class="panel-heading">
+            <h3 class="panel-title" style="color:white">Lista de Parejas</h3>            
+        </div>-->
+        <div><h2>Lista de Parejas</h2></div>
+        <div class="panel-body">
 
-                <th>Actions</th>
-                <th>Detalles</th>
-                
-            </tr>
-            </thead>
-        <tbody>
-            <tr ng-repeat="pareja in parejasRecords">
-                <td id="{{$index}}-email">{{pareja.correoElec}}    
-                                  
-                  <div ng-show="isOpen(pareja)">                   
-                      <div ui-view="detailOneView"></div>
-                 </div> 
-                </td>
-                
-                <td>
-                    <a id="{{$index}}-edit-btn" class="btn btn-warning btn-sm" ui-sref="parejasUpdate({parejaId: pareja.correoElec})">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                    <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm sweet-2" ng-click="ctrl.deleteRecord(pareja)">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                </td>
-                
-                <td id="{{$index}}-detail" > 
-                    <a class="btn btn-info" ui-sref="parejasOneDetail({parejaId: pareja.correoElec})" ng-click="Open(pareja)"><span class="glyphicon glyphicon-zoom-in"  ></span>Ver Detalles</a>                     
-                </td>    
-            </tr>       
-        </tbody>
-        </table>
-        
+
+            <a  class="botones"  ui-sref="parejasCreate" >
+                <span class="glyphicon glyphicon-plus"   ></span> <b>Nueva Pareja</b> 
+            </a> 
+
+            <table class="table "> 
+                <thead>
+                    <tr>
+                        <th>Correo</th>
+
+                        <th>Actions</th>
+                        <th>Detalles</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pareja in parejasRecords">
+                        <td id="{{$index}}-email">{{pareja.correoElec}}    
+
+                            <div ng-show="isOpen(pareja)">                   
+                                <div ui-view="detailOneView"></div>
+                            </div> 
+                        </td>
+
+                        <td>
+                            <a id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ui-sref="parejasUpdate({parejaId: pareja.correoElec})">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <button id="{{$index}}-delete-btn" class="btn btn-danger btn-sm sweet-2" ng-click="ctrl.deleteRecord(pareja)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+
+                        <td id="{{$index}}-detail" > 
+                            <a class="btn btn-info" ui-sref="parejasOneDetail({parejaId: pareja.correoElec})" ng-click="Open(pareja)"><span class="glyphicon glyphicon-zoom-in"  ></span>Ver Detalles</a>                     
+                        </td>    
+                    </tr>       
+                </tbody>
+            </table>
+
         </div>
-    
-</div>
+
+    </div>
 </section>
 
 
@@ -107,21 +110,21 @@
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel"></h4>
-      </div>
-      <div class="modal-body">
-          
-           <div ui-view="createOneView">
-                               
-         </div>
-         
-      <div class="modal-footer">
-       
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+
+                <div ui-view="createOneView">
+
+                </div>
+
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>

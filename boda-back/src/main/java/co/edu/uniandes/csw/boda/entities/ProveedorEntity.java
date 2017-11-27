@@ -27,17 +27,22 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
     private String especialidad;
     
     /**
+     * Atributo privado direccion de imagen
+    */
+    private String imagen;
+    
+    /**
      * Coleccion privada de servicios.
      */
     @PodamExclude
-    @ManyToMany
+    @ManyToMany(mappedBy="proveedores")
     private List<ServicioEntity> servicios;
     
     /**
      * Coleccion privada de opcionesServicio.
      */
     @PodamExclude
-    @OneToMany(mappedBy="proveedor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="proveedor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OpcionServicioEntity> opcionesServicio;  
     
     /**
@@ -56,6 +61,22 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
      */    
     public void setEspecialidad(String especialidad){
         this.especialidad=especialidad;
+    }
+    
+        /**
+     * Retorna la direccion de la imagen del proveedor
+     * @return atributo imagen
+     */
+    public String getImagen(){
+        return imagen;
+    }
+    
+    /**
+     * Actualiza la dirección de la imagen del proveedor
+     * @param imagen 
+     */
+    public void setImagen(String imagen){
+        this.imagen=imagen;
     }
     
     /**
@@ -93,4 +114,6 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
     public void setOpcionesServicio(List<OpcionServicioEntity> servicio){
         this.opcionesServicio=servicio;
     }
+    
+
 }

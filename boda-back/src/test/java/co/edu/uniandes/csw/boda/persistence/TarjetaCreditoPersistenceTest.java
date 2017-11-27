@@ -163,9 +163,9 @@ public class TarjetaCreditoPersistenceTest {
         TarjetaCreditoEntity newEntity = factory.manufacturePojo(TarjetaCreditoEntity.class);
         TarjetaCreditoEntity result = persistence.create(newEntity);
         Assert.assertNotNull(result);
-        TarjetaCreditoEntity entity = em.find(TarjetaCreditoEntity.class, result.getId());
+        TarjetaCreditoEntity entity = em.find(TarjetaCreditoEntity.class, result.getNumero());
         Assert.assertNotNull(entity);
-        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getNumero(), entity.getNumero());
     }
 
     /**
@@ -177,13 +177,13 @@ public class TarjetaCreditoPersistenceTest {
         PodamFactory factory = new PodamFactoryImpl();
         TarjetaCreditoEntity newEntity = factory.manufacturePojo(TarjetaCreditoEntity.class);
 
-        newEntity.setId(entity.getId());
+        newEntity.setNumero(entity.getNumero());
 
         persistence.update(newEntity);
 
-        TarjetaCreditoEntity resp = em.find(TarjetaCreditoEntity.class, entity.getId());
+        TarjetaCreditoEntity resp = em.find(TarjetaCreditoEntity.class, entity.getNumero());
 
-        Assert.assertEquals(newEntity.getId(), resp.getId());
+        Assert.assertEquals(newEntity.getNumero(), resp.getNumero());
     }
 
     /**
@@ -192,8 +192,8 @@ public class TarjetaCreditoPersistenceTest {
     @Test
     public void deleteTarjetaCreditoEntityTest() {
         TarjetaCreditoEntity entity = data.get(0);
-        persistence.delete(entity.getId());
-        TarjetaCreditoEntity deleted = em.find(TarjetaCreditoEntity.class, entity.getId());
+        persistence.delete(entity.getNumero());
+        TarjetaCreditoEntity deleted = em.find(TarjetaCreditoEntity.class, entity.getNumero());
         Assert.assertNull(deleted);
     }
 
@@ -203,9 +203,9 @@ public class TarjetaCreditoPersistenceTest {
     @Test
     public void findTarjetaCreditoEntityTest() {
         TarjetaCreditoEntity entity = data.get(0);
-        TarjetaCreditoEntity newEntity = persistence.find(entity.getId());
+        TarjetaCreditoEntity newEntity = persistence.find(entity.getNumero());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getId(), newEntity.getId());
+        Assert.assertEquals(entity.getNumero(), newEntity.getNumero());
     }
 
     /**
@@ -274,7 +274,7 @@ public class TarjetaCreditoPersistenceTest {
         for (TarjetaCreditoEntity ent : list) {
             boolean found = false;
             for (TarjetaCreditoEntity entity : data) {
-                if (ent.getId().equals(entity.getId())) {
+                if (ent.getNumero().equals(entity.getNumero())) {
                     found = true;
                 }
             }

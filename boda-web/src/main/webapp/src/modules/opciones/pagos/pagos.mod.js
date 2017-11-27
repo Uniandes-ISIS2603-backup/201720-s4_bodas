@@ -1,14 +1,14 @@
 (function (ng) {
-    var mod = ng.module("pagosModule", ['parejasModule', 'tarjetasCreditoModule', 'ui.router']);
+    var mod = ng.module("pagosModule", ['parejasModule','tarjetasCreditoModule', 'ui.router']);
     mod.constant("pagosContext", "pagos");
     mod.constant("tarjetasCreditoContext", "tarjetasCredito");
     mod.constant("parejasContext", "api/parejas");
-
+    
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/pagos/';
             $urlRouterProvider.otherwise("/pagosList");
-
-            $stateProvider.state('pagos', {
+            
+            $stateProvider.state('pagos',{
                 url: '/pagos',
                 abstract: true,
                 parent: 'tarjetasDetail',
@@ -27,13 +27,13 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('pagosDetail', {
+                }).state('pagosDetail', {
                 url: '/:pagoId',
                 parent: 'pagos',
                 param: {
                     pagoId: null
                 },
-                views: {
+                 views: {
                     'detailView': {
                         templateUrl: basePath + 'pagos.detail.html',
                         controller: 'pagosCtrl',
@@ -46,26 +46,22 @@
                 param: {
                     pagoId: null
                 },
-                views: {
+                 views: {
                     'detailView': {
                         templateUrl: basePath + 'update/pagos.update.html',
                         controller: 'pagosUpdateCtrl'
                     }
                 }
             }).state('pagosCreate', {
-                url: '/createPago',
-                views: {
-                    'mainView': {
-                        templateUrl: basePath + 'new/pagos.new.html',
+                url: '/create/:pagoId',
+                parent: 'pagos',
+                param: {
+                    pagoId: null
+                },
+                 views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/pagos.update.html',
                         controller: 'pagosNewCtrl'
-                    }
-                }
-            }).state('pagosConfirm', {
-                url: '/confirmPagoCreate',
-                views: {
-                    'mainView': {
-                        templateUrl: basePath + 'new/pagos.confirm.new.html',
-                        controller: 'pagosCtrl'
                     }
                 }
             });

@@ -21,7 +21,7 @@
                     numero: $scope.tarjetaNumero,
                     numDeSeg: $scope.tarjetaNumDeSeg
                 }).then(function (response) {
-                    $state.go('tarjetasList', {tarjetaId: response.data.id}, {reload: true});
+                    $state.go('tarjetasList', {tarjetaId: response.data.numero}, {reload: true});
                 });
             };
         }

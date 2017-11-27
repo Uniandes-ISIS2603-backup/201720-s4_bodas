@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
+import co.edu.uniandes.csw.boda.entities.InvitadoEntity;
 import co.edu.uniandes.csw.boda.entities.RegaloEntity;
+import co.edu.uniandes.csw.boda.entities.UbicacionEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -99,7 +102,44 @@ public class RegaloPersistenceTest {
             data.add(entity);
         }
     }
-
+    
+    
+    @Test
+    public void testEntity() {
+        PodamFactory factory = new PodamFactoryImpl();
+        RegaloEntity newEntity = factory.manufacturePojo(RegaloEntity.class);        
+      
+        //Prueba el metodo getInvitado()
+        Assert.assertNull("No Contiene Invitados asignados", newEntity.getInvitado());
+        
+        //Prueba el metodo getInvitado()
+         factory = new PodamFactoryImpl();
+        try{newEntity.setInvitado(factory.manufacturePojo(InvitadoEntity.class));}catch(Exception e){Assert.fail("No debio generar error");}
+        
+        //Prueba el metodo getLocations()
+        Assert.assertNull("No Contiene locaciones asignadas", newEntity.getLocations());
+        
+        //Prueba el metodo setTarjetaCredito()         
+        factory = new PodamFactoryImpl();
+        List<UbicacionEntity>ubicaciones = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            ubicaciones.add(factory.manufacturePojo(UbicacionEntity.class));
+        }
+        try{newEntity.setLocations(ubicaciones);}catch(Exception e){Assert.fail("No debio generar error");}
+        
+        //Prueba el metodo getBoda()
+        Assert.assertNull("No Contiene boda asignada", newEntity.getBoda());
+        
+        //Prueba el metodo getInvitado()
+         factory = new PodamFactoryImpl();
+        try{newEntity.setBoda(factory.manufacturePojo(BodaEntity.class));}catch(Exception e){Assert.fail("No debio generar error");}
+        
+        //Prueba el metodo  getImagen()
+        Assert.assertNotNull("Tiene imagen asignada", newEntity.getImagen());
+        
+         //Prueba el metodo  isComprado()
+        Assert.assertNotNull("Tiene imagen asignada", newEntity.isComprado());
+    }
     /**
      * Test of find method, of class RegaloPersistence.
      */

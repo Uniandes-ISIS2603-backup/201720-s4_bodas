@@ -65,7 +65,7 @@ public class TarjetaCreditoResource {
     @PUT
     @Path("{id: \\d+}")
     public TarjetaCreditoDetailDTO updateTarjetaCredito(@PathParam("idPareja") String idPareja, @PathParam("id") Long id, TarjetaCreditoDetailDTO tarjeta) throws BusinessLogicException {
-        tarjeta.setId(id);
+        tarjeta.setNumero(id);
         TarjetaCreditoEntity entity = tarjetaCreditoLogic.getTarjetaCredito(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso /tarjetasCredito/" + id + " no existe.", 404);

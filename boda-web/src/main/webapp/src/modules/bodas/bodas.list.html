@@ -1,10 +1,19 @@
 <link rel="stylesheet" href="resources/css/style.css">
-
-
-<div class="panel panel-danger">
-    <div><h1>Lista de Bodas</h1></div>
+<div class="panel panel-danger" >
+    <div><h2>Lista de Bodas</h2></div>
        <div class="panel-body">
                 
+          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <a class="botones" ui-sref="bodaCreate" ><span class="glyphicon glyphicon-plus"></span> <b>Agregar boda</b></a> 
+                        
+            <form class="navbar-form navbar-right" ng-submit="" name="busqueda">
+                <div class="input-group">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar boda (Ej: Mafelipe, Ej:Católica)" required ng-model="nameBoda">
+                    </div>
+                </div>
+            </form>                        
+            </div>
            <table class="table "> 
            <thead>
             <tr>
@@ -16,7 +25,7 @@
             </tr>
             </thead>
         <tbody>
-            <tr ng-repeat="boda in bodasRecords">
+            <tr ng-repeat="boda in bodasRecords|filter:nameBoda">
                 <td id="{{$index}}-name"><a ui-sref="bodaDetail({bodaId: boda.id})">{{ boda.name}}</a></td>
                 <td id="{{$index}}-fecha">{{ boda.fecha.toString().substring(0,10)}}</td>
                 <td id="{{$index}}-reigion">{{ boda.religion}}</td>
@@ -28,10 +37,6 @@
            </tr>
         </tbody>
     </table>
-           <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <button class="botones" ui-sref="bodaCreate" >Agregar boda</button>
-                    </div>
-                </div>
+         
         </div>   
 </div>
