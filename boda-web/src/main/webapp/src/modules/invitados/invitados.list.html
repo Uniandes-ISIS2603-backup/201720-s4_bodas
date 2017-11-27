@@ -18,7 +18,7 @@
             </form>
             
             <div class="btn-group right">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-init="criterioOrdenar = 'Nombre'">
      <strong>Ordenar: </strong>{{criterioOrdenar}}<span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
@@ -50,7 +50,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="invitado in invitadosRecords|filter:nameInv|orderBy:tipoOrden">
+                <tr ng-repeat="invitado in invitadosRecords|filter:nameInv|orderBy:tipoOrden" ng-init="tipoOrden = 'name'">
                     <td id="{{$index}}-documento"><a ui-sref="invitadoDetail({invitadoId: invitado.id})">{{invitado.documento}}</a></td>
                     <td id="{{$index}}-name">{{invitado.name}}</td>
                     <td id="{{$index}}-correo">{{invitado.correo}}</td>
