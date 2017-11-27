@@ -19,6 +19,26 @@
                  $scope.criterioOrdenar= tipoCondicion;
             };
             
+            $scope.imgAsi= function(asistencia){
+                 if(asistencia === "Confirmado" ){
+                     $scope.imagenAsistencia = "resources/icons/checked.png";
+                 }
+                 else if(asistencia === "Pendiente"){
+                     $scope.imagenAsistencia = "resources/icons/stopwatch.png";
+                 }
+            };
+            
+            $scope.imgCat= function(categoria){
+                 if(categoria === "Familia" ){
+                     $scope.im = "resources/icons/familia.png";
+                 }
+                 else if(categoria === "Amigos"){
+                     $scope.im = "resources/icons/couple.png";
+                 }
+                 else if(categoria === "Trabajo"){
+                     $scope.im = "resources/icons/employee.png";
+                 }
+            };        
         }
     ]);
 }
