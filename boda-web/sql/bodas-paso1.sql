@@ -104,31 +104,29 @@ insert into ServicioEntity (id, name, descripcion, image) values (13, 'Bebidas',
 ---Fin Pruebas ServicioEntity
 
 
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (1,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (1,200);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (1,300);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,200);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (2,400);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (11,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (11,400);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (12,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (12,300);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (5,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (5,200);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (6,300);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (6,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (7,400);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (7,300);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (8,100);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (8,200);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (9,200);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (9,300);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (10,300);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (10,400);
-insert into ServicioEntity_ProveedorEntity (servicioentity_id, proveedores_id ) values (11,300);
-
-
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (1,100);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (1,200);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (1,300);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (2,100);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (2,200);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (2,400);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (11,100);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (11,400);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (12,100);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (12,300);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (5,100);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (5,200);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (6,300);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (6,100);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (7,400);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (7,300);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (8,100);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (8,200);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (9,200);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (9,300);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (10,300);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (10,400);
+insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) values (11,300);
 ---Fin Pruebas ProveedorEntity
 
 --Pruebas para OpcionServicio Entity
