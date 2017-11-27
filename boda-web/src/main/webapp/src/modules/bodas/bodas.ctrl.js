@@ -14,8 +14,8 @@ $(window).load(function () {
 (function (ng) {
     var mod = ng.module("bodasModule");
     mod.constant("bodasContext", "api/bodas");
-    mod.controller('bodasCtrl', ['$scope', '$http', 'bodasContext', '$state',
-        function ($scope, $http,bodasContext, $state) {
+    mod.controller('bodasCtrl', ['$scope', '$http', 'bodasContext', '$state','$filter',
+        function ($scope, $http,bodasContext, $state,$filter) {
             $http.get(bodasContext).then(function (response) {
                 $scope.bodasRecords = response.data;
             });
@@ -25,8 +25,28 @@ $(window).load(function () {
                     //$scope.regalosRecords = response.data.regalos;
                     $scope.currentBoda = response.data;
                     $scope.currentFecha = $scope.currentBoda.fecha;
+                            
+                    
+                
+                var fechita = $filter('date')($scope.currentBoda.fecha, 'medium','');
+                 console.log(fechita);
+                var countDownDate = new Date(fechita).getTime();
+                var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                document.getElementById("demo").innerHTML = days + "días " + hours + "horas "  + minutes + "minutos " + seconds + "s ";
+    
+                if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "Aún puedes aplazar la fecha";}
+                }, 1000);
                 });   
             }
-            
+
         }]);
 })(angular);

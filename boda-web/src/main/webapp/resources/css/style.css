@@ -13,15 +13,15 @@ body{
 header{
     margin: 15px;
 }
-h1{
-    font-family: 'Pacifico', cursive;
+ .titulo-principal{
+    font-family: 'Quicksand', sans-serif;
     text-align: center;
     color:#F48FB1;
 }
 h2{
     font-family: 'Pacifico', cursive;
     text-align: center;
-    color:#F48FB1;
+        color:#E877B9;
 }
 
 .HC{
@@ -43,7 +43,7 @@ h2{
 .normal{
     font-family: cursive;
 }
-#fecha{
+.fecha{
     font-family: cursive;
     text-align: center;
 }
