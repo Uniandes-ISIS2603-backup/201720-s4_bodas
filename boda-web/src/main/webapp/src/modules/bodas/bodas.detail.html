@@ -32,10 +32,15 @@
                <div id="next_button" align="right">
                <button class="botones" class="btn btn-primary" ui-sref="bodaUpdate({bodaId: currentBoda.id})"><span class="glyphicon glyphicon-edit"></span>   
             </div>
+                <div class="col-md-8" >
+     <h5><b>Tema: </b>{{currentBoda.tema}}</h5>
+     <h5><b>Tipo de Boda: </b>{{currentBoda.tipoBoda}}</h5>
+     <h5><b>Pareja: </b>{{currentBoda.pareja}}</h5>
+</div>
         </div>
     </div>                   
 </div>
-  
+ 
   
 <div class="row">
             <div class="col-md-9"></div>
@@ -43,7 +48,4 @@
                 <div ui-view="childrenView"></div>
             </div>
 </div>
-<p class="HC33">Tema: <h class="normal">{{currentBoda.tema}}</h></p>
-<p class="HC33">Tipo de Boda: <h class="normal">{{currentBoda.tipoBoda}}</h></p>
-<p class="HC33">Pareja: <h class="normal">{{currentBoda.pareja}}<h></p>
 
