@@ -158,5 +158,8 @@ insert into TarjetaCreditoEntity (numero, name, numDeSeg, fechaVen, pareja_corre
 ---Fin Pruebas TarjetaCreditoEntity
 
 ---Pruebas PagoEntity
-
+insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_numero) values (1, 'Pago por mesas', 150000, '4/4/2017',4445556667778889);
+insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_numero) values (2, 'Pago por transporte', 200000, '6/29/2017', 4445556667778889);
+insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_numero) values (3, 'Pago por banquete', 30000, '3/14/2017', 7894561230789456);
+insert into PagoEntity (id, name, montoTotal, fecha, tarjetaCredito_numero) values (4, 'Pago por sillas', 70000, '1/12/2017', 7777771111115556);
 ---Fin Pruebas PagoEntity

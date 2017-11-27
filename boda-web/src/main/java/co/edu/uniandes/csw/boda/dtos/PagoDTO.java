@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.PagoEntity;
-import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,7 +22,7 @@ public class PagoDTO {
     @Temporal(TemporalType.DATE)
     private Date fecha;
     private String correoPareja;
-    private TarjetaCreditoEntity tarjeta;
+    private Long tarjetaId;
     /**
      * Constructor por defecto
      */
@@ -41,7 +40,7 @@ public class PagoDTO {
         this.fecha = pago.getFecha();
         this.nombrePago = pago.getName();
         this.correoPareja = pago.getCorreoPareja();
-        this.tarjeta = pago.getTarjetaCredito();
+        this.tarjetaId = pago.getTarjetaCredito().getNumero();
     }
 
      /**
@@ -113,12 +112,12 @@ public class PagoDTO {
         this.correoPareja = correoPareja;
     }
 
-    public TarjetaCreditoEntity getTarjeta() {
-        return tarjeta;
+    public Long getTarjeta() {
+        return tarjetaId;
     }
 
-    public void setTarjeta(TarjetaCreditoEntity tarjeta) {
-        this.tarjeta = tarjeta;
+    public void setTarjeta(Long tarjetaId) {
+        this.tarjetaId = tarjetaId;
     }
     
      /**
@@ -132,7 +131,7 @@ public class PagoDTO {
         entity.setFecha(this.fecha);
         entity.setName(this.nombrePago);
         entity.setCorreoPareja(this.correoPareja);
-        entity.setTarjetaCredito(tarjeta);
+        entity.setNumeroTarjeta(tarjetaId);
         return entity;
     }
 }

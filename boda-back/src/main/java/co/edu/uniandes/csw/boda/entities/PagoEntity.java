@@ -49,6 +49,11 @@ public class PagoEntity extends BaseEntity implements Serializable{
     */
     private String correoPareja;
     
+    /**
+    * Atributo privado numeroTarjeta.
+    */
+    private Long numeroTarjeta;
+    
      /**
      * Obtiene el atributo montoTotal.
      *
@@ -136,5 +141,23 @@ public class PagoEntity extends BaseEntity implements Serializable{
      */
     public void setCorreoPareja(String correoPareja) {
         this.correoPareja = correoPareja;
+    }
+
+    /**
+     * Obtiene el atributo numeroTarjeta.
+     *
+     * @return atributo numeroTarjeta.
+     */
+    public Long getNumeroTarjeta() {
+        return numeroTarjeta;
+    }
+
+     /**
+     * Establece el valor del atributo numeroTarjeta.
+     *
+     * @param numeroTarjeta nuevo valor del atributo
+     */
+    public void setNumeroTarjeta(Long numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
     }
 }
