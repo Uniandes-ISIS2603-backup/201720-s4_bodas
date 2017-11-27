@@ -1,27 +1,22 @@
 <link rel="stylesheet" href="resources/css/style.css">
 <div class="panel panel-default">
-    <div id="headPanel" class="panel-heading">
-        <h3 id="nombreBoda"  class="panel-title"> 
-            <a id="{{$index}}-name">{{currentInvitado.name}}</a>
-        </h3></div>
+        <h2> {{currentInvitado.name}} </h2>
        <div class="panel-body">
-         <table class="table "> 
+        <div class="col-md-3"> 
+            <div class="thumb" >
+                <a ng-show="imgAsi(currentInvitado.asistencia)"></a>
+                <a ng-show="imgCat(currentInvitado.categoria)"></a>
+                <center>
+                <img class="img-responsive" ng-src='{{im}}'  style =" width:30%"/> 
+                </center>
+            </div>
+        </div>
+        <div class="col-md-3">   
+            <h5><b>Categoria: </b> {{currentInvitado.categoria}}</h5>
+            <h5><b>Correo:</b> {{currentInvitado.correo}}</h5>
+            <h5><b>{{currentInvitado.asistencia}}</b><img class="img-responsive" ng-src='{{imagenAsistencia}}'  style =" width:5%; " align="left"/>      </h5>
+        </div>
 
-       <tbody> 
-                <hr>
-                <dt>Asistencia</dt>
-                <dd>{{currentInvitado.asistencia}}</dd>
-                
-                <hr>
-                <dt>Correo</dt>
-                <dd>{{currentInvitado.correo}}</dd>
-                
-                <hr>
-                <dt>Categoria</dt>
-                <dd>{{currentInvitado.categoria}}</dd>
        </div>
-  </tbody>            
-  </table>
-           
 </div>
- </div>
+
