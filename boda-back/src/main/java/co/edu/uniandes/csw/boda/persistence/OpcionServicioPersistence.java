@@ -83,7 +83,21 @@ public class OpcionServicioPersistence
         LOGGER.log(Level.INFO, "Consultando  OpcionServicio con id={0}", id);
         return em.find( OpcionServicioEntity.class, id);
     }
+public  OpcionServicioEntity findByProveedor(Long proveedorId,Long opcionId) {
+       TypedQuery< OpcionServicioEntity> q = em.createQuery("Select x from  OpcionServicioEntity x where x.proveedor.id = :proveedorId and x.id = :opcionId",  OpcionServicioEntity.class);
 
+        q.setParameter("proveedorId", proveedorId);
+       q.setParameter("opcionId", opcionId);
+        List< OpcionServicioEntity> results = q.getResultList();
+         OpcionServicioEntity opcion;
+        if (results.isEmpty()) {
+            opcion = null;
+        }else {
+           opcion = results.get(0);
+        }
+
+        return opcion;
+    }
     /**
      * Devuelve todas las  OpcionServicio de la base de datos.
      *

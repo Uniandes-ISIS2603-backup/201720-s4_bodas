@@ -1,7 +1,7 @@
 
 (function (ng) {
     var mod = ng.module("opcionesModule");
-    mod.constant("opcionesContext", "opcionServicios");
+    mod.constant("opcionesServicioContext", "opcionServicios");
     mod.constant("proveedoresContext", "api/proveedores");
     mod.controller('opcionesCtrl', ['$scope', '$http', 'proveedoresContext', '$state', 'opcionesContext',
         
