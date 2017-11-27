@@ -125,7 +125,7 @@ public class InvitadoPersistenceTest {
         Assert.assertNotNull(" Contiene una imagen asignada", newEntity.getCorreo());  
         
         //Prueba el metodo isAsistencia() 
-        Assert.assertNotNull(" Contiene una asistencia asignada", newEntity.isAsistencia());
+        Assert.assertNotNull(" Contiene una asistencia asignada", newEntity.getAsistencia());
         
         //Prueba el metodo getCategoria() 
         Assert.assertNotNull(" Contiene una imagen asignada", newEntity.getCategoria());  

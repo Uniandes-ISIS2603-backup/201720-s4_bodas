@@ -31,7 +31,7 @@ public class InvitadoEntity extends BaseEntity implements Serializable {
     /**
      * Atributo privado asistencia.
      */
-    private boolean asistencia;
+    private String asistencia;
 
     /**
      * Atributo privado categoria.
@@ -129,7 +129,7 @@ public class InvitadoEntity extends BaseEntity implements Serializable {
      *
      * @return atributo asistencia.
      */
-    public boolean isAsistencia() {
+    public String getAsistencia() {
         return asistencia;
     }
 
@@ -138,7 +138,7 @@ public class InvitadoEntity extends BaseEntity implements Serializable {
      *
      * @param asistencia nuevo valor del atributo
      */
-    public void setAsistencia(boolean asistencia) {
+    public void setAsistencia(String asistencia) {
         this.asistencia = asistencia;
     }
 
