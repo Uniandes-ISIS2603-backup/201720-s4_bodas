@@ -10,7 +10,6 @@
             <img align=center src="resources/icons/header.png" >
             <h1>{{currentBoda.name}}</h1>
              </center>
-            
         </div>
         <div class="panel-body">
         <div class="col-md-4">
@@ -51,6 +50,9 @@
                  <span class="sr-only">20% Complete</span>
                  </div>
                </div>
+               <div id="next_button" align="right">
+               <button class="botones" ui-sref="bodaUpdate({bodaId: currentBoda.id})"><span class="glyphicon glyphicon-edit"></span>   
+            </div>
         </div>
     </div>                   
 </div>

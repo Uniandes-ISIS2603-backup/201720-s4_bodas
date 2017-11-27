@@ -1,8 +1,9 @@
+<link rel="stylesheet" href="resources/css/style.css">
 <div class="container-fluid">
     <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="bodaCreate">Crear nueva boda</label>
-                <label ng-if="edit" id="editBoda">Editar boda</label></div>
+        <div class="panel">
+            <div class="panel-heading"><h1 ng-if="!edit" id="bodaCreate">Crear nueva boda</h1>
+                <h1 ng-if="edit" id="editBoda">Editar boda</h1></div>
             <div class="panel-body">
                 <form ng-submit="createBoda()" name="boda">
                     <div class="form-group row">
@@ -78,7 +79,7 @@
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
                             <input ng-show="boda.$valid" type="submit" value="¡Empecemos!" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="bodasList">Cancelar</a>
+                            <a class="btn btn-danger btn-sm" ui-sref="bodasList">Cancelar</a>
                         </div>
                     </div>
                 </form>
