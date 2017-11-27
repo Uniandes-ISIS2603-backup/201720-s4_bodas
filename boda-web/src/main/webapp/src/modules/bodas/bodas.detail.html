@@ -20,12 +20,14 @@
         </div>
         <div class="col-md-8">   
                 <h2 class="HC1">Nos casamos el</h2>
-                <p class="fecha"> {{currentBoda.fecha| date:'dd'}} de {{currentBoda.fecha| date:'MMMM'}} del {{currentBoda.fecha| date:'yyyy'}} </p>
+                <p id="fecha"> {{currentBoda.fecha| date:'dd'}} de {{currentBoda.fecha| date:'MMMM'}} del {{currentBoda.fecha| date:'yyyy'}} </p>
                 <br>
-                <p class="fecha"> Solo faltan :
+                <p id="fecha"> Solo faltan :
                 <h id="demo"></h>
                 <script>
-
+                //<p id="fecha"> {{currentBoda.fecha| date:'MMM dd, yyyy HH:mm:ss'}}
+                //var f =document.getElementById("fecha").toString();
+                //var countDownDate = new Date(""+f).getTime();
                 var countDownDate = new Date("Mar 29, 2019 15:37:25").getTime();
                 var x = setInterval(function() {
                 var now = new Date().getTime();
