@@ -20,7 +20,6 @@ import javax.inject.Inject;
  */
 @Stateless
 public class TarjetaCreditoLogic {
-    private static final int NUMERO_CARACTERES_TARJETA = 16;
     private static final int NUMERO_CARACTERES_SEGURIDAD_1OPCION = 3;
     private static final int NUMERO_CARACTERES_SEGURIDAD_2OPCION = 4;
     private static final Logger LOGGER = Logger.getLogger(TarjetaCreditoLogic.class.getName());
@@ -47,10 +46,6 @@ public class TarjetaCreditoLogic {
         }
         if (persistence.findByNumero(entity.getNumero())!= null) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numero \"" + entity.getNumero() + "\"");
-        }
-        int ingresoNumeroTarjeta = entity.getNumero().toString().length();
-        if (ingresoNumeroTarjeta != NUMERO_CARACTERES_TARJETA) {
-            throw new BusinessLogicException("El numero de la Tarjeta de credito debe tener 16 digitos");
         }
         int ingresoNumeroSeguridad = String.valueOf(entity.getNumDeSeg()).length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
@@ -84,10 +79,6 @@ public class TarjetaCreditoLogic {
         }
         if (persistence.findByNumero(entity.getNumero()) != null && !(entity.getNumero().equals(persistence.find(id).getNumero()))) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numero \"" + entity.getNumero() + "\"");
-        }
-        int ingresoNumeroTarjeta = entity.getNumero().toString().length();
-        if (ingresoNumeroTarjeta != NUMERO_CARACTERES_TARJETA) {
-            throw new BusinessLogicException("El numero de la Tarjeta de credito debe tener 16 digitos");
         }
         int ingresoNumeroSeguridad = String.valueOf(entity.getNumDeSeg()).length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
