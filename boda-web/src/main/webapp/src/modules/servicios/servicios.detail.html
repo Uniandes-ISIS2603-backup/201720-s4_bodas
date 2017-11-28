@@ -1,10 +1,10 @@
+<link rel="stylesheet" href="resources/css/style.css">
 <div class="panel panel-default">
-    <div id="headPanel" class="panel-heading">
-        <h3 id="nombreServicio" class="panel-title"> 
-            <tr>
-            <td id="{{$index}}-name">Información del Servicio: {{currentServicio.name}}</td>
-            </tr>
-        </h3></div>
+      <div id="headPanel" class="panel-heading">              <center>
+            <img align=center src="resources/icons/header.png" >
+            <h2>Información del Servicio: {{currentServicio.name}}</h2>
+             </center>    
+      </div>
        <div class="panel-body">
          <table class="table "> 
 
@@ -16,19 +16,19 @@
             </div>
 
         </div>
-        <div class="col-md-3"> 
+        <div class="col-md-9"> 
             <dl> 
-                <hr>
-                <dt>Nombre del Servicio:</dt>
-                <dd>{{currentServicio.name}} </dd>
                 <hr>
                 <dt>Descripcion</dt>
                 <dd>{{currentServicio.descripcion}}</dd>
                 
-                <dt>Proveedores: </dt> 
-                <dl>
-                    
+                <br>
+                <dd class="HC">Selecciona uno de nuestros proveedores y encuentra la opción del servicio {{currentServicio.name}}  ideal para tí.</dd>
+                <br>
+            <div>        
             <tr ng-repeat="proveedor in currentServicio.proveedores">
+            <dd><h2>Proveedores: </h2></dd>
+                <br>
                 <td id="{{$index}}-name"><a ui-sref="proveedorDetail({proveedorId: proveedor.id})">{{ proveedor.name}}</a></td>
                 <td id="{{$index}}-especialidad">{{ proveedor.especialidad}}</td>
                 <td id="{{$index}}-actions">
@@ -36,10 +36,6 @@
                     <a class="btn btn-default btn-sm" ui-sref="ubicacionUpdate({ubicacionId: ubicacion.id})"><span class="glyphicon glyphicon-edit"></span></a>
                 </td>
            </tr>
-            </dl>
-            
-                
-        </div>
     </div>
   </tbody>  
              
