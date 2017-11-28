@@ -12,6 +12,10 @@
                 url: '/pagos',
                 abstract: true,
                 parent: 'tarjetasDetail',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'childrenView': {
                         templateUrl: basePath + 'pagos.html'
@@ -20,6 +24,10 @@
             }).state('pagosList', {
                 url: '/list',
                 parent: 'pagos',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'pagos.list.html',
@@ -30,6 +38,10 @@
             }).state('pagosDetail', {
                 url: '/:pagoId',
                 parent: 'pagos',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 param: {
                     pagoId: null
                 },
@@ -54,6 +66,10 @@
                 }
             }).state('pagosCreate', {
                 url: '/createPago',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'new/pagos.new.html',
@@ -62,6 +78,10 @@
                 }
             }).state('pagosConfirm', {
                 url: '/confirmPagoCreate',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'new/pagos.confirm.new.html',
