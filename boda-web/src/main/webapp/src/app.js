@@ -41,7 +41,7 @@
                 var requireLogin = $state.current.data.requireLogin
                 var roles = $state.current.data.roles
                
-
+               
                 $rootScope.isAuthenticated = function () {
 
                     if (sessionStorage.getItem("username") != null) {
