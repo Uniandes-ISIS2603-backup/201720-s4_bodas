@@ -36,6 +36,8 @@ public class ProveedorLogic {
     public ProveedorEntity createProveedor(ProveedorEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Proveedor");
         // Invoca la persistencia para crear la Default
+        if(persistence.findByName(entity.getName())!=null)
+            throw new BusinessLogicException("No pueden existir dos proveedores iguales");
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Proveedor");
         return entity;
