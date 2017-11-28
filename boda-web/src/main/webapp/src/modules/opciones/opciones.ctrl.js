@@ -14,7 +14,7 @@
                 $http.get(proveedoresContext + '/' + $state.params.proveedorId + '/' +opcionesContext + '/' + $state.params.opcionId).then(function (response) {
                   
                     $scope.currentOpcion = response.data;
-                     $rootScope.currentOpcionPago=response.data;
+                    $rootScope.currentOpcionPago=response.data;
                 });   
             }
     
