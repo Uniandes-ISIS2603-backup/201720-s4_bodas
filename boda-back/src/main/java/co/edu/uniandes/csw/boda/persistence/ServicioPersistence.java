@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.persistence;
 
 import co.edu.uniandes.csw.boda.entities.ServicioEntity;
+import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,10 +32,12 @@ public class ServicioPersistence {
      * @param entity objeto city que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public ServicioEntity create(ServicioEntity entity) {
+    public ServicioEntity create(ServicioEntity entity) throws BusinessLogicException{
         LOGGER.info("Creando un servicio nuevo");
+        if(findByName(entity.getName())!=null)
+            throw new BusinessLogicException("Ya existe un servicio con el mismo nombre.");
         em.persist(entity);
-        LOGGER.info("Creando un servicio nuevo");
+        LOGGER.info("Se creó un servicio nuevo");
         return entity;
     }
 
