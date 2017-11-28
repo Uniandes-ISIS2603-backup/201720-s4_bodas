@@ -21,7 +21,7 @@ header{
 h2{
     font-family: 'Pacifico', cursive;
     text-align: center;
-        color:#E877B9;
+        color:#B31A48;
 }
 
 .HC{
@@ -49,7 +49,7 @@ h2{
 }
 .boton-agregar{
     color:#fff;
-    box-shadow: 3px 3px 0px #F48FB1;
+    box-shadow: 2px 2px 0px #F48FB1;
     background-color: rgba(244,143,177,0.6); 
     border-color: rgba(244,143,177,0.9);
 }
@@ -70,6 +70,33 @@ h2{
     box-shadow: 2px 2px 0px #F48FB1;
     background-color: rgba(244,143,177,0.7); 
     border-color: rgba(244,143,177,0.9);
+}
+.boton-detalle{
+    color:#fff;
+    box-shadow: 2px 2px 0px #46b8da;
+    background-color: rgba(91 ,192,222,0.8); 
+    border-color: rgba(70,184,218,1);
+}
+.boton-detalle:hover {
+    color:#fff;
+    box-shadow: 3px 3px 0px #46b8da;
+     background-color: rgba(91 ,192,222,0.9); 
+    border-color: rgba(70,184,218,1);
+}
+.boton-detalle:active {
+     color:#fff;
+    box-shadow: 2px 2px 0px #46b8da;
+     background-color: rgba(91 ,192,222,1); 
+    border-color: rgba(70,184,218,1);
+}
+.boton-detalle:visited {
+     color:#fff;
+    box-shadow: 2px 2px 0px #46b8da;
+     background-color: rgba(91 ,192,222,1); 
+    border-color: rgba(70,184,218,1);
+}
+.boton-detalle a:visited{
+    color:white;
 }
 #parejaImg
 {

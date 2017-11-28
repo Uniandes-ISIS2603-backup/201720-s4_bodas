@@ -1,18 +1,11 @@
 ﻿<div class="panel">
     <div class="container-fluid">
-        <h4> Detalles de la Pareja </h4>
-        <!--<form>                    
-            <div class="input-group"><span class="input-group-addon" id="basic-addon1">Email:    </span> <input type="text" class="form-control" aria-label="..." value ="{{currentPareja.correoElec}}" disabled></div>
-            <div class="input-group"><span class="input-group-addon" id="basic-addon1">Nombre 1: </span> <input type="text" class="form-control" aria-label="..." value ="{{currentPareja.nombreInd1}}" disabled></div>
-            <div class="input-group"><span class="input-group-addon" id="basic-addon1">Nombre 2: </span> <input type="text" class="form-control" aria-label="..." value ="{{currentPareja.nombreInd2}}" disabled></div>
-            <div class="input-group"><span class="input-group-addon" id="basic-addon1">Dirección:</span> <input type="text" class="form-control" aria-label="..." value ="{{currentPareja.direccion}}" disabled></div>
-            <div class="input-group"><span class="input-group-addon" id="basic-addon1">Telefono: </span> <input type="text" class="form-control" aria-label="..." value ="{{currentPareja.telefono}}" disabled></div>
-            
-           
-          </form> -->
+        <h4 ng-show="isAuthenticated() && currentUser.rol == 'admin' "> Detalles de la Pareja </h4>
+        <h3 ng-show="isAuthenticated() && currentUser.rol == 'pareja' "> Tu información </h3>
+        
         <ul class="list-group">
             <li class="list-group-item"> <strong>Email: </strong> {{currentPareja.correoElec}}</li>
-            <li class="list-group-item">  Nombre 1: {{currentPareja.nombreInd1}}</li>
+            <li class="list-group-item">Nombre 1: {{currentPareja.nombreInd1}}</li>
             <li class="list-group-item">Nombre 2: {{currentPareja.nombreInd2}}</li>
             <li class="list-group-item">Dirección: {{currentPareja.direccion}}</li>
             <li class="list-group-item">Telefono: {{currentPareja.telefono}}</li>
@@ -24,7 +17,7 @@
            
         
     </div>
-
+ <div ui-view="childrenView"></div>
 
 
 </div>

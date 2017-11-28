@@ -19,13 +19,13 @@
                 </div>
         <center>    
         <div class="row">
-            <div class="col-md-2" ng-repeat="servicio in serviciosRecords|filter:nameServicio">
+            <div class="col-lg-2 col-sm-3 col-md-2" ng-repeat="servicio in serviciosRecords|filter:nameServicio">
             <div class="thumbnail">                 
                 <a ui-sref="servicioDetail({servicioId: servicio.id})"><img class="img-responsive" ng-src='{{servicio.image}}' alt="{{servicio.name}}" style ="height: 200px;width: 100%;"/></a>                
                     <div class="caption text-center">
                         <p>{{servicio.name}}</p>
-                        <a class="btn btn-danger btn-sm" ui-sref="servicioDelete({servicioId: servicio.id})"><span class="glyphicon glyphicon-trash"></span></a>   
-                        <a class="btn btn-default btn-sm" ui-sref="servicioUpdate({servicioId: servicio.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-danger btn-sm" ui-sref="servicioDelete({servicioId: servicio.id})" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-trash"></span></a>   
+                        <a class="btn btn-default btn-sm" ui-sref="servicioUpdate({servicioId: servicio.id})" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-edit"></span></a>
                     </div>
              </div>
             </div>

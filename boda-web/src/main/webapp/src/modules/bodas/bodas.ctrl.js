@@ -55,7 +55,6 @@ jQuery(document).on('ready', function ($) {
                                 
                             }, 1000);
                         } catch (err) {
-                            console.log("Error con la cuenta regresiva");
                         }
                     }
                 });

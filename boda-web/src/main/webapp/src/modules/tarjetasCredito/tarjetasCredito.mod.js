@@ -11,14 +11,22 @@
                 url: '/tarjetasCredito',
                 abstract: true,
                 parent: 'parejasDetail',
+                 data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'childrenView': {
                         templateUrl: basePath + 'tarjetasCredito.html'
                     }
                 }
             }).state('tarjetasList', {
-                url: '/list',
+                url: '/list/tar',
                 parent: 'tarjetas',
+                 data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'tarjetasCredito.list.html',
@@ -29,6 +37,10 @@
             }).state('tarjetasDetail', {
                 url: '/{tarjetaId:int}',
                 parent: 'tarjetas',
+                 data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 param: {
                     tarjetaId: null
                 },
