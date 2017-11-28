@@ -11,9 +11,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -65,12 +63,11 @@ public class ParejaEntity implements Serializable {
     private String nombreAbreviado;
     
     /**
-     * Atributo privado boda.
+     * Atributo privado bodas.
      */
     @PodamExclude
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "boda_id")
-    private BodaEntity boda;
+    @OneToMany(mappedBy = "pareja",fetch = FetchType.LAZY)
+    private List<BodaEntity> bodas;
     
     /**
      * Coleccion privada de tarjetasCredito.
@@ -80,21 +77,21 @@ public class ParejaEntity implements Serializable {
     private List<TarjetaCreditoEntity> tarjetasCredito;
     
     /**
-     * Obtiene el atributo boda.
+     * Obtiene el atributo bodas.
      *
-     * @return atributo boda.
+     * @return atributo bodas.
      */
-    public BodaEntity getBoda() {
-        return boda;
+    public List<BodaEntity> getBodas() {
+        return bodas;
     }
     
     /**
-     * Establece el valor del atributo boda.
+     * Establece el valor de la coleccion  bodas.
      *
-     * @param boda nuevo valor del atributo
+     * @param bodas nuevo valor del atributo
      */
-    public void setBoda(BodaEntity boda) {
-        this.boda = boda;
+    public void setBodas(List<BodaEntity> bodas) {
+        this.bodas = bodas;
     }
     
     /**

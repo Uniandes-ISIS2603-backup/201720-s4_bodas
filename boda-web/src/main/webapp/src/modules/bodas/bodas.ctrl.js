@@ -23,7 +23,6 @@ jQuery(document).on('ready', function ($) {
             if ($state.params.bodaId !== undefined) {
                 $http.get(bodasContext + '/' + $state.params.bodaId).then(function (response) {
                    
-                    //$scope.regalosRecords = response.data.regalos;
                     $scope.currentBoda = response.data;
                     $scope.currentFecha = $scope.currentBoda.fecha;
                    
@@ -35,7 +34,8 @@ jQuery(document).on('ready', function ($) {
                              var fechita = $filter('date')($scope.currentBoda.fecha, 'medium', '');
                             var countDownDate = new Date(fechita).getTime();
                             var x = setInterval(function () {
-                                if($state.current.name !== estadoDetail ){
+                                if($state.current.name !== estadoDetail )
+                                {
                                     clearInterval(x);
                                 }                           
                                

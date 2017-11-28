@@ -13,7 +13,7 @@
                
             });
        if ($state.params.tareaId !== undefined) {
-           $http.get(proveedoresContext + '/' + $state.params.proveedorId + '/'+ opcionesServicioContext +"/"+ $state.params.opcionId + "/" + tareasContext).then(function (response) {
+           $http.get(proveedoresContext + '/' + $state.params.proveedorId + '/'+ opcionesServicioContext +"/"+ $state.params.opcionId + "/" + tareasContext+ "/" + $state.params.tareaId ).then(function (response) {
                    
                     $scope.currentTarea = response.data;
                 });   

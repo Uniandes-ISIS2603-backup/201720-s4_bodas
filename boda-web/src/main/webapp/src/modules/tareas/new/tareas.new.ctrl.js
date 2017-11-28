@@ -5,19 +5,22 @@
     mod.constant("opcionesServicioContext","opcionServicios");
     mod.constant("proveedoresContext","api/proveedores");
     
-    mod.controller('tareasNewCtrl', ['$scope', '$http',  '$state','opcionesServicioContext','proveedoresContext', '$rootScope','tareasContext',
-        function ($scope, $http, $state, opcionesServicioContext, proveedoresContext,  $rootScope, tareasContext) {
+    mod.controller('tareasNewCtrl', ['$scope', '$http',  '$state','proveedoresContext','opcionesServicioContext', '$rootScope','tareasContext',
+        function ($scope, $http, $state, proveedoresContext, opcionesServicioContext,  $rootScope, tareasContext) {
             $rootScope.edit = false;
             $scope.createTarea = function () {
-                  
-                $http.post(proveedoresContext + '/' + $state.params.proveedorId + '/' + opcionesServicioContext + '/' + $state.params.opcionId + '/' + tareasContext, {
-                    dia: $scope.tareaDia,
-                    image: $scope.tareaImage,
-                    nombre: $scope.tareaNombre,
-                    aprobada: $scope.tareasAprobada
+                 
+                $http.post(proveedoresContext + "/" + $state.params.proveedorId + "/" + opcionesServicioContext + "/" + $state.params.opcionId + "/" + tareasContext, {
+               
+                     aprobada: $scope.tareaAprobada,
+                     dia: $scope.tareaDia,
+                     nombre: $scope.tareaNombre,
+                     image: $scope.tareaImage
+               
                     
+                  
                 }).then(function (response) {
-                    //Boda created successfully
+
                     $state.go('tareasList', {tareaId: response.data.id}, {reload: true});
                 });
                  

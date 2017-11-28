@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -48,11 +49,11 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     private PagoEntity pago;
     
     /**
-    * Atributo privado boda.
+    * Atributo privado bodas.
     */
     @PodamExclude
-    @ManyToOne
-    private BodaEntity boda;
+    @ManyToMany
+    private List<BodaEntity> bodas;
     
     /**
      * Coleccion privada de calificacion.
@@ -78,7 +79,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     /**
      * Obtiene el atributo descripcion.
      *
-     * @return atributo boda.
+     * @return atributo bodas.
      */
     public String getDescripcion() {
         return descripcion;
@@ -96,7 +97,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     /**
      * Obtiene el atributo costo.
      *
-     * @return atributo boda.
+     * @return atributo bodas.
      */
     public Long getCosto() {
         return costo;
@@ -114,7 +115,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     /**
      * Obtiene el atributo diasDisponibles.
      *
-     * @return atributo boda.
+     * @return atributo bodas.
      */
     public String getDiasDisponibles() {
         return diasDisponibles;
@@ -220,21 +221,21 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     }
 
     /**
-     * Obtiene el atributo boda.
+     * Obtiene el atributo bodas.
      *
-     * @return la boda asociada
+     * @return la bodas asociada
      */
-    public BodaEntity getBoda() {
-        return boda;
+    public List<BodaEntity> getBoda() {
+        return bodas;
     }
 
      /**
-     * Establece el valor del atributo boda.
+     * Establece el valor del atributo bodas.
      *
-     * @param boda la boda a cambiar
+     * @param boda la bodas a cambiar
      */
-    public void setBoda(BodaEntity boda) {
-        this.boda = boda;
+    public void setBoda(List<BodaEntity> boda) {
+        this.bodas = boda;
     }
     
     

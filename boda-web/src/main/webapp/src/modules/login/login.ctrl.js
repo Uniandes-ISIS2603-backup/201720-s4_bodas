@@ -17,7 +17,7 @@
 
                     var flag = false;
                     for (var item in $scope.users) {
-                        if ($scope.users[item].user == $scope.data.username && $scope.users[item].password == $scope.data.password && $scope.users[item].rol == $scope.data.rol) {
+                        if ($scope.users[item].user === $scope.data.username && $scope.users[item].password === $scope.data.password && $scope.users[item].rol === $scope.data.rol) {
                             flag = true;
                             $scope.user = $scope.users[item];
                             $state.go('parejasList', {}, {reload: true});
@@ -38,10 +38,10 @@
 
                     $http.get('api/parejas/' + $scope.data.username)
                             .then(function (response) {
-                                console.log(response.data);
                                 $scope.usurPareja = response.data;
                                 var flag = false;
-                                if ($scope.usurPareja.correoElec == $scope.data.username && $scope.usurPareja.contrasenia == $scope.data.password) {
+                                if ($scope.usurPareja.correoElec === $scope.data.username && $scope.usurPareja.contrasenia === $scope.data.password) {
+                                    
                                     flag = true;
                                     $state.go('#', {}, {reload: true});
                                 }

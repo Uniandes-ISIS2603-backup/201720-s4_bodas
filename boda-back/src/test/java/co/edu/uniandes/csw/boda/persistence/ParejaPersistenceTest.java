@@ -138,13 +138,16 @@ public class ParejaPersistenceTest {
         ParejaEntity entity = factory.manufacturePojo(ParejaEntity.class);
         
         //Prueba el metodo getBoda()
-        Assert.assertNull("No tiene bodas asignadas", entity.getBoda());
+        Assert.assertNull("No tiene bodas asignadas", entity.getBodas());
         
         
         //Prueba el metodo setBoda()
         factory = new PodamFactoryImpl();
-        BodaEntity boda = factory.manufacturePojo(BodaEntity.class);
-        try{entity.setBoda(boda);}catch(Exception e){Assert.fail("No debio generar error");} 
+        List<BodaEntity> bodas = new ArrayList<>();
+        for(int i =0; i<3 ;i++){
+            bodas.add(factory.manufacturePojo(BodaEntity.class));
+        }
+        try{entity.setBodas(bodas);}catch(Exception e){Assert.fail("No debio generar error");} 
         
         //Prueba el metodo getTarjetasCredito()
         Assert.assertNull("No tiene tarjetas asignadas", entity.getTarjetasCredito());

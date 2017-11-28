@@ -75,7 +75,7 @@ public class ParejaLogic {
           if(entityBuscadita==null) throw new BusinessLogicException("No existe una pareja con el id dado.");
           
           entity.setTarjetasCredito(entityBuscadita.getTarjetasCredito());
-          entity.setBoda(entityBuscadita.getBoda());
+          entity.setBodas(entityBuscadita.getBodas());
           //Actualiza la pareja si existe
           persistence.update(entity);
           return entity;
