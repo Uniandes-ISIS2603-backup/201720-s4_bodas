@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.boda.dtos;
-
 import co.edu.uniandes.csw.boda.entities.PagoEntity;
 import java.util.Date;
 import javax.persistence.Temporal;
@@ -22,7 +21,7 @@ public class PagoDTO {
     @Temporal(TemporalType.DATE)
     private Date fecha;
     private String correoPareja;
-    private Long tarjetaId;
+    private Long numeroTarjeta;
     /**
      * Constructor por defecto
      */
@@ -40,7 +39,7 @@ public class PagoDTO {
         this.fecha = pago.getFecha();
         this.nombrePago = pago.getName();
         this.correoPareja = pago.getCorreoPareja();
-        this.tarjetaId = pago.getTarjetaCredito().getNumero();
+        this.numeroTarjeta = pago.getTarjetaCredito().getNumero();
     }
 
      /**
@@ -113,11 +112,11 @@ public class PagoDTO {
     }
 
     public Long getTarjeta() {
-        return tarjetaId;
+        return numeroTarjeta;
     }
 
-    public void setTarjeta(Long tarjetaId) {
-        this.tarjetaId = tarjetaId;
+    public void setTarjeta(Long numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
     }
     
      /**
@@ -131,7 +130,7 @@ public class PagoDTO {
         entity.setFecha(this.fecha);
         entity.setName(this.nombrePago);
         entity.setCorreoPareja(this.correoPareja);
-        entity.setNumeroTarjeta(tarjetaId);
+        entity.setNumeroTarjeta(numeroTarjeta);
         return entity;
     }
 }
