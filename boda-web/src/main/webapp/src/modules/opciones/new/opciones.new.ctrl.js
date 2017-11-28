@@ -1,23 +1,23 @@
     
 (function (ng) {
     var mod = ng.module("opcionesModule");
-    mod.constant("opcionesContext", "opciones");
+    mod.constant("opcionesServicioContext", "opcionServicios");
     mod.constant("proveedoresContext", "api/proveedores");
     
-    mod.controller('opcionesNewCtrl', ['$scope', '$http', 'proveedoresContext', '$state', '$rootScope','opcionesContext',
-        function ($scope, $http, proveedoresContext, $state,  $rootScope, opcionesContext) {
+    mod.controller('opcionesNewCtrl', ['$scope', '$http', 'proveedoresContext', '$state', '$rootScope','opcionesServicioContext',
+        function ($scope, $http, proveedoresContext, $state,  $rootScope, opcionesServicioContext) {
             $rootScope.edit = false;
             $scope.createOpcionServicio = function () {
+                $http.post(proveedoresContext + "/" + $state.params.proveedorId + "/" + opcionesServicioContext , {
+                    descripcion: $scope.opcionDescripcion,
+                    costo: $scope.opcionCosto,
+                    diasDisponibles: $scope.opcionDias,
+                    image: $scope.opcionImage
                   
-                $http.post(proveedoresContext + '/' + $state.params.bodaId + '/' + opcionesContext , {
-                    descripcion: $scope.opcionesDescripcion,
-                    image: $scope.opcionesImage,
-                    diasDisponibles: $scope.opcionesDiasDisponibles,
-                    costo: $scope.opcionesCosto
                     
                 }).then(function (response) {
-                    //Boda created successfully
-                    $state.go('opcionesList', {opcionesId: response.data.id}, {reload: true});
+                    $state.go('opcionesList', {
+                        opcionId: response.data.id}, {reload: true});
                 });
                  
             

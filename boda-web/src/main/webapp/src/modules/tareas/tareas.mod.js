@@ -32,7 +32,7 @@
                     }
                 }
             }).state('tareaDetail', {
-                url: '/detail/{tareaId:int}',
+                url: '/detail/:tareaId',
                 parent: 'tareas',
                 param: {
                     tareaId: null
@@ -61,16 +61,30 @@
                     }
                 }
             }).state('tareaDelete', {
-                url: '/delete/{tareaId:int}',
-                parent: 'tareaDetail',
+                url: '/delete/:tareaId',
+                parent: 'tareas',
                 param: {
                     tareaId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/tareas.delete.html',
+                        templateUrl: basePath + 'delete/tareas.delete.html',
                         controller: 'tareasDeleteCtrl'
                     }
+                    
+                }
+            }).state('tareaUpdate', {
+                url: '/nue/:tareaId',
+                parent: 'tareas',
+                param: {
+                    tareaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'update/tareas.update.html',
+                        controller: 'tareaUpdateCtrl'
+                    }
+                    
                 }
             });
         }]);
