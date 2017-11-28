@@ -53,12 +53,37 @@
         </div>-->
         <div><h2>Lista de Parejas</h2></div>
         <div class="panel-body">
-
-
-            <a  class="botones"  ui-sref="parejasCreate" >
+           
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <a  class="btn btn-primary"   ui-sref="parejasCreate" ><!--botones--->
                 <span class="glyphicon glyphicon-plus"   ></span> <b>Nueva Pareja</b> 
             </a> 
+    <div class="btn-group right">
 
+                
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+     <strong>Ordenar: </strong>{{currentOrdenPa}}<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a ng-click="ctrl.orderInvParejas('correoElec','Correo')">Correo</a></li>
+    <li><a ng-click="ctrl.orderInvParejas('nombreInd1','Nombre 1')">Nombre 1</a></li>
+        <li><a ng-click="ctrl.orderInvParejas('nombreInd1','Nombre 2')">Nombre 2</a></li>    
+        <li><a ng-click="ctrl.orderInvParejas('telefono','Telefono')">Telefono</a></li>
+
+  </ul> </div>
+             <form class="navbar-form navbar-right" ng-submit="" name="busqueda">
+                <div class="input-group">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar invitado" required ng-model="idParejaOrd">
+                    </div>
+                    <div class="input-group-btn">
+                        <input type="submit" value="Buscar" class="btn btn-default" />
+                    </div>
+                </div>
+            </form>
+            
+</div>
+            
             <table class="table "> 
                 <thead>
                     <tr>
@@ -70,7 +95,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="pareja in parejasRecords">
+                    <tr ng-repeat="pareja in parejasRecords|filter:idParejaOrd|orderBy:tipoOrdenPareja" ng-init="tipoOrdenPareja='correoElec'">
                         <td id="{{$index}}-email">{{pareja.correoElec}}    
 
                             <div ng-show="isOpen(pareja)">                   
@@ -108,23 +133,3 @@
 
         </div>--->
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel"></h4>
-            </div>
-            <div class="modal-body">
-
-                <div ui-view="createOneView">
-
-                </div>
-
-                <div class="modal-footer">
-
-                </div>
-            </div>
-        </div>
-    </div>

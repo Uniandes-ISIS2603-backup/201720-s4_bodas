@@ -1,7 +1,7 @@
 <!---css-form-->
     <form class="well form-horizontal css-form" ng-submit="createPareja()" name="pareja" id="registro_form" >
-       <div> <label ng-if="!edit" id="createAuthor"><legend>Crear Pareja</legend></label>
-         <label ng-if="edit" id="editAuthor"><legend>Editar Pareja</legend></label></div>
+       <div> <h2 ng-if="!edit">Crear Pareja</h2>
+         <h2 ng-if="edit">Editar Pareja</h2></div>
         <fieldset>
             <!-- Text input-->
             <div class="form-group" ng-class="{'has-success': pareja.email.$valid,'has-error' : !pareja.email.$valid && pareja.email.$touched}" >
@@ -20,6 +20,15 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input name="contrasenia" placeholder="Contraseña de la cuenta" class="form-control" required ng-model="data.contrasenia" type="password">
+                    </div>
+                </div>
+            </div>
+             <div class="form-group" ng-class="{'has-success': pareja.contraseniaR.$touched &&repCo == data.contrasenia ,'has-error':!pareja.contrasenia.$valid && pareja.contraseniaR.$touched}" >
+                <label class="col-md-4 control-label">Repetir Contraseña</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input name="contraseniaR" placeholder="Repetir contraseña de la cuenta" class="form-control" required ng-model="repCo" ng-match="data.contrasenia"  type="password">
                     </div>
                 </div>
             </div>
@@ -44,7 +53,7 @@
                 </div>
             </div>
             
-            <div class="form-group" ng-class="{'has-success': pareja.nombreAbreviado.$valid,'has-error' : !pareja.nombreAbreviado.$valid && pareja.nombreAbreviado.$touched}">
+            <div class="form-group" ng-class="{'has-success': pareja.nombreAbreviado.$valid && pareja.nombreAbreviado.$touched,'has-error' : !pareja.nombreAbreviado.$valid && pareja.nombreAbreviado.$touched}">
                 <label class="col-md-4 control-label" >Nombre abreviado</label> 
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -76,20 +85,23 @@
             </div>
             
             <div class="form-group" >
-                        <div class="form-group col-sm-4 col-md-4" ng-if="!pareja.$valid">
-                            <div class="alert alert-warning" >
+                <div class="col-md-12 inputGroupContainer">  
+                    <label class="col-md-4 control-label"></label>
+                    <div class="input-group">
+                            <div class="alert alert-warning" ng-if="!pareja.$valid" >
                                 <strong>Warning!</strong><p>Todos los campos son requeridos*</p>
                             </div> 
-                        </div> 
-                <div class="alert alert-success" role="alert" id="success_message" ng-show="pareja.$valid"  ng-if="!edit">Correcto! <i class="glyphicon glyphicon-thumbs-up"></i></div>
+                            <div class="alert alert-success"   ng-show="pareja.$valid"  ng-if="!edit">Correcto! <i class="glyphicon glyphicon-thumbs-up"></i></div>
+                 </div>
+                </div>
             </div> 
 
             
 
-            <!-- Button </input>  <span class="glyphicon glyphicon-send"></span>-->
+            
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
+                <div class="col-md-4 ">
                     
                     <button  class="btn btn-default"  ui-sref="parejasList" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
                     <input ng-show="pareja.$valid" ng-if="!edit" type="submit" value="Crear" class="btn btn-success"/>
