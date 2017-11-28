@@ -17,11 +17,11 @@
         </div>
         <div class="col-md-9"> 
             <dl> 
+                <a ng-show="imgComprado(currentRegalo.comprado)"></a>
                 <hr>
-                <dt>Comprado</dt>
-                <dd>{{currentRegalo.comprado}}</dd>
+                <dt>Comprado <img class="img-responsive" ng-src='{{imagenComprado}}'  style =" width:20px; height:20px;  " align="left"/></h5> </dt>
                 <br>
-                <dd class="HC">Selecciona una de las ubicaciones del regalo {{currentRegalo.name}} y encuentra el lugar ideal para comprarlo.</dd>
+                <dd class="HC">Selecciona una de las ubicaciones del regalo "{{currentRegalo.name}}" y encuentra el lugar ideal para comprarlo.</dd>
                 <br>
             <div>        
             <tr ng-repeat="ubicacion in currentRegalo.locations">
