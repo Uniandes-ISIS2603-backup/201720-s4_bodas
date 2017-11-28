@@ -57,7 +57,11 @@
                 $scope.alerts = [];
             }
 
-
+             this.orderInvParejas= function(condicionNombre, tipoCondicion){
+                 $scope.tipoOrdenPareja = condicionNombre;                
+                 $scope.currentOrdenPa= tipoCondicion;
+            };
+            
             this.saveRecord = function (id) {
                 currentPareja = $scope.currentPareja;
 

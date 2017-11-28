@@ -34,9 +34,12 @@ public class ServicioLogic {
     public ServicioEntity createServicio(ServicioEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación del servicio");
         // Invoca la persistencia para crear el servicio
+        if(persistence.findByName(entity.getName())!=null)
+            throw new BusinessLogicException("No pueden existir dos servicios iguales");
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación del servicio");
         return entity;
+
     }
 
     /**
