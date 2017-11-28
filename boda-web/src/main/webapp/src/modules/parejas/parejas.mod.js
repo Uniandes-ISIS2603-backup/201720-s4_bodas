@@ -53,7 +53,7 @@
                 parent:'parejas',   
                  data: {
                     requireLogin: true,
-                    roles: ['pareja']
+                    roles: ['admin','pareja']
                 },
                 views: {
                     
@@ -72,6 +72,10 @@
             }).state('parejasUpdate', {
                 url: '/editar/:parejaId',
                 parent: 'parejas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 param: {
                     parejaId: null
                 },
