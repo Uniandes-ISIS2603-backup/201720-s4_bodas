@@ -1,18 +1,23 @@
 <div class="panel panel-danger">
-    <div><h2>Lista de Servicios</h2></div>
+    <div>
+            <center>
+            <img align=center src="resources/icons/header.png" >
+            <h2>Nuestros servicios</h2>
+             </center>
+        </div>
       <div class="panel-body">
-                <div class="col-md-11" class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="col-md-10"  style="margin-left:8%; margin-right:8%;">
+                <div  class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                         <a class="botones" ui-sref="servicioCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo servicio</a>
                         <form class="navbar-form navbar-right" ng-submit="" name="busqueda">
                          <div class="input-group">
                           <div class="form-group">
-                           <input type="text" class="form-control" placeholder="Buscar servicio(ej:Vestido)" required ng-model="nameServicio">
+                           <input type="text" class="form-control" placeholder="Buscar: ej Vestido" required ng-model="nameServicio" style="width: 100%">
                           </div>
                          </div>
                         </form>
                 </div>
-      <center>
-       <div class="col-md-10"  style=" margin:8%;">
+        <center>    
         <div class="row">
             <div class="col-md-2" ng-repeat="servicio in serviciosRecords|filter:nameServicio">
             <div class="thumbnail">                 
@@ -25,7 +30,8 @@
              </div>
             </div>
         </div>
-       </div>
+       
        </center>
+          </div>    
       </div>   
 </div>
