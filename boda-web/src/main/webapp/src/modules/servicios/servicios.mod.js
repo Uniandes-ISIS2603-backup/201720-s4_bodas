@@ -8,6 +8,9 @@
             $stateProvider.state('servicios', {
                 url: '/servicios',
                 abstract: true,
+                 data: {
+                    requireLogin: false
+                },
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'servicios.html',

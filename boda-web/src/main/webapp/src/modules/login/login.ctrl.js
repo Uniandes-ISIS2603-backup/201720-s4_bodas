@@ -43,7 +43,7 @@
                                 var flag = false;
                                 if ($scope.usurPareja.correoElec == $scope.data.username && $scope.usurPareja.contrasenia == $scope.data.password) {
                                     flag = true;
-                                    $state.go('parejasList', {}, {reload: true});
+                                    $state.go('#', {}, {reload: true});
                                 }
                                 if (flag) {
                                     sessionStorage.token = $scope.user.token;
