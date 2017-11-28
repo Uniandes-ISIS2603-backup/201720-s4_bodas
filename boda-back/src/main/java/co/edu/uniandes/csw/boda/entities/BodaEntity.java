@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -59,14 +61,14 @@ public class BodaEntity extends BaseEntity implements Serializable {
      * Atributo privado pareja.
      */
     @PodamExclude
-    @OneToOne
+    @ManyToOne
     private ParejaEntity pareja;
     
     /**
      * Atributo privado OpcionServicio.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "boda")
+    @ManyToMany
     private List<OpcionServicioEntity> opcionServicio;
 
     /**
