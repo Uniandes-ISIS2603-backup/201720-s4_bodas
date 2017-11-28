@@ -35,7 +35,7 @@
             <dl>
             <dd><a class = "btn btn-default" ui-sref="parejasList"  ng-show="isAuthenticated() && currentUser.rol == 'admin' " ><span class="glyphicon glyphicon-arrow-left"></span> Volver</a></dd>
             <dd><a class = "btn btn-default" ui-sref="parejasDetail({parejaId:currentUser.username})"  ng-show="isAuthenticated() && currentUser.rol == 'pareja' " ><span class="glyphicon glyphicon-arrow-left"></span> Volver</a></dd>
-            </dl>
-            
+            </dl>      
     </div>
+    <div ui-view="childrenView"></div>
 </div>
