@@ -136,10 +136,10 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (1,'kQBADEH JERKKW ZDSI', 4);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (1,'oFABDOL YEZPUU ETSN', 5);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (2,'gQUMMPI DNPMSV DIWL', 5);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (3,'mGKZXTE POZSBU ODLB', 2);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (1,'Encantador, de verdad lo recomiendo mucho. El proveedor ser encarga de todo, la atención es perfecta, me hicieron sentir única y especial', 4);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (1,'La mejor atención del mundooo! No busquen más opciones, esta es la ideal, todo es tan perfecto y lindo, de verdad mi pareja y yo quedamos muy felices, más de lo que esperábamos', 5);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (2,'La mejor atención del mundooo! No busquen más opciones, esta es la ideal, todo es tan perfecto y lindo, de verdad mi pareja y yo quedamos muy felices, más de lo que esperábamos', 5);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (3,'Horrible, muy desorganizados y cuesta muchísmimo >:C !', 1);
 ---Fin Calificacion Pareja Entity
 
 --Pruebas para Tarea Entity
