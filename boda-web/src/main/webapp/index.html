@@ -108,7 +108,7 @@
         <header class="page-header">
             <h1 class="titulo-principal">La Union, planeación de bodas. </h1> 
 
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default navbar-static-top">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -123,16 +123,18 @@
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav" >
+                        <ul class="nav navbar-nav " >
                             <li ng-show="isAuthenticated() && currentUser.rol == 'admin'"><a ui-sref="parejasList">Parejas</a></li>
                             <li ng-show="isAuthenticated() && currentUser.rol == 'admin' "><a ui-sref="bodasList">Bodas</a></li>
-                            <li ng-show="isAuthenticated() && currentUser.rol == 'pareja'"><a ui-sref="parejasDetail({parejaId:currentUser.name})">Informacion</a></li>
+                            <li ng-show="isAuthenticated() && currentUser.rol == 'pareja'"><a ui-sref="parejasDetail({parejaId: currentUser.username})">Informacion</a></li>
                             <li><a ui-sref="serviciosList">Servicios</a></li>
                             <li><a ui-sref="proveedoresList">Proveedores</a></li>
                         </ul>
                         <ul ng-if="!isAuthenticated()" class="nav navbar-nav navbar-right">
                             <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                             <li><button type="button" ui-sref="parejasCreate" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Sign Up</button></li>
                         </ul>
+                        
                         <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
                             <li> <p class="navbar-text">Hola, {{currentUser.name}}</p></li>
                             <li> <a ui-sref="logout">Logout</a></li>

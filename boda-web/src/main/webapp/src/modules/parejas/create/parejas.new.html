@@ -79,7 +79,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="telefono" placeholder="(845)555-1212" class="form-control" required ng-model="data.telefono" type="tel">
+                        <input name="telefono" placeholder="(845)555-1212" class="form-control" required ng-model="data.telefono" max="9999999999" type="number">
                     </div>
                 </div>
             </div>
@@ -103,9 +103,10 @@
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4 ">
                     
-                    <button  class="btn btn-default"  ui-sref="parejasList" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
+                     <button  class="btn btn-default"  ui-sref="login" ng-show="isAuthenticated() && currentUser.rol == 'parejas'" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
+                    <button  class="btn btn-default"  ui-sref="parejasList" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
                     <input ng-show="pareja.$valid" ng-if="!edit" type="submit" value="Crear" class="btn btn-success"/>
-                    <input ng-show="edit" ng-if="edit" type="submit"  value="Editar" class="btn btn-warning"/>
+                    <input ng-show="edit&&isAuthenticated() && hasPermissions()" ng-if="edit" type="submit"  value="Editar" class="btn btn-warning"/>
                     
                 </div>
             </div>
@@ -113,64 +114,3 @@
         </fieldset>
     </form>
     
-<!--    <style type="text/css">
-  .css-form input.ng-invalid.ng-touched {
-    border-color: #a94442;
-    background-color: #f2dede;
-    background-image: glyphicon glyphicon-arrow-left;
-  }
-
-  .css-form input.ng-valid.ng-touched {
-    border-color: #3c763d; 
-  }
-</style>
-</div>
-<script>
-     $('#registro_form').bootstrapValidator({
-        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            email: {
-                validators: {
-                        stringLength: {
-                        min: 2,
-                    },
-                        notEmpty: {
-                        message: 'Por favor coloque un email'
-                    }
-                }
-            },
-             last_name: {
-                validators: {
-                     stringLength: {
-                        min: 2,
-                    },
-                    notEmpty: {
-                        message: 'Please supply your last name'
-                    }
-                }
-            }
-        }
-    }).on('success.form.bv', function(e) {
-            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                $('#contact_form').data('bootstrapValidator').resetForm();
-
-            // Prevent form submission
-            e.preventDefault();
-
-            // Get the form instance
-            var $form = $(e.target);
-
-            // Get the BootstrapValidator instance
-            var bv = $form.data('bootstrapValidator');
-
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function(result) {
-                console.log(result);
-            }, 'json');
-        });
-</script> -->

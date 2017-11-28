@@ -48,7 +48,7 @@
                                 if (flag) {
                                     sessionStorage.token = $scope.user.token;
                                     sessionStorage.setItem("username", $scope.usurPareja.correoElec);
-                                    sessionStorage.setItem("name", $scope.usurPareja.correoElec);
+                                    sessionStorage.setItem("name", $scope.usurPareja.nombreAbreviado);
                                     sessionStorage.setItem("rol", "pareja");
                                     $rootScope.currentUser = $scope.usurPareja.correoElec;
                                 }
