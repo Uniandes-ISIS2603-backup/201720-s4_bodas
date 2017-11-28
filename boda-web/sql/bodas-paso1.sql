@@ -130,22 +130,22 @@ insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) value
 ---Fin Pruebas ProveedorEntity
 
 --Pruebas para OpcionServicio Entity
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image,boda_id) values (12,'descripcion1',12 ,'Lunes',100 ,'http://lorempixel.com/242/200/',1);
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image,boda_id) values (13,'descripcion2',14 ,'Martes',100,'http://lorempixel.com/242/200/',1);
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image,boda_id) values (14,'descripcion3',13 ,'Miercoles', 200,'http://lorempixel.com/242/200/',2);
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (1,'descripcion1',12 ,'Lunes',100 ,'http://lorempixel.com/242/200/');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (2,'descripcion2',14 ,'Martes',100,'http://lorempixel.com/242/200/');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (3,'descripcion3',13 ,'Miercoles', 200,'http://lorempixel.com/242/200/');
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'kQBADEH JERKKW ZDSI', 4);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'oFABDOL YEZPUU ETSN', 5);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (12,'gQUMMPI DNPMSV DIWL', 5);
-insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (13,'mGKZXTE POZSBU ODLB', 2);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (1,'kQBADEH JERKKW ZDSI', 4);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (1,'oFABDOL YEZPUU ETSN', 5);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (2,'gQUMMPI DNPMSV DIWL', 5);
+insert into calificacionentity (opcionservicio_id,comentario, calificacionNum) values (3,'mGKZXTE POZSBU ODLB', 2);
 ---Fin Calificacion Pareja Entity
 
 --Pruebas para Tarea Entity
-insert into TareaEntity(opcionservicio_id,id,aprobada, dia,nombre, ubicacion_id,image) values (12,12,0,'2/11/2017', 'Prueba de vestido',1,'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
-insert into TareaEntity(opcionservicio_id,id,aprobada, dia,nombre, ubicacion_id,image) values (13,13,1,'1/2/2017', 'Floristería',1,'https://www.kukyflor.com/blog/wp-content/uploads/2014/11/flores-boda-casamiento-matrimonio-altar-novia.jpg');
-insert into TareaEntity(opcionservicio_id,id,aprobada, dia,nombre, ubicacion_id,image) values (12,14,0,'3/13/2017', 'Fotografía',2,'http://img3.woman.es/8a/b4/b8/10-preguntas-novia-debe-fotografo-boda-640x422.jpg');
+insert into TareaEntity(opcionservicio_id,id,aprobada, dia,nombre, ubicacion_id,image) values (1,12,0,'2/11/2017', 'Prueba de vestido',1,'http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg');
+insert into TareaEntity(opcionservicio_id,id,aprobada, dia,nombre, ubicacion_id,image) values (2,13,1,'1/2/2017', 'Floristería',1,'https://www.kukyflor.com/blog/wp-content/uploads/2014/11/flores-boda-casamiento-matrimonio-altar-novia.jpg');
+insert into TareaEntity(opcionservicio_id,id,aprobada, dia,nombre, ubicacion_id,image) values (2,14,0,'3/13/2017', 'Fotografía',2,'http://img3.woman.es/8a/b4/b8/10-preguntas-novia-debe-fotografo-boda-640x422.jpg');
 ---Fin Calificacion Tarea Entity
 
 
