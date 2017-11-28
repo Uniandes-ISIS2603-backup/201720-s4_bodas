@@ -1,5 +1,3 @@
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,13 +19,13 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 public class InvitadoPersistence {
-    
+
     private static final Logger LOGGER = Logger.getLogger(InvitadoPersistence.class.getName());
-    
+
     @PersistenceContext(unitName = "bodaPU")
     protected EntityManager em;
-    
-    public InvitadoEntity find(Long id){
+
+    public InvitadoEntity find(Long id) {
         return em.find(InvitadoEntity.class, id);
     }
 
@@ -35,17 +33,17 @@ public class InvitadoPersistence {
         em.persist(entity);
         return entity;
     }
-    
+
     public InvitadoEntity update(InvitadoEntity entity) {
         return em.merge(entity);
     }
-    
-    public void delete(Long id){
+
+    public void delete(Long id) {
         InvitadoEntity entity = em.find(InvitadoEntity.class, id);
         em.remove(entity);
     }
-    
-    public InvitadoEntity findByDocumento(Long documento){
+
+    public InvitadoEntity findByDocumento(Long documento) {
         LOGGER.log(Level.INFO, "Consultando invitado por documento ", documento);
         TypedQuery<InvitadoEntity> query = em.createQuery("Select e From InvitadoEntity e where e.documento = :documento", InvitadoEntity.class);
         query = query.setParameter("documento", documento);
@@ -53,9 +51,24 @@ public class InvitadoPersistence {
         InvitadoEntity invitado;
         if (results.isEmpty()) {
             invitado = null;
-        } else{
+        } else {
             invitado = results.get(0);
         }
         return invitado;
     }
+
+    public InvitadoEntity findByCorreo(String correo) {
+        LOGGER.log(Level.INFO, "Consultando invitado por correo ", correo);
+        TypedQuery<InvitadoEntity> query = em.createQuery("Select e From InvitadoEntity e where e.correo = :correo", InvitadoEntity.class);
+        query = query.setParameter("correo", correo);
+        List<InvitadoEntity> results = query.getResultList();
+        InvitadoEntity invitado;
+        if (results.isEmpty()) {
+            invitado = null;
+        } else {
+            invitado = results.get(0);
+        }
+        return invitado;
+    }
+
 }

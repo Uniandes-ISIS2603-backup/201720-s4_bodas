@@ -19,7 +19,7 @@
                 </div>
         <center>    
         <div class="row">
-            <div class="col-md-2" ng-repeat="servicio in serviciosRecords|filter:nameServicio">
+            <div class="col-lg-2 col-sm-3 col-md-2" ng-repeat="servicio in serviciosRecords|filter:nameServicio">
             <div class="thumbnail">                 
                 <a ui-sref="servicioDetail({servicioId: servicio.id})"><img class="img-responsive" ng-src='{{servicio.image}}' alt="{{servicio.name}}" style ="height: 200px;width: 100%;"/></a>                
                     <div class="caption text-center">
