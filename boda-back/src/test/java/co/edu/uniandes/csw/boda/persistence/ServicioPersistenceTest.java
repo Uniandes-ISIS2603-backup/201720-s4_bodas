@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.boda.persistence;
 
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 import co.edu.uniandes.csw.boda.entities.ServicioEntity;
+import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -146,7 +147,7 @@ public class ServicioPersistenceTest {
     }
 
     @Test
-    public void createServicioEntityTest() {
+    public void createServicioEntityTest() throws BusinessLogicException {
         PodamFactory factory = new PodamFactoryImpl();
         ServicioEntity newEntity = factory.manufacturePojo(ServicioEntity.class);
         ServicioEntity result = persistence.create(newEntity);
