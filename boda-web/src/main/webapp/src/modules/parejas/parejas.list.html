@@ -46,7 +46,7 @@
 </section>
 
 <!-- sITIO DE LA LISTA DE PAREJAS -->
-<section class="col-sm-8 col-sm-offset-2" id="seccion_pareja">
+<section class="col-sm-8 col-sm-offset-2" id="seccion_pareja" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">
     <div class="panel panel-danger  " >    
 <!--        <div class="panel-heading">
             <h3 class="panel-title" style="color:white">Lista de Parejas</h3>            
@@ -124,12 +124,14 @@
     </div>
 </section>
 
+<div class="container" ng-if="isAuthenticated() && !hasPermissions()">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h1 class="float-left display-3 mr-4">403 Forbidden</h1>
+                <h4 >You do not have permission for this action.</h4>
+                <p >Contact the administrator to obtain permission.</p>
+            </div>
+        </div>
+    </div>
 
-<!--- Modal agregar pareja ui-sref="parejasCreate"
-<div ng-show="isOpenCreate()">                   
-                    <div ui-view="createOneView">
-                               
-                    </div>
-
-        </div>--->
 
