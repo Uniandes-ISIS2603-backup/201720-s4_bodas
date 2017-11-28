@@ -12,6 +12,14 @@
                     $scope.currentRegalo = response.data;
                 });   
             }
+            
+                $scope.imgComprado = function (comprado) {
+                if (comprado === false) {
+                    $scope.imagenComprado = "resources/icons/cancel.png";
+                } else if (comprado === true) {
+                    $scope.imagenComprado = "resources/icons/checked.png";
+                }
+            };
         }
     ]);
 }
