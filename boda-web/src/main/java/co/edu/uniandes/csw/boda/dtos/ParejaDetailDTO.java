@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.dtos;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class ParejaDetailDTO  extends ParejaDTO {
     
-    public BodaDTO boda;
+    public List<BodaDTO> bodas;
     
     public List<TarjetaCreditoDetailDTO> tarjetas;
 
@@ -26,7 +27,12 @@ public class ParejaDetailDTO  extends ParejaDTO {
 
     public ParejaDetailDTO(ParejaEntity pareja) {
         super(pareja);
-        if(pareja.getBoda()!=null)this.boda = new BodaDTO(pareja.getBoda());
+        if(pareja.getBodas()!=null){
+            this.bodas = new ArrayList<>();
+            for(BodaEntity bodita: pareja.getBodas()){
+                bodas.add(new BodaDetailDTO(bodita));
+            }
+        }
         if(pareja.getTarjetasCredito()!=null){
             this.tarjetas = new ArrayList<>();
             for(TarjetaCreditoEntity tarjetita: pareja.getTarjetasCredito())
@@ -37,12 +43,12 @@ public class ParejaDetailDTO  extends ParejaDTO {
         
     }
 
-    public BodaDTO getBoda() {
-        return boda;
+    public List<BodaDTO> getBodas() {
+        return bodas;
     }
 
-    public void setBoda(BodaDTO boda) {
-        this.boda = boda;
+    public void setBodas(List<BodaDTO> boda) {
+        this.bodas = boda;
     }
     
      /**
@@ -53,9 +59,12 @@ public class ParejaDetailDTO  extends ParejaDTO {
     @Override
     public ParejaEntity toEntity() {
        ParejaEntity parejaE = super.toEntity();
-       if(this.boda!=null){
-         
-           parejaE.setBoda(this.boda.toEntity());
+       if(this.bodas!=null){
+           List<BodaEntity> bod = new ArrayList<>();
+           for(BodaDTO bodito: this.bodas){
+               bod.add(bodito.toEntity());
+           }
+           parejaE.setBodas(bod);
        }
        if(this.tarjetas != null){
         List<TarjetaCreditoEntity> tar = new ArrayList<>();
