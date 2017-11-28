@@ -17,7 +17,7 @@ public class InvitadoDTO {
     private String name;
     private Long documento;
     private String correo;
-    private boolean asistencia;
+    private String asistencia;
     private String categoria; 
    
     /**
@@ -29,7 +29,7 @@ public class InvitadoDTO {
     
     public InvitadoDTO(InvitadoEntity invitado){
         this.id = invitado.getId();
-        this.asistencia = invitado.isAsistencia();
+        this.asistencia = invitado.getAsistencia();
         this.categoria = invitado.getCategoria();
         this.correo = invitado.getCorreo();
         this.documento = invitado.getDocumento();
@@ -68,11 +68,11 @@ public class InvitadoDTO {
         this.correo = correo;
     }
 
-    public boolean isAsistencia() {
+    public String getAsistencia() {
         return asistencia;
     }
 
-    public void setAsistencia(boolean asistencia) {
+    public void setAsistencia(String asistencia) {
         this.asistencia = asistencia;
     }
 

@@ -1,29 +1,37 @@
-<div class="panel panel-primary">
-   <div class="panel-heading"><h3 class="panel-title">Lista de Servicios</h3></div>
-       <div class="panel-body">
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="servicioCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva servicio</a>
-                    </div>
+<div class="panel panel-danger">
+    <div>
+            <center>
+            <img align=center src="resources/icons/header.png" >
+            <h2>Nuestros servicios</h2>
+             </center>
+        </div>
+      <div class="panel-body">
+          <div class="col-md-10"  style="margin-left:8%; margin-right:8%;">
+                <div  class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <a class="botones" ui-sref="servicioCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo servicio</a>
+                        <form class="navbar-form navbar-right" ng-submit="" name="busqueda">
+                         <div class="input-group">
+                          <div class="form-group">
+                           <input type="text" class="form-control" placeholder="Buscar: ej Vestido" required ng-model="nameServicio" style="width: 100%">
+                          </div>
+                         </div>
+                        </form>
                 </div>
-           <table class="table "> 
-           <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-        <tbody>
-            <tr ng-repeat="servicio in serviciosRecords">
-                <td id="{{$index}}-name"><a ui-sref="servicioDetail({servicioId: servicio.id})">{{ servicio.name}}</a></td>
-                <td id="{{$index}}-descripcion">{{ servicio.descripcion}}</td>
-                <td id="{{$index}}-actions">
-                    <a class="btn btn-danger btn-sm" ui-sref="servicioDelete({servicioId: servicio.id})"><span class="glyphicon glyphicon-trash"></span></a>   
-                    <a class="btn btn-default btn-sm" ui-sref="servicioUpdate({servicioId: servicio.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                </td>
-           </tr>
-        </tbody>
-    </table>
-        </div>   
+        <center>    
+        <div class="row">
+            <div class="col-lg-2 col-sm-3 col-md-2" ng-repeat="servicio in serviciosRecords|filter:nameServicio">
+            <div class="thumbnail">                 
+                <a ui-sref="servicioDetail({servicioId: servicio.id})"><img class="img-responsive" ng-src='{{servicio.image}}' alt="{{servicio.name}}" style ="height: 200px;width: 100%;"/></a>                
+                    <div class="caption text-center">
+                        <p>{{servicio.name}}</p>
+                        <a class="btn btn-danger btn-sm" ui-sref="servicioDelete({servicioId: servicio.id})" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-trash"></span></a>   
+                        <a class="btn btn-default btn-sm" ui-sref="servicioUpdate({servicioId: servicio.id})" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-edit"></span></a>
+                    </div>
+             </div>
+            </div>
+        </div>
+       
+       </center>
+          </div>    
+      </div>   
 </div>

@@ -64,7 +64,10 @@ public class InvitadoLogic {
         return persistence.update(entity);
     }
 
-    public void delete(Long id) {
+    public void delete(Long id) throws BusinessLogicException {
+        if(!persistence.find(id).getAsistencia().equals("confirmado")){
+            throw new BusinessLogicException("El invitado ya esta confirmado no puede ser eliminado");
+        }
         persistence.delete(id);
     }
 

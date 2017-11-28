@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.persistence;
 
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
+import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -104,7 +105,7 @@ public class ProveedorPersistenceTest {
     }
 
     @Test
-    public void createProveedorEntityTest() {
+    public void createProveedorEntityTest() throws BusinessLogicException {
         PodamFactory factory = new PodamFactoryImpl();
         ProveedorEntity newEntity = factory.manufacturePojo(ProveedorEntity.class);
         ProveedorEntity result = persistence.create(newEntity);

@@ -35,14 +35,14 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
      * Coleccion privada de servicios.
      */
     @PodamExclude
-    @ManyToMany
+    @ManyToMany(mappedBy="proveedores")
     private List<ServicioEntity> servicios;
     
     /**
      * Coleccion privada de opcionesServicio.
      */
     @PodamExclude
-    @OneToMany(mappedBy="proveedor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="proveedor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OpcionServicioEntity> opcionesServicio;  
     
     /**

@@ -5,7 +5,7 @@
            // mod.constant("regalosContext", "api/regalos");
             mod.controller('bodaUpdateCtrl', ['$scope', '$http', 'bodasContext', '$state', '$rootScope', '$filter',
                 function ($scope, $http, bodasContext, $state, $rootScope ) {
-                    $rootScope.edit = true;
+                    
 
                     var idBoda = $state.params.bodaId;
 

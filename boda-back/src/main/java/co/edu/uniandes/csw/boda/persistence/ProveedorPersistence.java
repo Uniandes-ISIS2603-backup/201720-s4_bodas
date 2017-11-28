@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.persistence;
 
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
+import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,10 +34,12 @@ public class ProveedorPersistence {
      * @param entity objeto boda que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public ProveedorEntity create(ProveedorEntity entity) {
+    public ProveedorEntity create(ProveedorEntity entity) throws BusinessLogicException {
         LOGGER.info("Creando un proveedor nuevo");
+        if(findByName(entity.getName())!=null)
+            throw new BusinessLogicException("Ya existe un proveedor con el mismo nombre.");
         em.persist(entity);
-        LOGGER.info("Creando un proveedor nuevo");
+        LOGGER.info("Se creó un proveedor nuevo");
         return entity;
     }
 
@@ -81,8 +84,13 @@ public class ProveedorPersistence {
     
   
     public void delete(ProveedorEntity entity) {
+        LOGGER.log(Level.INFO, "Borrando proveedor con id={0}", entity.getId());
          ProveedorEntity entity2 = em.find(ProveedorEntity.class, entity.getId());
-    LOGGER.log(Level.INFO, "Borrando proveedor con id={0}", entity.getId());
+         if(entity.getOpcionesServicio()!=null){
+         LOGGER.log(Level.INFO, "Numero de opciones ={0}", entity.getOpcionesServicio().size());}
+         else{
+             LOGGER.log(Level.INFO, "No retorna nada de opciones");
+         }
     em.remove(entity2);
 }
 
