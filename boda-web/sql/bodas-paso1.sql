@@ -142,6 +142,7 @@ insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id )
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (2,2);
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,3);
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,2);
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (4,'descripcion4',1 ,'Lunes',200 ,'http://lorempixel.com/242/200/');
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity
