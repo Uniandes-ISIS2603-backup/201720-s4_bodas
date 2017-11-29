@@ -1,6 +1,6 @@
 <form class="well form-horizontal css-form" ng-submit="createCalificacion()" name="califica" id="registro_form" >
-       <div> <label ng-if="!editC" id="createAuthor"><legend>Crear Calificación</legend></label>
-         <label ng-if="editC" id="editAuthor"><legend>Editar Calificación</legend></label></div>
+       <div> <h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1; text-align: center;" ng-if="!editC" id="createAuthor">Crear Calificación</h1>
+         <h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1; text-align: center;" ng-if="editC" id="editAuthor">Editar Calificación</h1></div>
         <fieldset>
             <!-- Text input-->
             <div class="form-group" ng-class="{'has-success': califica.puntaje.$valid,'has-error' : !califica.puntaje.$valid && califica.puntaje.$touched}" >
@@ -29,9 +29,9 @@
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
                     
-                    <button  class="btn btn-default"  ui-sref="calificacionesList" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
-                    <input ng-show="califica.$valid" ng-if="!editC" type="submit" value="Crear" class="btn btn-success"/>
-                    <input ng-show="editC" ng-if="editC" type="submit"  value="Editar" class="btn btn-warning"/>
+                    <button  class="botones"  ui-sref="calificacionesList" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
+                    <input ng-show="califica.$valid" ng-if="!editC" type="submit" value="Crear" class="botones"/>
+                    <input ng-show="editC" ng-if="editC" type="submit"  value="Editar" class="botones"/>
                     
                 </div>
             </div>
