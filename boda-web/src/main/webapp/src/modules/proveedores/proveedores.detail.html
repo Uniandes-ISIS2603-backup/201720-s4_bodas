@@ -26,6 +26,11 @@
                         <hr>
                         <dt>Especialidad:</dt>
                         <dd>{{currentProveedor.especialidad}}</dd>
+                      
+                        <hr>
+                        <dt>Precios Desde:</dt>
+                        <dd>{{minimo}}</dd>
+
 
                     </dl>
                     <a ui-sref="opcionesList({proveedorId:currentProveedor.id})" class="btn btn-default" >Ver Opciones</a>
@@ -37,6 +42,7 @@
         </table>
     </div>
     <div ui-view="childrenView">
+
 
     </div>
 </div>
