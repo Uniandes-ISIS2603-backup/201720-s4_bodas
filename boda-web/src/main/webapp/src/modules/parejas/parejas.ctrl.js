@@ -44,7 +44,6 @@
                             // $http.get es una promesa
                             // cuando llegue el dato, actualice currentRecord
                             $scope.currentPareja = response.data;
-                            console.log(currentPareja.bodas);
                         });
 
                 // el controlador no recibió un cityId
