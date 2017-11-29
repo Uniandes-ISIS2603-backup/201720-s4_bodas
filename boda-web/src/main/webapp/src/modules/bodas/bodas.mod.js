@@ -9,8 +9,7 @@
                 url: '/bodas',
                 abstract: true,
                 data: {
-                    requireLogin: true,
-                    roles: ['admin','pareja']
+                    requireLogin: false
                 },
                 views: {
                     'mainView': {
@@ -36,13 +35,14 @@
                 parent: 'bodas',
                 data: {
                     requireLogin: true,
-                    roles: ['admin','pareja']
+                    roles: ['admin', 'pareja']
+
                 },
                 param: {
                     bodaId: null
                 },
                 views: {
-                    
+
                     'detailView': {
                         templateUrl: basePath + 'bodas.detail.html',
                         controller: 'bodasCtrl',
@@ -52,15 +52,23 @@
             }).state('bodaCreate', {
                 url: '/create',
                 parent: 'bodas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin', 'pareja']
+                },
                 views: {
                     'detailView': {
-                    templateUrl: basePath + '/new/bodas.new.html',
-                    controller: 'bodaNewCtrl'
+                        templateUrl: basePath + '/new/bodas.new.html',
+                        controller: 'bodaNewCtrl'
                     }
                 }
             }).state('bodaUpdate', {
                 url: '/update/{bodaId:int}',
                 parent: 'bodas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin', 'pareja']
+                },
                 param: {
                     bodaId: null
                 },
@@ -73,6 +81,10 @@
             }).state('bodaDelete', {
                 url: '/delete/{bodaId:int}',
                 parent: 'bodas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin', 'pareja']
+                },
                 param: {
                     bodaId: null
                 },
@@ -80,6 +92,22 @@
                     'detailView': {
                         templateUrl: basePath + '/delete/boda.delete.html',
                         controller: 'bodaDeleteCtrl'
+                    }
+                }
+            }).state('bodaAsignar', {
+                url: '/{bodaId:int}/asignar/:parejaId',
+                parent: 'bodas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin', 'pareja']
+                },
+                param: {
+                    bodaId: null,
+                    parejaId: null
+                },
+                views: {
+                    'detailView': {
+                        controller: 'bodasAsignarCtrl'
                     }
                 }
             });
