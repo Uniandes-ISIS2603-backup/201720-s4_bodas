@@ -2,14 +2,15 @@
     <div id="headPanel" class="panel-heading">
         <h3 id="nombreUbicacion" class="panel-title" style="text-align: center"> 
             <tr>
-            <td id="{{$index}}-name">{{currentUbicacion.name}}</td>
-            
+            <center>
+            <img align=center src="resources/icons/header.png" >
+            <h2>{{currentUbicacion.name}}</h2>
+            </center>
         </h3></div>
-       <div class="panel-body">
-         <table class="table "> 
-
+      <div class="panel-body">
+      <table class="table"> 
        <tbody>
-
+            <center>
             <div class="thumb">
                 <div  style="width:70%;height:400px;justify-content:center">
                 <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
@@ -20,11 +21,10 @@
                     </ui-gmap-markers>
                 </ui-gmap-google-map>
                 </div>
-
-
             </div>
+            </center>
         </div>
-        <div class="col-md-3"> 
+        <div class="col-md-8" style=" margin-left: 15%;"> 
             <dl>
                 <hr>
                 <dt>Telefono</dt>
