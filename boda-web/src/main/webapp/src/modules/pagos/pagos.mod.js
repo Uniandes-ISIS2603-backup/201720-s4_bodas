@@ -89,7 +89,6 @@
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'new/pagos.confirm.new.html',
-                        controller: 'pagosCtrl'
                     }
                 }
             });

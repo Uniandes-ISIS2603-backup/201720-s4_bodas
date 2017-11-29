@@ -19,7 +19,7 @@
                     fechaVen: $scope.tarjetaFechaVen,
                     numDeSeg: $scope.tarjetaNumDeSeg
                 }).then(function (response) {
-                    $state.go('tarjetasList', {tarjetaId: response.data.numero}, {reload: true});
+                    $state.go('tarjetasList', {parejaId:$state.params.parejaId},{reload: true});
                 });
             };
         }

@@ -1,7 +1,6 @@
 <div class="panel-group">
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">
-            <label ng-if="!edit" id="createTarjeta">Agregar una Tarjeta De Credito</label>
             <label ng-if="edit" id="editTarjeta">Cambiar Datos de Tarjeta De Credito</label></div>
         <div class="panel-body">
             <form ng-submit="createTarjeta()" name="tarjeta">
@@ -34,7 +33,7 @@
                 <div class="form-group row">
                     <div class="form-group col-sm-12">
                         <input ng-show="tarjeta.$valid" type="submit" value="Confirmar" class="btn btn-success"/>
-                        <a class="btn btn-info" ui-sref="tarjetasList">Cancelar</a>
+                        <a class="btn btn-info" ui-sref="parejasList">Cancelar</a>
                     </div>
                 </div>
             </form>
