@@ -13,7 +13,7 @@
             <center>
             <div class="thumb">
                 <div  style="width:70%;height:400px;justify-content:center">
-                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds"  refresh='map.bounds.refresh'>
                     <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" click="onClick">
                         <ui-gmap-windows show="show">
                             <div ng-non-bindable>{{title}}</div>

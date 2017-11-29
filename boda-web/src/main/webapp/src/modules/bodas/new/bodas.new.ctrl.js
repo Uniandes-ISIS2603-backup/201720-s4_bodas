@@ -19,7 +19,6 @@
                     $state.go('bodasList', {bodaId: response.data.id}, {reload: true});
                 });
                 }else if($rootScope.isAuthenticated() && $rootScope.currentUser.rol === 'pareja'){
-                    console.log("Entro en pareja");
                     $http.post(bodasContext + "/" + $rootScope.currentUser.username, {
                     fecha: $scope.bodaFecha,
                     image: $scope.bodaImage,
@@ -30,7 +29,6 @@
                     
                 }).then(function (response) {
                     //Boda created successfully
-                    console.log("Entro en pareja : "+ response.data.id);
                     $state.go('parejasDetail', {parejaId: response.data.pareja.correoElec}, {reload: true});
                 });
                 }
