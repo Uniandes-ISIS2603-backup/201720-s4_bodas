@@ -135,12 +135,12 @@ public class OpcionServicioPersistenceTest {
         factory = new PodamFactoryImpl();
         try{newEntity.setPago(factory.manufacturePojo(PagoEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
         
-        //Prueba el metodo getBoda()
-        Assert.assertNull("No Tiene boda asignado", newEntity.getBoda());
-        
-        //Prueba el metodo  setBoda()
-        factory = new PodamFactoryImpl();
-        try{newEntity.setBoda(factory.manufacturePojo(BodaEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
+//        //Prueba el metodo getBoda()
+//        Assert.assertNull("No Tiene boda asignado", newEntity.getBoda());
+//        
+//        //Prueba el metodo  setBoda()
+//        factory = new PodamFactoryImpl();
+//        try{newEntity.setBoda(factory.manufacturePojo(BodaEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
     }
     
     @Test

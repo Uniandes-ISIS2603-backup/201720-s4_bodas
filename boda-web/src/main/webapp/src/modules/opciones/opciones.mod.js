@@ -10,7 +10,7 @@
             $stateProvider.state('opciones', {
                 url: '/opciones',
                 abstract: true,
-                parent: 'proveedorDetail',
+                parent: 'proveedorChild',
               views: {
                      'childrenView': {
                         templateUrl: basePath + 'opciones.html'
@@ -42,7 +42,7 @@
                     }
                 }
             }).state('opcionesCreate', {
-                url: '/create',
+                url: '/nuevo/create',
                 parent: 'opciones',
                 views: {
                     'detailView': {
@@ -51,15 +51,27 @@
                     }
                 }
             }).state('opcionesDelete', {
-                url: '/delete/{opcionId:int}',
-                parent: 'opcionDetail',
+                url: '/delete/:opcionId',
+                parent: 'opciones',
                 param: {
                     opcionId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/opciones.delete.html',
+                        templateUrl: basePath + 'delete/opciones.delete.html',
                         controller: 'opcionesDeleteCtrl'
+                    }
+                }
+            }).state('opcionesUpdate', {
+                url: '/update/:opcionId',
+                parent: 'opciones',
+                param: {
+                    opcionId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'new/opciones.new.html',
+                        controller: 'opcionesUpdateCtrl'
                     }
                 }
             });
