@@ -25,9 +25,13 @@
                 <br>
                 <dd class="HC">Selecciona uno de nuestros proveedores y encuentra la opción del servicio {{currentServicio.name}}  ideal para tí.</dd>
                 <br>
-            <div>     
-            <dd><h2>Proveedores: </h2></dd>
-            <div class="media col-lg-12 col-sm-12 col-md-12" ng-repeat="proveedor in currentServicio.proveedores">
+
+  </tbody>  
+ </table>
+      </div>
+    <div style="margin-left: 2%;">     
+            <h2>Proveedores: </h2>
+            <div ng-repeat="proveedor in currentServicio.proveedores">
                 <br>
                 <div class="media-left"  >
                     <a href="#">
@@ -45,10 +49,6 @@
                 <hr size="30">
            </div>
     </div>
-  </tbody>  
-             
-         </table>
-      </div>
  </div>
   
-  
+

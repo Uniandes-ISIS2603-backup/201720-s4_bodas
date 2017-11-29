@@ -22,20 +22,14 @@
                 <div class="col-md-3">
                     <dl>
                         <hr>
-                        <dt>Nombre del Proveedor:</dt>
-                        <dd>{{currentProveedor.name}} </dd>
-
-                        <hr>
                         <dt>Especialidad:</dt>
                         <dd>{{currentProveedor.especialidad}}</dd>
                       
                         <hr>
-                        <dt>Precios Desde:</dt>
-                        <dd>{{minimo}}</dd>
-
+                        <dd><b>Precios Desde: </b> {{minimo}}<img class="img-responsive" src="resources/icons/coins.png"  style =" width:20px; height:20px;  " align="left"/></dd>
 
                     </dl>
-                    <a ui-sref="opcionesList({proveedorId:currentProveedor.id})" class="btn btn-default" >Ver Opciones</a>
+                    <a ui-sref="opcionesList({proveedorId:currentProveedor.id})" class="botones" >Ver Opciones</a>
                 </div>
 
             </div>
