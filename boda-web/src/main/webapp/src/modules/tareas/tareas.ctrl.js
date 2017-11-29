@@ -20,5 +20,11 @@
             }
     
             }]);
-       
+        $scope.asis = function (aprobada) {
+                if (aprobada === "Realizada") {
+                    $scope.hecho = true;
+                } else if (aprobada === "Pendiente") {
+                    $scope.hecho = false;
+                }
+            };
     })(window.angular);

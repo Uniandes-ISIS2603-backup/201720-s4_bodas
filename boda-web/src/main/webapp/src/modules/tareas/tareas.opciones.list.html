@@ -13,11 +13,17 @@
              
         <div class="col-md-2" ng-repeat="tarea in tareasRecords">
             <div class="thumbnail">
-                <a ui-sref="tareaDetail({tareaId: tarea.id})">                    
+              
+           
                     <img class="img-responsive" ng-src='{{tarea.image}}' alt="{{tarea.nombre}}" style ="height: 200px;width: 100%;"/>                  
-                </a>
+                
                 <div class="caption text-center">
-                        <a ui-sref="tareaDetail({tareaId: tarea.id})" class="thumb">{{tarea.nombre}}</a>
+                     <h3 >
+                       {{tarea.nombre}}
+                     
+                    
+                     </h3>
+                    <a ui-sref="ubicacionDetail({ubicacionId: tarea.ubicacion.id})">{{tarea.ubicacion.name}}</a>
                 
                 </div>
          

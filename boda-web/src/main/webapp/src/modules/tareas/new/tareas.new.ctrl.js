@@ -16,6 +16,8 @@
                      dia: $scope.tareaDia,
                      nombre: $scope.tareaNombre,
                      image: $scope.tareaImage
+                     
+                  
                
                     
                   
