@@ -5,13 +5,18 @@
                 <h2>Nuestros Proveedores</h2>
             </center>
     <div class="panel-body" style="margin-left: 8%">
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group" style="margin-bottom: 2%">
-                <a class="botones" ui-sref="proveedorCreate" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo proveedor</a>
-            </div>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin-bottom: 2%">
+            <a class="btn btn-info" ui-sref="proveedorCreate" style="background: #F48FB1;border: none;" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo proveedor</a>
+            <form   ng-submit="" name="busqueda" style="margin-right: 5%; width: 30%;" >
+                <div class="input-group">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar proveedor (ej: wok)" required ng-model="provedorName" style="width: 250px;">
+                    </div>
+                </div>
+            </form>
         </div>
         <tbody>
-            <div class="media col-lg-12 col-sm-12 col-md-12" ng-repeat="proveedor in proveedoresRecords">
+            <div class="media col-lg-12 col-sm-12 col-md-12" ng-repeat="proveedor in proveedoresRecords|filter:provedorName">
                 <div class="media-left"  >
                     <a href="#">
                         <img class="media-object" ui-sref="proveedorDetail({proveedorId: proveedor.id})" ng-src='{{proveedor.imagen}}' alt="..." style="max-width: 200px; height: auto;">
