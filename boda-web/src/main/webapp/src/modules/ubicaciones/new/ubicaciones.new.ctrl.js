@@ -8,7 +8,9 @@
                 $http.post(ubicacionesContext, {
                     direccion: $scope.ubicacionDireccion,
                     name: $scope.ubicacionName,
-                    telefono: $scope.ubicacionTelefono
+                    telefono: $scope.ubicacionTelefono,
+                    longitud:$scope.ubicacionLongitud,
+                    latitud:$scope.ubicacionLatitud
                     
                 }).then(function (response) {
                     $state.go('ubicacionesList', {ubicacionId: response.data.id}, {reload: true});

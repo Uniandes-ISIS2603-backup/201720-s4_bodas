@@ -114,7 +114,7 @@
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:500" rel="stylesheet">
         
-       
+     
         
     </head>
     <body>
@@ -144,6 +144,8 @@
                             <li ng-show="isAuthenticated() && currentUser.rol == 'pareja'"><a ui-sref="parejasDetail({parejaId: currentUser.username})">Informacion</a></li>
                             <li><a ui-sref="serviciosList">Servicios</a></li>
                             <li><a ui-sref="proveedoresList">Proveedores</a></li>
+                            <li ng-show="isAuthenticated() && currentUser.rol == 'admin' "><a ui-sref="ubicacionesList">Ubicaciones</a></li>
+                            
                         </ul>
                         <ul ng-if="!isAuthenticated()" class="nav navbar-nav navbar-right">
                             <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span>Acceder</a></li>
