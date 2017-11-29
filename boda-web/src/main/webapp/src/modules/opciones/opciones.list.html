@@ -1,4 +1,5 @@
 <div class="panel panel-danger">
+  
     <div>
             <center>
             <h2>Opciones</h2>
@@ -15,7 +16,17 @@
              <center>  
                  
         <div class="row">
-            <div class="col-lg-2 col-sm-5 col-md-4" ng-repeat="opcion in opcionesRecords">
+            <div class="btn-group right">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <strong>Ordenar: </strong>{{currentOrdenOp}}<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a ng-click="orderOpciones('costo', 'Costo')">Costo</a></li>
+                <li><a ng-click="orderOpciones('diasDisponibles', 'Dias Disponibles')">Dias Disponibles</a></li>
+            </ul>
+        </div>
+
+        <div  ng-repeat="opcion in opcionesRecords|orderBy:tipoOrdenOpcion" ng-init="tipoOrdenOpcion = 'costo'">
             <div class="thumbnail">                 
                 <a ui-sref="opcionDetail({opcionId: opcion.id})"><img class="img-responsive" ng-src='{{opcion.image}}' alt="{{opcion.descripcion}}" style ="height: 200px;width: 100%;"/></a>                
                     <div class="caption text-center">
@@ -37,7 +48,7 @@
      
        
     </div>
- </div>   
+ </div>
 </div>
 
 
