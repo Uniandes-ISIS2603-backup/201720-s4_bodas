@@ -222,3 +222,16 @@ h2{
     background-color: initial;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa626f', endColorstr='#e9896a', GradientType=1);
 }
+
+.active{
+    background-color:#F48FB1;
+}
+
+.home-header-title{
+    font-family: Merriweather,Arial,sans-serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    margin-bottom: 15%;
+    font-weight: bold;
+}
