@@ -86,6 +86,17 @@
                     }
                     
                 }
+            }).state('tareasListOpcion', {
+                url: '/list',
+                parent: 'tareas',
+                views: {
+                    'listView':{
+                      
+                        templateUrl: basePath + 'tareas.opciones.list.html',
+                        controller: 'tareasCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             });
         }]);
 })(window.angular);
