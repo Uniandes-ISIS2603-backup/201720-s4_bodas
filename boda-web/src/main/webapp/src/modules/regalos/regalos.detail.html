@@ -6,22 +6,26 @@
          <table class="table "> 
 
        <tbody>
+        <div class="row">
         <div class="col-md-3">
             <div class="thumb">
                 <img class="img-responsive" ng-src="{{currentRegalo.imagen}}"/>
             </div>
 
         </div>
-        <div class="col-md-3"> 
+        <div class="col-md-9"> 
             <dl> 
+                <a ng-show="imgComprado(currentRegalo.comprado)"></a>
                 <hr>
-                <dt>Comprado</dt>
-                <dd>{{currentRegalo.comprado}}</dd>
-                
-                <dt>Ubicaciones</dt> 
-                <dd>
+                <dt>Comprado <img class="img-responsive" ng-src='{{imagenComprado}}'  style =" width:20px; height:20px;  " align="left"/></h5> </dt>
+                <br>
+                <dd class="HC">Selecciona una de las ubicaciones del regalo "{{currentRegalo.name}}" y encuentra el lugar ideal para comprarlo.</dd>
+                <br>
+            <div>        
             <tr ng-repeat="ubicacion in currentRegalo.locations">
-                <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId: ubicacion.id})">{{ ubicacion.name}}</a></td>
+            <dd><h2>Ubicaciones: </h2></dd>
+                <br>
+                <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId:ubicacion.id})">{{ ubicacion.name}}</a></td>
                 <td id="{{$index}}-telefono">{{ ubicacion.direccion}}</td>
                 <td id="{{$index}}-direccion">{{ ubicacion.telefono}}</td>
                 <td id="{{$index}}-actions">
@@ -29,12 +33,10 @@
                     <a class="btn btn-default btn-sm" ui-sref="ubicacionUpdate({ubicacionId: ubicacion.id})"><span class="glyphicon glyphicon-edit"></span></a>
                 </td>
            </tr>
-           </dd>
-            </dl>
-        </div>
     </div>
-  </tbody>            
-  </table>
-           
-    </div>
+  </tbody>  
+             
+         </table>
+      </div>
  </div>
+  

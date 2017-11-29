@@ -48,6 +48,21 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('parejasDetailOne', {
+                url: '/detail',
+                parent: 'parejas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
+                param: {
+                    parejaId: null
+                },
+                 views: {                     
+                    'detailView': {
+                        templateUrl: basePath + 'parejas.detail.html',
+                    }
+                }
             }).state('parejasCreate', {
                 url: '/create',
                 parent:'parejas',   

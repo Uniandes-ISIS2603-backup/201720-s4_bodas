@@ -13,6 +13,21 @@
               
                      $scope.calificacionesRecords = response.data;
                  });
+                 
+                 $scope.imgCalificacion = function (calificacionNum) {
+                if (calificacionNum === 5) {
+                    $scope.imgCalif = "resources/icons/cinco.png";
+                } else if (calificacionNum === 4) {
+                    $scope.imgCalif = "resources/icons/cuatro.png";
+                } else if (calificacionNum === 3) {
+                    $scope.imgCalif = "resources/icons/tres.png";
+                } else if (calificacionNum === 2) {
+                    $scope.imgCalif = "resources/icons/dos.png";
+                } else if (calificacionNum === 1) {
+                    $scope.imgCalif = "resources/icons/uno.png";
+                }
+            };
+            
             this.deleteCalificacion = function(calificacionRecord) {
                 swal({ title: "¿Desea eliminar la calificacion con id " + calificacionRecord.id +"?",
                     text: "No podrá recuperar la calificación!",
@@ -60,7 +75,7 @@
                   
                 
                  
-            }     
+            };     
             
         }
         

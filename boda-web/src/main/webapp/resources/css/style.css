@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : 23/10/2017, 11:26:59 AM
     Author     : nf.ortiz
 */
+.angular-google-map-container {
+    height: 400px;
+}
 body{
   
 }
@@ -21,13 +24,12 @@ header{
 h2{
     font-family: 'Pacifico', cursive;
     text-align: center;
-        color:#B31A48;
+    color:#B31A48;
 }
 
 .HC{
     font-family: 'Pacifico', cursive;
     font-size:20px;
-        text-align: center;
 }
 
 .HC33{
@@ -222,4 +224,17 @@ h2{
     background-clip: initial;
     background-color: initial;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa626f', endColorstr='#e9896a', GradientType=1);
+}
+
+.active{
+    background-color:#F48FB1;
+}
+
+.home-header-title{
+    font-family: Merriweather,Arial,sans-serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    margin-bottom: 15%;
+    font-weight: bold;
 }

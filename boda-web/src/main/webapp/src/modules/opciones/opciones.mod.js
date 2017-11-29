@@ -10,7 +10,7 @@
             $stateProvider.state('opciones', {
                 url: '/opciones',
                 abstract: true,
-                parent: 'proveedorDetail',
+                parent: 'proveedorChild',
               views: {
                      'childrenView': {
                         templateUrl: basePath + 'opciones.html'

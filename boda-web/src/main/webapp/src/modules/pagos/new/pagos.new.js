@@ -7,17 +7,29 @@
     mod.controller('pagosNewCtrl', ['$scope', '$http','parejasContext','tarjetasCreditoContext', 'pagosContext','$state',  '$rootScope',
         function ($scope, $http, parejasContext,tarjetasCreditoContext, pagosContext, $state,  $rootScope) {
             $rootScope.edit = false;
-            
             $scope.createPago = function () {
-                $http.post(parejasContext + '/' + $scope.pagoPareja + '/' + tarjetasCreditoContext + '/' + $scope.pagoTarjeta + '/' + pagosContext , {
-                    correoPareja: $scope.pagoPareja,
-                    montoTotal: $scope.pagoMontoTotal,
-                    fecha: $scope.pagoFecha,
-                    nombrePago: $scope.pagoNombrePago,
+            if($scope.pagoCorreo === null || $scope.pagoCorreo === undefined){
+                $http.post(parejasContext + '/' + $rootScope.currentUser.username + '/' + tarjetasCreditoContext + '/' + $scope.pagoTarjeta + '/' + pagosContext , {
+                    correoPareja: $rootScope.currentUser.username,
+                    montoTotal: $rootScope.currentOpcionPago.costo,
+                    fecha: new Date(),
+                    nombrePago: $rootScope.currentOpcionPago.descripcion,
                     tarjetaId: $scope.pagoTarjeta
                 }).then(function (response) {
                     $state.go('pagosConfirm', {pagoId: response.data.id}, {reload: true});
                 });
+                 }
+            else {
+                $http.post(parejasContext + '/' + $scope.pagoCorreo + '/' + tarjetasCreditoContext + '/' + $scope.pagoTarjeta + '/' + pagosContext , {
+                    correoPareja: $scope.pagoCorreo,
+                    montoTotal: $rootScope.currentOpcionPago.costo,
+                    fecha: new Date(),
+                    nombrePago: $rootScope.currentOpcionPago.descripcion,
+                    tarjetaId: $scope.pagoTarjeta
+                }).then(function (response) {
+                    $state.go('pagosConfirm', {pagoId: response.data.id}, {reload: true});
+                });
+                }
             };
         }
     ]);

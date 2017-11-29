@@ -40,6 +40,17 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('proveedorChild', {
+                url: '/{proveedorId:int}/detail',
+                parent: 'proveedores',
+                param: {
+                    proveedorId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'proveedores.child.html'
+                    }
+                }
             }).state('proveedorCreate', {
                 url: '/create',
                 parent: 'proveedores',

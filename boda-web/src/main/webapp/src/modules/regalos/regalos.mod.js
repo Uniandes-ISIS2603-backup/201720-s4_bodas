@@ -24,6 +24,7 @@
                 parent: 'regalos',
                 data: {
                     requireLogin: true,
+
                     roles: ['admin', 'pareja']
                 },
                 param: {
@@ -40,6 +41,10 @@
             }).state('regalosList', {
                 url: '/list',
                 parent: 'regalos',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'regalos.list.html',

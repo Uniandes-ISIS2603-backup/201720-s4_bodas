@@ -1,40 +1,36 @@
-
+<link rel="stylesheet" href="resources/css/style.css">
 <div class="panel panel-default">
-    <div id="headPanel" class="panel-heading">
-        <h3 id="nombreProveedor" class="panel-title"> 
-
-            Información de la opción {{currentOpcion.id}}
-
-        </h3>
-    </div>
+    <div id="headPanel" class="panel-heading">              <center>
+            <h2>Información de la Opción</h2>
+             </center>    
+      </div>
+ 
     <div class="panel-body">
+         <table class="table "> 
+         <tbody>     
+             
         <div class="row">
-            <div class="col-md-3">
-                <dl>
-                    <dt>Descripcion </dt>              
-                    <dd>{{currentOpcion.descripcion}}</dd>
-
-                    <dt>Costo </dt>
-                    <dd>{{currentOpcion.costo}}</dd>
-
-
-
-                    <dt>Dias disponibles </dt>
-                    <dd>{{currentOpcion.diasDisponibles}}</dd>
-
-
-                </dl>
-
-
+        <div class="col-md-3">
+            <div class="thumb">
+                <img class="img-responsive" ng-src="{{currentOpcion.image}}"/>
             </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="thumbnail">
-                    <img class="img-responsive" ng-src="{{currentOpcion.image}}"/>
-                </div>
-            </div>
-
 
         </div>
+        <div class="col-md-6"> 
+            <dl> 
+                <hr>
+                <dt>Descripcion</dt>
+                <dd>{{currentOpcion.descripcion}}</dd>
+                
+                <hr>
+                <dt>Costo</dt>
+                <dd>{{currentOpcion.costo}}</dd>
+                
+                <hr>
+                <dt>Dias </dt>
+                <dd>{{currentOpcion.diasDisponibles}}</dd>
+                
+   </div>
         <div class="btn-group" role="group">
             <a class = "btn btn-default" ui-sref="opcionesList"><span class="glyphicon glyphicon-arrow-left"></span> Lista de Opciones</a>
 
@@ -42,15 +38,13 @@
            <a class = "btn btn-info" ui-sref="tareasList({opcionId:currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Ver tareas</a>
            <a class ="btn btn-info" ui-sref="opcionesUpdate({opcionId: currentOpcion.id})"><span class="glyphicon glyphicon-open"></span> Editar</a>
            <a class="btn btn-danger" ui-sref="opcionesDelete({opcionId: currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Eliminar</a>
-
-
+           <a class="btn btn-default" ui-sref="pagosCreate">Contratar</a>
         </div>
 
 
-
+</tbody>  
+</table>
     </div>
-    <div ui-view="listCView">
-        
-    </div>
+         <div ui-view="listCView"></div>
 </div>
 

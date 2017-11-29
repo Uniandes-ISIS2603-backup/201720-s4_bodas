@@ -10,7 +10,7 @@
             $stateProvider.state('tarjetas', {
                 url: '/tarjetasCredito',
                 abstract: true,
-                parent: 'parejasDetail',
+                parent: 'parejasDetailOne',
                  data: {
                     requireLogin: true,
                     roles: ['admin','pareja']
@@ -21,11 +21,14 @@
                     }
                 }
             }).state('tarjetasList', {
-                url: '/list/tar',
+                url: '/list/:parejaId',
                 parent: 'tarjetas',
-                 data: {
+                data: {
                     requireLogin: true,
                     roles: ['admin','pareja']
+                },
+                param: {
+                    parejaId: null
                 },
                 views: {
                     'listView': {
@@ -36,7 +39,7 @@
                 }
             }).state('tarjetasDetail', {
                 url: '/{tarjetaId:int}',
-                parent: 'tarjetas',
+                parent: 'tarjetasList',
                  data: {
                     requireLogin: true,
                     roles: ['admin','pareja']
@@ -45,7 +48,7 @@
                     tarjetaId: null
                 },
                 views: {
-                    'detailView': {
+                    'childrenView': {
                         templateUrl: basePath + 'tarjetas.detail.html',
                         controller: 'tarjetasCreditoCtrl',
                         controllerAs: 'ctrl'

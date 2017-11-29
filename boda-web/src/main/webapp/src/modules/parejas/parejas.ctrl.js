@@ -62,6 +62,7 @@
                  $scope.currentOrdenPa= tipoCondicion;
             };
             
+            
             this.saveRecord = function (id) {
                 currentPareja = $scope.currentPareja;
 

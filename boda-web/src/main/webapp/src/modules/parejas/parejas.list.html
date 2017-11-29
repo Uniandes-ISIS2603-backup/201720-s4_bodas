@@ -1,49 +1,4 @@
-<!-- Sitio del slide show -->
-<section>
-    <div class="container-fluid" style="margin-bottom: 15px;">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div id="carousel-1" class="carousel slide" data-ride="carousel">
 
-                    <!-- Indicadores -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-1" data-slide-to="0" class="active">  </li>
-                        <li data-target="#carousel-1" data-slide-to="1">  </li>
-                        <li data-target="#carousel-1" data-slide-to="2">  </li>
-                    </ol>             
-
-                    <!-- Contenedor de slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="resources/img/boda2.jpg" alt="Segundo Slide" />
-                            <div class="carousel-caption ">
-                                <p>Las imagenes son de pixabay.com con licencia CC0 Creative Commons</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="resources/img/boda1mod.jpg" alt="Primer Slide" />
-
-                        </div>
-                        <div class="item ">
-                            <img src="resources/img/boda3mod.jpg" alt="Tercer Slide" />
-                        </div>
-                    </div>
-
-
-                    <a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Anterior</span>
-                    </a>
-
-                    <a class="right carousel-control" href="#carousel-1" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Siguiente</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- sITIO DE LA LISTA DE PAREJAS -->
 <section class="col-sm-8 col-sm-offset-2" id="seccion_pareja" ng-if="isAuthenticated() && hasPermissions()" ng-show="isAuthenticated() && hasPermissions()">
@@ -69,7 +24,6 @@
     <li><a ng-click="ctrl.orderInvParejas('nombreInd1','Nombre 1')">Nombre 1</a></li>
         <li><a ng-click="ctrl.orderInvParejas('nombreInd1','Nombre 2')">Nombre 2</a></li>    
         <li><a ng-click="ctrl.orderInvParejas('telefono','Telefono')">Telefono</a></li>
-
   </ul> </div>
              <form class="navbar-form navbar-right" ng-submit="" name="busqueda">
                 <div class="input-group">

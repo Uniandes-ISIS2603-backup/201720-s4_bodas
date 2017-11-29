@@ -36,6 +36,7 @@
                 data: {
                     requireLogin: true,
                     roles: ['admin', 'pareja']
+
                 },
                 param: {
                     bodaId: null
