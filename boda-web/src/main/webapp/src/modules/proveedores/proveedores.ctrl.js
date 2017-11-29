@@ -5,6 +5,7 @@
         function ($scope, $http,proveedoresContext, $state) {
             $http.get(proveedoresContext).then(function (response) {
                 $scope.proveedoresRecords = response.data;
+
             });
 
             //Si el controlador recibio un proveedor Id
@@ -12,6 +13,14 @@
                 $http.get(proveedoresContext + '/' + $state.params.proveedorId).then(function (response) {
                     //$scope.regalosRecords = response.data.regalos;
                     $scope.currentProveedor = response.data;
+                    $scope.minimo = 999999999;
+                    for(var i = 0; i<$scope.currentProveedor.opciones.length;i++)
+                    {
+                        if($scope.minimo>$scope.currentProveedor.opciones[i].costo)
+                        {
+                            $scope.minimo=$scope.currentProveedor.opciones[i].costo;
+                        }  
+                    }
                 });   
             }
             else {

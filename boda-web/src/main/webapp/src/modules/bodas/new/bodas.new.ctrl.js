@@ -5,7 +5,8 @@
         function ($scope, $http, bodasContext, $state,  $rootScope) {
             $rootScope.edit = false;
             $scope.createBoda = function () {
-                $http.post(bodasContext, {
+                if($rootScope.isAuthenticated() && $rootScope.currentUser.rol === 'admin'){
+                    $http.post(bodasContext + "/" + $scope.bodaIdPareja, {
                     fecha: $scope.bodaFecha,
                     image: $scope.bodaImage,
                     name: $scope.bodaName,
@@ -17,6 +18,23 @@
                     //Boda created successfully
                     $state.go('bodasList', {bodaId: response.data.id}, {reload: true});
                 });
+                }else if($rootScope.isAuthenticated() && $rootScope.currentUser.rol === 'pareja'){
+                    console.log("Entro en pareja");
+                    $http.post(bodasContext + "/" + $rootScope.currentUser.username, {
+                    fecha: $scope.bodaFecha,
+                    image: $scope.bodaImage,
+                    name: $scope.bodaName,
+                    religion: $scope.bodaReligion,
+                    tema: $scope.bodaTema,
+                    tipo: $scope.bodaTipo
+                    
+                }).then(function (response) {
+                    //Boda created successfully
+                    console.log("Entro en pareja : "+ response.data.id);
+                    $state.go('parejasDetail', {parejaId: response.data.pareja.correoElec}, {reload: true});
+                });
+                }
+                
             };
         }
     ]);
