@@ -48,21 +48,6 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('parejasDetailOne', {
-                url: '/detail',
-                parent: 'parejas',
-                data: {
-                    requireLogin: true,
-                    roles: ['admin','pareja']
-                },
-                param: {
-                    parejaId: null
-                },
-                 views: {                     
-                    'detailView': {
-                        templateUrl: basePath + 'parejas.detail.html',
-                    }
-                }
             }).state('parejasCreate', {
                 url: '/create',
                 parent:'parejas',   
@@ -71,18 +56,10 @@
                     roles: ['admin','pareja']
                 },
                 views: {
-                    
-//                    'childrenView': {
-//                        template: '=<p> sdfjlsdfjsldfjsdlkfjldf </p><script> alert("sdklfjksdlfj"); </script>'
-//                    },
                     'detailView': {
                         controller: 'parejasNewCtrl',                       
                         templateUrl: basePath + '/create/parejas.new.html'
                     }
-//                    'childrenView': {
-//                        controller: 'parejasNewCtrl',                       
-//                        templateUrl: basePath + '/create/parejas.new.html'
-//                    }
                 }
             }).state('parejasUpdate', {
                 url: '/editar/:parejaId',

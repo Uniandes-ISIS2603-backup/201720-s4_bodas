@@ -1,5 +1,5 @@
 <div class="center-block well text-center">
     <h1>¿Esta seguro de que desea desvincular de su cuenta esta Tarjeta de Credito?</h1>
-    <button id="confirm-delete" ng-click="deleteTarjetaCredito()" class="btn btn-danger">Sí, desvincular</button>
-    <a id="cancel-delete" ui-sref="tarjetasList" class="btn btn-info">Cancelar</a>
+    <button id="confirm-delete" ng-click="deleteTarjetaCredito()" ui-sref="tarjetasList({parejaId: currentUser.username})" class="btn btn-danger">Sí, desvincular</button>
+    <a id="cancel-delete" ui-sref="tarjetasList({parejaId: currentUser.username})" class="btn btn-info">Cancelar</a>
 </div>

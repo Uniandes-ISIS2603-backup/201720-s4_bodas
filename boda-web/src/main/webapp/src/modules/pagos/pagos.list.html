@@ -8,7 +8,7 @@
                     <th>Fecha </th>
                     <th>Monto Total </th>
                     <th>Detalles </th>
-                    <th>Acciones </th>
+                    <th ng-show ="isAuthenticated() && currentUser.rol == 'admin'">Acciones </th>
                 </tr>
                 </thead>
                   <tbody>
@@ -17,7 +17,7 @@
                       <td id="{{$index}}-fecha">{{pago.fecha | date:'dd-MM-yyyy'}}</td>
                       <td id="{{$index}}-montoTotal">{{pago.montoTotal}}</td>
                       <td id="{{$index}}-detail"><a class = "btn boton-detalle" ui-sref="pagosDetail({pagoId: pago.id})"><span class="glyphicon glyphicon-eye-open"></span>Ver detalles</a></td>
-                      <td><a class="btn btn-warning btn-sm" ui-sref="pagosUpdate({pagoId: pago.id})"> <span class="glyphicon glyphicon-pencil"></span></a><td>
+                      <td><a class="btn btn-warning btn-sm" ui-sref="pagosUpdate({pagoId: pago.id})" ng-show ="isAuthenticated() && currentUser.rol == 'admin'"> <span class="glyphicon glyphicon-pencil"></span></a><td>
                       </tr>
                   </tbody>
             </table>
