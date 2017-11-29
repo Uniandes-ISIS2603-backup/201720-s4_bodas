@@ -25,7 +25,7 @@ public class UbicacionEntity extends BaseEntity implements Serializable {
     private String direccion;
     
     @PodamExclude
-    @ManyToMany
+    @ManyToMany(mappedBy = "locations")
     private List<RegaloEntity> regalos;
     
     @PodamExclude

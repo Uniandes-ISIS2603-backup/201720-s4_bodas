@@ -94,22 +94,6 @@
                         controller: 'bodaDeleteCtrl'
                     }
                 }
-            }).state('bodaAsignar', {
-                url: '/{bodaId:int}/asignar/:parejaId',
-                parent: 'bodas',
-                data: {
-                    requireLogin: true,
-                    roles: ['admin', 'pareja']
-                },
-                param: {
-                    bodaId: null,
-                    parejaId: null
-                },
-                views: {
-                    'detailView': {
-                        controller: 'bodasAsignarCtrl'
-                    }
-                }
             });
         }]);
 })(window.angular);

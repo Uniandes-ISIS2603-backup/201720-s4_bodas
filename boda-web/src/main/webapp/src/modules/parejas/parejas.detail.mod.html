@@ -1,7 +1,7 @@
 <div class="panel">
     <div class="container-fluid">
-        <h4 ng-show="isAuthenticated() && currentUser.rol == 'admin' "> Detalles de la Pareja </h4>
-        <h3 ng-show="isAuthenticated() && currentUser.rol == 'pareja' "> Tu información </h3>
+        <h4 ng-show="isAuthenticated() && currentUser.rol === 'admin' "> Detalles de la Pareja </h4>
+        <h3 ng-show="isAuthenticated() && currentUser.rol === 'pareja' "> Tu información </h3>
         
         <ul class="list-group">
             <li class="list-group-item"> <strong>Email: </strong> {{currentPareja.correoElec}}</li>
@@ -25,7 +25,6 @@
                   <li ng-show="currentPareja.bodas.length ===0"> <a>No tiene bodas</a></li>
               </ul>
             </div>
-            
         </div>
     </div>
 </div>
