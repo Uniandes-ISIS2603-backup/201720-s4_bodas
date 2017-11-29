@@ -27,7 +27,7 @@
                     <a class="btn btn-danger btn-sm" ui-sref="tarjetasDelete({tarjetaId: tarjeta.numero})"> <span class="glyphicon glyphicon-trash"></span></a>
                     <a class="btn btn-warning btn-sm" ui-sref="tarjetasUpdate({tarjetaId: tarjeta.numero})"> <span class="glyphicon glyphicon-pencil"></span></a>
               </td>
-              <td><a class="btn btn-info" ui-sref="tarjetasDetail({tarjetaId: tarjeta.numero})"><span class="glyphicon glyphicon-eye-open"></span>Ver Detalles</a></td>
+              <td><a class="btn boton-detalle" ui-sref="tarjetasDetail({tarjetaId: tarjeta.numero})"><span class="glyphicon glyphicon-eye-open"></span>Ver Detalles</a></td>
             </tr>
         </tbody>
     </table>
@@ -35,7 +35,7 @@
             <dl>
             <dd><a class = "btn btn-default" ui-sref="parejasList"  ng-show="isAuthenticated() && currentUser.rol == 'admin' " ><span class="glyphicon glyphicon-arrow-left"></span> Volver</a></dd>
             <dd><a class = "btn btn-default" ui-sref="parejasDetail({parejaId:currentUser.username})"  ng-show="isAuthenticated() && currentUser.rol == 'pareja' " ><span class="glyphicon glyphicon-arrow-left"></span> Volver</a></dd>
-            </dl>
-            
+            </dl>      
     </div>
+    <div ui-view="childrenView"></div>
 </div>
