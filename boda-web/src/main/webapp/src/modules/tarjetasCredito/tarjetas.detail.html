@@ -18,15 +18,14 @@
                 <font color=black><dd style="color:#000000">{{currentTarjeta.nombreBanco}} </dd></font>
                 <hr>
                 <dd><a class = "btn boton-detalle" ui-sref="pagosList"><span class="glyphicon glyphicon-eye-open"></span>Ver Pagos </a></dd>
-                <hr>
-                <dd><a class = "btn btn-default" ui-sref="tarjetasList"><span class="glyphicon glyphicon-remove"></span>Cerrar </a></dd>
+                <div class="panel-body">
+                    <div class="row">
+                        <div ui-view="childrenView"></div>
+                    </div>
+                </div>
+                <dd><a class = "btn btn-danger" ui-sref="tarjetasList">Cerrar </a></dd>
             </dl>
             </tbody>
         </table>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div ui-view="childrenView"></div>
-        </div>
     </div>
 </div>

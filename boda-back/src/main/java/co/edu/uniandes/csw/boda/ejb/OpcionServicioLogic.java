@@ -1,10 +1,12 @@
 
 package co.edu.uniandes.csw.boda.ejb;
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.OpcionServicioPersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -23,7 +25,8 @@ public class OpcionServicioLogic {
     
       @Inject
       ProveedorLogic proveedorLogic;
-      
+       @Inject
+      BodaLogic bodaLogic;
       /**
      * Crea una opcionServicio
      * @param entity
@@ -108,7 +111,7 @@ public class OpcionServicioLogic {
               throw new BusinessLogicException("No existe una opcion servicio con el id dado hola.");
           }
           entity.setPago(entity.getPago());
-          entity.setBoda(entity.getBoda());
+          entity.setBodas(entity.getBodas());
           persistence.update(entity);
           return entity;
       }
@@ -152,4 +155,86 @@ public class OpcionServicioLogic {
         return persistence.find(id);
     }
 
+ 
+ 
+ 
+ 
+ 
+ 
+ public List<BodaEntity> listBodas(Long opcionId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los libros del autor con id = {0}", opcionId);
+        return getOpcionServicio(opcionId).getBodas();
+    }
+
+    /**
+     * Obtiene una instancia de BookEntity asociada a una instancia de Author
+     *
+     * @param authorId Identificador de la instancia de Author
+     * @param booksId Identificador de la instancia de Book
+     * @return
+     * @generated
+     */
+    public BodaEntity getBoda(Long opcionId, Long bodaId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar un libro con id = {0}", bodaId);
+        List<BodaEntity> list = getOpcionServicio(opcionId).getBodas();
+        BodaEntity booksEntity = new BodaEntity();
+        booksEntity.setId(bodaId);
+        int index = list.indexOf(booksEntity);
+        if (index >= 0) {
+            return list.get(index);
+        }
+        return null;
+    }
+
+    /**
+     * Asocia un Book existente a un Author
+     *
+     * @param authorId Identificador de la instancia de Author
+     * @param booksId Identificador de la instancia de Book
+     * @return Instancia de BookEntity que fue asociada a Author
+     * @generated
+     */
+    public BodaEntity addBoda(Long opcionId, Long bodaId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de agregar un libro al author con id = {0}", opcionId);
+        bodaLogic.addOpcionServicio(bodaId, opcionId);
+        return bodaLogic.findBodaById(bodaId);
+    }
+
+    /**
+     * Remplaza las instancias de Book asociadas a una instancia de Author
+     *
+     * @param authorId Identificador de la instancia de Author
+     * @param list Colección de instancias de BookEntity a asociar a instancia
+     * de Author
+     * @return Nueva colección de BookEntity asociada a la instancia de Author
+     * @generated
+     */
+    public List<BodaEntity> replaceBodas(Long bodaId, List<BodaEntity> list) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de reemplazar los libros asocidos al author con id = {0}", bodaId);
+        OpcionServicioEntity authorEntity = getOpcionServicio(bodaId);
+        List<BodaEntity> bookList = bodaLogic.getBodas();
+        for (BodaEntity book : bookList) {
+            if (list.contains(book)) {
+                if (!book.getOpcionServicios().contains(authorEntity)) {
+                    bodaLogic.addOpcionServicio(book.getId(), bodaId);
+                }
+            } else {
+                bodaLogic.removeOpciones(book.getId(), bodaId);
+            }
+        }
+        authorEntity.setBodas(list);
+        return authorEntity.getBodas();
+    }
+
+    /**
+     * Desasocia un Book existente de un Author existente
+     *
+     * @param authorId Identificador de la instancia de Author
+     * @param booksId Identificador de la instancia de Book
+     * @generated
+     */
+    public void removeBoda(Long opcionId, Long bodasId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar un boda del opcion con id = {0}", opcionId);
+        bodaLogic.removeOpciones(bodasId, opcionId);
+    }
 }

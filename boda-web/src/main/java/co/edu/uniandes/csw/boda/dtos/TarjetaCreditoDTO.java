@@ -21,7 +21,6 @@ public class TarjetaCreditoDTO {
     @Temporal(TemporalType.DATE)
     private Date fechaVen;
     private String nombreBanco;
-    
      /**
      * Constructor por defecto
      */
@@ -96,6 +95,7 @@ public class TarjetaCreditoDTO {
     public void setNombreBanco(String nombreBanco) {
         this.nombreBanco = nombreBanco;
     }
+    
      /**
      * Convertir DTO a Entity
      * @return Un Entity con los valores del DTO 
@@ -105,7 +105,7 @@ public class TarjetaCreditoDTO {
         entity.setNumero(this.numero);
         entity.setNumDeSeg(this.numDeSeg);
         entity.setFechaVen(this.fechaVen);
-        entity.setName(this.nombreBanco);      
+        entity.setName(this.nombreBanco);
         return entity;
     }
 }

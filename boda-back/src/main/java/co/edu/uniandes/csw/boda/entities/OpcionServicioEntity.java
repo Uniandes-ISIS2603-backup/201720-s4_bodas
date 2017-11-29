@@ -52,7 +52,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
     * Atributo privado bodas.
     */
     @PodamExclude
-    @ManyToMany
+    @ManyToMany(mappedBy = "opcionServicios")
     private List<BodaEntity> bodas;
     
     /**
@@ -225,7 +225,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
      *
      * @return la bodas asociada
      */
-    public List<BodaEntity> getBoda() {
+    public List<BodaEntity> getBodas() {
         return bodas;
     }
 
@@ -234,7 +234,7 @@ public class OpcionServicioEntity extends BaseEntity implements Serializable {
      *
      * @param boda la bodas a cambiar
      */
-    public void setBoda(List<BodaEntity> boda) {
+    public void setBodas(List<BodaEntity> boda) {
         this.bodas = boda;
     }
     

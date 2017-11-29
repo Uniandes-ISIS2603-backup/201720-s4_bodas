@@ -79,13 +79,13 @@
                     parejaId: null
                 },
                 views: {
-                    'mainView': {
+                    'detailView': {
                         templateUrl: basePath + 'update/tarjetas.update.html',
                         controller: 'tarjetasUpdateCtrl'
                     }
                 }
             }).state('tarjetasCreate', {
-                url: '/createTarjeta',
+                url: '/createTarjeta/nueva',
                 data: {
                     requireLogin: true,
                     roles: ['admin','pareja']

@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -28,7 +27,7 @@ public class ServicioEntity extends BaseEntity implements Serializable  {
      */
     @PodamExclude  
     @ManyToMany
-    private List<ProveedorEntity> proveedores = new ArrayList<>();
+    private List<ProveedorEntity> proveedores;
     
     /**
      * Atributo privado image.
