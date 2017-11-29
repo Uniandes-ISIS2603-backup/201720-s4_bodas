@@ -1,9 +1,7 @@
 <link rel="stylesheet" href="resources/css/style.css">
 <div class="panel panel-default">
-      <div id="headPanel" class="panel-heading">              <center>
-            <h2>{{currentRegalo.name}}</h2>
-             </center>    
-      </div>
+    <div id="headPanel" class="panel-heading">
+            <h2>{{currentRegalo.name}}</h2></div>
        <div class="panel-body">
          <table class="table "> 
 
@@ -23,11 +21,13 @@
                 <br>
                 <dd class="HC">Selecciona una de las ubicaciones del regalo "{{currentRegalo.name}}" y encuentra el lugar ideal para comprarlo.</dd>
                 <br>
-            <div>        
+            <div>  
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <a class="botones" ui-sref="ubicacionCreate" ><span class="glyphicon glyphicon-plus"></span> <b>Agregar nueva ubicación</b></a>
             <tr ng-repeat="ubicacion in currentRegalo.locations">
             <dd><h2>Ubicaciones: </h2></dd>
                 <br>
-                <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId: ubicacion.id})">{{ ubicacion.name}}</a></td>
+                <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId:ubicacion.id})">{{ ubicacion.name}}</a></td>
                 <td id="{{$index}}-telefono">{{ ubicacion.direccion}}</td>
                 <td id="{{$index}}-direccion">{{ ubicacion.telefono}}</td>
                 <td id="{{$index}}-actions">

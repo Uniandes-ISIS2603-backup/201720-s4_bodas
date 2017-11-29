@@ -98,7 +98,7 @@ public class ParejaResource {
      * 404 con el mensaje.
      */
     @PUT
-   @Path("{name}")
+    @Path("{name}")
     public ParejaDetailDTO updateEditorial(@PathParam("name") String id, ParejaDetailDTO pareja) throws BusinessLogicException {
         pareja.setCorreoElec(id);
         ParejaEntity entity = parejaLogic.getPareja(id);

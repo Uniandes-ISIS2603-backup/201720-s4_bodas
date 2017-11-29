@@ -20,8 +20,10 @@ public class BodaDetailDTO extends BodaDTO{
     
     private List<RegaloDTO> regalos;
     private List<InvitadoDTO> invitados;
-
     private List<OpcionServicioDTO> opcionServicio;
+    
+    private ParejaDTO pareja;
+
 
     /**
      * Constructor por defecto
@@ -49,17 +51,18 @@ public class BodaDetailDTO extends BodaDTO{
                 invitados.add(new InvitadoDTO(entityInvitado));
             }
         }
-
         if (entity.getOpcionServicio() != null) {
             this.opcionServicio = new ArrayList<>();
             for (OpcionServicioEntity entityOpcionServicio : entity.getOpcionServicio()) {
                 opcionServicio.add(new OpcionServicioDTO(entityOpcionServicio));
             }
         }
+        if(entity.getPareja() !=null){
+            this.pareja = new ParejaDTO(entity.getPareja());
+        }
 
     }
-    
-    
+  
     @Override
     public BodaEntity toEntity() {
         BodaEntity bodaE = super.toEntity();
@@ -77,7 +80,6 @@ public class BodaDetailDTO extends BodaDTO{
             }
             bodaE.setInvitados(invitadosEntity);
         }
-
         if (this.opcionServicio != null) {
             List<OpcionServicioEntity> opcionServicioEntity = new ArrayList<>();
             for (OpcionServicioDTO dtoOpcionServicio : this.opcionServicio) {
@@ -85,10 +87,22 @@ public class BodaDetailDTO extends BodaDTO{
             }
             bodaE.setOpcionServicio(opcionServicioEntity);
         }
-
+        if(this.pareja !=null){
+            bodaE.setPareja(this.pareja.toEntity());
+        }
+        
         return bodaE;
     }
 
+    
+    public ParejaDTO getPareja() {
+        return pareja;
+    }
+
+    public void setPareja(ParejaDTO pareja) {
+        this.pareja = pareja;
+    }
+    
     public List<RegaloDTO> getRegalos() {
         return regalos;
 

@@ -9,16 +9,23 @@
             <li class="list-group-item">Nombre 2: {{currentPareja.nombreInd2}}</li>
             <li class="list-group-item">Dirección: {{currentPareja.direccion}}</li>
             <li class="list-group-item">Telefono: {{currentPareja.telefono}}</li>
-            <li class="list-group-item">Boda: </li>
-        </ul>            
-        
-        <a class="btn boton-detalle" ui-sref="tarjetasList({parejaId: currentPareja.correoElec})"><span class="glyphicon glyphicon-eye-open"></span><strong> Ver Tarjetas De Credito</strong></a>
-        <a class="btn boton-detalle" ui-sref="bodaDetail({bodaId:currentPareja.boda.id})"><span class="glyphicon glyphicon-eye-open"></span><strong> Ver Boda</strong></a>
-        
+        </ul>
         <div class="btn-group">
             
-            <a ng-repeat="bodas in currentPareja.bodas"
-            <a class="btn btn-info" ui-sref="bodaDetail({bodaId: bodas.id})"><span class="glyphicon glyphicon-eye-open"></span><strong>{{bodas.name}}</strong></a>     
+            <a class="btn boton-detalle" ui-sref="tarjetasList({parejaId: currentPareja.correoElec})"><span class="glyphicon glyphicon-eye-open"></span><strong> Ver Tarjetas De Credito</strong></a>
+            <a class="btn boton-detalle" ui-sref="bodaCreate" ><span class="glyphicon glyphicon-plus"></span> <b>Agregar boda</b></a>
+          
+            <!-- Single button -->
+            <div class="btn-group">
+              <button type="button" class="btn boton-detalle dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <b> Ver bodas</b> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                 <li ng-repeat="bodas in currentPareja.bodas"><a ui-sref="bodaDetail({bodaId: bodas.id})">{{bodas.name}}</a> </li>   
+                  <li ng-show="currentPareja.bodas.length ===0"> No bodas</li>
+              </ul>
+            </div>
+            
         </div>
     </div>
 </div>

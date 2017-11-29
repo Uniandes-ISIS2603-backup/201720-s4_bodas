@@ -8,13 +8,12 @@
             $rootScope.edit = false;
             
             $scope.createTarjeta = function () {
-                $http.post(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext, {
+                $http.post(parejasContext + '/' + $rootScope.currentUser.username + '/' + tarjetasCreditoContext, {
                     nombreBanco: $scope.tarjetaBanco,
-                    fecha: $scope.tarjetaFecha,
+                    fechaVen: $scope.tarjetaFechaVen,
                     numero: $scope.tarjetaNumero,
                     numDeSeg: $scope.tarjetaNumDeSeg
-                }).then(function (response) {
-                    $state.go('tarjetasList', {tarjetaId: response.data.numero}, {reload: true});
+                }).then(function () {
                 });
             };
         }

@@ -7,12 +7,6 @@
             <form ng-submit="createTarjeta()" name="tarjeta">
                 <div class="form-group row">
                     <div class="form-group col-md-6">
-                        <label for="tarjetaNumero" class="col-sm-6">Numero de la tarjeta:</label>
-                        <input id="tarjetaNumero" required ng-model="tarjetaNumero" class="col-sm-6"/>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="form-group col-md-6">
                         <label for="tarjetaNumDeSeg" class="col-sm-6">Numero de Seguridad:</label>
                         <input id="tarjetaNumDeSeg" required ng-model="tarjetaNumDeSeg" class="col-sm-6"/>
                     </div>
@@ -36,7 +30,7 @@
                             <strong>¡Advertencia!</strong><p>Todos los campos son requeridos*</p>
                         </div> 
                     </div> 
-                </div> 
+                </div>
                 <div class="form-group row">
                     <div class="form-group col-sm-12">
                         <input ng-show="tarjeta.$valid" type="submit" value="Confirmar" class="btn btn-success"/>
