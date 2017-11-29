@@ -7,7 +7,7 @@
     <div class="panel-body" style="margin-left: 8%">
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group mr-2" role="group" aria-label="First group" style="margin-bottom: 2%">
-                <a class="botones" ui-sref="proveedorCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo proveedor</a>
+                <a class="botones" ui-sref="proveedorCreate" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo proveedor</a>
             </div>
         </div>
         <tbody>
