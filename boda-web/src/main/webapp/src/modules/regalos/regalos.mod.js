@@ -11,6 +11,10 @@
                 url: '/regalos',
                 abstract: true,
                 parent: 'bodaDetail',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     childrenView: {
                         templateUrl: basePath + 'regalos.html'
@@ -19,6 +23,10 @@
             }).state('regaloDetail', {
                 url: '/{regaloId:int}',
                 parent: 'regalos',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 param: {
                     regaloId: null
                 },
@@ -33,6 +41,10 @@
             }).state('regalosList', {
                 url: '/list',
                 parent: 'regalos',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'regalos.list.html',
