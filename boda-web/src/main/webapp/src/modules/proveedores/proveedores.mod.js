@@ -41,7 +41,7 @@
                     }
                 }
             }).state('proveedorChild', {
-                url: '/{proveedorId:int}',
+                url: '/{proveedorId:int}/detail',
                 parent: 'proveedores',
                 param: {
                     proveedorId: null

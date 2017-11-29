@@ -25,17 +25,25 @@
                 <br>
                 <dd class="HC">Selecciona uno de nuestros proveedores y encuentra la opción del servicio {{currentServicio.name}}  ideal para tí.</dd>
                 <br>
-            <div>        
-            <tr ng-repeat="proveedor in currentServicio.proveedores">
+            <div>     
             <dd><h2>Proveedores: </h2></dd>
+            <div class="media col-lg-12 col-sm-12 col-md-12" ng-repeat="proveedor in currentServicio.proveedores">
                 <br>
-                <td id="{{$index}}-name"><a ui-sref="proveedorDetail({proveedorId: proveedor.id})">{{ proveedor.name}}</a></td>
-                <td id="{{$index}}-especialidad">{{ proveedor.especialidad}}</td>
-                <td id="{{$index}}-actions">
-                    <a class="btn btn-danger btn-sm" ui-sref="ubicacionDelete({ubicacionId: ubicacion.id})"><span class="glyphicon glyphicon-trash"></span></a>   
-                    <a class="btn btn-default btn-sm" ui-sref="ubicacionUpdate({ubicacionId: ubicacion.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                </td>
-           </tr>
+                <div class="media-left"  >
+                    <a href="#">
+                        <img class="media-object" ui-sref="proveedorDetail({proveedorId: proveedor.id})" ng-src='{{proveedor.imagen}}' alt="..." style="max-width: 200px; height: auto;">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading" >{{ proveedor.name}}</h3>
+                    <p> {{ proveedor.especialidad}}</p>
+                    <div class="btn-group" role="group" >
+                        <a class="btn btn-danger btn-sm" ui-sref="proveedorDelete({proveedorId: proveedor.id})" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-trash"></span></a>   
+                        <a class="btn btn-default btn-sm" ui-sref="proveedorUpdate({proveedorId: proveedor.id})" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-edit"></span></a>
+                    </div>
+                </div>
+                <hr size="30">
+           </div>
     </div>
   </tbody>  
              
