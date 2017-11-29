@@ -32,7 +32,7 @@ public class ServicioDetailDTO extends ServicioDTO {
      */
     public ServicioDetailDTO(ServicioEntity entity) {
         super(entity);
-        System.out.println("HOLA"+ entity.getProveedores().size());
+        
         if (entity.getProveedores()!= null) {
             proveedores = new ArrayList<>();
             for (ProveedorEntity entityProveedor : entity.getProveedores()) {
