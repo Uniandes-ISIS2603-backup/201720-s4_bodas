@@ -1,9 +1,7 @@
 <link rel="stylesheet" href="resources/css/style.css">
 <div class="panel panel-default">
-      <div id="headPanel" class="panel-heading">              <center>
-            <h2>{{currentRegalo.name}}</h2>
-             </center>    
-      </div>
+    <div id="headPanel" class="panel-heading">
+            <h2>{{currentRegalo.name}}</h2></div>
        <div class="panel-body">
          <table class="table "> 
 
@@ -27,7 +25,7 @@
             <tr ng-repeat="ubicacion in currentRegalo.locations">
             <dd><h2>Ubicaciones: </h2></dd>
                 <br>
-                <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId: ubicacion.id})">{{ ubicacion.name}}</a></td>
+                <td id="{{$index}}-name"><a ui-sref="ubicacionDetail({ubicacionId:ubicacion.id})">{{ ubicacion.name}}</a></td>
                 <td id="{{$index}}-telefono">{{ ubicacion.direccion}}</td>
                 <td id="{{$index}}-direccion">{{ ubicacion.telefono}}</td>
                 <td id="{{$index}}-actions">

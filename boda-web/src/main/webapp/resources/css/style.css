@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : 23/10/2017, 11:26:59 AM
     Author     : nf.ortiz
 */
+.angular-google-map-container {
+    height: 400px;
+}
 body{
   
 }
