@@ -68,7 +68,7 @@ public class BodaEntity extends BaseEntity implements Serializable {
      */
     @PodamExclude
     @ManyToMany
-    private List<OpcionServicioEntity> opcionServicio;
+    private List<OpcionServicioEntity> opcionServicios;
 
     /**
      * Coleccion privada de invitados.
@@ -251,8 +251,8 @@ public class BodaEntity extends BaseEntity implements Serializable {
      *
      * @return la opcionServicio
      */
-    public List<OpcionServicioEntity> getOpcionServicio() {
-        return opcionServicio;
+    public List<OpcionServicioEntity> getOpcionServicios() {
+        return opcionServicios;
     }
 
     /**
@@ -260,8 +260,8 @@ public class BodaEntity extends BaseEntity implements Serializable {
      *
      * @param opcionServicio las opcioneServicio a cambiar
      */
-    public void setOpcionServicio(List<OpcionServicioEntity> opcionServicio) {
-        this.opcionServicio = opcionServicio;
+    public void setOpcionServicios(List<OpcionServicioEntity> opcionServicio) {
+        this.opcionServicios = opcionServicio;
     }
     
 }
