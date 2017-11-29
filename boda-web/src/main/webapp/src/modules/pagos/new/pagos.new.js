@@ -9,6 +9,7 @@
             $rootScope.edit = false;
             $scope.createPago = function () {
             if($scope.pagoCorreo === null || $scope.pagoCorreo === undefined){
+                console.log();
                 $http.post(parejasContext + '/' + $rootScope.currentUser.username + '/' + tarjetasCreditoContext + '/' + $scope.pagoTarjeta + '/' + pagosContext , {
                     correoPareja: $rootScope.currentUser.username,
                     montoTotal: $rootScope.currentOpcionPago.costo,

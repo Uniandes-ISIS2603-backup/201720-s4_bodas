@@ -175,7 +175,7 @@ public class BodaPersistenceTest {
         Assert.assertNotNull("Tiene imagen asignada", entity.getImage());
         
         //Prueba el metodo getOpcionServicio()
-        Assert.assertNull("No Tiene opcionServicio asignada", entity.getOpcionServicio());
+        Assert.assertNull("No Tiene opcionServicio asignada", entity.getOpcionServicios());
         
         //Prueba el metodo  setOpcionServicio()
         factory = new PodamFactoryImpl();
@@ -183,7 +183,7 @@ public class BodaPersistenceTest {
         for(int i=0;i<3;i++){
             opciones.add(factory.manufacturePojo(OpcionServicioEntity.class));
         }
-        try{entity. setOpcionServicio(opciones);}catch(Exception e){Assert.fail("No debio generar error");} 
+        try{entity. setOpcionServicios(opciones);}catch(Exception e){Assert.fail("No debio generar error");} 
 
         
     }

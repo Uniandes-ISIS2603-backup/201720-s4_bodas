@@ -1,5 +1,4 @@
 --Pruebas para Pareja Entity
-delete from OPCIONSERVICIOENTITY_BODAENTITY;
 delete from ServicioEntity_ProveedorEntity;
 delete from RegaloEntity_UbicacionEntity;
 delete from PagoEntity;
@@ -50,11 +49,11 @@ insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (400, 'Sáb
 insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (500, 'Cama', 1, 'https://static.pexels.com/photos/164595/pexels-photo-164595.jpeg',2);
 insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (600, 'Platos', 0, 'https://static.pexels.com/photos/6305/holidays-dinner-eating-lunch.jpg',2);
 insert into RegaloEntity (id,name, comprado, imagen, boda_id) values (700, 'Lavadora', 0, 'https://static.pexels.com/photos/4414/black-and-white-clean-housework-launderette.jpg',2);
-insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (100,1);
-insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (100,2);
-insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (200,2);
-insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (200,3);
-insert into RegaloEntity_UbicacionEntity (regaloentity_id,locations_id ) values (400,1);
+insert into RegaloEntity_UbicacionEntity (regalos_id,locations_id ) values (100,1);
+insert into RegaloEntity_UbicacionEntity (regalos_id,locations_id ) values (100,2);
+insert into RegaloEntity_UbicacionEntity (regalos_id,locations_id ) values (200,2);
+insert into RegaloEntity_UbicacionEntity (regalos_id,locations_id ) values (200,3);
+insert into RegaloEntity_UbicacionEntity (regalos_id,locations_id ) values (400,1);
 
 
 
@@ -125,21 +124,13 @@ insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (3,'Servicio de Decoración con Arreglo de flores para evento, 10 arreglos de rosas o 12 arreglos de cualquier flor diferente.',200000 ,'Cualquier día', 200,'https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg');
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (4,'Arreglo de flores de matrimonio para la esposa',30000 ,'Cualquier día', 200 ,'https://images.pexels.com/photos/540522/pexels-photo-540522.jpeg');
 
-insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (1,1);
-insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (1,2);
-insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (1,3);
-insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (2,1);
-insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (2,2);
-insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,3);
-insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,2);
-
-insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (1,1);
-insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (1,2);
-insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (1,3);
-insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (2,1);
-insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (2,2);
-insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (3,3);
-insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (3,2);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicios_id, bodas_id ) values (1,1);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicios_id, bodas_id ) values (1,2);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicios_id, bodas_id ) values (1,3);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicios_id, bodas_id ) values (2,1);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicios_id, bodas_id ) values (2,2);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicios_id, bodas_id ) values (3,3);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicios_id, bodas_id ) values (3,2);
 
 ---Fin Calificacion OpcionServicio Entity
 

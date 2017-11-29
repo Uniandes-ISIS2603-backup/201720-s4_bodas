@@ -3,14 +3,14 @@
     <div>
         <center>
             <img align=center src="resources/icons/header.png" >
-            <h2>Opciones del servicio</h2>
+            <h2>Opciones contratadas</h2>
         </center>
     </div>
 
     <div class="panel-body">
         <div class="col-md-10"  style="margin-left:5%; margin-right:8%;">
             <div  class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin-bottom: 2%">
-                <a class="btn btn-info" style="background: #F48FB1;border: none;" ui-sref="opcionesCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva opcion</a>
+                <a class="btn boton-agregar" style="background: #F48FB1;border: none;" ng-click="contrato()"><span class="glyphicon glyphicon-plus-sign"></span> Contratar opcion</a>
                 
                 <div class="btn-group right">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -38,7 +38,7 @@
 
             </center>
             <div class="btn-group" role="group">
-                <a class = "botones" ui-sref="proveedoresList"><span class="glyphicon glyphicon-arrow-left"></span> Ir a proveedores</a>
+                <a class = "botones" ui-sref="bodaDetail({bodaId:parametrobodaId })"><span class="glyphicon glyphicon-arrow-left"></span> Volver</a>
             </div> 
         </div>
     </div>

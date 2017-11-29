@@ -6,19 +6,21 @@
           </div>
         </div>
 <div class="panel panel-danger" >
-    <div><h2>Lista de Bodas</h2></div>
+            <center>
+                <img align=center src="resources/icons/header.png" >
+                <h2>Lista de bodas</h2>
+            </center>
        <div class="panel-body">                
-          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <a class="botones" ui-sref="bodaCreate" ><span class="glyphicon glyphicon-plus"></span> <b>Agregar boda</b></a> 
-                        
-            <form class="navbar-form navbar-right" ng-submit="" name="busqueda">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin-bottom: 2%">
+            <a class="btn btn-info" ui-sref="bodaCreate" style="background: #F48FB1;border: none;" ng-show="isAuthenticated() && currentUser.rol == 'admin' "><span class="glyphicon glyphicon-plus-sign"></span> Agregar nueva boda</a>
+            <form   ng-submit="" name="busqueda" style="margin-right: 5%; width: 30%;" >
                 <div class="input-group">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Buscar boda (Ej: Mafelipe, Ej:Católica)" required ng-model="nameBoda">
+                        <input type="text" class="form-control" placeholder="Buscar boda (ej: Mafelipe)" required ng-model="nameBoda" style="width: 250px;">
                     </div>
                 </div>
-            </form>                        
-            </div>
+            </form>
+        </div>
            <table class="table "> 
            <thead>
             <tr>

@@ -23,8 +23,7 @@
                 <dd class="HC">Selecciona una de las ubicaciones del regalo "{{currentRegalo.name}}" y encuentra el lugar ideal para comprarlo.</dd>
                 <br>
             <div>  
-            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <a class="botones" ui-sref="ubicacionesList"><span class="glyphicon glyphicon-plus"></span> <b>Agregar ubicacion</b></a>
+            <a class="botones" ng-click="agregar()" ><span class="glyphicon glyphicon-plus"></span> <b>Agregar ubicacion</b></a>
 
             <tr ng-repeat="ubicacion in currentRegalo.locations">
             <dd><h2>Ubicaciones: </h2></dd>

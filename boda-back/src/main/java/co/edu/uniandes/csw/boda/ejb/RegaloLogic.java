@@ -91,6 +91,10 @@ public class RegaloLogic {
 
     public UbicacionEntity addUbi(Long regaloId, Long ubicacionId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de agregar un libro al author con id = {0}", regaloId);
+        RegaloEntity regEntity = get(regaloId);
+        UbicacionEntity ubiEntity = new UbicacionEntity();
+        ubiEntity.setId(ubicacionId);
+        regEntity.getLocations().add(ubiEntity);
         ubicacionLogic.addRegalo(ubicacionId, regaloId);
         return ubicacionLogic.findUbicacionById(ubicacionId);
     }
