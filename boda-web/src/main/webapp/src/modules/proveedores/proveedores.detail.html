@@ -6,42 +6,45 @@
                 <td id="{{$index}}-name">Información del Proveedor: {{currentProveedor.name}}</td>
             </tr>
         </h3></div>
-       <div class="panel-body">
-         <table class="table "> 
+    <div class="panel-body">
+        <table class="table "> 
 
-       <tbody>
-        <div class="row">
-        <div class="col-md-3">
-            <div class="thumb">
-                <img class="img-responsive" ng-src="{{currentProveedor.imagen}}"/>
+            <tbody>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumb">
+                        <img class="img-responsive" ng-src="{{currentProveedor.imagen}}"/>
+                    </div>
+
+                </div>
+                <div class="col-md-3"> 
+                    <dl>
+                        <hr>
+                        <dt>Nombre del Proveedor:</dt>
+                        <dd>{{currentProveedor.name}} </dd>
+
+                        <hr>
+                        <dt>Especialidad:</dt>
+                        <dd>{{currentProveedor.especialidad}}</dd>
+                      
+                        <hr>
+                        <dt>Precios Desde:</dt>
+                        <dd>{{minimo}}</dd>
+
+
+                    </dl>
+                    <a ui-sref="opcionesList({proveedorId:currentProveedor.id})" class="btn btn-default" >Ver Opciones</a>
+                </div>
+
             </div>
+            </tbody>  
 
-        </div>
-        <div class="col-md-3"> 
-            <dl>
-                <hr>
-                <dt>Nombre del Proveedor:</dt>
-                <dd>{{currentProveedor.name}} </dd>
-          
-                <hr>
-                <dt>Especialidad 3:</dt>
-                <dd>{{currentProveedor.especialidad}}</dd>
-                
-                <hr>
-                <dt>Precios Desde:</dt>
-                <dd>{{minimo}}</dd>
-
-
-            </dl>
-            <a ui-sref="opcionesList({proveedorId:currentProveedor.id})" class="btn btn-default" >Ver Opciones</a>
-
-        </div>
-        
+        </table>
     </div>
-  </tbody>  
-             
-         </table>
-      </div>
- </div>
+    <div ui-view="childrenView">
+
+
+    </div>
+</div>
 
   

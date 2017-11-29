@@ -20,7 +20,6 @@ public class BodaDetailDTO extends BodaDTO{
     
     private List<RegaloDTO> regalos;
     private List<InvitadoDTO> invitados;
-
     private List<OpcionServicioDTO> opcionServicio;
 
     /**
@@ -58,8 +57,6 @@ public class BodaDetailDTO extends BodaDTO{
         }
 
     }
-    
-    
     @Override
     public BodaEntity toEntity() {
         BodaEntity bodaE = super.toEntity();

@@ -1,4 +1,5 @@
 --Pruebas para Pareja Entity
+delete from OPCIONSERVICIOENTITY_BODAENTITY;
 delete from ServicioEntity_ProveedorEntity;
 delete from RegaloEntity_UbicacionEntity;
 delete from PagoEntity;
@@ -122,6 +123,15 @@ insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) value
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (1,'descripcion1',12 ,'Lunes',100 ,'http://lorempixel.com/242/200/');
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (2,'descripcion2',14 ,'Martes',100,'http://lorempixel.com/242/200/');
 insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (3,'descripcion3',13 ,'Miercoles', 200,'http://lorempixel.com/242/200/');
+
+insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (1,1);
+insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (1,2);
+insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (1,3);
+insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (2,1);
+insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (2,2);
+insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,3);
+insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,2);
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (4,'descripcion4',1 ,'Lunes',200 ,'http://lorempixel.com/242/200/');
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity
