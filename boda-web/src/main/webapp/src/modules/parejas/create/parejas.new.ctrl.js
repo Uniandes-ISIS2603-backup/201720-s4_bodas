@@ -13,13 +13,7 @@
                     $state.go('parejasList', {parejaId: response.data.correoElec}, {reload: true});
                 });
             };
-           
-           
-                      
-       
-               
-            
-            
+
         }
     ]);
 }

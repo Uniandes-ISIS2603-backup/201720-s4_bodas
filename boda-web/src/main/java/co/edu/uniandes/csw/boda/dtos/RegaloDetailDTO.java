@@ -19,6 +19,8 @@ public class RegaloDetailDTO extends RegaloDTO{
     public InvitadoDTO invitado;
     
     private List<UbicacionDTO> locations;
+    
+    public BodaDTO boda;
 
     /**
      * Constructor por defecto
@@ -37,7 +39,9 @@ public class RegaloDetailDTO extends RegaloDTO{
             for (UbicacionEntity entityUbicacion : entity.getLocations()) {
                 locations.add(new UbicacionDTO(entityUbicacion));
             }
-
+        }
+        if(entity.getBoda() !=null){
+            this.boda = new BodaDTO(entity.getBoda());
         }
     }
 
@@ -54,6 +58,9 @@ public class RegaloDetailDTO extends RegaloDTO{
                 locationsEntity.add(dtoAuthor.toEntity());
             }
             regaloE.setLocations(locationsEntity);
+        }
+        if(this.boda !=null){
+            regaloE.setBoda(boda.toEntity());
         }
         return regaloE;
     }

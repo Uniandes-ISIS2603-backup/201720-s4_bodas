@@ -132,7 +132,7 @@ public class ServicioPersistenceTest {
         Assert.assertNotNull("Contiene una fecha asignada", newEntity.getDescripcion());
         
         //Prueba el metodo getProveedores()
-        Assert.assertEquals("No Contiene una lista de proveedores asignada", 0,newEntity.getProveedores().size());
+        Assert.assertNull("No Contiene una lista de proveedores asignada", newEntity.getProveedores());
         
         //Prueba el metodo setProveedores()
         factory = new PodamFactoryImpl();

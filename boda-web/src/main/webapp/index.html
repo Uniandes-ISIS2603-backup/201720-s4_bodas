@@ -33,6 +33,7 @@
         <script src="src/modules/ubicaciones/ubicaciones.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/ubicaciones/delete/ubicaciones.delete.ctrl.js" type="text/javascript"></script>  
         <script src="src/modules/ubicaciones/new/ubicaciones.new.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/ubicaciones/new/regaloUbicaciones.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/ubicaciones/update/ubicaciones.update.ctrl.js" type="text/javascript"></script>
 
         <!-- Modulo Pareja .mod  -->
@@ -91,6 +92,7 @@
         <!-- Modulos OpcionesServicio -->
         <script src="src/modules/opciones/opciones.mod.js" type="text/javascript"></script>
         <script src="src/modules/opciones/opciones.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/opciones/bodasOpciones.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/opciones/delete/opciones.delete.ctrl.js" type="text/javascript"></script> 
         <script src="src/modules/opciones/new/opciones.new.ctrl.js" type="text/javascript"></script> 
         <script src="src/modules/opciones/update/opciones.update.ctrl.js" type="text/javascript"></script> 
@@ -114,7 +116,7 @@
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:500" rel="stylesheet">
         
-       
+     
         
     </head>
     <body>
@@ -144,6 +146,8 @@
                             <li ng-show="isAuthenticated() && currentUser.rol == 'pareja'"><a ui-sref="parejasDetail({parejaId: currentUser.username})">Informacion</a></li>
                             <li><a ui-sref="serviciosList">Servicios</a></li>
                             <li><a ui-sref="proveedoresList">Proveedores</a></li>
+                            <li ng-show="isAuthenticated() && currentUser.rol == 'admin' "><a ui-sref="ubicacionesList">Ubicaciones</a></li>
+                            
                         </ul>
                         <ul ng-if="!isAuthenticated()" class="nav navbar-nav navbar-right">
                             <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span>Acceder</a></li>
