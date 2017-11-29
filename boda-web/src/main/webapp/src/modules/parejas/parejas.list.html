@@ -30,9 +30,6 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Buscar pareja" required ng-model="idParejaOrd">
                     </div>
-                    <div class="input-group-btn">
-                        <input type="submit" value="Buscar" class="btn btn-default" />
-                    </div>
                 </div>
             </form>
             
@@ -67,7 +64,7 @@
                         </td>
 
                         <td id="{{$index}}-detail" > 
-                            <a class="btn boton-detalle" ui-sref="parejasOneDetail({parejaId: pareja.correoElec})" ng-click="Open(pareja)"><span class="glyphicon glyphicon-zoom-in"  ></span>Ver Detalles</a>                     
+                            <a class="btn btn-info" style="background: #F48FB1;border: none;" ui-sref="parejasOneDetail({parejaId: pareja.correoElec})" ng-click="Open(pareja)"><span class="glyphicon glyphicon-zoom-in"  ></span>Ver Detalles</a>                     
                         </td>    
                     </tr>       
                 </tbody>
