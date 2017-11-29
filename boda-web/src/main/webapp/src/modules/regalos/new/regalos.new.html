@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="invitadoCreate">Crear nuevo Regalo</label>
-                <label ng-if="edit" id="editBoda">Editar Regalo</label></div>
+        <div>
+            <div class="panel-heading"><h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="!edit" id="invitadoCreate">Crear nuevo Regalo</h1>
+                <h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="edit" id="editBoda">Editar Regalo</h1></div>
             <div class="panel-body">
                 <form ng-submit="createRegalo()" name="regalo">
                     <div class="form-group row">
@@ -27,8 +27,8 @@
                     </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="regalo.$valid" type="submit" value="Create" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="regalosList">Cancelar</a>
+                            <input ng-show="regalo.$valid" type="submit" value="Create" class="botones"/>
+                            <a class="botones" ui-sref="regalosList">Cancelar</a>
                         </div>
                     </div>
                 </form>

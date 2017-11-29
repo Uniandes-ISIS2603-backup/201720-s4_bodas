@@ -45,6 +45,9 @@
                                     flag = true;
                                     $state.go('#', {}, {reload: true});
                                 }
+                                if (!flag) {
+                                        $rootScope.alerts.push({type: "danger", msg: "Incorrect username or password."});
+                                    }
                                 if (flag) {
                                     sessionStorage.token = $scope.user.token;
                                     sessionStorage.setItem("username", $scope.usurPareja.correoElec);
