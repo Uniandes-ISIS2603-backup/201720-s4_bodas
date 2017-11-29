@@ -3,7 +3,7 @@
     <div class="panel-body">
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group mr-2" role="group" aria-label="First group">
-                <a class="botones" ui-sref="tarjetasCreate"><span class="glyphicon glyphicon-plus-sign"></span> Registrar una Tarjeta Nueva</a>
+                <a class="botones" ui-sref="tarjetasCreate" ng-show ="isAuthenticated() && currentUser.rol == 'pareja'"><span class="glyphicon glyphicon-plus-sign"></span> Registrar una Tarjeta Nueva</a>
             </div>
         </div>
         <table class="table">
@@ -24,8 +24,11 @@
                     <td id="{{$index}}-fechaVen">{{tarjeta.fechaVen.toString().substring(0, 10)}}</td>
                     <td id="{{$index}}-nombreBanco">{{tarjeta.nombreBanco}}</td>
                     <td id="{{$index}}-actions" >
-                        <a class="btn btn-danger btn-sm" ui-sref="tarjetasDelete({parejaId: currentUser.username, tarjetaId: tarjeta.numero})"> <span class="glyphicon glyphicon-trash"></span></a>
-                        <a class="btn btn-warning btn-sm" ui-sref="tarjetasUpdate({parejaId: currentUser.username, tarjetaId: tarjeta.numero})" ng-show ="isAuthenticated() && currentUser.rol == 'admin'"> <span class="glyphicon glyphicon-pencil"></span></a>
+                        
+                        <a class="btn btn-default btn-sm" ui-sref="tarjetasUpdate({parejaId: tarjeta.pareja.correoElec, tarjetaId: tarjeta.numero})" ng-show ="isAuthenticated() && currentUser.rol == 'admin'"> <span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-danger btn-sm" ui-sref="tarjetasDelete({parejaId: currentUser.username, tarjetaId: tarjeta.numero})"ng-show ="isAuthenticated() && currentUser.rol == 'pareja'"> <span class="glyphicon glyphicon-trash"></span></a>
+                        <a class="btn btn-danger btn-sm" ui-sref="tarjetasDelete({parejaId: tarjeta.pareja.correoElec, tarjetaId: tarjeta.numero})"ng-show ="isAuthenticated() && currentUser.rol == 'admin'"> <span class="glyphicon glyphicon-trash"></span></a>
+                    
                     </td>
                     <td><a class="btn boton-detalle" ui-sref="tarjetasDetail({tarjetaId: tarjeta.numero})"><span class="glyphicon glyphicon-eye-open"></span>Ver Detalles</a></td>
                 </tr>

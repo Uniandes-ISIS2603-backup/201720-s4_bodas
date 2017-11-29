@@ -1,7 +1,7 @@
 <!---css-form-->
     <form class="well form-horizontal css-form" ng-submit="createPareja()" name="pareja" id="registro_form" >
-       <div> <h2 ng-if="!edit">Crear Pareja</h2>
-         <h2 ng-if="edit">Editar Pareja</h2></div>
+       <div> <h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1; text-align: center;"  ng-if="!edit">Crear Pareja</h1>
+         <h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1; text-align: center;"  ng-if="edit">Editar Pareja</h1></div>
         <fieldset>
             <!-- Text input-->
             <div class="form-group" ng-class="{'has-success': pareja.email.$valid,'has-error' : !pareja.email.$valid && pareja.email.$touched}" >
@@ -101,8 +101,8 @@
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4 ">
                     
-                    <button  class="btn btn-default"  ui-sref="login" ng-show="isAuthenticated() && currentUser.rol === 'parejas'" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
-                    <button  class="btn btn-default"  ui-sref="parejasList" ng-show="isAuthenticated() && currentUser.rol === 'admin' "><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
+                    <button  class="botones"  ui-sref="login" ng-show="isAuthenticated() && currentUser.rol === 'parejas'" ><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
+                    <button  class="botones"  ui-sref="parejasList" ng-show="isAuthenticated() && currentUser.rol === 'admin' "><span class="glyphicon glyphicon-arrow-left"></span> Cancelar</button>
                     <input ng-show="pareja.$valid" ng-if="!edit" type="submit" value="Crear" class="btn btn-success"/>
                     <input ng-show="edit&&isAuthenticated() && hasPermissions()" ng-if="edit" type="submit"  value="Editar" class="btn btn-warning"/>
                     
