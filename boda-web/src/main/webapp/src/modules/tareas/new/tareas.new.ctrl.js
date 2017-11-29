@@ -15,7 +15,9 @@
                      aprobada: $scope.tareaAprobada,
                      dia: $scope.tareaDia,
                      nombre: $scope.tareaNombre,
-                     image: $scope.tareaImage
+                     image: $scope.tareaImage,
+                     ubicacion: $scope.tareaUbicacion
+                  
                
                     
                   

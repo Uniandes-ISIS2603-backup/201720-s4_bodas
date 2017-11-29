@@ -1,57 +1,75 @@
-<div class="container-fluid">
-    <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="opcionCreate">Crear nueva opcion</label>
-                <label ng-if="edit" id="editOpcion">Editar Opcion</label></div>
-            <div class="panel-body">
-                <form ng-submit="createOpcionServicio()" name="opcion">
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="opcionDescripcion" class="col-sm-2">Descripcion:</label>
-                            <input id="opcionDescripcion" required ng-model="opcionDescripcion" class="col-sm-6"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="opcionCosto" class="col-sm-2">Costo:</label>
-                            <input id="opcionCosto" required ng-model="opcionCosto" class="col-sm-6"/>
-                        </div>
-                    </div>
-                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="opcionDias" class="col-sm-2">Dias:</label>
-                            <input id="opcionDias" required ng-model="opcionDias" class="col-sm-6"/>
-                        </div>
-                    </div>
-                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="opcionImage" class="col-sm-2">Image:</label>
-                            <input id="opcionImage" required ng-model="opcionImage" class="col-sm-6"/>
-                        </div>
-                    </div>
-                   <div class="form-group row">
-                        <div class="form-group col-sm-4" ng-if="!opcion.$valid">
 
-                            <div class="alert alert-warning" >
+<!---css-form-->
+    <form class="well form-horizontal css-form" ng-submit="createOpcionServicio()" name="opcion" id="registro_form" >
+       <div> <h2 ng-if="!edit">Crear Opcion</h2>
+         <h2 ng-if="edit">Editar Opcion</h2></div>
+        <fieldset>
+            <!-- Text input-->
+            <div class="form-group" >
+                <label class="col-md-4 control-label">Descripcion</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="descripcion" placeholder="Descripcion " class="form-control" required ng-model="opcionDescripcion" type="descripcion">
+                    </div>
+                </div>
+            </div>
+         
+          
+             <!-- Text input-->
+            <div class="form-group"  >
+                <label class="col-md-4 control-label">Costo</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input name="costo" placeholder="Costo" class="form-control" required ng-model="opcionCosto" type="costo">
+                    </div>
+                </div>
+            </div>
+                
+             <div class="form-group"  >
+                <label class="col-md-4 control-label">Dias</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-ok-sign"></i></span>
+                        <input name="fechas" placeholder="Fechas" class="form-control" required ng-model="opcionDias" type="fechas">
+                    </div>
+                </div>
+            </div>
+             <div class="form-group"  >
+                <label class="col-md-4 control-label">Imagen</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                        <input name="imagen" placeholder="Imagen" class="form-control" required ng-model="opcionImage"  type="imagen">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" >
+                <div class="col-md-12 inputGroupContainer">  
+                    <label class="col-md-4 control-label"></label>
+                    <div class="input-group">
+                            <div class="alert alert-warning" ng-if="!opcion.$valid" >
                                 <strong>Warning!</strong><p>Todos los campos son requeridos*</p>
                             </div> 
-                        </div> 
-                    </div> 
-                    <div class="form-group row">
-                        <div class="form-group col-sm-12">
-                            <input ng-show="opcion.$valid" type="submit" value="Crear" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="opcionesList">Cancelar</a>
+                 </div>
+                </div>
+            </div> 
+                 <div class="form-group row">
+                        <div class="form-group" align="center">
+                 
+                           <input ng-show="opcion.$valid" type="submit" value="Crear" class="btn btn-success"/>
+                            <a class="btn btn-default" ui-sref="opcionesList">Cancelar</a>
                         </div>
                     </div>
-                </form>
+            
 
-            </div>
-        </div>
-    </div>
-</div>
+            
 
-
-
+        </fieldset>
+    </form>
+    
 
 
 

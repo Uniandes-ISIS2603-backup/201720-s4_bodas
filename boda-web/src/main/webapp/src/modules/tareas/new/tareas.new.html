@@ -1,54 +1,97 @@
-<div class="container-fluid">
-    <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="tareaCreate">Crear nueva tarea</label>
-                <label ng-if="edit" id="editTarea">Editar tarea</label></div>
-            <div class="panel-body">
-                <form ng-submit="createTarea()" name="tarea">
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="tareaNombre" class="col-sm-2">Nombre de la tarea:</label>
-                            <input id="tareaNombre" required ng-model="tareaNombre" class="col-sm-6"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="tareaDia" class="col-sm-2">Fecha de tarea:</label>
-                            <input id="tareaDia" required ng-model="tareaDia" class="col-sm-6"/>
-                        </div>
-                    </div>
-                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="tareaAprobada" class="col-sm-2">Aprobada:</label>
-                            <input id="tareaAprobada" required ng-model="tareaAprobada" class="col-sm-6"/>
-                        </div>
-                    </div>
-                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="tareaImage" class="col-sm-2">Image:</label>
-                            <input id="tareaImage" required ng-model="tareaImage" class="col-sm-6"/>
-                        </div>
-                    </div>
-                   <div class="form-group row">
-                        <div class="form-group col-sm-4" ng-if="!tarea.$valid">
 
-                            <div class="alert alert-warning" >
+
+<!---css-form-->
+    <form class="well form-horizontal css-form" ng-submit="createTarea()" name="tarea" id="registro_form" >
+       <div> <h2 ng-if="!edit">Crear Tarea</h2>
+         <h2 ng-if="edit">Editar Tarea</h2></div>
+        <fieldset>
+            <!-- Text input-->
+            <div class="form-group" >
+                <label class="col-md-4 control-label">Nombre</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="nombre" placeholder="Nombre " class="form-control" required ng-model="tareaNombre" type="nombre">
+                    </div>
+                </div>
+            </div>
+         
+          
+             <!-- Text input-->
+            
+                    <div class="form-group row">
+                        <label class="col-md-4 control-label">Fecha</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                               <div class="input-group">
+                                     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input  name="date" placeholder="DD/MM/YYYY" class="form-control" required ng-model="tareaDia" type="date"/>
+                      
+                    </div>
+                      </div>
+                   </div>
+                    
+             <div class="form-group"  >
+                <label class="col-md-4 control-label">Estado</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-ok-sign"></i></span>
+                        <input name="estado" placeholder="Pendiente" class="form-control" ng-model="tareaAprobada" type="estado" disabled>
+                    </div>
+                </div>
+            </div>
+             
+      
+             <div class="form-group"  >
+                <label class="col-md-4 control-label">Imagen</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                        <input  name="imagen" placeholder="Imagen" class="form-control" required ng-model="tareaImage"  type="imagen" >
+                    </div>
+                </div>
+            </div>
+           
+             <div class="form-group"  >
+                <label class="col-md-4 control-label">Ubicacion</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                       
+                    </div>
+                </div>
+            </div>
+           
+              
+           
+
+            
+           
+            
+            <div class="form-group" >
+                <div class="col-md-12 inputGroupContainer">  
+                    <label class="col-md-4 control-label"></label>
+                    <div class="input-group">
+                            <div class="alert alert-warning" ng-if="!tarea.$valid" >
                                 <strong>Warning!</strong><p>Todos los campos son requeridos*</p>
                             </div> 
-                        </div> 
-                    </div> 
-                    <div class="form-group row">
-                        <div class="form-group col-sm-12">
+                 </div>
+                </div>
+            </div> 
+<div class="form-group row">
+                        <div class="form-group" align="center">
                  
                            <input ng-show="tarea.$valid" type="submit" value="Crear" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="tareasList">Cancelar</a>
+                            <a class="btn btn-default" ui-sref="tareasList">Cancelar</a>
                         </div>
                     </div>
-                </form>
+            
 
-            </div>
-        </div>
-    </div>
-</div>
+            
+
+        </fieldset>
+    </form>
+    
+
+
 
 
