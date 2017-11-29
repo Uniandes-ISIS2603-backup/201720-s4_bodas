@@ -22,7 +22,7 @@
               </button>
               <ul class="dropdown-menu">
                  <li ng-repeat="bodas in currentPareja.bodas"><a ui-sref="bodaDetail({bodaId: bodas.id})">{{bodas.name}}</a> </li>   
-                  <li ng-show="currentPareja.bodas.length ===0"> No bodas</li>
+                  <li ng-show="currentPareja.bodas.length ===0"> <a>No tiene bodas</a></li>
               </ul>
             </div>
             

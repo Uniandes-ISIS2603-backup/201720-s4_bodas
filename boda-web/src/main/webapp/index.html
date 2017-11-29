@@ -163,7 +163,12 @@
             </nav>
         </header>
         <section id="seccion_principal" class="container-fluid col-md-12">
-            
+            <div class="container">
+        <div class="alert alert-danger alert-dismissible" ng-repeat="alert in alerts" type="{{alert.type}}"  role="alert">
+            <button ng-click="closeAlert({index})" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Error!</strong> {{alert.msg}}
+          </div>
+        </div>
             <div ui-view="mainView" class=" ">
 
             </div>
