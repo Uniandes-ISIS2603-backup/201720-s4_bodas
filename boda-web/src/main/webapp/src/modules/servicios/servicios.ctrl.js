@@ -5,12 +5,14 @@
         function ($scope, $http,serviciosContext, $state) {
             $http.get(serviciosContext).then(function (response) {
                 $scope.serviciosRecords = response.data;
+                
             });
 
             if ($state.params.servicioId !== undefined) {
                 $http.get(serviciosContext + '/' + $state.params.servicioId).then(function (response) {
                     //$scope.regalosRecords = response.data.regalos;
                     $scope.currentServicio = response.data;
+                    
                 });   
             }
             
