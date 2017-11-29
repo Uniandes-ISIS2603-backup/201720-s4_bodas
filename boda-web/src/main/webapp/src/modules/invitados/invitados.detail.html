@@ -4,17 +4,15 @@
        <div class="panel-body">
         <div class="col-md-3"> 
             <div class="thumb" >
-                <a ng-show="imgAsi(currentInvitado.asistencia)"></a>
-                <a ng-show="imgCat(currentInvitado.categoria)"></a>
                 <center>
-                <img class="img-responsive" ng-src='{{im}}'  style =" width:30%"/> 
+                <img ng-open="imgAsi(currentInvitado.asistencia)" class="img-responsive" ng-src='{{im}}'  style =" width:30%"/> 
                 </center>
             </div>
         </div>
         <div class="col-md-3">   
-            <h5><b>Categoria: </b> {{currentInvitado.categoria}}</h5>
+            <h5 ng-open="imgCat(currentInvitado.categoria)"><b>Categoria: </b> {{currentInvitado.categoria}}</h5>
             <h5><b>Correo:</b> {{currentInvitado.correo}}</h5>
-            <h5><b>{{currentInvitado.asistencia}}</b><img class="img-responsive" ng-src='{{imagenAsistencia}}'  style =" width:5%; " align="left"/>      </h5>
+            <h5 ><b>{{currentInvitado.asistencia}}</b><img class="img-responsive" ng-src='{{imagenAsistencia}}'  style =" width:5%; " align="left"/>      </h5>
         </div>
 
        </div>

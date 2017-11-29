@@ -1,7 +1,7 @@
 <div class="panel">
     <div class="container-fluid">
-        <h4 ng-show="isAuthenticated() && currentUser.rol == 'admin' "> Detalles de la Pareja </h4>
-        <h3 ng-show="isAuthenticated() && currentUser.rol == 'pareja' "> Tu información </h3>
+        <h4 ng-show="isAuthenticated() && currentUser.rol === 'admin' "> Detalles de la Pareja </h4>
+        <h3 ng-show="isAuthenticated() && currentUser.rol === 'pareja' "> Tu información </h3>
         
         <ul class="list-group">
             <li class="list-group-item"> <strong>Email: </strong> {{currentPareja.correoElec}}</li>
@@ -14,8 +14,7 @@
             
             <a class="btn btn-info" ui-sref="tarjetasList({parejaId: currentPareja.correoElec})"><span class="glyphicon glyphicon-eye-open"></span><strong> Ver Tarjetas De Credito</strong></a>
             <a class="btn btn-info" ui-sref="bodaCreate" ><span class="glyphicon glyphicon-plus"></span> <b>Agregar boda</b></a>
-            <a ng-repeat="bodas in currentPareja.bodas"
-            <a class="btn btn-info" ui-sref="bodaDetail({bodaId: bodas.id})"><span class="glyphicon glyphicon-eye-open"></span><strong>{{bodas.name}}</strong></a>     
+            <a ng-repeat="bodas in currentPareja.bodas" class="btn btn-info" ui-sref="bodaDetail({bodaId: bodas.id})"><span class="glyphicon glyphicon-eye-open"></span><strong>{{bodas.name}}</strong></a>     
         </div>
     </div>
 </div>

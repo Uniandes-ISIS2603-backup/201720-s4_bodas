@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.boda.ejb;
 
+import co.edu.uniandes.csw.boda.entities.RegaloEntity;
 import co.edu.uniandes.csw.boda.entities.UbicacionEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.UbicacionPersistence;
@@ -90,5 +91,25 @@ public class UbicacionLogic {
          persistence.delete(id);
          LOGGER.info("Termina proceso de eliminar una Ubicacion");  
       }
+      
+     public RegaloEntity getRegalo(Long ubicacionId, Long regaloId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar un autor del libro con id = {0}", ubicacionId);
+        List<RegaloEntity> list = findUbicacionById(ubicacionId).getRegalos();
+        RegaloEntity regEntity = new RegaloEntity();
+        regEntity.setId(regaloId);
+        int index = list.indexOf(regEntity);
+        if (index >= 0) {
+            return list.get(index);
+        }
+        return null;
+    }
 
+    public RegaloEntity addRegalo(Long ubicacionId, Long regaloId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar un regalo a la ubicacion con id = {0}", ubicacionId);
+        UbicacionEntity ubiEntity = findUbicacionById(ubicacionId);
+        RegaloEntity regaloEntity = new RegaloEntity();
+        regaloEntity.setId(regaloId);
+        ubiEntity.getRegalos().add(regaloEntity);
+        return getRegalo(ubicacionId, regaloId);
+    }
 }

@@ -133,6 +133,14 @@ insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id )
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,3);
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,2);
 
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (1,1);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (1,2);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (1,3);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (2,1);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (2,2);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (3,3);
+insert into BODAENTITY_OPCIONSERVICIOENTITY (opcionservicio_id, bodaentity_id ) values (3,2);
+
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity
