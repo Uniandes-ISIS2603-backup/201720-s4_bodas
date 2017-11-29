@@ -21,7 +21,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.PathParam;
 
 
@@ -41,7 +40,7 @@ public class ServicioResource {
     
     @GET
     @Path("{id: \\d+}")
-    public ServicioDetailDTO getServicio(@PathParam("id") Long id)throws BusinessLogicException{
+    public ServicioDetailDTO getServicio(@PathParam("id") Long id)throws BusinessLogicException {
         ServicioEntity entity = servicioLogic.getServicio(id);
         System.out.println(entity);
     if (entity == null) {
@@ -75,7 +74,7 @@ public class ServicioResource {
     
     @PUT
     @Path("{id: \\d+}")
-    public ServicioDetailDTO updateServicio(@javax.ws.rs.PathParam("id") Long id, ServicioDetailDTO servicio) throws BusinessLogicException
+    public ServicioDetailDTO updateServicio(@PathParam("id") Long id, ServicioDetailDTO servicio) throws BusinessLogicException
     {
         servicio.setId(id);
         ServicioEntity entity = servicioLogic.getServicio(id);
@@ -94,5 +93,13 @@ public class ServicioResource {
         throw new WebApplicationException("El recurso /servicio/" + id + " no existe.", 404);
     }
     servicioLogic.deleteServicio(id);
+    }
+    @Path("{serviciosId: \\d+}/proveedores")
+    public Class<ServiciosProveedoresResource> getProveedoresResource(@PathParam("serviciosId") Long servicioId) throws BusinessLogicException {
+        ServicioEntity entity = servicioLogic.getServicio(servicioId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /servicios/" + servicioId + "/proveedores no existe.", 404);
+        }
+        return ServiciosProveedoresResource.class;
     }
 }

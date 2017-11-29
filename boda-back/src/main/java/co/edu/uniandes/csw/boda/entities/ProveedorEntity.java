@@ -18,66 +18,68 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author aj.ortiz10
  */
 @Entity
-public class ProveedorEntity extends BaseEntity implements Serializable{
-    
+public class ProveedorEntity extends BaseEntity implements Serializable {
+
     /**
      * Atributo privado especialidad.
-     */    
+     */
     private String especialidad;
-    
+
     /**
      * Atributo privado direccion de imagen
-    */
+     */
     private String imagen;
-    
+
     /**
      * Coleccion privada de servicios.
      */
     @PodamExclude
-    @ManyToMany(mappedBy="proveedores")
+    @ManyToMany(mappedBy = "proveedores")
     private List<ServicioEntity> servicios;
-    
+
     /**
      * Coleccion privada de opcionesServicio.
      */
     @PodamExclude
-    @OneToMany(mappedBy="proveedor", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OpcionServicioEntity> opcionesServicio;  
-    
+    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OpcionServicioEntity> opcionesServicio;
+
     /**
      * Obtiene el atributo especialidad.
      *
      * @return atributo especialidad.
-     */    
-    public String getEspecialidad(){
+     */
+    public String getEspecialidad() {
         return especialidad;
     }
-    
+
     /**
      * Establece el valor del atributo especialidad.
      *
      * @param especialidad nuevo valor del atributo
-     */    
-    public void setEspecialidad(String especialidad){
-        this.especialidad=especialidad;
+     */
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
-    
-        /**
+
+    /**
      * Retorna la direccion de la imagen del proveedor
+     *
      * @return atributo imagen
      */
-    public String getImagen(){
+    public String getImagen() {
         return imagen;
     }
-    
+
     /**
      * Actualiza la dirección de la imagen del proveedor
-     * @param imagen 
+     *
+     * @param imagen
      */
-    public void setImagen(String imagen){
-        this.imagen=imagen;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
-    
+
     /**
      * Obtiene la colección de servicios.
      *
@@ -86,7 +88,7 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
     public List<ServicioEntity> getServicios() {
         return servicios;
     }
-    
+
     /**
      * Establece el valor de la colección de servicios.
      *
@@ -95,24 +97,22 @@ public class ProveedorEntity extends BaseEntity implements Serializable{
     public void setServicios(List<ServicioEntity> servicios) {
         this.servicios = servicios;
     }
-    
+
     /**
      * Obtiene la colección de opcionesServicio.
      *
      * @return colección opcionesServicio.
      */
-    public List<OpcionServicioEntity> getOpcionesServicio(){
+    public List<OpcionServicioEntity> getOpcionesServicio() {
         return opcionesServicio;
     }
-    
+
     /**
      * Establece el valor de la colección de opcionesServicio.
      *
      * @param servicio nuevo valor de la colección.
      */
-    public void setOpcionesServicio(List<OpcionServicioEntity> servicio){
-        this.opcionesServicio=servicio;
+    public void setOpcionesServicio(List<OpcionServicioEntity> servicio) {
+        this.opcionesServicio = servicio;
     }
-    
-
 }
