@@ -37,9 +37,7 @@ public class TareaLogic {
 
         OpcionServicioEntity opcion = opcionLogic.findOpcionServicioById(opcionId);
         entity.setOpcionServicio(opcion);
-        if (persistence.find(entity.getId()) != null) {
-            throw new BusinessLogicException("No pueden existir dos tareas con el mismo id.");
-        }
+      
         persistence.create(entity);
         return entity;
     }
