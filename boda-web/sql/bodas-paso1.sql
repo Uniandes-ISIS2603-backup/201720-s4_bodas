@@ -97,7 +97,7 @@ insert into ServicioEntity (id, name, descripcion, image) values (10, 'Fotograf√
 insert into ServicioEntity (id, name, descripcion, image) values (11, 'Transporte', 'Transporte de los invistados para el evento', 'https://static1.squarespace.com/static/551be0c7e4b072084063e805/552d3f33e4b0f5e9c64b9b20/552d3f6ce4b0ba29bc994cab/1451948301649/127-silvercloud57_large.jpg');
 insert into ServicioEntity (id, name, descripcion, image) values (12, 'Pasteler√≠a', 'Pastel y postre para el evento', 'https://images.pexels.com/photos/2226/food-couple-sweet-married.jpg');
 insert into ServicioEntity (id, name, descripcion, image) values (13, 'Bebidas', 'Bebidas y Licores para el evento', 'https://images.pexels.com/photos/302515/pexels-photo-302515.jpeg');
-insert into ServicioEntity (id, name, descripcion, image) values (14, 'Tipos de Boda', 'Ofrecemos diferentes tipos de boda dependiendo de la tendencia religiosa.', 'https://images.pexels.com/photos/302515/pexels-photo-302515.jpeg');
+insert into ServicioEntity (id, name, descripcion, image) values (14, 'Tipos de Boda', 'Ofrecemos diferentes tipos de boda dependiendo de la tendencia religiosa.', 'https://images.pexels.com/photos/415571/pexels-photo-415571.jpeg');
 
 ---Fin Pruebas ServicioEntity
 
