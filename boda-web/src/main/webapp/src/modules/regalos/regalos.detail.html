@@ -24,7 +24,8 @@
                 <br>
             <div>  
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <a class="botones" ui-sref="ubicacionCreate" ><span class="glyphicon glyphicon-plus"></span> <b>Agregar nueva ubicación</b></a>
+            <a class="botones" ui-sref="ubicacionesList"><span class="glyphicon glyphicon-plus"></span> <b>Agregar ubicacion</b></a>
+
             <tr ng-repeat="ubicacion in currentRegalo.locations">
             <dd><h2>Ubicaciones: </h2></dd>
                 <br>
@@ -37,6 +38,12 @@
                 </td>
            </tr>
     </div>
-
+<div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-12">
+        <div ui-view="childrenView"></div>
+    </div>
 </div>
 
+</div>
+  

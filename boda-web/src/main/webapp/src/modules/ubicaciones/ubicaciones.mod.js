@@ -95,6 +95,19 @@
                         controller: 'ubicacionDeleteCtrl'
                     }
                 }
+            }).state('regaloUbicacionCreate', {
+                url: 'regalos/:regaloId/create',
+                parent: 'regalos',
+                param: {
+                    regaloId: null,
+                    bodaId:null
+                },
+                views: {
+                    'detailView': {
+                    templateUrl: basePath + '/new/ubicaciones.new.html',
+                    controller: 'regaloUbicacionNewCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);

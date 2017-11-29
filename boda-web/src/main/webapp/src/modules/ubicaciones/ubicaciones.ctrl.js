@@ -15,13 +15,7 @@
                     $scope.map = { center: { latitude: $scope.currentUbicacion.latitud, longitude: $scope.currentUbicacion.longitud }, zoom: 16 ,bounds: {},refresh:true};
                     $scope.options = {scrollwheel: false};
                     var createRandomMarker = function(bounds){
-                       var lat_min = bounds.southwest.latitude,
-                        lat_range = bounds.northeast.latitude - lat_min,
-                        lng_min = bounds.southwest.longitude,
-                        lng_range = bounds.northeast.longitude - lng_min;
-
-                    var latitude = lat_min + (Math.random() * lat_range);
-                    var longitude = lng_min + (Math.random() * lng_range);
+                       
 
                     var ret  = {
                         latitude: $scope.currentUbicacion.latitud,
@@ -45,9 +39,6 @@
                     }
                     }, true);
                         });
-                    }else{
-                        $scope.map = { center: { latitude: $scope.currentUbicacion.latitud, longitude: $scope.currentUbicacion.longitud }, zoom: 16 ,bounds: {},refresh:true};
-
                     }
             
             
