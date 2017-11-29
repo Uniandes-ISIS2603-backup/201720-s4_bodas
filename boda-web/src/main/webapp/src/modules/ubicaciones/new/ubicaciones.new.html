@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="ubicacionCreate">Crear nueva ubicacion</label>
-                <label ng-if="edit" id="editUbicacion">Editar ubicacion</label></div>
+        <div>
+            <div class="panel-heading"><h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="!edit" id="ubicacionCreate">Crear nueva ubicacion</h1>
+                <h1  style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="edit" id="editUbicacion">Editar ubicacion</h1></div>
             <div class="panel-body">
                 <form ng-submit="createUbicacion()" name="ubicacion">
                     <div class="form-group row">
@@ -35,7 +35,13 @@
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
                             <input ng-show="ubicacion.$valid" type="submit" value="¡Empecemos!" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="ubicacionesList">Cancelar</a>
+                            <button class="botones"  onclick="goBack()">Cancelar</button>
+
+                             <script>
+                              function goBack() {
+                              window.history.back();
+                               }
+                             </script>
                         </div>
                     </div>
                 </form>
