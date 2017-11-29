@@ -10,66 +10,67 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import uk.co.jemos.podam.common.PodamExclude;
+
 /**
  *
  * @author aj.ortiz10
  */
 @Entity
-public class ServicioEntity extends BaseEntity implements Serializable  {
-    
+public class ServicioEntity extends BaseEntity implements Serializable {
+
     /**
      * Atributo privado descripcion.
      */
     private String descripcion;
-    
+
     /**
      * Coleccion privada de proveedores.
      */
-    @PodamExclude  
+    @PodamExclude
     @ManyToMany
     private List<ProveedorEntity> proveedores;
-    
+
     /**
      * Atributo privado image.
      */
     private String image;
-    
+
     /**
      * Obtiene el atributo descripcion.
      *
      * @return atributo descripcion.
      */
-    public String getDescripcion(){
+    public String getDescripcion() {
         return descripcion;
     }
-    
+
     /**
      * Establece el valor del atributo descripcion.
      *
      * @param descripcion nuevo valor del atributo
      */
-    public void setDescripcion(String descripcion){
-        this.descripcion=descripcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
-    
+
     /**
      * Obtiene la colección de proveedores.
      *
      * @return colección proveedores.
      */
-    public List<ProveedorEntity> getProveedores(){
+    public List<ProveedorEntity> getProveedores() {
         return proveedores;
     }
-    
+
     /**
      * Establece el valor de la colección de proveedores.
      *
      * @param proveedores nuevo valor de la colección.
-     */    
-    public void setProveedores(List<ProveedorEntity> proveedores){
-        this.proveedores=proveedores;
+     */
+    public void setProveedores(List<ProveedorEntity> proveedores) {
+        this.proveedores = proveedores;
     }
-    
+
     /**
      * Obtiene el atributo image.
      *

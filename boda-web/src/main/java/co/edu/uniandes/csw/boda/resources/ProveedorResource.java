@@ -82,7 +82,7 @@ public class ProveedorResource {
     
     @PUT
     @Path("{id: \\d+}")
-    public ProveedorDetailDTO updateProveedor(@javax.ws.rs.PathParam("id") Long id, ProveedorDetailDTO proveedor) throws BusinessLogicException
+    public ProveedorDetailDTO updateProveedor(@PathParam("id") Long id, ProveedorDetailDTO proveedor) throws BusinessLogicException
     {
         proveedor.setId(id);
         ProveedorEntity entity = proveedorLogic.getProveedor(id);
@@ -94,7 +94,7 @@ public class ProveedorResource {
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteProveedor(@javax.ws.rs.PathParam("id") Long id) 
+    public void deleteProveedor(@PathParam("id") Long id) 
     { 
     ProveedorEntity entity = proveedorLogic.getProveedor(id);
     if (entity == null) {
