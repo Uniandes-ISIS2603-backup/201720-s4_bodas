@@ -55,6 +55,10 @@
             }).state('pagosUpdate', {
                 url: '/update/:pagoId',
                 parent: 'pagos',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin']
+                },
                 param: {
                     pagoId: null
                 },

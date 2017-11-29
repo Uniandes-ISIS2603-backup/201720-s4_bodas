@@ -1,11 +1,13 @@
 <!--<link rel="stylesheet" href="resources/css/proveedoresDetail.css">-->
 <div class="panel panel-default">
     <div id="headPanel" class="panel-heading">
-        <h3 id="nombreProveedor" class="panel-title"> 
-            <tr>
-                <td id="{{$index}}-name">Información del Proveedor: {{currentProveedor.name}}</td>
-            </tr>
-        </h3></div>
+        <div id="nombreProveedor" class="panel-title"> 
+            
+            <center>
+                <img align=center src="resources/icons/header.png" >
+                <h2 >Información del Proveedor: {{currentProveedor.name}}</h2>
+            </center>
+        </div></div>
     <div class="panel-body">
         <table class="table "> 
 
@@ -17,7 +19,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3"> 
+                <div class="col-md-3">
                     <dl>
                         <hr>
                         <dt>Nombre del Proveedor:</dt>
@@ -47,4 +49,4 @@
     </div>
 </div>
 
-  
+

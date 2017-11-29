@@ -11,14 +11,12 @@
                 var tarjeta = response.data;
                 $scope.tarjetaBanco = tarjeta.nombreBanco;
                 $scope.tarjetaFechaVen = new Date(tarjeta.fechaVen);
-                $scope.tarjetaNumero = tarjeta.numero;
                 $scope.tarjetaNumDeSeg = tarjeta.numDeSeg;
             });
             $scope.createTarjeta = function () {
                 $http.put(parejasContext + "/" + $state.params.parejaId + '/' + tarjetasCreditoContext + '/' + $state.params.tarjetaId, {
                     nombreBanco: $scope.tarjetaBanco,
                     fechaVen: $scope.tarjetaFechaVen,
-                    numero: $scope.tarjetaNumero,
                     numDeSeg: $scope.tarjetaNumDeSeg
                 }).then(function (response) {
                     $state.go('tarjetasList', {tarjetaId: response.data.numero}, {reload: true});
