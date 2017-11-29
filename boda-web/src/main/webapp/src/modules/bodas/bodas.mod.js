@@ -8,6 +8,10 @@
             $stateProvider.state('bodas', {
                 url: '/bodas',
                 abstract: true,
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'bodas.html',
@@ -18,6 +22,10 @@
             }).state('bodasList', {
                 url: '/list',
                 parent: 'bodas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin']
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'bodas.list.html'
@@ -26,6 +34,10 @@
             }).state('bodaDetail', {
                 url: '/{bodaId:int}',
                 parent: 'bodas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 param: {
                     bodaId: null
                 },

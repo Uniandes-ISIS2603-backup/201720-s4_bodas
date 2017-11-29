@@ -11,12 +11,17 @@
        <tbody>
 
             <div class="thumb">
-                <div id="googleMap" style="width:70%;height:400px;justify-content:center">
-                    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+                <div  style="width:70%;height:400px;justify-content:center">
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+                    <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" click="onClick">
+                        <ui-gmap-windows show="show">
+                            <div ng-non-bindable>{{title}}</div>
+                        </ui-gmap-windows>
+                    </ui-gmap-markers>
+                </ui-gmap-google-map>
                 </div>
 
 
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnye9NF09bP8ZPLRTqbATIn9Yn_bYsPrg&callback=ctrl.myMap"></script>-->
             </div>
         </div>
         <div class="col-md-3"> 
