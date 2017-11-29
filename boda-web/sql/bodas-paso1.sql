@@ -120,9 +120,10 @@ insert into ServicioEntity_ProveedorEntity (servicios_id, proveedores_id ) value
 ---Fin Pruebas ProveedorEntity
 
 --Pruebas para OpcionServicio Entity
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (1,'descripcion1',12 ,'Lunes',100 ,'http://lorempixel.com/242/200/');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (2,'descripcion2',14 ,'Martes',100,'http://lorempixel.com/242/200/');
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (3,'descripcion3',13 ,'Miercoles', 200,'http://lorempixel.com/242/200/');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (1,'Servicio de Catering para eventos entre 10 y 25 personas',250000 ,'Cualquier día de la semana',100,'https://images.pexels.com/photos/533325/pexels-photo-533325.jpeg');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (2,'Servicio de Atención de Eventos para grupos de personas entre 25 y 50',3500000 ,'Lunes a Jueves',100,'https://images.pexels.com/photos/382297/pexels-photo-382297.jpeg');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (3,'Servicio de Decoración con Arreglo de flores para evento, 10 arreglos de rosas o 12 arreglos de cualquier flor diferente.',200000 ,'Cualquier día', 200,'https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg');
+insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (4,'Arreglo de flores de matrimonio para la esposa',30000 ,'Cualquier día', 200 ,'https://images.pexels.com/photos/540522/pexels-photo-540522.jpeg');
 
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (1,1);
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (1,2);
@@ -131,7 +132,7 @@ insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id )
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (2,2);
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,3);
 insert into OPCIONSERVICIOENTITY_BODAENTITY (opcionservicioentity_id, bodas_id ) values (3,2);
-insert into OpcionServicioEntity(id,descripcion, costo,diasDisponibles,proveedor_id,image) values (4,'descripcion4',1 ,'Lunes',200 ,'http://lorempixel.com/242/200/');
+
 ---Fin Calificacion OpcionServicio Entity
 
 --Pruebas para Calificacion Entity
