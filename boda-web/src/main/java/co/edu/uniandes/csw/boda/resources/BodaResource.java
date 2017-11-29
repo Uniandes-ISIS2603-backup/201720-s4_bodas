@@ -181,6 +181,14 @@ public class BodaResource {
         }
         return InvitadoResource.class;
     }
+      @Path("{idBoda: \\d+}/opcionesServicio")
+    public Class<BodaOpcionServicioResource> getOpcionResource(@PathParam("idBoda") Long bodaId) throws BusinessLogicException {
+        BodaEntity entity = bodaLogic.findBodaById(bodaId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /boda/" + bodaId + "/regalos no existe.", 404);
+        }
+        return BodaOpcionServicioResource.class;
+    }
   
 
 }
