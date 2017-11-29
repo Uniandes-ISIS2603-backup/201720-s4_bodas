@@ -2,6 +2,7 @@
 package co.edu.uniandes.csw.boda.ejb;
 
 import co.edu.uniandes.csw.boda.entities.BodaEntity;
+import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.boda.persistence.BodaPersistence;
 import java.util.List;
@@ -21,14 +22,25 @@ public class BodaLogic {
         @Inject
         private BodaPersistence persistence;
         
+        @Inject
+        ParejaLogic parejaLogic;
+        
      /**
      * Crea una boda
      * @param entity
      * @return
      * @throws BusinessLogicException
      */
-        public BodaEntity create(BodaEntity entity)throws BusinessLogicException 
+        public BodaEntity create(String idPareja,BodaEntity entity)throws BusinessLogicException 
      {
+          ParejaEntity parejita = parejaLogic.getPareja(idPareja);
+         if(parejita == null){
+             throw new BusinessLogicException("No existe una Pareja con el id \"" + idPareja+"\"");
+         }
+         if(entity.getPareja() !=null){
+             throw new BusinessLogicException("Ya existe una pareja en esta boda \"" + idPareja+"\"");
+         }
+         entity.setPareja(parejita);
         LOGGER.log(Level.INFO, "Inicia proceso de crear una boda ");
         
         return persistence.create(entity);
@@ -81,4 +93,20 @@ public class BodaLogic {
          persistence.delete(id);
          LOGGER.info("Termina proceso de eliminar una boda");  
       }    
+      
+      public void asginarPareja(String parejaId, Long bodaId) throws BusinessLogicException{
+         BodaEntity bodita = persistence.find(bodaId);
+          if (bodita==null) 
+         {
+             throw new BusinessLogicException("No existe una Boda con el id \"" + bodaId+"\"");
+         }
+         ParejaEntity parejita = parejaLogic.getPareja(parejaId);
+         if(parejita == null){
+             throw new BusinessLogicException("No existe una Pareja con el id \"" + parejaId+"\"");
+         }
+         if(bodita.getPareja() !=null){
+             throw new BusinessLogicException("Ya existe una pareja en esta boda \"" + bodaId+"\"");
+         }
+         bodita.setPareja(parejita);
+      }
 }
