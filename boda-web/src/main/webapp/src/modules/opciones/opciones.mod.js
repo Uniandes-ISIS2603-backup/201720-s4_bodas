@@ -44,6 +44,23 @@
                         controller: 'bodaOpcionesCtrl',
                     }
                 }
+            }).state('bodasOpcionesContratar', {
+                url: '/contrato/opcion/:opcionId',
+                parent: 'bodas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin', 'pareja']
+
+                },
+                param: {
+                    opcionId: null
+                },
+                views: {
+                    'listView':{                                      
+                        templateUrl: basePath + 'opciones.list.mod.html',
+                        controller: 'bodaOpcionesCtrl',
+                    }
+                }
             }).state('opcionDetail', {
                 url: '/:opcionId',
                 parent: 'opciones',
