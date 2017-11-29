@@ -34,7 +34,6 @@ public class TarjetaCreditoEntity implements Serializable{
      * Atributo privado numDeSeg.
      */
     private int numDeSeg;
-    
     /**
      * Atributo privado fechaVen.
      */    
