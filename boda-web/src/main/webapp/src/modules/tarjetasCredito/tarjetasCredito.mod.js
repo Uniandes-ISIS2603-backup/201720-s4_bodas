@@ -10,19 +10,15 @@
             $stateProvider.state('tarjetas', {
                 url: '/tarjetasCredito',
                 abstract: true,
-                parent: 'parejasDetailOne',
-                 data: {
-                    requireLogin: true,
-                    roles: ['admin','pareja']
-                },
                 views: {
-                    'childrenView': {
-                        templateUrl: basePath + 'tarjetasCredito.html'
+                    'mainView': {
+                        templateUrl: basePath + 'tarjetasCredito.html',
+                        controller: 'tarjetasCreditoCtrl',
+                        controllerAs: 'ctrl'
                     }
                 }
             }).state('tarjetasList', {
-                url: '/list/:parejaId',
-                parent: 'tarjetas',
+                url: '/:parejaId/list',
                 data: {
                     requireLogin: true,
                     roles: ['admin','pareja']
@@ -31,14 +27,14 @@
                     parejaId: null
                 },
                 views: {
-                    'listView': {
+                    'mainView': {
                         templateUrl: basePath + 'tarjetasCredito.list.html',
                         controller: 'tarjetasCreditoCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
             }).state('tarjetasDetail', {
-                url: '/{tarjetaId:int}',
+                url: '/:tarjetaId',
                 parent: 'tarjetasList',
                  data: {
                     requireLogin: true,
@@ -55,10 +51,15 @@
                     }
                 }
             }).state('tarjetasDelete', {
-                url: '/delete/{tarjetaId:int}',
+                url: 'delete/:parejaId/:tarjetaId',
                 parent: 'tarjetas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 param: {
-                    tarjetaId: null
+                    tarjetaId: null,
+                    parejaId: null
                 },
                 views: {
                     'detailView': {
@@ -67,22 +68,31 @@
                     }
                 }
             }).state('tarjetasUpdate', {
-                url: '/update/{tarjetaId:int}',
+                url: '/update/:parejaId/:tarjetaId',
                 parent: 'tarjetas',
+                 data: {
+                    requireLogin: true,
+                    roles: ['admin']
+                },
                 param: {
-                    tarjetaId: null
+                    tarjetaId: null,
+                    parejaId: null
                 },
                 views: {
-                    'detailView': {
+                    'mainView': {
                         templateUrl: basePath + 'update/tarjetas.update.html',
                         controller: 'tarjetasUpdateCtrl'
                     }
                 }
             }).state('tarjetasCreate', {
-                parent: 'tarjetas',
+                url: '/createTarjeta',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 views: {
-                    'detailView': {
-                        templateUrl: basePath + 'update/tarjetas.update.html',
+                    'mainView': {
+                        templateUrl: basePath + 'new/tarjetas.new.html',
                         controller: 'tarjetasNewCtrl'
                     }
                 }

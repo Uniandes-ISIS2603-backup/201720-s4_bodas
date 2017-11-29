@@ -10,9 +10,8 @@
             <li class="list-group-item">Dirección: {{currentPareja.direccion}}</li>
             <li class="list-group-item">Telefono: {{currentPareja.telefono}}</li>
             <li class="list-group-item">Boda: </li>
-        </ul>            
-        
-        <a class="btn boton-detalle" ui-sref="tarjetasList({parejaId: currentPareja.correoElec})"><span class="glyphicon glyphicon-eye-open"></span><strong> Ver Tarjetas De Credito</strong></a>
+        </ul>
+        <a class="btn boton-detalle" ui-sref="tarjetasList({parejaId:currentPareja.correoElec})"><span class="glyphicon glyphicon-eye-open"></span><strong> Ver Tarjetas De Credito</strong></a>
         <a class="btn boton-detalle" ui-sref="bodaDetail({bodaId:currentPareja.boda.id})"><span class="glyphicon glyphicon-eye-open"></span><strong> Ver Boda</strong></a>
         
         <div class="btn-group">

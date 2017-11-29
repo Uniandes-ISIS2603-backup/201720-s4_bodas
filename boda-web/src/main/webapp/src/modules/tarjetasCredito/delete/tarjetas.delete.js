@@ -6,7 +6,6 @@
         function ($scope, $http, parejasContext, tarjetasCreditoContext, $state) {
             $scope.deleteTarjetaCredito = function () {
                 $http.delete(parejasContext + '/' + $state.params.parejaId + '/' + tarjetasCreditoContext + '/' + $state.params.tarjetaId, {}).then(function () {
-                $state.go('tarjetasList', {reload: true});
                 });
             };
         }
