@@ -57,18 +57,19 @@
         <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
         <h1 class="form-signin-heading text-muted">Accede a tu cuenta</h1>
         <input style="width:40%" type="text" class="form-control" placeholder="Usuario o correo" required="" autofocus="" ng-model="data.username">
-        <input style="width:40%" type="password" class="form-control" placeholder="Contraseña" required="" ng-model="data.password">
-        <select style="width:40%" class="form-control" name="singleSelect" id="singleSelect" ng-model="data.rol" required="true">
+        <input style="width:40%" type="password" class="form-control" placeholder="Contraseña" required ng-model="data.password">
+        <select style="width:40%" class="form-control" name="singleSelect" id="singleSelect" required ng-model="data.rol">
             <option value="">--- Por favor seleccione un rol ---</option> <!-- not selected / blank option -->
             <option value="admin">Administrator</option>
            <option value="pareja">Pareja</option>
         </select>
         <br>
-        <button class="botones" type="button" ng-click="autenticar()" style="width:10%">
+        <button class="botones" type="button" ng-click="autenticar()" style="width:10%;font-size:100%">
         ¡Empecemos!
         </button>
-        <input class="botones" type="reset" value="Limpiar" style="width:10%">
+        <input class="botones" type="reset" value="Limpiar" style="width:10%; font-size:100%">
     </form>
+    <h4>¿Aún no estás registrado? <a ui-sref="parejasCreate">Regístrate</a></h4>
 </div>
 </center>
 </div>
