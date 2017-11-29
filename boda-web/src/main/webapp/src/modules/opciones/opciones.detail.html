@@ -2,49 +2,49 @@
 <div class="panel panel-default">
     <div id="headPanel" class="panel-heading">              <center>
             <h2>Información de la Opción</h2>
-             </center>    
-      </div>
- 
-    <div class="panel-body">
-         <table class="table "> 
-         <tbody>     
-             
-        <div class="row">
-        <div class="col-md-3">
-            <div class="thumb">
-                <img class="img-responsive" ng-src="{{currentOpcion.image}}"/>
-            </div>
-
-        </div>
-        <div class="col-md-6"> 
-            <dl> 
-                <hr>
-                <dt>Descripcion</dt>
-                <dd>{{currentOpcion.descripcion}}</dd>
-                
-                <hr>
-                <dt>Costo</dt>
-                <dd>{{currentOpcion.costo}}</dd>
-                
-                <hr>
-                <dt>Dias </dt>
-                <dd>{{currentOpcion.diasDisponibles}}</dd>
-                
-   </div>
-        <div class="btn-group" role="group">
-            <a class = "btn btn-default" ui-sref="opcionesList"><span class="glyphicon glyphicon-arrow-left"></span> Lista de Opciones</a>
-
-            <a class = "btn btn-info" ui-sref="calificacionesList({opcionId:currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Ver calificaciones</a>
-           <a class = "btn btn-info" ui-sref="tareasList({opcionId:currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Ver tareas</a>
-           <a class ="btn btn-info" ui-sref="opcionesUpdate({opcionId: currentOpcion.id})"><span class="glyphicon glyphicon-open"></span> Editar</a>
-           <a class="btn btn-danger" ui-sref="opcionesDelete({opcionId: currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Eliminar</a>
-           <a class="btn btn-default" ui-sref="pagosCreate">Contratar</a>
-        </div>
-
-
-</tbody>  
-</table>
+        </center>    
     </div>
-         <div ui-view="listCView"></div>
+
+    <div class="panel-body">
+        <table class="table "> 
+            <tbody>     
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumb">
+                        <img class="img-responsive" ng-src="{{currentOpcion.image}}"/>
+                    </div>
+
+                </div>
+                <div class="col-md-6"> 
+                    <dl> 
+                        <hr>
+                        <dt>Descripcion</dt>
+                        <dd>{{currentOpcion.descripcion}}</dd>
+
+                        <hr>
+                        <dt>Costo</dt>
+                        <dd>{{currentOpcion.costo}}</dd>
+
+                        <hr>
+                        <dt>Dias </dt>
+                        <dd>{{currentOpcion.diasDisponibles}}</dd>
+
+                </div>
+                <div class="btn-group" role="group">
+                    <a class = "btn btn-default" ui-sref="opcionesList"><span class="glyphicon glyphicon-arrow-left"></span> Lista de Opciones</a>
+
+                    <a class = "btn btn-info" ui-sref="calificacionesList({opcionId:currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Ver calificaciones</a>
+                    <a class = "btn btn-info" ui-sref="tareasList({opcionId:currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Ver tareas</a>
+                    <a class ="btn btn-info" ui-sref="opcionesUpdate({opcionId: currentOpcion.id})"><span class="glyphicon glyphicon-open"></span> Editar</a>
+                    <a class="btn btn-danger" ui-sref="opcionesDelete({opcionId: currentOpcion.id})"><span class="glyphicon glyphicon-eye-open"></span> Eliminar</a>
+
+                </div>
+                <br><br>
+                <a class="btn btn-success" ui-sref="pagosCreate"><span class="glyphicon glyphicon-usd"></span>Contratar</a>
+                </tbody>  
+        </table>
+    </div>
+    <div ui-view="listCView"></div>
 </div>
 

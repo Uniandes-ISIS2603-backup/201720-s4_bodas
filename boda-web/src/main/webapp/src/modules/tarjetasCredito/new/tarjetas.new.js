@@ -15,7 +15,7 @@
                         fechaVen: $scope.tarjetaFechaVen,
                         numero: $scope.tarjetaNumero,
                         numDeSeg: $scope.tarjetaNumDeSeg,
-                    }).then(function (response) {
+                    }).then(function () {
                          $state.go('tarjetasList',{parejaId:$rootScope.currentUser.username},{reload: true});
                     });
                 }
