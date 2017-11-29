@@ -2,7 +2,8 @@
     var app = angular.module('mainApp', [
         // External dependencies
         'ui.router',
-         //'ui.bootstrap',
+        'uiGmapgoogle-maps',        
+        //'ui.bootstrap',
         // Internal modules dependencies   
         'bodasModule',
       
@@ -30,12 +31,19 @@
 
     ]);
     // Resuelve problemas de las promesas
-    app.config(['$qProvider', function ($qProvider) {
+    app.config(['$qProvider','uiGmapGoogleMapApiProvider', function ($qProvider,uiGmapGoogleMapApiProvider) {
             $qProvider.errorOnUnhandledRejections(false);
+            uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyBJlzzVMq3Q8sBKH-UCGuEalt3J3BD1RGg',
+            v:'3.20'
+        });
         }]);
     app.run(['$rootScope', '$transitions', function ($rootScope, $transitions) {
 
+
+            
             $transitions.onSuccess({to: '*'}, function (trans) {
+                
 
                 var $state = trans.router.stateService;
                 var requireLogin = $state.current.data.requireLogin
