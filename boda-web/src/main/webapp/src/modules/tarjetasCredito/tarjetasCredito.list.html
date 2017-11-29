@@ -30,14 +30,14 @@
                         <a class="btn btn-danger btn-sm" ui-sref="tarjetasDelete({parejaId: tarjeta.pareja.correoElec, tarjetaId: tarjeta.numero})"ng-show ="isAuthenticated() && currentUser.rol == 'admin'"> <span class="glyphicon glyphicon-trash"></span></a>
                     
                     </td>
-                    <td><a class="btn boton-detalle" ui-sref="tarjetasDetail({tarjetaId: tarjeta.numero})"><span class="glyphicon glyphicon-eye-open"></span>Ver Detalles</a></td>
+                    <td><a class="btn boton-detalle" style="background: #F48FB1" ui-sref="tarjetasDetail({tarjetaId: tarjeta.numero})"><span class="glyphicon glyphicon-eye-open"></span>Ver Detalles</a></td>
                 </tr>
             </tbody>
         </table>
         <hr>
         <dl>
-            <dd><a class = "btn btn-default" ui-sref="parejasList"  ng-show="isAuthenticated() && currentUser.rol == 'admin'" ><span class="glyphicon glyphicon-arrow-left"></span> Volver a Parejas</a></dd>
-            <dd><a class = "btn btn-default" ui-sref="parejasDetail({parejaId:currentUser.username})"  ng-show="isAuthenticated() && currentUser.rol == 'pareja'" ><span class="glyphicon glyphicon-arrow-left"></span> Volver a Informacion</a></dd>
+            <dd><a class = "btn btn-default" ui-sref="parejasList" style="background: #F48FB1"   ng-show="isAuthenticated() && currentUser.rol == 'admin'" ><span class="glyphicon glyphicon-arrow-left"></span> Volver a Parejas</a></dd>
+            <dd><a class = "btn btn-default" ui-sref="parejasDetail({parejaId:currentUser.username})" style="background: #F48FB1"   ng-show="isAuthenticated() && currentUser.rol == 'pareja'" ><span class="glyphicon glyphicon-arrow-left"></span> Volver a Informacion</a></dd>
         </dl>      
     </div>
     <div ui-view="childrenView"></div>

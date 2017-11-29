@@ -33,11 +33,11 @@ insert into BodaEntity (id, name, fecha, tema, religion, tipoBoda,image) values 
 ---Fin Pruebas BodaEntity
 
 --Pruebas UbicacionEntity
-insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (1, 'Automotive', 50.1681931, 14.0545902, 24356, '88734 Marcy Avenue');
-insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (2, 'Clothing', -17.8119748, -50.5981252, 38447, '4701 Dorton Place');
-insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', 55.816131, 37.8768991, 85959, '976 Myrtle Center');
-insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (4, 'HomeLand', 55.816167, 37.8768998, 859591, '976 Myrtle Center');
-insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (5, 'HomeLands', 55.81617, 37.878998, 85591, '976f Myrtle Center');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (1, 'Automotive', '50.1681931', '14.0545902', 24356, '88734 Marcy Avenue');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (2, 'Clothing', '-17.8119748', '-50.5981252', 38447, '4701 Dorton Place');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (3, 'Home', '55.816131', '37.8768991', 85959, '976 Myrtle Center');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (4, 'HomeLand', '55.816167', '37.8768998', 859591, '976 Myrtle Center');
+insert into UbicacionEntity (id, name, latitud, longitud, telefono, direccion) values (5, 'HomeLands', '55.81617', '37.878998', 85591, '976f Myrtle Center');
 ---Fin Pruebas UbicacionEntity
 
 --Pruebas para Regalo Entity
@@ -62,12 +62,7 @@ insert into RegaloEntity_UbicacionEntity (regalos_id,locations_id ) values (400,
 insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (1,'Miguel', 90570, 'mloughnan0@noaa.gov', 'Confirmado', 'Trabajo',1);
 insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (2,'Maddi', 82444, 'mpettengell1@yahoo.com', 'Confirmado', 'Trabajo',1);
 insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (3,'Griffy', 97900, 'gdeaguirre2@sina.com.cn', 'Confirmado', 'Familia',2);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (4, 'Adah O''Lochan', 389257353, 'aolochan5@bbb.org', 'Pendiente', 'Trabajo', 2);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (5, 'Courtnay Sommersett', 235286536, 'csommersett6@cbslocal.com', 'Confirmado', 'Familia', 2);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (6, 'Melina Gibbetts', 52660220, 'mgibbetts7@constantcontact.com', 'Pendiente', 'Familia', 3);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (7, 'Kizzie Tolan', 859644071, 'ktolan9@amazon.de', 'Confirmado', 'Familia', 3);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (8, 'Giana Lathy', 602042642, 'glathya@wikia.com', 'Confirmado', 'Familia', 3);
-insert into InvitadoEntity (id, name, documento, correo, asistencia, categoria, boda_id) values (9, 'Doria Revey', 821785894, 'dreveyb@php.net', 'Pendiente', 'Familia', 1);
+
 
 
 --Pruebas ProveedorEntity
