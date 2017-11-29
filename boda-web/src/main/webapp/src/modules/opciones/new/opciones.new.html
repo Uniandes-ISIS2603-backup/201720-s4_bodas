@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="opcionCreate">Crear nueva opcion</label>
-                <label ng-if="edit" id="editOpcion">Editar Opcion</label></div>
+        <div>
+            <div class="panel-heading"><h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="!edit" id="opcionCreate">Crear nueva opcion</h1>
+                <h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="edit" id="editOpcion">Editar Opcion</h1></div>
             <div class="panel-body">
                 <form ng-submit="createOpcionServicio()" name="opcion">
                     <div class="form-group row">
@@ -39,8 +39,8 @@
                     </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="opcion.$valid" type="submit" value="Crear" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="opcionesList">Cancelar</a>
+                            <input ng-show="opcion.$valid" type="submit" value="Crear" class="botones"/>
+                            <a class="botones" ui-sref="opcionesList">Cancelar</a>
                         </div>
                     </div>
                 </form>
