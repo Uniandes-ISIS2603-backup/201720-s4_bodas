@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.boda.dtos;
-
 import co.edu.uniandes.csw.boda.entities.PagoEntity;
 import java.util.Date;
 import javax.persistence.Temporal;
@@ -19,10 +18,10 @@ public class PagoDTO {
     private Long id;
     private String nombrePago;
     private Double montoTotal;
-    
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    
+    private String correoPareja;
+    private Long numeroTarjeta;
     /**
      * Constructor por defecto
      */
@@ -39,6 +38,8 @@ public class PagoDTO {
         this.montoTotal = pago.getMontoTotal();
         this.fecha = pago.getFecha();
         this.nombrePago = pago.getName();
+        this.correoPareja = pago.getCorreoPareja();
+        this.numeroTarjeta = pago.getTarjetaCredito().getNumero();
     }
 
      /**
@@ -95,6 +96,28 @@ public class PagoDTO {
     public void setNombrePago(String nombrePago) {
         this.nombrePago = nombrePago;
     }
+
+    /**
+     * @return pareja que hara del pago
+     */
+    public String getCorreoPareja() {
+        return correoPareja;
+    }
+
+    /**
+    * @param correoPareja la nueva pareja que hara pago
+    */
+    public void setCorreoPareja(String correoPareja) {
+        this.correoPareja = correoPareja;
+    }
+
+    public Long getTarjeta() {
+        return numeroTarjeta;
+    }
+
+    public void setTarjeta(Long numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
+    }
     
      /**
      * Convertir DTO a Entity
@@ -106,6 +129,8 @@ public class PagoDTO {
         entity.setMontoTotal(this.montoTotal);
         entity.setFecha(this.fecha);
         entity.setName(this.nombrePago);
+        entity.setCorreoPareja(this.correoPareja);
+        entity.setNumeroTarjeta(numeroTarjeta);
         return entity;
     }
 }

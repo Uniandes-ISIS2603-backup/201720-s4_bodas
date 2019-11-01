@@ -84,4 +84,13 @@ public class RegaloResource {
         return list;
     }
     
+    @Path("{regalosId: \\d+}/ubicaciones")
+    public Class<RegaloubicacionResource> getRegaloUbicacionResource(@PathParam("regalosId") Long regalosId) {
+        RegaloEntity entity = regaloLogic.get(regalosId);
+        if (entity == null) {
+            throw new WebApplicationException("El regalo no existe", 404);
+        }
+        return RegaloubicacionResource.class;
+    }
+    
 }

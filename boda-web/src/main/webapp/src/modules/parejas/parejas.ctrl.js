@@ -35,7 +35,7 @@
                    return $scope.openCreate === true;
                };
               
-            // el controlador recibió un cityId ??
+            // el controlador recibió un parejaId ??
             // revisa los parámetros (ver el :cityId en la definición de la ruta)
             if ($state.params.parejaId !== undefined) {
                 // obtiene el dato del recurso REST
@@ -57,7 +57,12 @@
                 $scope.alerts = [];
             }
 
-
+             this.orderInvParejas= function(condicionNombre, tipoCondicion){
+                 $scope.tipoOrdenPareja = condicionNombre;                
+                 $scope.currentOrdenPa= tipoCondicion;
+            };
+            
+            
             this.saveRecord = function (id) {
                 currentPareja = $scope.currentPareja;
 
@@ -89,18 +94,16 @@
             this.deleteRecord = function(parejaRecord) {
                 swal({ title: "¿Desea eliminar la pareja con correo " + parejaRecord.correoElec +"?",
                     text: "No podrá recuperar la pareja!",
-                    type: "warning",
-                    dangerMode: true,
+                    type: "warning",                   
                     showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
                     confirmButtonClass: "btn-danger",
                     confirmButtonText: "Si, eliminalo",
-                    cancelButtonText: "Cancelar",
-                    closeOnConfirm: false,
-                    closeOnCancel:false,
-                     },
-                    function(eliminado){     
-                        if(eliminado){
-                            var k=  $http.delete(parejasContext +"/" + parejaRecord.correoElec)
+                    cancelButtonText: "Cancelar"
+                  
+                     }).then(function () {
+                        var k=  $http.delete(parejasContext +"/" + parejaRecord.correoElec)
                             .then(function () {
                                 // $http.delete es una promesa
                                 // cuando termine bien, cambie de estado
@@ -113,7 +116,7 @@
                                 // called asynchronously if an error occurs
                                 // or server returns response with an error status.
                                 if(response.status === 500){
-                                    swal("Oh! Error!", "Cometimos un error ", "error");
+                                    swal("La Pareja tiene una boda asociada, primero borre la boda.", "error ", "error");
                                 }
                                  else{
                                      swal("Oh! Algo anda mal!", response.statusText, "error");
@@ -122,16 +125,17 @@
                                 
                                 
                              return k;
-                        }
-                        else{
-                            
-                            swal({ title: "La pareja no se elimino",
-                                    text: "No se ha hecho ningún cambio!",                   
-                                     closeOnConfirm: true
+                      }, function (dismiss) {
+                        // dismiss can be 'cancel', 'overlay',
+                        // 'close', and 'timer'
+                        if (dismiss === 'cancel') {
+                                       swal({ title: "La pareja no se elimino",
+                                    text: "No se ha hecho ningún cambio!"                 
+                                  
                                     });
                         }
-                     
-                    });
+                      });
+                  
                 
                  
             }

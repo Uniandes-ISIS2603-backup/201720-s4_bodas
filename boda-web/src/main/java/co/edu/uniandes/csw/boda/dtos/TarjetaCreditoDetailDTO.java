@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.boda.dtos;
 
 import co.edu.uniandes.csw.boda.entities.PagoEntity;
+import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
     
     private List<PagoDTO> pagos;
+    private ParejaDTO pareja;
     
     /**
      * Constructor por defecto
@@ -37,8 +39,10 @@ public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
             for (PagoEntity entityPago : entity.getPagos()) {
                 pagos.add(new PagoDTO(entityPago));
             }
-
         }
+            if(entity.getPareja() != null) {
+            this.pareja = new ParejaDTO(entity.getPareja());
+       }
     }
     
     /**
@@ -50,7 +54,7 @@ public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
     public TarjetaCreditoEntity toEntity() {
         TarjetaCreditoEntity resp =super.toEntity();
         if (this.pagos != null) {
-            List<PagoEntity> pag = new ArrayList<PagoEntity>();
+            List<PagoEntity> pag = new ArrayList<>();
             for (PagoDTO dtoPago : this.pagos) {
                 pag.add(dtoPago.toEntity());
             }
@@ -66,5 +70,12 @@ public class TarjetaCreditoDetailDTO extends TarjetaCreditoDTO {
     public void setPagos(List<PagoDTO> pagos) {
         this.pagos = pagos;
     }
-    
+
+    public ParejaDTO getPareja() {
+        return pareja;
+    }
+
+    public void setPareja(ParejaDTO pareja) {
+        this.pareja = pareja;
+    }
 }

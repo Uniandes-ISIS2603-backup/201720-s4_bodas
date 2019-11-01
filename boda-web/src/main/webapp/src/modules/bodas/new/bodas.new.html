@@ -1,8 +1,10 @@
+<link rel="stylesheet" href="resources/css/style.css">
+<div class="col-md-12">
 <div class="container-fluid">
     <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="bodaCreate">Crear nueva boda</label>
-                <label ng-if="edit" id="editBoda">Editar boda</label></div>
+        <div class="panel">
+            <div class="panel-heading"><h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="!edit" id="bodaCreate">Crear nueva boda</h1>
+                <h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="edit" id="editBoda">Editar boda</h1></div>
             <div class="panel-body">
                 <form ng-submit="createBoda()" name="boda">
                     <div class="form-group row">
@@ -26,7 +28,7 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="bodaReligion" class="col-sm-2">Religion</label>
-                            <select name="bodaReligion"  for="bodaReligion" onchange="if(this.value=='Otro') document.getElementById('otrareligion').disabled = false">
+                            <select for="bodaReligion" required ng-model="bodaReligion"  onchange="if(this.value=='Otro') document.getElementById('otrareligion').disabled = false">
                                  <option value="catolica">Católica</option>
                                  <option value="judia">Judía</option>
                                  <option value="musulmana">Musulmana</option>
@@ -35,14 +37,14 @@
                                  <option value="cristiana">Cristiana</option>
                                  <option value="ninguna">Ninguna</option>
                                  <option value="Otro">Otra religión</option>
-                                  <input type="text" id="otrareligion" size="12" value="Otra religión" disabled>
+                                 <input type="text" id="otrareligion" size="12" value="Otra religión" disabled>
                             </select>                        
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="bodaTipo" class="col-sm-2">Tipo de boda (aniversario):</label>
-                            <select name="bodaTipo"  for="bodaTipo">
+                            <select for="bodaTipo" required ng-model="bodaTipo" >
                                  <option value="bronce">Bronce (8)</option>
                                  <option value="aluminio">Aluminio (10)</option>
                                  <option value="cristal">Cristal (15)</option>
@@ -67,6 +69,12 @@
                             <input id="bodaImage" required ng-model="bodaImage" class="col-sm-6"/>                     
                         </div>
                     </div>
+                    <div class="form-group row" ng-show="isAuthenticated() && currentUser.rol == 'admin'">
+                        <div class="form-group col-md-6">
+                            <label for="bodaIdPareja" class="col-sm-2">Correo de la Pareja</label>
+                            <input id="bodaIdPareja"  ng-model="bodaIdPareja" class="col-sm-6"/>                     
+                        </div>
+                    </div>
                    <div class="form-group row">
                         <div class="form-group col-sm-4" ng-if="!boda.$valid">
 
@@ -77,15 +85,15 @@
                     </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="boda.$valid" type="submit" value="¡Empecemos!" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="bodasList">Cancelar</a>
+                            <input ng-show="boda.$valid" class="botones" type="submit" value="¡Empecemos!" class="btn btn-success"/>
+                            <a class="botones"  ui-sref="parejasDetail({parejaId: currentUser.username})" ng-show="isAuthenticated() && currentUser.rol === 'pareja' ">Cancelar</a>
+                            <a class="botones"  ui-sref="bodasList" ng-show="isAuthenticated() && currentUser.rol === 'admin' ">Cancelar</a>
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
 </div>
-
+</div>
 

@@ -18,40 +18,52 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
 
+    /**
+     * Atributo privado id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    /**
+     * Atributo privado name
+     */
     private String name;
 
+    /**
+     * Obtiene el atributo id.
+     *
+     * @return atributo id.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Establece el valor del atributo id.
+     *
+     * @param id nuevo valor del atributo
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Obtiene el atributo name.
+     *
+     * @return atributo name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Establece el valor del atributo name.
+     *
+     * @param name nuevo valor del atributo
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this.getId() != null && ((BaseEntity) obj).getId() != null) {
-            return this.getId().equals(((BaseEntity) obj).getId());
-        }
-        return super.equals(obj);
-    }
-
-    @Override
-    public int hashCode() {
-        if (this.getId() != null) {
-            return this.getId().hashCode();
-        }
-        return super.hashCode();
-    }
 }

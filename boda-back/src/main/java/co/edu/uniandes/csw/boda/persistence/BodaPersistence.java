@@ -49,6 +49,7 @@ public class BodaPersistence {
 
     public BodaEntity create(BodaEntity entity) {
         LOGGER.info("Creando una boda nueva");
+        LOGGER.info(entity.getId()+" ...---+++");
         em.persist(entity);
         LOGGER.info("Boda creada");
         return entity;

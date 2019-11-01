@@ -13,9 +13,11 @@ import co.edu.uniandes.csw.boda.entities.ServicioEntity;
  */
 public class ServicioDTO {
     
-    private Long id;
+    private long id;
     private String name;
-    public String descripcion;
+    private String descripcion;
+    private String image;
+
     
     public ServicioDTO(){
         //Constructor por defecto
@@ -31,13 +33,14 @@ public class ServicioDTO {
         this.id = servicio.getId();
         this.name = servicio.getName();
         this.descripcion = servicio.getDescripcion();
+        this.image = servicio.getImage();
     }
     
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -57,6 +60,14 @@ public class ServicioDTO {
         this.descripcion=descripcion;
     }
     
+        public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
     /**
      * Convertir DTO a Entity
      * @return Un Entity con los valores del DTO 
@@ -66,6 +77,7 @@ public class ServicioDTO {
         entity.setId(this.id);
         entity.setName(this.name);
         entity.setDescripcion(this.descripcion);
+        entity.setImage(this.image);        
         return entity;
     }
 }

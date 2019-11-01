@@ -5,14 +5,17 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
 import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
+import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
+import junit.framework.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -124,7 +127,47 @@ public class ParejaPersistenceTest {
     @After
     public void tearDown() {
     }
-
+    
+    
+    /**
+     * Test of method of class ParejaEntity.
+     */
+    @Test
+    public void testEntity() throws Exception {
+        PodamFactory factory = new PodamFactoryImpl();
+        ParejaEntity entity = factory.manufacturePojo(ParejaEntity.class);
+        
+        //Prueba el metodo getBoda()
+        Assert.assertNull("No tiene bodas asignadas", entity.getBodas());
+        
+        
+        //Prueba el metodo setBoda()
+        factory = new PodamFactoryImpl();
+        List<BodaEntity> bodas = new ArrayList<>();
+        for(int i =0; i<3 ;i++){
+            bodas.add(factory.manufacturePojo(BodaEntity.class));
+        }
+        try{entity.setBodas(bodas);}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+        //Prueba el metodo getTarjetasCredito()
+        Assert.assertNull("No tiene tarjetas asignadas", entity.getTarjetasCredito());
+        
+        //Prueba el metodo setBoda()
+        factory = new PodamFactoryImpl();
+        List<TarjetaCreditoEntity>tarjetas = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            tarjetas.add(factory.manufacturePojo(TarjetaCreditoEntity.class));
+        }        
+        try{entity.setTarjetasCredito(tarjetas);}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+        //Prueba el metodo dar numero
+        Assert.assertNotNull("Tiene numero asignado", entity.getTelefono());
+        
+        //Prueba el metodo dar numero
+        Assert.assertNotNull( entity.isPago());
+        
+    }
+    
     /**
      * Test of create method, of class ParejaPersistence.
      */

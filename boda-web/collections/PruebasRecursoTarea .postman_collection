@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Pruebas del recurso Tarea ",
-		"_postman_id": "43b94afd-4558-6634-89ad-7841cec57956",
+		"_postman_id": "e6b4d7f7-3f05-387c-3d06-6655ff3bce8f",
 		"description": "Pruebas para el recurso Tarea",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -21,7 +21,7 @@
 				}
 			],
 			"request": {
-				"url": " http://localhost:8080/boda-web/api/bodas/1",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas",
 				"method": "GET",
 				"header": [
 					{
@@ -52,7 +52,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas/14",
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -77,7 +77,7 @@
 				}
 			],
 			"request": {
-				"url": "    http://localhost:8080/boda-web/api/bodas/1/tareas/120\n",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas/1",
 				"method": "GET",
 				"header": [
 					{
@@ -108,7 +108,7 @@
 				}
 			],
 			"request": {
-				"url": " http://localhost:8080/boda-web/api/bodas/4/tareas",
+				"url": " http://localhost:8080/boda-web/api/proveedores/1000/opcionServicios/12/tareas",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -130,7 +130,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas",
 				"method": "POST",
 				"header": [
 					{
@@ -141,7 +141,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \n    \"aprobada\": true,\n    \"id\": 7,\n    \"nombre\": \"Flores\"\n}"
+					"raw": "{\n   \n   \n        \"aprobada\": false,\n        \"dia\": \"2017-02-11T00:00:00-05:00\",\n        \"id\": 15,\n        \"image\": \"http://media.bodaclick.com/img/img_reportajes/19942_1359111008_51026360c7dda.jpg\",\n        \"nombre\": \"Prueba de comida\"\n}"
 				},
 				"description": "Crea una nueva tarea"
 			},
@@ -161,7 +161,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas",
 				"method": "POST",
 				"header": [
 					{
@@ -172,7 +172,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": true,\n    \"dia\": \"1/1/1\",\n    \"id\": 12,\n    \"nombre\": \"Chao\"\n}"
+					"raw": "{\n    \"type\": \"tareaDetailDTO\",\n    \"aprobada\": true,\n    \"dia\": \"1/1/1\",\n    \"id\": 12,\n    \"nombre\": \"Decoracion\"\n}"
 				},
 				"description": ""
 			},
@@ -192,7 +192,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas/12",
 				"method": "PUT",
 				"header": [
 					{
@@ -223,7 +223,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/50",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas/50",
 				"method": "PUT",
 				"header": [
 					{
@@ -243,7 +243,7 @@
 		{
 			"name": "Error al actualizar por fecha",
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas/12",
 				"method": "PUT",
 				"header": [
 					{
@@ -274,7 +274,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/12",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas/14",
 				"method": "DELETE",
 				"header": [
 					{
@@ -305,7 +305,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/boda-web/api/bodas/1/tareas/100",
+				"url": " http://localhost:8080/boda-web/api/proveedores/100/opcionServicios/12/tareas/142",
 				"method": "DELETE",
 				"header": [],
 				"body": {},

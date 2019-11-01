@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.RegaloEntity;
+import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import co.edu.uniandes.csw.boda.entities.UbicacionEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -120,7 +122,47 @@ public class UbicacionPersistenceTest {
     //public void tearDown() {
     //}
 
-   
+    
+     @Test
+    public void testEntity() throws Exception {
+        PodamFactory factory = new PodamFactoryImpl();
+        UbicacionEntity entity = factory.manufacturePojo(UbicacionEntity.class);
+        
+        //Prueba el metodo  getLatitud()
+        Assert.assertNotNull("Tiene Latitud asignadas", entity.getLatitud());
+        
+        //Prueba el metodo  getLongitud() 
+        Assert.assertNotNull("Tiene longitud asignadas", entity.getLongitud());
+        
+        //Prueba el metodo  getTelefono()
+        Assert.assertNotNull("Tiene Telefono asignada", entity.getTelefono());
+        
+        //Prueba el metodo  getDireccion()
+        Assert.assertNotNull("Tiene Direccion asignada", entity.getDireccion());
+        
+        //Prueba el metodo  getRegalos()
+        Assert.assertNull("No Tiene Regalos asignados", entity.getRegalos());
+        
+              
+        //Prueba el metodo setRegalos()
+        factory = new PodamFactoryImpl();
+        List<RegaloEntity>regalos = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            regalos.add(factory.manufacturePojo(RegaloEntity.class));
+        }        
+        try{entity.setRegalos(regalos);}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+        
+                
+        //Prueba el metodo getTarea()
+        Assert.assertNull("No Tiene Tarea asignada", entity.getTarea());  
+        
+        //Prueba el metodo setTarea()
+        factory = new PodamFactoryImpl();
+        try{entity.setTarea(factory.manufacturePojo(TareaEntity.class));}catch(Exception e){Assert.fail("No debio generar error");}
+        
+    }
+    
 
     @Test
     public void createUbicacionEntityTest() {

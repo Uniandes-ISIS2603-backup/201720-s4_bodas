@@ -8,6 +8,9 @@
             $stateProvider.state('parejas', {
                 url: '/parejas',
                 abstract: true,
+                data: {
+                    requireLogin: false
+                },
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'parejas.html',
@@ -18,28 +21,69 @@
             }).state('parejasList', {
                 url: '/list',
                 parent: 'parejas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin']
+                },
+                
                  views: {
                     'listView': {
                         templateUrl: basePath + 'parejas.list.html'
                     }
                 }
-               }).state('parejasDetail', {
-                url: '/:parejaId',
+            }).state('parejasDetail', {
+                url: '/detail/:parejaId',
                 parent: 'parejas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
                 param: {
                     parejaId: null
                 },
-                 views: {
-                    
+                 views: {                     
                     'detailView': {
-                        templateUrl: basePath + 'parejas.detail.html',
+                        templateUrl: basePath + 'parejas.detail.mod.html',
                         controller: 'parejasCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('parejasCreate', {
+                url: '/create',
+                parent:'parejas',   
+                 data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
+                views: {
+                    'detailView': {
+                        controller: 'parejasNewCtrl',                       
+                        templateUrl: basePath + '/create/parejas.new.html'
+                    }
+                }
+            }).state('parejasUpdate', {
+                url: '/editar/:parejaId',
+                parent: 'parejas',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin','pareja']
+                },
+                param: {
+                    parejaId: null
+                },
+                 views: {                     
+                    'detailView': {
+                        controller: 'parejaUpdateCtrl',
+                        templateUrl: basePath + '/create/parejas.new.html'                       
+                    }
+                }
             }).state('parejasOneDetail', {
-                url: '/:parejaId',
+                url: '/one/:parejaId',
                 parent: 'parejasList',
+                data: {
+                    requireLogin: true,
+                    roles: ['admin']
+                },
                 param: {
                     parejaId: null
                 },
@@ -51,28 +95,7 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('parejasCreate', {
-                url: '/',
-                parent:'parejasList',
-                
-                views: {
-                    'createOneView': {
-                        controller: 'parejasNewCtrl',                       
-                        templateUrl: basePath + '/create/parejas.new.html'
-                    }
-                }
-            }).state('cityEdit', {
-                url: '/cities/:cityId',
-                param: {
-                    cityId: null
-                },
-                views: {
-                    'mainView': {
-                        controller: 'citiesCtrl',
-                        controllerAs: 'ctrl',
-                        templateUrl: basePath + 'cities.create.html'
-                    }
-                }
-            });
+            })
+            ;
         }]);
 })(window.angular);

@@ -12,7 +12,6 @@ import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -42,6 +41,7 @@ public class TareaResource {
      * POST http://localhost:8080/bodas-web/api/tareas Ejemplo json: {
      * "name":"Norma" }
      *
+     * @param idOpcion
      * @param tarea correponde a la representación java del objeto json enviado
      * en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
@@ -50,10 +50,10 @@ public class TareaResource {
      * @throws BusinessLogicException
      */
     @POST
-    public TareaDetailDTO createTarea(@PathParam("idBoda") Long idBoda, TareaDetailDTO tarea) throws BusinessLogicException {
+    public TareaDetailDTO createTarea(@PathParam("idOpcion") Long idOpcion, TareaDetailDTO tarea) throws BusinessLogicException {
 
         TareaEntity tareaEntity = tarea.toEntity();
-        TareaEntity nuevaTarea = tareaLogic.create(idBoda, tareaEntity);
+        TareaEntity nuevaTarea = tareaLogic.create(idOpcion, tareaEntity);
         return new TareaDetailDTO(nuevaTarea);
     }
 
@@ -64,8 +64,8 @@ public class TareaResource {
      * @throws BusinessLogicException
      */
     @GET
-    public List<TareaDetailDTO> getTareas(@PathParam("idBoda") Long idBoda) throws BusinessLogicException {
-        return listEntity2DetailDTO(tareaLogic.getTareas(idBoda));
+    public List<TareaDetailDTO> getTareas(@PathParam("idOpcion") Long idOpcion) throws BusinessLogicException {
+        return listEntity2DetailDTO(tareaLogic.getTareas(idOpcion));
     }
 
     /**
@@ -78,15 +78,19 @@ public class TareaResource {
      * En caso de no existir el id de la tarea buscada se retorna un 404 con el
      * mensaje.
      */
-    @GET
+   @GET
     @Path("{id: \\d+}")
-    public TareaDetailDTO getTarea(@PathParam("idBoda") Long idBoda, @PathParam("id") Long id) throws BusinessLogicException {
+    public TareaDetailDTO getTarea(@PathParam("id") Long id) throws BusinessLogicException {
         TareaEntity entity = tareaLogic.findTareaById(id);
         if (entity == null) {
             throw new WebApplicationException("No existe una tarea con el id dado", 404);
         }
         return new TareaDetailDTO(entity);
     }
+   
+   
+   
+    
 
     /**
      * PUT http://localhost:8080/boda-web/api/tareas/1 Ejemplo json { "id": 1,
@@ -101,7 +105,7 @@ public class TareaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public TareaDetailDTO updateTarea(@PathParam("idBoda") Long idBoda, @PathParam("id") Long id, TareaDetailDTO tarea) throws BusinessLogicException {
+    public TareaDetailDTO updateTarea(@PathParam("idOpcion") Long idOpcion, @PathParam("id") Long id, TareaDetailDTO tarea) throws BusinessLogicException {
         
         tarea.setId(id);
         TareaEntity entity = tareaLogic.findTareaById(id);
@@ -109,7 +113,7 @@ public class TareaResource {
         if (entity == null) {
             throw new WebApplicationException("No existe una tarea con el id dado", 404);
         }
-        return new TareaDetailDTO(tareaLogic.updateTarea(idBoda, tarea.toEntity()));
+        return new TareaDetailDTO(tareaLogic.updateTarea(idOpcion, tarea.toEntity()));
     }
 
     /**
@@ -121,7 +125,7 @@ public class TareaResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteTarea(@PathParam("idBoda") Long idBoda,@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteTarea(@PathParam("idOpcion") Long idOpcion,@PathParam("id") Long id) throws BusinessLogicException {
         TareaEntity entity = tareaLogic.findTareaById(id);
         if (entity == null) {
             throw new WebApplicationException("No existe una tarea con el id dado", 404);

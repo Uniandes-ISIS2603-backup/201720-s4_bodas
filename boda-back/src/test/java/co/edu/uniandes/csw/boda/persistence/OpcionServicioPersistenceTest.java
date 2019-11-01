@@ -5,7 +5,12 @@
  */
 package co.edu.uniandes.csw.boda.persistence;
 
+import co.edu.uniandes.csw.boda.entities.BodaEntity;
+import co.edu.uniandes.csw.boda.entities.CalificacionEntity;
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
+import co.edu.uniandes.csw.boda.entities.PagoEntity;
+import co.edu.uniandes.csw.boda.entities.ProveedorEntity;
+import co.edu.uniandes.csw.boda.entities.TareaEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -74,6 +79,70 @@ public class OpcionServicioPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
+    
+    
+    @Test
+    public void testEntity() {
+        PodamFactory factory = new PodamFactoryImpl();
+        OpcionServicioEntity newEntity = factory.manufacturePojo(OpcionServicioEntity.class);
+        
+        //Prueba el metodo getDescripcion() 
+        Assert.assertNotNull("Contiene una descripcion asignada", newEntity.getDescripcion());
+        
+        //Prueba el metodo getCosto()
+        Assert.assertNotNull("Contiene un costo asignado", newEntity.getCosto());
+        
+        //Prueba el metodo getDiasDisponibles()
+        Assert.assertNotNull("Contiene dias disponibles asignadas", newEntity.getDiasDisponibles());
+        
+        //Prueba el metodo getCalificacion()
+        Assert.assertNull("No Contienecalificaciones asignadas", newEntity.getCalificacion());
+        
+        //Prueba el metodo  setCalificacion()
+        factory = new PodamFactoryImpl();
+        List<CalificacionEntity>calificaciones = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            calificaciones.add(factory.manufacturePojo(CalificacionEntity.class));
+        }
+        try{newEntity.setCalificacion(calificaciones);}catch(Exception e){Assert.fail("No debio generar error");}
+        
+         //Prueba el metodo getTareas()
+        Assert.assertNull("No Contiene tareas asignadas",newEntity.getTareas());
+        
+        //Prueba el metodo  setTareas()
+        factory = new PodamFactoryImpl();
+        List<TareaEntity>tareas = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            tareas.add(factory.manufacturePojo(TareaEntity.class));
+        }
+        try{newEntity.setTareas(tareas);}catch(Exception e){Assert.fail("No debio generar error");}
+        
+        //Prueba el metodo getProveedor()
+        Assert.assertNull("No Tiene proveedor asignado", newEntity.getProveedor());
+        
+        //Prueba el metodo  setProveedor()
+        factory = new PodamFactoryImpl();
+        try{newEntity.setProveedor(factory.manufacturePojo(ProveedorEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+        
+        //Prueba el metodo  getImage()
+        Assert.assertNotNull("Tiene imagen asignada", newEntity.getImage());
+        
+        //Prueba el metodo getPago()
+        Assert.assertNull("No Tiene pago asignado", newEntity.getPago());
+        
+        //Prueba el metodo  setPago()
+        factory = new PodamFactoryImpl();
+        try{newEntity.setPago(factory.manufacturePojo(PagoEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
+        
+//        //Prueba el metodo getBoda()
+//        Assert.assertNull("No Tiene boda asignado", newEntity.getBoda());
+//        
+//        //Prueba el metodo  setBoda()
+//        factory = new PodamFactoryImpl();
+//        try{newEntity.setBoda(factory.manufacturePojo(BodaEntity.class));}catch(Exception e){Assert.fail("No debio generar error");} 
+    }
+    
     @Test
     public void createOpcionServicioEntityTest() {
     PodamFactory factory = new PodamFactoryImpl();

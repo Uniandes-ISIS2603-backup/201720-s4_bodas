@@ -6,37 +6,86 @@
 package co.edu.uniandes.csw.boda.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import uk.co.jemos.podam.common.PodamExclude;
+
 /**
  *
  * @author aj.ortiz10
  */
 @Entity
-public class ServicioEntity extends BaseEntity implements Serializable  {
-    
+public class ServicioEntity extends BaseEntity implements Serializable {
+
+    /**
+     * Atributo privado descripcion.
+     */
     private String descripcion;
-    @PodamExclude  
-    @OneToMany(mappedBy = "servicio")
-    private List<ProveedorEntity> proveedores = new ArrayList<>();
-    
-    public String getDescripcion(){
+
+    /**
+     * Coleccion privada de proveedores.
+     */
+    @PodamExclude
+    @ManyToMany
+    private List<ProveedorEntity> proveedores;
+
+    /**
+     * Atributo privado image.
+     */
+    private String image;
+
+    /**
+     * Obtiene el atributo descripcion.
+     *
+     * @return atributo descripcion.
+     */
+    public String getDescripcion() {
         return descripcion;
     }
-    
-    public void setDescripcion(String descripcion){
-        this.descripcion=descripcion;
+
+    /**
+     * Establece el valor del atributo descripcion.
+     *
+     * @param descripcion nuevo valor del atributo
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
-    
-    public List<ProveedorEntity> getProveedores(){
+
+    /**
+     * Obtiene la colección de proveedores.
+     *
+     * @return colección proveedores.
+     */
+    public List<ProveedorEntity> getProveedores() {
         return proveedores;
     }
-    
-    public void setProveedores(List<ProveedorEntity> proveedores){
-        this.proveedores=proveedores;
+
+    /**
+     * Establece el valor de la colección de proveedores.
+     *
+     * @param proveedores nuevo valor de la colección.
+     */
+    public void setProveedores(List<ProveedorEntity> proveedores) {
+        this.proveedores = proveedores;
+    }
+
+    /**
+     * Obtiene el atributo image.
+     *
+     * @return atributo image.
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * Establece el valor del atributo image.
+     *
+     * @param image nuevo valor del atributo
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -19,10 +19,9 @@ import javax.inject.Inject;
  */
 @Stateless
 public class ProveedorLogic {
-    
+
     private static final Logger LOGGER = Logger.getLogger(ProveedorLogic.class.getName());
 
-    
     @Inject
     private ProveedorPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
@@ -35,13 +34,16 @@ public class ProveedorLogic {
     public ProveedorEntity createProveedor(ProveedorEntity entity) throws BusinessLogicException {
         LOGGER.info("Inicia proceso de creación de Proveedor");
         // Invoca la persistencia para crear la Default
+        if (persistence.findByName(entity.getName()) != null) {
+            throw new BusinessLogicException("No pueden existir dos proveedores iguales");
+        }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Proveedor");
         return entity;
     }
 
     /**
-     * 
+     *
      * Obtener todas las Defaultes existentes en la base de datos.
      *
      * @return una lista de Defaultes.
@@ -54,17 +56,22 @@ public class ProveedorLogic {
         return Default;
     }
 
-    public ProveedorEntity getProveedor(Long id){
+    public ProveedorEntity getProveedor(Long id) {
         return persistence.find(id);
     }
-    
-    public ProveedorEntity update(ProveedorEntity entity)
-    {
+
+    public ProveedorEntity update(ProveedorEntity entity) {
         return persistence.update(entity);
     }
 
-    public void deleteProveedor(ProveedorEntity entity)
-    {
+    public void deleteProveedor(ProveedorEntity entity) {
         persistence.delete(entity);
+    }
+
+    public ProveedorEntity findProveedorById(Long id) throws BusinessLogicException {
+        if (persistence.find(id) == null) {
+            throw new BusinessLogicException("No existe una proveedor con el id dado.");
+        }
+        return persistence.find(id);
     }
 }

@@ -19,7 +19,7 @@
 
                     $scope.createUbicacion = function () {
 
-                        $http.put(ubicacionesContext + "/" + idBoda, {
+                        $http.put(ubicacionesContext + "/" + idUbicacion, {
                             direccion: $scope.ubicacionDireccion,
                             name: $scope.ubicacionName,
                             telefono: $scope.ubicacionTelefono,

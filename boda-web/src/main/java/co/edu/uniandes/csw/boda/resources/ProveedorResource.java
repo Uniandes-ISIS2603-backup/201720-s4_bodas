@@ -13,14 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.websocket.server.PathParam;
-import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 
@@ -70,10 +69,20 @@ public class ProveedorResource {
         }
         return list;
     }
+   
+     @Path("{idProveedor: \\d+}/opcionServicios")
+    public Class<OpcionServicioResource> obtenerOpciones(@PathParam("idProveedor") Long idProveedor) throws BusinessLogicException{
+        ProveedorEntity buscado = proveedorLogic.findProveedorById(idProveedor);
+        if(buscado==null)
+        {throw new WebApplicationException("El recurso /proveedor/" + idProveedor + " no existe.", 404);
+        
+        }
+        return OpcionServicioResource.class;
+    }
     
     @PUT
     @Path("{id: \\d+}")
-    public ProveedorDetailDTO updateProveedor(@javax.ws.rs.PathParam("id") Long id, ProveedorDetailDTO proveedor) throws BusinessLogicException
+    public ProveedorDetailDTO updateProveedor(@PathParam("id") Long id, ProveedorDetailDTO proveedor) throws BusinessLogicException
     {
         proveedor.setId(id);
         ProveedorEntity entity = proveedorLogic.getProveedor(id);
@@ -85,7 +94,7 @@ public class ProveedorResource {
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteProveedor(@javax.ws.rs.PathParam("id") Long id) 
+    public void deleteProveedor(@PathParam("id") Long id) 
     { 
     ProveedorEntity entity = proveedorLogic.getProveedor(id);
     if (entity == null) {

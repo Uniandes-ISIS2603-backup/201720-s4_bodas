@@ -16,9 +16,11 @@ import java.util.List;
  */
 public class RegaloDetailDTO extends RegaloDTO{
 
+    public InvitadoDTO invitado;
     
     private List<UbicacionDTO> locations;
     
+    public BodaDTO boda;
 
     /**
      * Constructor por defecto
@@ -29,24 +31,36 @@ public class RegaloDetailDTO extends RegaloDTO{
 
     public RegaloDetailDTO(RegaloEntity entity) {
         super(entity);
+        if (entity.getInvitado() != null) {
+            this.invitado = new InvitadoDTO(entity.getInvitado());
+        }
         if (entity.getLocations() != null) {
             locations = new ArrayList<>();
             for (UbicacionEntity entityUbicacion : entity.getLocations()) {
                 locations.add(new UbicacionDTO(entityUbicacion));
             }
-
+        }
+        if(entity.getBoda() !=null){
+            this.boda = new BodaDTO(entity.getBoda());
         }
     }
 
     @Override
     public RegaloEntity toEntity() {
         RegaloEntity regaloE = super.toEntity();
+        if (this.invitado != null) {
+
+            regaloE.setInvitado(invitado.toEntity());
+        }
         if (locations != null) {
             List<UbicacionEntity> locationsEntity = new ArrayList<>();
             for (UbicacionDTO dtoAuthor : locations) {
                 locationsEntity.add(dtoAuthor.toEntity());
             }
             regaloE.setLocations(locationsEntity);
+        }
+        if(this.boda !=null){
+            regaloE.setBoda(boda.toEntity());
         }
         return regaloE;
     }
@@ -57,5 +71,13 @@ public class RegaloDetailDTO extends RegaloDTO{
 
     public void setLocations(List<UbicacionDTO> locations) {
         this.locations = locations;
+    }
+    
+    public InvitadoDTO getInvitado() {
+        return invitado;
+    }
+
+    public void setInvitado(InvitadoDTO invitado) {
+        this.invitado = invitado;
     }
 }

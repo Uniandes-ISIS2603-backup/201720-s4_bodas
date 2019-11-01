@@ -28,6 +28,18 @@ public class PagoPersistence {
         LOGGER.info("Termina proceso de creacion de un Pago nuevo");
         return entity;
     }
+    
+    /**
+     * Actualiza una TarjetaCredito.
+     *
+     * @param entity: el Pago que viene con los nuevos cambios. Por ejemplo
+     * el codigo pudo cambiar. En ese caso, se haria uso del método update.
+     * @return un Pago con los cambios aplicados.
+     */
+    public PagoEntity update(PagoEntity entity) {
+        LOGGER.log(Level.INFO, "Actualizando Pago con id={0}", entity.getId());
+        return em.merge(entity);
+    }
 
     /**
      * Busca si hay algun Pago con el id que se envía de argumento

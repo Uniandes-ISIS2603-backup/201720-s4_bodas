@@ -44,8 +44,10 @@ public class BodaResource {
      * @throws BusinessLogicException
      */
     @POST
-    public BodaDetailDTO createBoda(BodaDetailDTO boda) throws BusinessLogicException {
-        return new  BodaDetailDTO(bodaLogic.create(boda.toEntity()));
+    @Path("{name}")    
+    public BodaDetailDTO createBoda(@PathParam("name") String idPareja,BodaDetailDTO boda) throws BusinessLogicException {
+       
+        return new  BodaDetailDTO(bodaLogic.create(idPareja,boda.toEntity()));
     }
 
     /**
@@ -109,9 +111,19 @@ public class BodaResource {
         entity.setRegalos((oldEntity.getRegalos()));
         entity.setInvitados((oldEntity.getInvitados()));
         return new BodaDetailDTO(bodaLogic.updateBoda(entity));
-
     }
-
+    
+    @PUT
+    @Path("{idBoda: \\d+}/pareja/{name}")
+    public BodaDetailDTO asignarPareja(@PathParam("name") String parejaId, @PathParam("idBoda") Long bodaId ) throws BusinessLogicException{
+        
+        if(bodaLogic.findBodaById(bodaId)==null){
+           throw new  WebApplicationException("No existe un boda con el id dado",404);
+        }
+        bodaLogic.asginarPareja(parejaId, bodaId); 
+        return  new BodaDetailDTO(bodaLogic.findBodaById(bodaId));
+    }
+    
     /**
      * DELETE http://localhost:8080/boda-web/api/bodas/1
      *
@@ -169,14 +181,15 @@ public class BodaResource {
         }
         return InvitadoResource.class;
     }
-    @Path("{idBoda: \\d+}/tareas")
-    public Class<TareaResource> getTareaResource(@PathParam("idBoda") Long bodaId) throws BusinessLogicException {
+      @Path("{idBoda: \\d+}/opcionesServicio")
+    public Class<BodaOpcionServicioResource> getOpcionResource(@PathParam("idBoda") Long bodaId) throws BusinessLogicException {
         BodaEntity entity = bodaLogic.findBodaById(bodaId);
         if (entity == null) {
-            throw new WebApplicationException("El recurso /boda/" + bodaId + "/tarea no existe.", 404);
+            throw new WebApplicationException("El recurso /boda/" + bodaId + "/regalos no existe.", 404);
         }
-        return TareaResource.class;
+        return BodaOpcionServicioResource.class;
     }
+  
 
 }
 

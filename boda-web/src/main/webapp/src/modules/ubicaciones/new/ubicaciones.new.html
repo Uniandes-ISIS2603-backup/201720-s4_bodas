@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="ubicacionCreate">Crear nueva ubicacion</label>
-                <label ng-if="edit" id="editUbicacion">Editar ubicacion</label></div>
+        <div>
+            <div class="panel-heading"><h1 style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="!edit" id="ubicacionCreate">Crear nueva ubicacion</h1>
+                <h1  style="font-family: 'Quicksand', sans-serif;color:#F48FB1;" ng-if="edit" id="editUbicacion">Editar ubicacion</h1></div>
             <div class="panel-body">
                 <form ng-submit="createUbicacion()" name="ubicacion">
                     <div class="form-group row">
@@ -20,11 +20,22 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="ubicacionTelefono" class="col-sm-2">Teléfono:</label>
-                            <input  type="tel" id="ubicacionTelefono" required ng-model="ubicacionTelefono" class="col-sm-6">
+                            <input type="tel" id="ubicacionTelefono" required ng-model="ubicacionTelefono" class="col-sm-6">
                         </div>
                     </div>
- 
-                   <div class="form-group row">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="latitud" class="col-sm-2">Latitud</label>
+                            <input  id="ubicacionLatitud" required ng-model="ubicacionLatitud" class="col-sm-6">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="longitud" class="col-sm-2">Longitud:</label>
+                            <input  id="ubicacionLongitud" required ng-model="ubicacionLongitud" class="col-sm-6">
+                        </div>
+                    </div>                   
+                    <div class="form-group row">
                         <div class="form-group col-sm-4" ng-if="!ubicacion.$valid">
 
                             <div class="alert alert-warning" >
@@ -35,7 +46,13 @@
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
                             <input ng-show="ubicacion.$valid" type="submit" value="¡Empecemos!" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="ubicacionesList">Cancelar</a>
+                            <button class="botones"  onclick="goBack()">Cancelar</button>
+
+                             <script>
+                              function goBack() {
+                              window.history.back();
+                               }
+                             </script>
                         </div>
                     </div>
                 </form>

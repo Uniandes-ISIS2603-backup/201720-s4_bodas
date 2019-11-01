@@ -12,7 +12,6 @@ import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -29,10 +28,10 @@ import javax.ws.rs.WebApplicationException;
  * @author sp.joven
  */
 
-@Path("opcionServicios")
+@Path("opciones")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
+
 public class OpcionServicioResource {
     
 
@@ -55,12 +54,10 @@ public class OpcionServicioResource {
      * @throws BusinessLogicException
      */
     @POST
-    public OpcionServicioDetailDTO createOpcionServicio(OpcionServicioDetailDTO opcionServicio) throws BusinessLogicException {
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
+    public OpcionServicioDetailDTO createOpcionServicio(@PathParam("idProveedor") Long idProveedor,OpcionServicioDetailDTO opcionServicio) throws BusinessLogicException {
+      
         OpcionServicioEntity opcionServicioEntity =opcionServicio.toEntity();
-        // Invoca la lógica para crear la boda nueva
-        OpcionServicioEntity nuevaOpcion = opcionServicioLogic.create(opcionServicioEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
+        OpcionServicioEntity nuevaOpcion = opcionServicioLogic.create(idProveedor,opcionServicioEntity);
         return new  OpcionServicioDetailDTO(nuevaOpcion);
     }
 
@@ -72,9 +69,9 @@ public class OpcionServicioResource {
      * @throws BusinessLogicException
      */
   @GET
-    public List<OpcionServicioDetailDTO> getOpcionesServicio() throws BusinessLogicException {
-        return listEntity2DetailDTO(opcionServicioLogic.getOpcionesServicio());
-    }
+    public List<OpcionServicioDetailDTO> getOpcionesServicio(@PathParam("idProveedor") Long idProveedor) throws BusinessLogicException {
+        return listEntity2DetailDTO(opcionServicioLogic.getOpcionesServicio(idProveedor));
+    } 
 
     /**
      * GET para una opcion servicio
@@ -95,7 +92,9 @@ public class OpcionServicioResource {
        {
            throw new  WebApplicationException("No existe una opcion con el id dado",404);
        }
-        return  new OpcionServicioDetailDTO(opcionServicioLogic.findOpcionServicioById(id));
+        
+        OpcionServicioDetailDTO x = new OpcionServicioDetailDTO(entity);
+        return  x;
     }
 
     /**
@@ -114,14 +113,19 @@ public class OpcionServicioResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public OpcionServicioDetailDTO updateOpcionServicio(@PathParam("id") Long id, OpcionServicioDetailDTO opcion) throws BusinessLogicException {
-       OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(id);
+    public OpcionServicioDetailDTO updateOpcionServicio(@PathParam("idProveedor")  Long idProveedor,@PathParam("id") Long id, OpcionServicioDetailDTO opcion) throws BusinessLogicException {
+        opcion.setId(id);
+        OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioByIdProveedor(idProveedor,id);
         if(entity==null)
        {
-           throw new  WebApplicationException("No existe una opcion con el id dado",404);
+           throw new  WebApplicationException("No existe una opcion con el id dado chao",404);
        }
-        return  new OpcionServicioDetailDTO(opcionServicioLogic.updateOpcionServicio(id, opcion.toEntity()));
+        return  new OpcionServicioDetailDTO(opcionServicioLogic.updateOpcionServicio(idProveedor,id, opcion.toEntity()));
     }
+ 
+  
+        
+   
 
     /**
      * DELETE http://localhost:8080/boda-web/api/opcionServicios/1
@@ -135,14 +139,16 @@ public class OpcionServicioResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteOpcionServicio(@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteOpcionServicio(@PathParam("idProveedor")  Long idProveedor,@PathParam("id") Long id) throws BusinessLogicException {
         
        if(opcionServicioLogic.findOpcionServicioById(id)==null)
        {
            throw new  WebApplicationException("No existe una opcion con el id dado",404);
        }
-       opcionServicioLogic.removeOpcionServicio(id);
+       opcionServicioLogic.removeOpcionServicio(idProveedor,id);
     }
+    
+    
     @Path("{opcionId: \\d+}/calificaciones")
     public Class<CalificacionResource> darCalificaciones(@PathParam("opcionId") Long id) throws BusinessLogicException {
         if(opcionServicioLogic.getOpcionServicio(id)==null)throw new  WebApplicationException("No existe una opcion con el id dado",404);
@@ -166,7 +172,14 @@ public class OpcionServicioResource {
         }
         return list;
     }
-
+  @Path("{idOpcion: \\d+}/tareas")
+    public Class<TareaResource> getOpcionServicioResource(@PathParam("idOpcion") Long opcionId) throws BusinessLogicException {
+        OpcionServicioEntity entity = opcionServicioLogic.findOpcionServicioById(opcionId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /opciones/" + opcionId + "/tarea no existe.", 404);
+        }
+        return TareaResource.class;
+    }
 
     
 }

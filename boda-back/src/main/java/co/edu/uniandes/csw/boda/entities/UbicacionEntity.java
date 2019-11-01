@@ -19,32 +19,32 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class UbicacionEntity extends BaseEntity implements Serializable {
 
-    private Long latitud;
-    private Long longitud;
+    private String latitud;
+    private String longitud;
     private int telefono;
     private String direccion;
     
     @PodamExclude
-    @ManyToMany
+    @ManyToMany(mappedBy = "locations")
     private List<RegaloEntity> regalos;
     
     @PodamExclude
     @OneToOne
     private TareaEntity tarea;
 
-    public Long getLatitud() {
+    public String getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(Long latitud) {
+    public void setLatitud(String latitud) {
         this.latitud = latitud;
     }
 
-    public Long getLongitud() {
+    public String getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(Long longitud) {
+    public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
 

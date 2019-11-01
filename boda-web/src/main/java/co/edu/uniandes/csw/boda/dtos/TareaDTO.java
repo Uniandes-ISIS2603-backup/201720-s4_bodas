@@ -22,7 +22,7 @@ public class TareaDTO {
     private boolean aprobada;
     private Date  dia;
     private String nombre;
-    
+    private String image;
     
     /**
      * Constructor por defecto
@@ -43,6 +43,7 @@ public class TareaDTO {
         this.aprobada = tarea.isAprobada();
         this.dia = tarea.getDia();
         this.nombre = tarea.getNombre();
+        this.image = tarea.getImage();
     }
 
     
@@ -76,6 +77,18 @@ public class TareaDTO {
     public void setDia(Date dia) {
         this.dia = dia;
     }
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     
     /**
@@ -89,6 +102,7 @@ public class TareaDTO {
         entity.setAprobada(this.aprobada);
         entity.setNombre(this.nombre);
         entity.setDia(this.dia);
+        entity.setImage(this.image);
         return entity;
     }
     

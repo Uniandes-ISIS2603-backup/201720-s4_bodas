@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.boda.ejb;
-
 import co.edu.uniandes.csw.boda.entities.ParejaEntity;
 import co.edu.uniandes.csw.boda.entities.TarjetaCreditoEntity;
 import co.edu.uniandes.csw.boda.exceptions.BusinessLogicException;
@@ -21,9 +20,9 @@ import javax.inject.Inject;
  */
 @Stateless
 public class TarjetaCreditoLogic {
-    private static final int NUMERO_CARACTERES_TARJETA = 16;
     private static final int NUMERO_CARACTERES_SEGURIDAD_1OPCION = 3;
     private static final int NUMERO_CARACTERES_SEGURIDAD_2OPCION = 4;
+    private static final int NUMERO_CARACTERES_TARJETA = 16;
     private static final Logger LOGGER = Logger.getLogger(TarjetaCreditoLogic.class.getName());
 
     @Inject
@@ -49,13 +48,17 @@ public class TarjetaCreditoLogic {
         if (persistence.findByNumero(entity.getNumero())!= null) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numero \"" + entity.getNumero() + "\"");
         }
-        int ingresoNumeroTarjeta = entity.getNumero().toString().length();
-        if (ingresoNumeroTarjeta != NUMERO_CARACTERES_TARJETA) {
+        int ingresoNumero = String.valueOf(entity.getNumero()).length();
+        if(ingresoNumero != NUMERO_CARACTERES_TARJETA)
+        {
             throw new BusinessLogicException("El numero de la Tarjeta de credito debe tener 16 digitos");
         }
         int ingresoNumeroSeguridad = String.valueOf(entity.getNumDeSeg()).length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
             throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
+        }
+        if (entity.getFechaVen() == null) {
+            throw new BusinessLogicException("Debe ingresar la fecha en la cual vence la Tarjeta de credito");
         }
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de TarjetaCredito");
@@ -75,23 +78,22 @@ public class TarjetaCreditoLogic {
      */
     public TarjetaCreditoEntity updateTarjetaCredito(String parejaId, Long id, TarjetaCreditoEntity entity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar TarjetaCredito con id={0}", id);
+        ParejaEntity pareja = parejaLogic.getPareja(parejaId);
+        entity.setPareja(pareja);
         if (persistence.findByNumDeSeg(entity.getNumDeSeg()) != null && entity.getNumDeSeg() != persistence.find(id).getNumDeSeg()) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numDeSeg \"" + entity.getNumDeSeg() + "\"");
         }
         if (persistence.findByNumero(entity.getNumero()) != null && !(entity.getNumero().equals(persistence.find(id).getNumero()))) {
             throw new BusinessLogicException("Ya existe una TarjetaCredito con el numero \"" + entity.getNumero() + "\"");
         }
-        int ingresoNumeroTarjeta = entity.getNumero().toString().length();
-        if (ingresoNumeroTarjeta != NUMERO_CARACTERES_TARJETA) {
-            throw new BusinessLogicException("El numero de la Tarjeta de credito debe tener 16 digitos");
-        }
         int ingresoNumeroSeguridad = String.valueOf(entity.getNumDeSeg()).length();
         if (ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_1OPCION && ingresoNumeroSeguridad != NUMERO_CARACTERES_SEGURIDAD_2OPCION) {
             throw new BusinessLogicException("El numero de seguridad de la Tarjeta de credito debe tener 3 o 4 digitos");
         }
-        ParejaEntity pareja = parejaLogic.getPareja(parejaId);
-        entity.setPareja(pareja);
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar TarjetaCredito con id={0}", entity.getId());
+        if (entity.getFechaVen() == null) {
+            throw new BusinessLogicException("Debe ingresar la fecha en la cual vence la Tarjeta de credito");
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar TarjetaCredito con id={0}", entity.getNumero());
         return persistence.update(entity);
     }
     

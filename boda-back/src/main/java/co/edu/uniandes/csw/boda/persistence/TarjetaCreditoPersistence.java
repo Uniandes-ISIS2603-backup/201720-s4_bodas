@@ -38,7 +38,7 @@ public class TarjetaCreditoPersistence {
      * @return un TarjetaCredito con los cambios aplicados.
      */
     public TarjetaCreditoEntity update(TarjetaCreditoEntity entity) {
-        LOGGER.log(Level.INFO, "Actualizando TarjetaCredito con id={0}", entity.getId());
+        LOGGER.log(Level.INFO, "Actualizando TarjetaCredito con id={0}", entity.getNumero());
         return em.merge(entity);
     }
 
@@ -77,12 +77,10 @@ public class TarjetaCreditoPersistence {
         TypedQuery<TarjetaCreditoEntity> q = em.createQuery("select u from TarjetaCreditoEntity u where u.numDeSeg = :numDeSeg", TarjetaCreditoEntity.class);
         q = q.setParameter("numDeSeg", numDeSeg);
         List<TarjetaCreditoEntity> results = q.getResultList();
-        TarjetaCreditoEntity tarjeta = null;
-        if (results == null) {
+        TarjetaCreditoEntity tarjeta;
+        if (results.isEmpty()) {
             tarjeta = null;
-        } else if (results.isEmpty()) {
-            tarjeta = null;
-        } else if (!results.isEmpty()) {
+        } else {
             tarjeta = results.get(0);
         }
         return tarjeta;
@@ -100,12 +98,10 @@ public class TarjetaCreditoPersistence {
         TypedQuery<TarjetaCreditoEntity> q = em.createQuery("select u from TarjetaCreditoEntity u where u.numero = :numero", TarjetaCreditoEntity.class);
         q = q.setParameter("numero", numero);
         List<TarjetaCreditoEntity> results = q.getResultList();
-        TarjetaCreditoEntity tarjeta = null;
-        if (results == null) {
+        TarjetaCreditoEntity tarjeta;
+        if (results.isEmpty()) {
             tarjeta = null;
-        } else if (results.isEmpty()) {
-            tarjeta = null;
-        } else if (!results.isEmpty()) {
+        } else {
             tarjeta = results.get(0);
         }
         return tarjeta;

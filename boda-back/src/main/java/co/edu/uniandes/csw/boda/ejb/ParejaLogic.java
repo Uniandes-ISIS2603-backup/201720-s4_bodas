@@ -61,15 +61,21 @@ public class ParejaLogic {
       
      /**
       *Actualiza una pareja con el id Dado y la informacion
-      *@throws si no se encuentra una pareja con el id dado arroja exception
+      *@param id de la pareja a editar
+      *@param entity la pareja a editar 
+      *@throws BusinessLogicException si no se encuentra una pareja con el id dado arroja exception
+      *@return la pareja con los cambios que se realizaron 
       */
       public ParejaEntity updatePareja(String id, ParejaEntity entity)throws BusinessLogicException
       {
           LOGGER.info("Inicia proceso de actualizar pareja");
           
           //Verifica que exista una pareja con el id dado
-          if(persistence.find(id)==null) throw new BusinessLogicException("No existe una pareja con el id dado.");
+          ParejaEntity entityBuscadita =persistence.find(id);
+          if(entityBuscadita==null) throw new BusinessLogicException("No existe una pareja con el id dado.");
           
+          entity.setTarjetasCredito(entityBuscadita.getTarjetasCredito());
+          entity.setBodas(entityBuscadita.getBodas());
           //Actualiza la pareja si existe
           persistence.update(entity);
           return entity;

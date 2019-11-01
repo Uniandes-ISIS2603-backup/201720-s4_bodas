@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.boda.dtos;
-
 import co.edu.uniandes.csw.boda.entities.OpcionServicioEntity;
 
 /**
@@ -25,9 +24,9 @@ public class OpcionServicioDTO  {
   private Long id;
   private String descripcion;
   private Long  costo;
-  private String diasDisponibles;   
-  
-    
+  private String diasDisponibles;  
+  private String image;
+  private String correoPareja;
     
     /**
      * Constructor por defecto
@@ -48,6 +47,7 @@ public class OpcionServicioDTO  {
         this.descripcion = opcionServicio.getDescripcion();
         this.costo = opcionServicio.getCosto(); 
         this.diasDisponibles = opcionServicio.getDiasDisponibles();
+        this.image=opcionServicio.getImage();
     }
     public Long getId() {
         return id;
@@ -78,6 +78,23 @@ public class OpcionServicioDTO  {
     public void setCosto(Long costo) {
         this.costo =costo;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getCorreoPareja() {
+        return correoPareja;
+    }
+
+    public void setCorreoPareja(String correoPareja) {
+        this.correoPareja = correoPareja;
+    }
+
     
     /**
      * Convertir DTO a Entity
@@ -91,9 +108,8 @@ public class OpcionServicioDTO  {
         entity.setDescripcion(this.descripcion);
         entity.setCosto(this.costo);
         entity.setDiasDisponibles(this.diasDisponibles);
+        entity.setImage(this.image);
         
         return entity;
     }
-    
 }
-

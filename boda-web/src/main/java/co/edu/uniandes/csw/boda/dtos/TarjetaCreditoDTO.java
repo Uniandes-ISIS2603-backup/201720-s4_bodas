@@ -16,13 +16,11 @@ import javax.persistence.TemporalType;
  * @author ca.guerrero
  */
 public class TarjetaCreditoDTO {
-    private Long id;
     private Long numero;
     private int numDeSeg;
     @Temporal(TemporalType.DATE)
     private Date fechaVen;
     private String nombreBanco;
-    
      /**
      * Constructor por defecto
      */
@@ -36,25 +34,10 @@ public class TarjetaCreditoDTO {
      * @param tarjeta: Es la entidad que se va a convertir a DTO 
      */
     public TarjetaCreditoDTO(TarjetaCreditoEntity tarjeta) {
-        this.id = tarjeta.getId();
         this.numero = tarjeta.getNumero();
         this.numDeSeg = tarjeta.getNumDeSeg();
         this.fechaVen = tarjeta.getFechaVen();
         this.nombreBanco = tarjeta.getName();
-    }
-
-    /**
-     * @return el id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * @param id el id a cambiar
-     */
-    public void setId(Long id) {
-        this.id = id;
     }
 
     /**
@@ -112,17 +95,17 @@ public class TarjetaCreditoDTO {
     public void setNombreBanco(String nombreBanco) {
         this.nombreBanco = nombreBanco;
     }
+    
      /**
      * Convertir DTO a Entity
      * @return Un Entity con los valores del DTO 
      */
     public TarjetaCreditoEntity toEntity() {
         TarjetaCreditoEntity entity = new TarjetaCreditoEntity();
-        entity.setId(this.id);
         entity.setNumero(this.numero);
         entity.setNumDeSeg(this.numDeSeg);
         entity.setFechaVen(this.fechaVen);
-        entity.setName(this.nombreBanco);      
+        entity.setName(this.nombreBanco);
         return entity;
     }
 }
